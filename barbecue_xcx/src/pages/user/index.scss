@@ -1,0 +1,173 @@
+.container{
+  background-color:#f7f7f7;
+  min-height:100vh;
+  .user-top{
+    height:428rpx;
+    background:url(http://192.168.241.6:2832/user/user_top.jpg) no-repeat top center/100% auto;
+    padding-top:120rpx;
+    padding:150rpx 50rpx 20rpx;
+    .user-info{
+      display: flex;
+      align-items: center;
+      margin-bottom:30rpx;
+      .headimg{
+        width:70rpx;
+        height:70rpx;
+        border-radius:50%;
+        overflow: hidden;
+        margin-right:20rpx;
+      }
+      .name{
+        font-size:27rpx;
+        color:#fff;
+      }
+    }
+    .info{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .item{
+        width:100%;
+        color:#fff;
+        text-align: center;
+        .key{
+          font-size:24rpx;
+        }
+        .val{
+          font-size:30rpx;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+  .order-nav{
+    width: 702rpx;
+    margin:-50rpx auto 10rpx;
+    background-color:#fff;
+    border-radius:15rpx;
+    padding:30rpx 0;
+    position: relative;
+    z-index:1;
+    .my-order{
+      padding:0 40rpx;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom:30rpx;
+      .txt{
+        font-size:30rpx;
+        color:#4c4948;
+      }
+      .all-order{
+        font-size:22rpx;
+        color:#aab2bd;
+        padding-right:30rpx;
+        position: relative;
+        &:after{
+          content:'';
+          position: absolute;
+          top:50%;
+          right:0;
+          width:20rpx;
+          height:20rpx;
+          margin-top:-10rpx;
+          background:url(http://192.168.241.6:2832/user/icon_arrow.png) no-repeat top center/100% auto;
+        }
+      }
+    }
+    .nav{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .item{
+        width:100%;
+        image{
+          width:50rpx;
+          height:50rpx;
+          display: block;
+          margin:0 auto 10rpx;
+        }
+        .txt{
+          font-size:20rpx;
+          text-align: center;
+          color:#656d78;
+        }
+      }
+    }
+  }
+
+  .nav-list{
+    width: 702rpx;
+    margin:0 auto 10rpx;
+    background-color:#fff;
+    border-radius:15rpx;
+    padding:0 20rpx;
+    .icon-address:before{
+      background:url(http://192.168.241.6:2832/user/icon_address.png) no-repeat top center/100% auto;
+    }
+    .icon-setting:before{
+      background:url(http://192.168.241.6:2832/user/icon_setting.png) no-repeat top center/100% auto;
+    }
+    .icon-contact:before{
+      background:url(http://192.168.241.6:2832/user/icon_contact.png) no-repeat top center/100% auto;
+    }
+    .icon-feedback:before{
+      background:url(http://192.168.241.6:2832/user/icon_feedback.png) no-repeat top center/100% auto;
+    }
+    .icon-about:before{
+      background:url(http://192.168.241.6:2832/user/icon_about.png) no-repeat top center/100% auto;
+    }
+    .item{
+      display: block;
+      border-bottom:1px solid #efefee;
+      font-size:26rpx;
+      color:#656d78;
+      line-height:80rpx;
+      position: relative;
+      padding-left:60rpx;
+      &:last-child{
+        border-bottom:0;
+      }
+      &:after{
+        content:'';
+        position: absolute;
+        top:50%;
+        right:0;
+        width:20rpx;
+        height:20rpx;
+        margin-top:-10rpx;
+        background:url(http://192.168.241.6:2832/user/icon_arrow.png) no-repeat top center/100% auto;
+      }
+      &:before{
+        content:'';
+        position: absolute;
+        top:50%;
+        left:0;
+        width:50rpx;
+        height:50rpx;
+        margin-top:-25rpx;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

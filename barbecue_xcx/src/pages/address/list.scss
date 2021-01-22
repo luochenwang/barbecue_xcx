@@ -1,0 +1,122 @@
+
+.container{
+    min-height:100vh;
+    background-color:#f8f8f8;
+    padding-top:33rpx;
+}
+.none-box {
+    padding-top:30vh;
+}
+
+.none-box .noneText {
+    font-size: 26rpx;
+    color: #999999;
+    line-height: 42rpx;
+    text-align: center;
+    padding-bottom: 44rpx;
+}
+
+.none-box .createBtn {
+    width: 227rpx;
+    height: 66rpx;
+    font-size: 32rpx;
+    color: #ec8f26;
+    line-height: 66rpx;
+    text-align: center;
+    margin: auto;
+    background-color:#ffffff;
+    border-radius:66rpx;
+    border:1px solid #ec8f26;
+}
+
+.address-box {
+    width: 690rpx;
+    background-color: #ffffff;
+    margin: 0 auto;
+    height:calc(100vh - 106rpx);
+    padding:0 20rpx;
+}
+
+.address-box .address-list {
+    height:100%;
+    overflow: auto;
+}
+
+.address-box .address-list .list-box {
+    width: 100%;
+    padding: 45rpx 20rpx 48rpx 12rpx;
+    border-bottom: #ededed 1px solid;
+}
+
+.list-box .list-top {
+    display: flex;
+    align-items: center;
+    margin-bottom: 22rpx;
+    position: relative;
+}
+
+.list-box .list-name {
+    font-size: 27rpx;
+    color: #222222;
+}
+
+.list-box .list-mob {
+    font-size: 25rpx;
+    color: #222222;
+    margin-left: 25rpx;
+}
+
+.list-box .list-address {
+    font-size: 25rpx;
+    color: #666666;
+}
+
+.list-box .list-type {
+    width: 84rpx;
+    height: 40rpx;
+    font-size: 23rpx;
+    color: #666666;
+    line-height: 40rpx;
+    text-align: center;
+    background-color: rgb(249, 221, 189);
+    border-radius: 20rpx;
+    margin-right: 12rpx;
+    position: absolute;
+    top: 0rpx;
+    right: 84rpx;
+}
+
+.list-box .list-defBtn {
+    width: 84rpx;
+    height: 40rpx;
+    font-size: 23rpx;
+    color: #666666;
+    line-height: 40rpx;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20rpx;
+    border: rgb(231, 231, 231) 1px dashed;
+    position: absolute;
+    top: 0rpx;
+    right: 0rpx;
+}
+.list-box .list-defBtn.active{
+    background: #ec8f26;
+    border:0;
+    color: #ffffff;
+}
+
+.addBtn {
+    width: 645rpx;
+    height: 81rpx;
+    font-size: 31rpx;
+    color: #ffffff;
+    line-height: 81rpx;
+    text-align: center;
+    background-color: #ec8f26;
+    border-radius: 40rpx;
+    position: fixed;
+    bottom: 40rpx;
+    left:50%;
+    margin-left:-323rpx;
+}

@@ -1,0 +1,52 @@
+.container{
+    padding-top:20vh;
+}
+.login-form{
+    width:520rpx;
+    margin:0 auto 140rpx;
+    .form-group{
+        margin-bottom:20rpx;
+        position: relative;
+        border-bottom:1px solid #e8e8e8;
+        input{
+            width:100%;
+            height:80rpx;
+            padding-left:50rpx;
+            font-size:28rpx;
+        }
+        .get-code{
+            position: absolute;
+            right:0;
+            top:0;
+            line-height:80rpx;
+            font-size:28rpx;
+            color:#fe6e1f;
+        }
+        &:after{
+            content:'';
+            position: absolute;
+            top:50%;
+            left:0;
+            width:50rpx;
+            height:50rpx;
+            margin-top:-25rpx;
+        }
+        &.icon-phone:after{
+            background:url(http://192.168.241.6:2832/user/icon_phone.png) no-repeat top center/100% auto;
+        }
+        &.icon-lock:after{
+            background:url(http://192.168.241.6:2832/user/icon_lock.png) no-repeat top center/100% auto;
+        }
+    }
+}
+.submit{
+    width:595rpx;
+    line-height:90rpx;
+    text-align: center;
+    font-size:32rpx;
+    border-radius:90rpx;
+    background-color:#ec8f26;
+    color:#fff;
+    margin:0 auto;
+    box-shadow:0 10rpx 10rpx #f1d7c8;
+}

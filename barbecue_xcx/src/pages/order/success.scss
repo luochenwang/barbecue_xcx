@@ -1,0 +1,42 @@
+.container{
+    background-color:#f4f5f9;
+    min-height: 100vh;
+    padding-top: 20rpx;
+}
+.finish-box {
+    height: 656rpx;
+    background: #fff;
+}
+
+.finish-box .finishText {
+    width: 616rpx;
+    font-size: 26rpx;
+    color: #666666;
+    line-height: 42rpx;
+    text-align: center;
+    padding-top: 118rpx;
+    padding-bottom: 113rpx;
+    margin:0 auto;
+}
+
+.finish-box .finishCode {
+    text-align: center;
+    color:#ec8f26;
+    font-size:32rpx;
+    margin-bottom:10rpx;
+}
+
+.finish-box .codeNum {
+    width: 507rpx;
+    height: 75rpx;
+    font-size: 46rpx;
+    color: #ec8f26;
+    line-height: 58.27rpx;
+    letter-spacing: 4.6rpx;
+    text-align: center;
+    margin: 15rpx auto;
+    padding-top: 10rpx;
+    overflow: hidden;
+    background-color:#f2ebe6;
+    border-radius:75rpx;
+}

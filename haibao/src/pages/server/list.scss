@@ -1,0 +1,45 @@
+.container{
+    padding:20rpx 0;
+}
+.list{
+    padding:0 24rpx;
+    .item{
+        padding:10rpx;
+        display: flex;
+        align-items: center;
+        background:#eaeaea;
+        border-radius:10rpx;
+        margin-bottom:20rpx;
+        position: relative;
+        &:after{
+            content:'';
+            position: absolute;
+            top:50%;
+            right:20rpx;
+            width:29rpx;
+            height:29rpx;
+            margin-top:-14.5rpx;
+            background:url(https://campaign5.method-ad.cn/hypertherm/img/course/icon_to2.png) no-repeat 0 0/100% auto;
+        }
+        .item-l{
+            width:280rpx;
+            height:170rpx;
+            image{
+                width:100%;
+                height:100%;
+            }
+        }
+        .item-r{
+            width:300rpx;
+            padding-left:70rpx;
+            .name{
+                font-size:27rpx;
+                color:#696969;
+                font-weight: bold;
+            }
+            .name-cn{
+
+            }
+        }
+    }   
+}

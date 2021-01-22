@@ -1,0 +1,151 @@
+.container{
+    background-color:#f4f5f9;
+    min-height:100vh;
+    .main{
+        width:680rpx;
+        margin:0 auto;
+        background-color:#fff;
+        padding-top:20rpx;
+        padding-bottom:80rpx;
+        .tt{
+            text-align:center;
+            font-size:36.5rpx;
+            color:#3e3a39;
+            background:url(http://192.168.241.6:2832/order/tt_bg.png) no-repeat center center/591rpx auto;
+        }
+        .select-device{
+            width:620rpx;
+            margin:0 auto 50rpx;
+            background-color:#fef1e0;
+            border:1px solid #e6d4bb;
+            padding:15rpx;
+            .no-data{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                padding:60rpx 0;
+                image{
+                    width:176rpx;
+                    height:143rpx;
+                    margin-bottom:20rpx;
+                }
+                .txt{
+                    font-size:27rpx;
+                    color:#999999;
+                }
+            }
+            .list{
+                .item{
+                    padding:25rpx 110rpx 25rpx 45rpx;
+                    border-bottom:1px solid #aaaaaa;
+                    position: relative;
+                    &.active:after{
+                        background:url(http://192.168.241.6:2832/order/icon_select2.png) no-repeat top center/100% auto;
+                    }
+                    &:last-child{
+                        border-bottom:0;
+                    }
+                    &:after{
+                        content:'';
+                        position: absolute;
+                        top:34rpx;
+                        left:5rpx;
+                        width:30rpx;
+                        height:30rpx;
+                        background:url(http://192.168.241.6:2832/order/icon_select1.png) no-repeat top center/100% auto;
+                    }
+                    .name{
+                        display: flex;
+                        align-items: center;
+                        font-size:32rpx;
+                        color:#3f3822;
+                        .num{
+                            font-size:22rpx;
+                        }
+                    }
+                    .txt{
+                        font-size:22rpx;
+                        color:#3f3822;
+                    }
+                    .navigation{
+                        position: absolute;
+                        top:50rpx;
+                        right:10rpx;
+                        font-size:20rpx;
+                        color:#3f3822;
+                        padding-left:30rpx;
+                        &:after{
+                            content:'';
+                            position: absolute;
+                            top:50%;
+                            left:0;
+                            width:26rpx;
+                            height:26rpx;
+                            margin-top:-13rpx;
+                            background:url(http://192.168.241.6:2832/order/icon_daohang.png) no-repeat top center/100% auto;
+                        }
+                    }
+                }
+            }
+        }
+        .select-num{
+            margin-bottom:50rpx;
+            .tt{
+                margin-bottom:30rpx;
+            }
+            .list{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                .item{
+                    width:60rpx;
+                    line-height:70rpx;
+                    text-align: center;
+                    border:1px solid #666666;
+                    margin:0 25rpx;
+                    font-size:50rpx;
+                    &.active{
+                        color:#fff;
+                        border:1px solid #ec8f27;
+                        background-color:#ec8f27;
+                    }
+                }
+            }
+        }
+        .select-flavor{
+            margin-bottom:50rpx;
+            .tt{
+                margin-bottom:30rpx;
+            }
+            .list{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                .item{
+                    width:110rpx;
+                    line-height:50rpx;
+                    text-align: center;
+                    border:1px solid #666666;
+                    margin:0 25rpx;
+                    font-size:35rpx;
+                    &.active{
+                        color:#fff;
+                        border:1px solid #ec8f27;
+                        background-color:#ec8f27;
+                    }
+                }
+            }
+        }
+        .submit{
+            width:475rpx;
+            line-height: 80rpx;
+            text-align: center;
+            border-radius:80rpx;
+            font-size:30rpx;
+            color:#fff;
+            background-color:#ec8f26;
+            margin:0 auto;
+        }
+    }
+}

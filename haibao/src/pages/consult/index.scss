@@ -1,0 +1,120 @@
+.main{
+    height:100vh;
+    background:#ededed;
+    padding-top:30rpx;
+    padding-bottom:120rpx;
+    scroll-view{
+        padding:0 24rpx 40rpx;
+    }
+    .time{
+        margin-bottom:30rpx;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text{
+            background:#cccccc;
+            padding:0 20rpx;
+            font-size:20rpx;
+            line-height:30rpx;
+        }
+    }
+    .chat{
+        margin-bottom:30rpx;
+        display: flex;
+        &.active{
+            flex-direction: row-reverse;
+            .headimg{
+                margin-right:0;
+                margin-left:20rpx;
+            }
+            .info{
+                background:#77777a;
+                color:#fff;
+                border-top-left-radius:20rpx;
+                border-bottom-right-radius:0;
+            }
+        }
+        .headimg{
+            width:70rpx;
+            height:70rpx;
+            overflow: hidden;
+            border-radius:20rpx;
+            margin-right:20rpx;
+            image{
+                width:100%;
+                height:100%;
+            }
+        }
+        .info{
+            border-radius:20rpx;
+            padding:20rpx;
+            background:#fff;
+            font-size:24rpx;
+            max-width:510rpx;
+            border-top-left-radius:0;
+            line-height:1.5;
+        }
+    }
+    .review{
+        text-align: center;
+        margin-top:80rpx;
+        .tt{
+            font-size:24rpx;
+            margin-bottom:20rpx;
+        }
+        .star{
+            margin-bottom:30rpx;
+            image{
+                width:45rpx;
+                height:43rpx;
+                margin:0 5rpx;
+            }
+        }
+        .btn-box{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .btn{
+                width:145rpx;
+                line-height:40rpx;
+                margin:0 20rpx;
+                font-size:20rpx;
+                color:#fff;
+                background:#959595;
+                border-radius:40rpx;
+                &.active{
+                    background: #ed1b2e;
+                }
+            }
+        }
+    }
+}
+
+.footer-box{
+    position: fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:120rpx;
+    padding:0 24rpx;
+    background:#fff;
+    input{
+        font-size:24rpx;
+        width:100%;
+        height:100%;
+        padding-right:110rpx;
+    }
+    .send-btn{
+        position: absolute;
+        top:50%;
+        right:24rpx;
+        width:100rpx;
+        line-height:55rpx;
+        color:#fff;
+        font-size:20rpx;
+        background:#ed1b2e;
+        text-align: center;
+        margin-top:-27.5rpx;
+        border-radius:20rpx;
+    }
+}

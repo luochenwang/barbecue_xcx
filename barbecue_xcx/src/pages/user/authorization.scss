@@ -1,0 +1,29 @@
+.container{
+    padding-top:15vh;
+    .logo{
+        width:401rpx;
+        margin:0 auto 110rpx;
+        image{
+            width:100%;
+        }
+    }
+    .btn{
+        width:590rpx;
+        line-height:90rpx;
+        text-align: center;
+        border-radius:90rpx;
+        text-align: center;
+        color:#fff;
+        font-size:32rpx;
+        margin:0 auto 50rpx;
+        display: block;
+    }
+    .wechat-login{
+        background-color:#35b43f;
+        box-shadow:0 0 10rpx #cde2cf;
+    }
+    .phone-login{
+        background-color:#ec8f26;
+        box-shadow:0 0 10rpx #f1d7c8;
+    }
+}

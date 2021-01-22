@@ -1,0 +1,162 @@
+.category-nav{
+    margin:30rpx 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding:0 25rpx;
+    position: relative;
+    .item{
+        width:100%;
+        line-height:50rpx;
+        height:50rpx;
+        margin-right:30rpx;
+        padding-left:17rpx;
+        padding-right:45rpx;
+        position: relative;
+        background:#77777a;
+        border-radius:10rpx;
+        color:#fff;
+        font-size:23rpx;
+        &:last-child{
+            margin-right:0;
+        }
+        &:after{
+            content:'';
+            position: absolute;
+            top:50%;
+            right:10rpx;
+            width: 0;
+            height: 0;
+            margin-top:-10px;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-top: 20px solid #fff;
+        }
+    }
+}
+.banner{
+    margin-bottom:20rpx;
+    image{
+        width:100%;
+    }
+}
+.nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom:20rpx;
+    .item{
+        width:100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        position: relative;
+        &:last-child:after{
+            content:none;
+        }
+        &:after{
+            content:'';
+            width:1px;
+            height:60%;
+            position: absolute;
+            right:0;
+            bottom:0;
+            background-color:#c0c0c0;
+        }
+        image{
+            width:80rpx;
+            height:80rpx;
+        }
+        text{
+            font-size:24rpx;
+            color:#ed1b2e;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height:29rpx;
+            &:after{
+                content:'';
+                width:29rpx;
+                height:29rpx;
+                display: block;
+                background:url(https://campaign5.method-ad.cn/hypertherm/img/course/icon_to.png) no-repeat 0 0/100% auto;
+                margin-left:10rpx;
+            }
+        }
+    }
+}
+.list-content{
+    padding:0 25rpx;
+    .tt{
+        padding-left:20rpx;
+        position: relative;
+        font-size: 28rpx;
+        font-weight: bold;
+        &:after{
+            content:'';
+            position: absolute;
+            top:0;
+            left:0;
+            width:5px;
+            height:100%;
+            background-color:#ed1b2e;
+        }
+    }
+    .list{
+        padding-left:20rpx;
+        .item{
+            padding:35rpx 0;
+            display: flex;
+            align-items: center;
+            border-bottom:1px solid #dddddd;
+            .item-l{
+                width:200rpx;
+                margin-right:15rpx;
+                image{
+                    width:100%;
+                    height:125rpx;
+                }
+            }
+            .item-r{
+                width:450rpx;
+                .name{
+                    font-size:24rpx;
+                    color:#919191;
+                    height: 80rpx;
+                }
+                .btn-box{
+                    display: flex;
+                    align-items: center;
+                    .btn{
+                        padding:0 20rpx;
+                        line-height:40rpx;
+                        text-align: center;
+                        font-size:24rpx;
+                        color:#fff;
+                        background:#77777a;
+                        border-radius:40rpx;
+                        color:#fff;
+                        margin-right:15rpx;
+                        &.active{
+                            background:#ed1b2e;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+.select-box{
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    opacity:0;
+    z-index:1;
+}
