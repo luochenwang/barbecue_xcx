@@ -14,5 +14,11 @@ export default {
     navigationBarBackgroundColor: '#000',
     navigationBarTitleText: 'WeChat',
     navigationBarTextStyle: 'white'
+  },
+  "plugins": {
+      "ykfchat": {
+        "version": "2.0.16",
+        "provider": "wx1fdc8c9f3a3a05e4"
+      }
   }
 }

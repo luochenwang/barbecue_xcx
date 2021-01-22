@@ -18,7 +18,18 @@
 //
 //
 /* harmony default export */ __webpack_exports__["a"] = ({
-  name: 'sidebar'
+  name: 'sidebar',
+  data: function data() {
+    return {};
+  },
+  onLoad: function onLoad(option) {},
+  methods: {
+    service: function service() {
+      wx.navigateTo({
+        url: 'plugin://ykfchat/chat-page?wechatapp_id=218941&channel_id=25183&scene=p86772ux3apl'
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -92,7 +103,9 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("view", { staticClass: "sidebar" }, [
-    _c("view", { staticClass: "item icon-consult" }, [_vm._v("在线咨询")]),
+    _c("view", { staticClass: "item icon-consult", on: { tap: _vm.service } }, [
+      _vm._v("在线咨询")
+    ]),
     _vm._v(" "),
     _c("view", { staticClass: "item icon-back" }, [_vm._v("返回上级")])
   ])

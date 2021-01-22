@@ -1,14 +1,29 @@
 <!--页面底部-->
 <template>
     <view class="sidebar">
-        <view class="item icon-consult">在线咨询</view>
+        <view class="item icon-consult" @tap="service">在线咨询</view>
         <view class="item icon-back">返回上级</view>
     </view>
 </template>
 
 <script>
   export default {
-        name: 'sidebar'
+    name: 'sidebar',
+    data() {
+        return {
+
+        }
+      },
+    onLoad(option) {
+
+    },
+    methods: {
+      service(){
+          wx.navigateTo({
+            url: 'plugin://ykfchat/chat-page?wechatapp_id=218941&channel_id=25183&scene=p86772ux3apl',
+         });
+      }
+    }
   }
 </script>
 
