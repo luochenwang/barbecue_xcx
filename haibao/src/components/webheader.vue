@@ -1,6 +1,6 @@
 <template>
   <view class="header">
-    <img src="./img/">
+    <!-- <img src="./img/"> -->
   </view>
 </template>
 
