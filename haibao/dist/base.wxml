@@ -1,0 +1,1414 @@
+<wxs module="xs" src="./utils.wxs" />
+<template name="taro_tmpl">
+  <block wx:for="{{root.cn}}" wx:key="id">
+    <template is="tmpl_0_container" data="{{i: item}}" />
+  </block>
+</template>
+
+<template name="tmpl_0_view">
+  <view hover-class="{{i.hoverClass===undefined?'none':i.hoverClass}}" hover-stop-propagation="{{i.hoverStopPropagation===undefined?false:i.hoverStopPropagation}}" hover-start-time="{{i.hoverStartTime===undefined?50:i.hoverStartTime}}" hover-stay-time="{{i.hoverStayTime===undefined?400:i.hoverStayTime}}" animation="{{i.animation}}" bindanimationstart="eh" bindanimationiteration="eh" bindanimationend="eh" bindtransitionend="eh" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_1_container" data="{{i: item}}" />
+    </block>
+  </view>
+</template>
+
+<template name="tmpl_0_text">
+  <text selectable="{{i.selectable===undefined?false:i.selectable}}" space="{{i.space}}" decode="{{i.decode===undefined?false:i.decode}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_1_container" data="{{i: item}}" />
+    </block>
+  </text>
+</template>
+
+<template name="tmpl_0_button">
+  <button size="{{i.size===undefined?'default':i.size}}" type="{{i.type}}" plain="{{i.plain===undefined?false:i.plain}}" disabled="{{i.disabled}}" loading="{{i.loading===undefined?false:i.loading}}" form-type="{{i.formType}}" open-type="{{i.openType}}" hover-class="{{i.hoverClass===undefined?'button-hover':i.hoverClass}}" hover-stop-propagation="{{i.hoverStopPropagation===undefined?false:i.hoverStopPropagation}}" hover-start-time="{{i.hoverStartTime===undefined?20:i.hoverStartTime}}" hover-stay-time="{{i.hoverStayTime===undefined?70:i.hoverStayTime}}" lang="{{i.lang===undefined?en:i.lang}}" session-from="{{i.sessionFrom}}" send-message-title="{{i.sendMessageTitle}}" send-message-path="{{i.sendMessagePath}}" send-message-img="{{i.sendMessageImg}}" app-parameter="{{i.appParameter}}" show-message-card="{{i.showMessageCard===undefined?false:i.showMessageCard}}" bindgetuserinfo="eh" bindgetauthorize="eh" bindcontact="eh" bindgetphonenumber="eh" binderror="eh" bindopensetting="eh" bindlaunchapp="eh" scope="{{i.scope}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_1_container" data="{{i: item}}" />
+    </block>
+  </button>
+</template>
+
+<template name="tmpl_0_input">
+  <template is="{{xs.c(i, 'tmpl_0_')}}" data="{{i: i}}" />
+</template>
+
+<template name="tmpl_0_input_focus">
+  <input value="{{i.value}}" type="{{i.type===undefined?'':i.type}}" password="{{i.password===undefined?false:i.password}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'input-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" focus="{{i.focus===undefined?false:i.focus}}" confirm-type="{{i.confirmType===undefined?'done':i.confirmType}}" confirm-hold="{{i.confirmHold===undefined?false:i.confirmHold}}" cursor="{{i.cursor===undefined?i.value.length:i.cursor}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindinput="eh" bindfocus="eh" bindblur="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_0_input_blur">
+  <input value="{{i.value}}" type="{{i.type===undefined?'':i.type}}" password="{{i.password===undefined?false:i.password}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'input-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" confirm-type="{{i.confirmType===undefined?'done':i.confirmType}}" confirm-hold="{{i.confirmHold===undefined?false:i.confirmHold}}" cursor="{{i.cursor===undefined?i.value.length:i.cursor}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindinput="eh" bindfocus="eh" bindblur="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_0_picker">
+  <picker mode="{{i.mode===undefined?'selector':i.mode}}" disabled="{{i.disabled}}" bindcancel="eh" range="{{i.range}}" range-key="{{i.rangeKey}}" value="{{i.value}}" bindchange="eh" bindcolumnchange="eh" start="{{i.start}}" end="{{i.end}}" fields="{{i.fields===undefined?'day':i.fields}}" custom-item="{{i.customItem}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_1_container" data="{{i: item}}" />
+    </block>
+  </picker>
+</template>
+
+<template name="tmpl_0_scroll-view">
+  <scroll-view scroll-x="{{i.scrollX===undefined?false:i.scrollX}}" scroll-y="{{i.scrollY===undefined?false:i.scrollY}}" upper-threshold="{{i.upperThreshold===undefined?50:i.upperThreshold}}" lower-threshold="{{i.lowerThreshold===undefined?50:i.lowerThreshold}}" scroll-top="{{i.scrollTop}}" scroll-left="{{i.scrollLeft}}" scroll-into-view="{{i.scrollIntoView}}" scroll-with-animation="{{i.scrollWithAnimation===undefined?false:i.scrollWithAnimation}}" enable-back-to-top="{{i.enableBackToTop===undefined?false:i.enableBackToTop}}" enable-flex="{{i.enableFlex===undefined?false:i.enableFlex}}" scroll-anchoring="{{i.scrollAnchoring===undefined?false:i.scrollAnchoring}}" refresher-enabled="{{i.refresherEnabled===undefined?false:i.refresherEnabled}}" refresher-threshold="{{i.refresherThreshold===undefined?45:i.refresherThreshold}}" refresher-default-style="{{i.refresherDefaultStyle===undefined?'black':i.refresherDefaultStyle}}" refresher-background="{{i.refresherBackground===undefined?'#FFF':i.refresherBackground}}" refresher-triggered="{{i.refresherTriggered===undefined?false:i.refresherTriggered}}" bindrefresherpulling="eh" bindrefresherrefresh="eh" bindrefresherrestore="eh" bindrefresherabort="eh" bindscrolltoupper="eh" bindscrolltolower="eh" bindscroll="eh" animation="{{i.animation}}" bindtransitionend="eh" bindanimationstart="eh" bindanimationiteration="eh" bindanimationend="eh" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_1_container" data="{{i: item}}" />
+    </block>
+  </scroll-view>
+</template>
+
+<template name="tmpl_0_navigator">
+  <navigator target="{{i.target===undefined?'self':i.target}}" url="{{i.url}}" open-type="{{i.openType===undefined?'navigate':i.openType}}" delta="{{i.delta===undefined?1:i.delta}}" app-id="{{i.appId}}" path="{{i.path}}" extra-data="{{i.extraData}}" version="{{i.version===undefined?'version':i.version}}" hover-class="{{i.hoverClass===undefined?'navigator-hover':i.hoverClass}}" hover-stop-propagation="{{i.hoverStopPropagation===undefined?false:i.hoverStopPropagation}}" hover-start-time="{{i.hoverStartTime===undefined?50:i.hoverStartTime}}" hover-stay-time="{{i.hoverStayTime===undefined?600:i.hoverStayTime}}" bindsuccess="eh" bindfail="eh" bindcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_1_container" data="{{i: item}}" />
+    </block>
+  </navigator>
+</template>
+
+<template name="tmpl_0_image">
+  <image src="{{i.src}}" mode="{{i.mode===undefined?'scaleToFill':i.mode}}" webp="{{i.webp===undefined?false:i.webp}}" lazy-load="{{i.lazyLoad===undefined?false:i.lazyLoad}}" show-menu-by-longpress="{{i.showMenuByLongpress===undefined?false:i.showMenuByLongpress}}" binderror="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_1_container" data="{{i: item}}" />
+    </block>
+  </image>
+</template>
+
+<template name="tmpl_0_video">
+  <video src="{{i.src}}" duration="{{i.duration}}" controls="{{i.controls===undefined?true:i.controls}}" danmu-list="{{i.danmuList}}" danmu-btn="{{i.danmuBtn}}" enable-danmu="{{i.enableDanmu}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" loop="{{i.loop===undefined?false:i.loop}}" muted="{{i.muted===undefined?false:i.muted}}" initial-time="{{i.initialTime===undefined?0:i.initialTime}}" page-gesture="{{i.pageGesture===undefined?false:i.pageGesture}}" direction="{{i.direction}}" show-progress="{{i.showProgress===undefined?true:i.showProgress}}" show-fullscreen-btn="{{i.showFullscreenBtn===undefined?true:i.showFullscreenBtn}}" show-play-btn="{{i.showPlayBtn===undefined?true:i.showPlayBtn}}" show-center-play-btn="{{i.showCenterPlayBtn===undefined?true:i.showCenterPlayBtn}}" enable-progress-gesture="{{i.enableProgressGesture===undefined?true:i.enableProgressGesture}}" object-fit="{{i.objectFit===undefined?'contain':i.objectFit}}" poster="{{i.poster}}" show-mute-btn="{{i.showMuteBtn===undefined?false:i.showMuteBtn}}" title="{{i.title}}" play-btn-position="{{i.playBtnPosition===undefined?'bottom':i.playBtnPosition}}" enable-play-gesture="{{i.enablePlayGesture===undefined?false:i.enablePlayGesture}}" auto-pause-if-navigate="{{i.autoPauseIfNavigate===undefined?true:i.autoPauseIfNavigate}}" auto-pause-if-open-native="{{i.autoPauseIfOpenNative===undefined?true:i.autoPauseIfOpenNative}}" vslide-gesture="{{i.vslideGesture===undefined?false:i.vslideGesture}}" vslide-gesture-in-fullscreen="{{i.vslideGestureInFullscreen===undefined?true:i.vslideGestureInFullscreen}}" ad-unit-id="{{i.adUnitId}}" poster-for-crawler="{{i.posterForCrawler}}" show-casting-button="{{i.showCastingButton===undefined?false:i.showCastingButton}}" picture-in-picture-mode="{{i.pictureInPictureMode===undefined?[]:i.pictureInPictureMode}}" enable-auto-rotation="{{i.enableAutoRotation===undefined?false:i.enableAutoRotation}}" show-screen-lock-button="{{i.showScreenLockButton===undefined?false:i.showScreenLockButton}}" bindplay="eh" bindpause="eh" bindended="eh" bindtimeupdate="eh" bindfullscreenchange="eh" bindwaiting="eh" binderror="eh" bindprogress="eh" bindloadedmetadata="eh" bindcontrolstoggle="eh" bindenterpictureinpicture="eh" bindleavepictureinpicture="eh" bindseekcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></video>
+</template>
+
+<template name="tmpl_0_web-view">
+  <web-view src="{{i.src}}" bindmessage="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_1_container" data="{{i: item}}" />
+    </block>
+  </web-view>
+</template>
+
+<template name="tmpl_0_#text" data="{{i: i}}">
+  <block>{{i.v}}</block>
+</template>
+
+<template name="tmpl_0_container" data="{{i: i}}">
+  <template is="{{'tmpl_0_' + i.nn}}" data="{{i: i}}" />
+</template>
+
+<template name="tmpl_1_view">
+  <view hover-class="{{i.hoverClass===undefined?'none':i.hoverClass}}" hover-stop-propagation="{{i.hoverStopPropagation===undefined?false:i.hoverStopPropagation}}" hover-start-time="{{i.hoverStartTime===undefined?50:i.hoverStartTime}}" hover-stay-time="{{i.hoverStayTime===undefined?400:i.hoverStayTime}}" animation="{{i.animation}}" bindanimationstart="eh" bindanimationiteration="eh" bindanimationend="eh" bindtransitionend="eh" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_2_container" data="{{i: item}}" />
+    </block>
+  </view>
+</template>
+
+<template name="tmpl_1_text">
+  <text selectable="{{i.selectable===undefined?false:i.selectable}}" space="{{i.space}}" decode="{{i.decode===undefined?false:i.decode}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_2_container" data="{{i: item}}" />
+    </block>
+  </text>
+</template>
+
+<template name="tmpl_1_button">
+  <button size="{{i.size===undefined?'default':i.size}}" type="{{i.type}}" plain="{{i.plain===undefined?false:i.plain}}" disabled="{{i.disabled}}" loading="{{i.loading===undefined?false:i.loading}}" form-type="{{i.formType}}" open-type="{{i.openType}}" hover-class="{{i.hoverClass===undefined?'button-hover':i.hoverClass}}" hover-stop-propagation="{{i.hoverStopPropagation===undefined?false:i.hoverStopPropagation}}" hover-start-time="{{i.hoverStartTime===undefined?20:i.hoverStartTime}}" hover-stay-time="{{i.hoverStayTime===undefined?70:i.hoverStayTime}}" lang="{{i.lang===undefined?en:i.lang}}" session-from="{{i.sessionFrom}}" send-message-title="{{i.sendMessageTitle}}" send-message-path="{{i.sendMessagePath}}" send-message-img="{{i.sendMessageImg}}" app-parameter="{{i.appParameter}}" show-message-card="{{i.showMessageCard===undefined?false:i.showMessageCard}}" bindgetuserinfo="eh" bindgetauthorize="eh" bindcontact="eh" bindgetphonenumber="eh" binderror="eh" bindopensetting="eh" bindlaunchapp="eh" scope="{{i.scope}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_2_container" data="{{i: item}}" />
+    </block>
+  </button>
+</template>
+
+<template name="tmpl_1_input">
+  <template is="{{xs.c(i, 'tmpl_1_')}}" data="{{i: i}}" />
+</template>
+
+<template name="tmpl_1_input_focus">
+  <input value="{{i.value}}" type="{{i.type===undefined?'':i.type}}" password="{{i.password===undefined?false:i.password}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'input-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" focus="{{i.focus===undefined?false:i.focus}}" confirm-type="{{i.confirmType===undefined?'done':i.confirmType}}" confirm-hold="{{i.confirmHold===undefined?false:i.confirmHold}}" cursor="{{i.cursor===undefined?i.value.length:i.cursor}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindinput="eh" bindfocus="eh" bindblur="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_1_input_blur">
+  <input value="{{i.value}}" type="{{i.type===undefined?'':i.type}}" password="{{i.password===undefined?false:i.password}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'input-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" confirm-type="{{i.confirmType===undefined?'done':i.confirmType}}" confirm-hold="{{i.confirmHold===undefined?false:i.confirmHold}}" cursor="{{i.cursor===undefined?i.value.length:i.cursor}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindinput="eh" bindfocus="eh" bindblur="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_1_picker">
+  <picker mode="{{i.mode===undefined?'selector':i.mode}}" disabled="{{i.disabled}}" bindcancel="eh" range="{{i.range}}" range-key="{{i.rangeKey}}" value="{{i.value}}" bindchange="eh" bindcolumnchange="eh" start="{{i.start}}" end="{{i.end}}" fields="{{i.fields===undefined?'day':i.fields}}" custom-item="{{i.customItem}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_2_container" data="{{i: item}}" />
+    </block>
+  </picker>
+</template>
+
+<template name="tmpl_1_scroll-view">
+  <scroll-view scroll-x="{{i.scrollX===undefined?false:i.scrollX}}" scroll-y="{{i.scrollY===undefined?false:i.scrollY}}" upper-threshold="{{i.upperThreshold===undefined?50:i.upperThreshold}}" lower-threshold="{{i.lowerThreshold===undefined?50:i.lowerThreshold}}" scroll-top="{{i.scrollTop}}" scroll-left="{{i.scrollLeft}}" scroll-into-view="{{i.scrollIntoView}}" scroll-with-animation="{{i.scrollWithAnimation===undefined?false:i.scrollWithAnimation}}" enable-back-to-top="{{i.enableBackToTop===undefined?false:i.enableBackToTop}}" enable-flex="{{i.enableFlex===undefined?false:i.enableFlex}}" scroll-anchoring="{{i.scrollAnchoring===undefined?false:i.scrollAnchoring}}" refresher-enabled="{{i.refresherEnabled===undefined?false:i.refresherEnabled}}" refresher-threshold="{{i.refresherThreshold===undefined?45:i.refresherThreshold}}" refresher-default-style="{{i.refresherDefaultStyle===undefined?'black':i.refresherDefaultStyle}}" refresher-background="{{i.refresherBackground===undefined?'#FFF':i.refresherBackground}}" refresher-triggered="{{i.refresherTriggered===undefined?false:i.refresherTriggered}}" bindrefresherpulling="eh" bindrefresherrefresh="eh" bindrefresherrestore="eh" bindrefresherabort="eh" bindscrolltoupper="eh" bindscrolltolower="eh" bindscroll="eh" animation="{{i.animation}}" bindtransitionend="eh" bindanimationstart="eh" bindanimationiteration="eh" bindanimationend="eh" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_2_container" data="{{i: item}}" />
+    </block>
+  </scroll-view>
+</template>
+
+<template name="tmpl_1_navigator">
+  <navigator target="{{i.target===undefined?'self':i.target}}" url="{{i.url}}" open-type="{{i.openType===undefined?'navigate':i.openType}}" delta="{{i.delta===undefined?1:i.delta}}" app-id="{{i.appId}}" path="{{i.path}}" extra-data="{{i.extraData}}" version="{{i.version===undefined?'version':i.version}}" hover-class="{{i.hoverClass===undefined?'navigator-hover':i.hoverClass}}" hover-stop-propagation="{{i.hoverStopPropagation===undefined?false:i.hoverStopPropagation}}" hover-start-time="{{i.hoverStartTime===undefined?50:i.hoverStartTime}}" hover-stay-time="{{i.hoverStayTime===undefined?600:i.hoverStayTime}}" bindsuccess="eh" bindfail="eh" bindcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_2_container" data="{{i: item}}" />
+    </block>
+  </navigator>
+</template>
+
+<template name="tmpl_1_image">
+  <image src="{{i.src}}" mode="{{i.mode===undefined?'scaleToFill':i.mode}}" webp="{{i.webp===undefined?false:i.webp}}" lazy-load="{{i.lazyLoad===undefined?false:i.lazyLoad}}" show-menu-by-longpress="{{i.showMenuByLongpress===undefined?false:i.showMenuByLongpress}}" binderror="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_2_container" data="{{i: item}}" />
+    </block>
+  </image>
+</template>
+
+<template name="tmpl_1_video">
+  <video src="{{i.src}}" duration="{{i.duration}}" controls="{{i.controls===undefined?true:i.controls}}" danmu-list="{{i.danmuList}}" danmu-btn="{{i.danmuBtn}}" enable-danmu="{{i.enableDanmu}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" loop="{{i.loop===undefined?false:i.loop}}" muted="{{i.muted===undefined?false:i.muted}}" initial-time="{{i.initialTime===undefined?0:i.initialTime}}" page-gesture="{{i.pageGesture===undefined?false:i.pageGesture}}" direction="{{i.direction}}" show-progress="{{i.showProgress===undefined?true:i.showProgress}}" show-fullscreen-btn="{{i.showFullscreenBtn===undefined?true:i.showFullscreenBtn}}" show-play-btn="{{i.showPlayBtn===undefined?true:i.showPlayBtn}}" show-center-play-btn="{{i.showCenterPlayBtn===undefined?true:i.showCenterPlayBtn}}" enable-progress-gesture="{{i.enableProgressGesture===undefined?true:i.enableProgressGesture}}" object-fit="{{i.objectFit===undefined?'contain':i.objectFit}}" poster="{{i.poster}}" show-mute-btn="{{i.showMuteBtn===undefined?false:i.showMuteBtn}}" title="{{i.title}}" play-btn-position="{{i.playBtnPosition===undefined?'bottom':i.playBtnPosition}}" enable-play-gesture="{{i.enablePlayGesture===undefined?false:i.enablePlayGesture}}" auto-pause-if-navigate="{{i.autoPauseIfNavigate===undefined?true:i.autoPauseIfNavigate}}" auto-pause-if-open-native="{{i.autoPauseIfOpenNative===undefined?true:i.autoPauseIfOpenNative}}" vslide-gesture="{{i.vslideGesture===undefined?false:i.vslideGesture}}" vslide-gesture-in-fullscreen="{{i.vslideGestureInFullscreen===undefined?true:i.vslideGestureInFullscreen}}" ad-unit-id="{{i.adUnitId}}" poster-for-crawler="{{i.posterForCrawler}}" show-casting-button="{{i.showCastingButton===undefined?false:i.showCastingButton}}" picture-in-picture-mode="{{i.pictureInPictureMode===undefined?[]:i.pictureInPictureMode}}" enable-auto-rotation="{{i.enableAutoRotation===undefined?false:i.enableAutoRotation}}" show-screen-lock-button="{{i.showScreenLockButton===undefined?false:i.showScreenLockButton}}" bindplay="eh" bindpause="eh" bindended="eh" bindtimeupdate="eh" bindfullscreenchange="eh" bindwaiting="eh" binderror="eh" bindprogress="eh" bindloadedmetadata="eh" bindcontrolstoggle="eh" bindenterpictureinpicture="eh" bindleavepictureinpicture="eh" bindseekcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></video>
+</template>
+
+<template name="tmpl_1_web-view">
+  <web-view src="{{i.src}}" bindmessage="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_2_container" data="{{i: item}}" />
+    </block>
+  </web-view>
+</template>
+
+<template name="tmpl_1_#text" data="{{i: i}}">
+  <block>{{i.v}}</block>
+</template>
+
+<template name="tmpl_1_container" data="{{i: i}}">
+  <template is="{{'tmpl_1_' + i.nn}}" data="{{i: i}}" />
+</template>
+
+<template name="tmpl_2_view">
+  <view hover-class="{{i.hoverClass===undefined?'none':i.hoverClass}}" hover-stop-propagation="{{i.hoverStopPropagation===undefined?false:i.hoverStopPropagation}}" hover-start-time="{{i.hoverStartTime===undefined?50:i.hoverStartTime}}" hover-stay-time="{{i.hoverStayTime===undefined?400:i.hoverStayTime}}" animation="{{i.animation}}" bindanimationstart="eh" bindanimationiteration="eh" bindanimationend="eh" bindtransitionend="eh" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_3_container" data="{{i: item}}" />
+    </block>
+  </view>
+</template>
+
+<template name="tmpl_2_text">
+  <text selectable="{{i.selectable===undefined?false:i.selectable}}" space="{{i.space}}" decode="{{i.decode===undefined?false:i.decode}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_3_container" data="{{i: item}}" />
+    </block>
+  </text>
+</template>
+
+<template name="tmpl_2_button">
+  <button size="{{i.size===undefined?'default':i.size}}" type="{{i.type}}" plain="{{i.plain===undefined?false:i.plain}}" disabled="{{i.disabled}}" loading="{{i.loading===undefined?false:i.loading}}" form-type="{{i.formType}}" open-type="{{i.openType}}" hover-class="{{i.hoverClass===undefined?'button-hover':i.hoverClass}}" hover-stop-propagation="{{i.hoverStopPropagation===undefined?false:i.hoverStopPropagation}}" hover-start-time="{{i.hoverStartTime===undefined?20:i.hoverStartTime}}" hover-stay-time="{{i.hoverStayTime===undefined?70:i.hoverStayTime}}" lang="{{i.lang===undefined?en:i.lang}}" session-from="{{i.sessionFrom}}" send-message-title="{{i.sendMessageTitle}}" send-message-path="{{i.sendMessagePath}}" send-message-img="{{i.sendMessageImg}}" app-parameter="{{i.appParameter}}" show-message-card="{{i.showMessageCard===undefined?false:i.showMessageCard}}" bindgetuserinfo="eh" bindgetauthorize="eh" bindcontact="eh" bindgetphonenumber="eh" binderror="eh" bindopensetting="eh" bindlaunchapp="eh" scope="{{i.scope}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_3_container" data="{{i: item}}" />
+    </block>
+  </button>
+</template>
+
+<template name="tmpl_2_input">
+  <template is="{{xs.c(i, 'tmpl_2_')}}" data="{{i: i}}" />
+</template>
+
+<template name="tmpl_2_input_focus">
+  <input value="{{i.value}}" type="{{i.type===undefined?'':i.type}}" password="{{i.password===undefined?false:i.password}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'input-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" focus="{{i.focus===undefined?false:i.focus}}" confirm-type="{{i.confirmType===undefined?'done':i.confirmType}}" confirm-hold="{{i.confirmHold===undefined?false:i.confirmHold}}" cursor="{{i.cursor===undefined?i.value.length:i.cursor}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindinput="eh" bindfocus="eh" bindblur="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_2_input_blur">
+  <input value="{{i.value}}" type="{{i.type===undefined?'':i.type}}" password="{{i.password===undefined?false:i.password}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'input-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" confirm-type="{{i.confirmType===undefined?'done':i.confirmType}}" confirm-hold="{{i.confirmHold===undefined?false:i.confirmHold}}" cursor="{{i.cursor===undefined?i.value.length:i.cursor}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindinput="eh" bindfocus="eh" bindblur="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_2_picker">
+  <picker mode="{{i.mode===undefined?'selector':i.mode}}" disabled="{{i.disabled}}" bindcancel="eh" range="{{i.range}}" range-key="{{i.rangeKey}}" value="{{i.value}}" bindchange="eh" bindcolumnchange="eh" start="{{i.start}}" end="{{i.end}}" fields="{{i.fields===undefined?'day':i.fields}}" custom-item="{{i.customItem}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_3_container" data="{{i: item}}" />
+    </block>
+  </picker>
+</template>
+
+<template name="tmpl_2_scroll-view">
+  <scroll-view scroll-x="{{i.scrollX===undefined?false:i.scrollX}}" scroll-y="{{i.scrollY===undefined?false:i.scrollY}}" upper-threshold="{{i.upperThreshold===undefined?50:i.upperThreshold}}" lower-threshold="{{i.lowerThreshold===undefined?50:i.lowerThreshold}}" scroll-top="{{i.scrollTop}}" scroll-left="{{i.scrollLeft}}" scroll-into-view="{{i.scrollIntoView}}" scroll-with-animation="{{i.scrollWithAnimation===undefined?false:i.scrollWithAnimation}}" enable-back-to-top="{{i.enableBackToTop===undefined?false:i.enableBackToTop}}" enable-flex="{{i.enableFlex===undefined?false:i.enableFlex}}" scroll-anchoring="{{i.scrollAnchoring===undefined?false:i.scrollAnchoring}}" refresher-enabled="{{i.refresherEnabled===undefined?false:i.refresherEnabled}}" refresher-threshold="{{i.refresherThreshold===undefined?45:i.refresherThreshold}}" refresher-default-style="{{i.refresherDefaultStyle===undefined?'black':i.refresherDefaultStyle}}" refresher-background="{{i.refresherBackground===undefined?'#FFF':i.refresherBackground}}" refresher-triggered="{{i.refresherTriggered===undefined?false:i.refresherTriggered}}" bindrefresherpulling="eh" bindrefresherrefresh="eh" bindrefresherrestore="eh" bindrefresherabort="eh" bindscrolltoupper="eh" bindscrolltolower="eh" bindscroll="eh" animation="{{i.animation}}" bindtransitionend="eh" bindanimationstart="eh" bindanimationiteration="eh" bindanimationend="eh" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_3_container" data="{{i: item}}" />
+    </block>
+  </scroll-view>
+</template>
+
+<template name="tmpl_2_navigator">
+  <navigator target="{{i.target===undefined?'self':i.target}}" url="{{i.url}}" open-type="{{i.openType===undefined?'navigate':i.openType}}" delta="{{i.delta===undefined?1:i.delta}}" app-id="{{i.appId}}" path="{{i.path}}" extra-data="{{i.extraData}}" version="{{i.version===undefined?'version':i.version}}" hover-class="{{i.hoverClass===undefined?'navigator-hover':i.hoverClass}}" hover-stop-propagation="{{i.hoverStopPropagation===undefined?false:i.hoverStopPropagation}}" hover-start-time="{{i.hoverStartTime===undefined?50:i.hoverStartTime}}" hover-stay-time="{{i.hoverStayTime===undefined?600:i.hoverStayTime}}" bindsuccess="eh" bindfail="eh" bindcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_3_container" data="{{i: item}}" />
+    </block>
+  </navigator>
+</template>
+
+<template name="tmpl_2_image">
+  <image src="{{i.src}}" mode="{{i.mode===undefined?'scaleToFill':i.mode}}" webp="{{i.webp===undefined?false:i.webp}}" lazy-load="{{i.lazyLoad===undefined?false:i.lazyLoad}}" show-menu-by-longpress="{{i.showMenuByLongpress===undefined?false:i.showMenuByLongpress}}" binderror="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_3_container" data="{{i: item}}" />
+    </block>
+  </image>
+</template>
+
+<template name="tmpl_2_video">
+  <video src="{{i.src}}" duration="{{i.duration}}" controls="{{i.controls===undefined?true:i.controls}}" danmu-list="{{i.danmuList}}" danmu-btn="{{i.danmuBtn}}" enable-danmu="{{i.enableDanmu}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" loop="{{i.loop===undefined?false:i.loop}}" muted="{{i.muted===undefined?false:i.muted}}" initial-time="{{i.initialTime===undefined?0:i.initialTime}}" page-gesture="{{i.pageGesture===undefined?false:i.pageGesture}}" direction="{{i.direction}}" show-progress="{{i.showProgress===undefined?true:i.showProgress}}" show-fullscreen-btn="{{i.showFullscreenBtn===undefined?true:i.showFullscreenBtn}}" show-play-btn="{{i.showPlayBtn===undefined?true:i.showPlayBtn}}" show-center-play-btn="{{i.showCenterPlayBtn===undefined?true:i.showCenterPlayBtn}}" enable-progress-gesture="{{i.enableProgressGesture===undefined?true:i.enableProgressGesture}}" object-fit="{{i.objectFit===undefined?'contain':i.objectFit}}" poster="{{i.poster}}" show-mute-btn="{{i.showMuteBtn===undefined?false:i.showMuteBtn}}" title="{{i.title}}" play-btn-position="{{i.playBtnPosition===undefined?'bottom':i.playBtnPosition}}" enable-play-gesture="{{i.enablePlayGesture===undefined?false:i.enablePlayGesture}}" auto-pause-if-navigate="{{i.autoPauseIfNavigate===undefined?true:i.autoPauseIfNavigate}}" auto-pause-if-open-native="{{i.autoPauseIfOpenNative===undefined?true:i.autoPauseIfOpenNative}}" vslide-gesture="{{i.vslideGesture===undefined?false:i.vslideGesture}}" vslide-gesture-in-fullscreen="{{i.vslideGestureInFullscreen===undefined?true:i.vslideGestureInFullscreen}}" ad-unit-id="{{i.adUnitId}}" poster-for-crawler="{{i.posterForCrawler}}" show-casting-button="{{i.showCastingButton===undefined?false:i.showCastingButton}}" picture-in-picture-mode="{{i.pictureInPictureMode===undefined?[]:i.pictureInPictureMode}}" enable-auto-rotation="{{i.enableAutoRotation===undefined?false:i.enableAutoRotation}}" show-screen-lock-button="{{i.showScreenLockButton===undefined?false:i.showScreenLockButton}}" bindplay="eh" bindpause="eh" bindended="eh" bindtimeupdate="eh" bindfullscreenchange="eh" bindwaiting="eh" binderror="eh" bindprogress="eh" bindloadedmetadata="eh" bindcontrolstoggle="eh" bindenterpictureinpicture="eh" bindleavepictureinpicture="eh" bindseekcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></video>
+</template>
+
+<template name="tmpl_2_web-view">
+  <web-view src="{{i.src}}" bindmessage="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_3_container" data="{{i: item}}" />
+    </block>
+  </web-view>
+</template>
+
+<template name="tmpl_2_#text" data="{{i: i}}">
+  <block>{{i.v}}</block>
+</template>
+
+<template name="tmpl_2_container" data="{{i: i}}">
+  <template is="{{'tmpl_2_' + i.nn}}" data="{{i: i}}" />
+</template>
+
+<template name="tmpl_3_view">
+  <view hover-class="{{i.hoverClass===undefined?'none':i.hoverClass}}" hover-stop-propagation="{{i.hoverStopPropagation===undefined?false:i.hoverStopPropagation}}" hover-start-time="{{i.hoverStartTime===undefined?50:i.hoverStartTime}}" hover-stay-time="{{i.hoverStayTime===undefined?400:i.hoverStayTime}}" animation="{{i.animation}}" bindanimationstart="eh" bindanimationiteration="eh" bindanimationend="eh" bindtransitionend="eh" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_4_container" data="{{i: item}}" />
+    </block>
+  </view>
+</template>
+
+<template name="tmpl_3_text">
+  <text selectable="{{i.selectable===undefined?false:i.selectable}}" space="{{i.space}}" decode="{{i.decode===undefined?false:i.decode}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_4_container" data="{{i: item}}" />
+    </block>
+  </text>
+</template>
+
+<template name="tmpl_3_button">
+  <button size="{{i.size===undefined?'default':i.size}}" type="{{i.type}}" plain="{{i.plain===undefined?false:i.plain}}" disabled="{{i.disabled}}" loading="{{i.loading===undefined?false:i.loading}}" form-type="{{i.formType}}" open-type="{{i.openType}}" hover-class="{{i.hoverClass===undefined?'button-hover':i.hoverClass}}" hover-stop-propagation="{{i.hoverStopPropagation===undefined?false:i.hoverStopPropagation}}" hover-start-time="{{i.hoverStartTime===undefined?20:i.hoverStartTime}}" hover-stay-time="{{i.hoverStayTime===undefined?70:i.hoverStayTime}}" lang="{{i.lang===undefined?en:i.lang}}" session-from="{{i.sessionFrom}}" send-message-title="{{i.sendMessageTitle}}" send-message-path="{{i.sendMessagePath}}" send-message-img="{{i.sendMessageImg}}" app-parameter="{{i.appParameter}}" show-message-card="{{i.showMessageCard===undefined?false:i.showMessageCard}}" bindgetuserinfo="eh" bindgetauthorize="eh" bindcontact="eh" bindgetphonenumber="eh" binderror="eh" bindopensetting="eh" bindlaunchapp="eh" scope="{{i.scope}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_4_container" data="{{i: item}}" />
+    </block>
+  </button>
+</template>
+
+<template name="tmpl_3_input">
+  <template is="{{xs.c(i, 'tmpl_3_')}}" data="{{i: i}}" />
+</template>
+
+<template name="tmpl_3_input_focus">
+  <input value="{{i.value}}" type="{{i.type===undefined?'':i.type}}" password="{{i.password===undefined?false:i.password}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'input-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" focus="{{i.focus===undefined?false:i.focus}}" confirm-type="{{i.confirmType===undefined?'done':i.confirmType}}" confirm-hold="{{i.confirmHold===undefined?false:i.confirmHold}}" cursor="{{i.cursor===undefined?i.value.length:i.cursor}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindinput="eh" bindfocus="eh" bindblur="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_3_input_blur">
+  <input value="{{i.value}}" type="{{i.type===undefined?'':i.type}}" password="{{i.password===undefined?false:i.password}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'input-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" confirm-type="{{i.confirmType===undefined?'done':i.confirmType}}" confirm-hold="{{i.confirmHold===undefined?false:i.confirmHold}}" cursor="{{i.cursor===undefined?i.value.length:i.cursor}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindinput="eh" bindfocus="eh" bindblur="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_3_picker">
+  <picker mode="{{i.mode===undefined?'selector':i.mode}}" disabled="{{i.disabled}}" bindcancel="eh" range="{{i.range}}" range-key="{{i.rangeKey}}" value="{{i.value}}" bindchange="eh" bindcolumnchange="eh" start="{{i.start}}" end="{{i.end}}" fields="{{i.fields===undefined?'day':i.fields}}" custom-item="{{i.customItem}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_4_container" data="{{i: item}}" />
+    </block>
+  </picker>
+</template>
+
+<template name="tmpl_3_scroll-view">
+  <scroll-view scroll-x="{{i.scrollX===undefined?false:i.scrollX}}" scroll-y="{{i.scrollY===undefined?false:i.scrollY}}" upper-threshold="{{i.upperThreshold===undefined?50:i.upperThreshold}}" lower-threshold="{{i.lowerThreshold===undefined?50:i.lowerThreshold}}" scroll-top="{{i.scrollTop}}" scroll-left="{{i.scrollLeft}}" scroll-into-view="{{i.scrollIntoView}}" scroll-with-animation="{{i.scrollWithAnimation===undefined?false:i.scrollWithAnimation}}" enable-back-to-top="{{i.enableBackToTop===undefined?false:i.enableBackToTop}}" enable-flex="{{i.enableFlex===undefined?false:i.enableFlex}}" scroll-anchoring="{{i.scrollAnchoring===undefined?false:i.scrollAnchoring}}" refresher-enabled="{{i.refresherEnabled===undefined?false:i.refresherEnabled}}" refresher-threshold="{{i.refresherThreshold===undefined?45:i.refresherThreshold}}" refresher-default-style="{{i.refresherDefaultStyle===undefined?'black':i.refresherDefaultStyle}}" refresher-background="{{i.refresherBackground===undefined?'#FFF':i.refresherBackground}}" refresher-triggered="{{i.refresherTriggered===undefined?false:i.refresherTriggered}}" bindrefresherpulling="eh" bindrefresherrefresh="eh" bindrefresherrestore="eh" bindrefresherabort="eh" bindscrolltoupper="eh" bindscrolltolower="eh" bindscroll="eh" animation="{{i.animation}}" bindtransitionend="eh" bindanimationstart="eh" bindanimationiteration="eh" bindanimationend="eh" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_4_container" data="{{i: item}}" />
+    </block>
+  </scroll-view>
+</template>
+
+<template name="tmpl_3_navigator">
+  <navigator target="{{i.target===undefined?'self':i.target}}" url="{{i.url}}" open-type="{{i.openType===undefined?'navigate':i.openType}}" delta="{{i.delta===undefined?1:i.delta}}" app-id="{{i.appId}}" path="{{i.path}}" extra-data="{{i.extraData}}" version="{{i.version===undefined?'version':i.version}}" hover-class="{{i.hoverClass===undefined?'navigator-hover':i.hoverClass}}" hover-stop-propagation="{{i.hoverStopPropagation===undefined?false:i.hoverStopPropagation}}" hover-start-time="{{i.hoverStartTime===undefined?50:i.hoverStartTime}}" hover-stay-time="{{i.hoverStayTime===undefined?600:i.hoverStayTime}}" bindsuccess="eh" bindfail="eh" bindcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_4_container" data="{{i: item}}" />
+    </block>
+  </navigator>
+</template>
+
+<template name="tmpl_3_image">
+  <image src="{{i.src}}" mode="{{i.mode===undefined?'scaleToFill':i.mode}}" webp="{{i.webp===undefined?false:i.webp}}" lazy-load="{{i.lazyLoad===undefined?false:i.lazyLoad}}" show-menu-by-longpress="{{i.showMenuByLongpress===undefined?false:i.showMenuByLongpress}}" binderror="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_4_container" data="{{i: item}}" />
+    </block>
+  </image>
+</template>
+
+<template name="tmpl_3_video">
+  <video src="{{i.src}}" duration="{{i.duration}}" controls="{{i.controls===undefined?true:i.controls}}" danmu-list="{{i.danmuList}}" danmu-btn="{{i.danmuBtn}}" enable-danmu="{{i.enableDanmu}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" loop="{{i.loop===undefined?false:i.loop}}" muted="{{i.muted===undefined?false:i.muted}}" initial-time="{{i.initialTime===undefined?0:i.initialTime}}" page-gesture="{{i.pageGesture===undefined?false:i.pageGesture}}" direction="{{i.direction}}" show-progress="{{i.showProgress===undefined?true:i.showProgress}}" show-fullscreen-btn="{{i.showFullscreenBtn===undefined?true:i.showFullscreenBtn}}" show-play-btn="{{i.showPlayBtn===undefined?true:i.showPlayBtn}}" show-center-play-btn="{{i.showCenterPlayBtn===undefined?true:i.showCenterPlayBtn}}" enable-progress-gesture="{{i.enableProgressGesture===undefined?true:i.enableProgressGesture}}" object-fit="{{i.objectFit===undefined?'contain':i.objectFit}}" poster="{{i.poster}}" show-mute-btn="{{i.showMuteBtn===undefined?false:i.showMuteBtn}}" title="{{i.title}}" play-btn-position="{{i.playBtnPosition===undefined?'bottom':i.playBtnPosition}}" enable-play-gesture="{{i.enablePlayGesture===undefined?false:i.enablePlayGesture}}" auto-pause-if-navigate="{{i.autoPauseIfNavigate===undefined?true:i.autoPauseIfNavigate}}" auto-pause-if-open-native="{{i.autoPauseIfOpenNative===undefined?true:i.autoPauseIfOpenNative}}" vslide-gesture="{{i.vslideGesture===undefined?false:i.vslideGesture}}" vslide-gesture-in-fullscreen="{{i.vslideGestureInFullscreen===undefined?true:i.vslideGestureInFullscreen}}" ad-unit-id="{{i.adUnitId}}" poster-for-crawler="{{i.posterForCrawler}}" show-casting-button="{{i.showCastingButton===undefined?false:i.showCastingButton}}" picture-in-picture-mode="{{i.pictureInPictureMode===undefined?[]:i.pictureInPictureMode}}" enable-auto-rotation="{{i.enableAutoRotation===undefined?false:i.enableAutoRotation}}" show-screen-lock-button="{{i.showScreenLockButton===undefined?false:i.showScreenLockButton}}" bindplay="eh" bindpause="eh" bindended="eh" bindtimeupdate="eh" bindfullscreenchange="eh" bindwaiting="eh" binderror="eh" bindprogress="eh" bindloadedmetadata="eh" bindcontrolstoggle="eh" bindenterpictureinpicture="eh" bindleavepictureinpicture="eh" bindseekcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></video>
+</template>
+
+<template name="tmpl_3_web-view">
+  <web-view src="{{i.src}}" bindmessage="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_4_container" data="{{i: item}}" />
+    </block>
+  </web-view>
+</template>
+
+<template name="tmpl_3_#text" data="{{i: i}}">
+  <block>{{i.v}}</block>
+</template>
+
+<template name="tmpl_3_container" data="{{i: i}}">
+  <template is="{{'tmpl_3_' + i.nn}}" data="{{i: i}}" />
+</template>
+
+<template name="tmpl_4_view">
+  <view hover-class="{{i.hoverClass===undefined?'none':i.hoverClass}}" hover-stop-propagation="{{i.hoverStopPropagation===undefined?false:i.hoverStopPropagation}}" hover-start-time="{{i.hoverStartTime===undefined?50:i.hoverStartTime}}" hover-stay-time="{{i.hoverStayTime===undefined?400:i.hoverStayTime}}" animation="{{i.animation}}" bindanimationstart="eh" bindanimationiteration="eh" bindanimationend="eh" bindtransitionend="eh" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_5_container" data="{{i: item}}" />
+    </block>
+  </view>
+</template>
+
+<template name="tmpl_4_text">
+  <text selectable="{{i.selectable===undefined?false:i.selectable}}" space="{{i.space}}" decode="{{i.decode===undefined?false:i.decode}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_5_container" data="{{i: item}}" />
+    </block>
+  </text>
+</template>
+
+<template name="tmpl_4_button">
+  <button size="{{i.size===undefined?'default':i.size}}" type="{{i.type}}" plain="{{i.plain===undefined?false:i.plain}}" disabled="{{i.disabled}}" loading="{{i.loading===undefined?false:i.loading}}" form-type="{{i.formType}}" open-type="{{i.openType}}" hover-class="{{i.hoverClass===undefined?'button-hover':i.hoverClass}}" hover-stop-propagation="{{i.hoverStopPropagation===undefined?false:i.hoverStopPropagation}}" hover-start-time="{{i.hoverStartTime===undefined?20:i.hoverStartTime}}" hover-stay-time="{{i.hoverStayTime===undefined?70:i.hoverStayTime}}" lang="{{i.lang===undefined?en:i.lang}}" session-from="{{i.sessionFrom}}" send-message-title="{{i.sendMessageTitle}}" send-message-path="{{i.sendMessagePath}}" send-message-img="{{i.sendMessageImg}}" app-parameter="{{i.appParameter}}" show-message-card="{{i.showMessageCard===undefined?false:i.showMessageCard}}" bindgetuserinfo="eh" bindgetauthorize="eh" bindcontact="eh" bindgetphonenumber="eh" binderror="eh" bindopensetting="eh" bindlaunchapp="eh" scope="{{i.scope}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_5_container" data="{{i: item}}" />
+    </block>
+  </button>
+</template>
+
+<template name="tmpl_4_input">
+  <template is="{{xs.c(i, 'tmpl_4_')}}" data="{{i: i}}" />
+</template>
+
+<template name="tmpl_4_input_focus">
+  <input value="{{i.value}}" type="{{i.type===undefined?'':i.type}}" password="{{i.password===undefined?false:i.password}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'input-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" focus="{{i.focus===undefined?false:i.focus}}" confirm-type="{{i.confirmType===undefined?'done':i.confirmType}}" confirm-hold="{{i.confirmHold===undefined?false:i.confirmHold}}" cursor="{{i.cursor===undefined?i.value.length:i.cursor}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindinput="eh" bindfocus="eh" bindblur="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_4_input_blur">
+  <input value="{{i.value}}" type="{{i.type===undefined?'':i.type}}" password="{{i.password===undefined?false:i.password}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'input-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" confirm-type="{{i.confirmType===undefined?'done':i.confirmType}}" confirm-hold="{{i.confirmHold===undefined?false:i.confirmHold}}" cursor="{{i.cursor===undefined?i.value.length:i.cursor}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindinput="eh" bindfocus="eh" bindblur="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_4_picker">
+  <picker mode="{{i.mode===undefined?'selector':i.mode}}" disabled="{{i.disabled}}" bindcancel="eh" range="{{i.range}}" range-key="{{i.rangeKey}}" value="{{i.value}}" bindchange="eh" bindcolumnchange="eh" start="{{i.start}}" end="{{i.end}}" fields="{{i.fields===undefined?'day':i.fields}}" custom-item="{{i.customItem}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_5_container" data="{{i: item}}" />
+    </block>
+  </picker>
+</template>
+
+<template name="tmpl_4_scroll-view">
+  <scroll-view scroll-x="{{i.scrollX===undefined?false:i.scrollX}}" scroll-y="{{i.scrollY===undefined?false:i.scrollY}}" upper-threshold="{{i.upperThreshold===undefined?50:i.upperThreshold}}" lower-threshold="{{i.lowerThreshold===undefined?50:i.lowerThreshold}}" scroll-top="{{i.scrollTop}}" scroll-left="{{i.scrollLeft}}" scroll-into-view="{{i.scrollIntoView}}" scroll-with-animation="{{i.scrollWithAnimation===undefined?false:i.scrollWithAnimation}}" enable-back-to-top="{{i.enableBackToTop===undefined?false:i.enableBackToTop}}" enable-flex="{{i.enableFlex===undefined?false:i.enableFlex}}" scroll-anchoring="{{i.scrollAnchoring===undefined?false:i.scrollAnchoring}}" refresher-enabled="{{i.refresherEnabled===undefined?false:i.refresherEnabled}}" refresher-threshold="{{i.refresherThreshold===undefined?45:i.refresherThreshold}}" refresher-default-style="{{i.refresherDefaultStyle===undefined?'black':i.refresherDefaultStyle}}" refresher-background="{{i.refresherBackground===undefined?'#FFF':i.refresherBackground}}" refresher-triggered="{{i.refresherTriggered===undefined?false:i.refresherTriggered}}" bindrefresherpulling="eh" bindrefresherrefresh="eh" bindrefresherrestore="eh" bindrefresherabort="eh" bindscrolltoupper="eh" bindscrolltolower="eh" bindscroll="eh" animation="{{i.animation}}" bindtransitionend="eh" bindanimationstart="eh" bindanimationiteration="eh" bindanimationend="eh" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_5_container" data="{{i: item}}" />
+    </block>
+  </scroll-view>
+</template>
+
+<template name="tmpl_4_navigator">
+  <navigator target="{{i.target===undefined?'self':i.target}}" url="{{i.url}}" open-type="{{i.openType===undefined?'navigate':i.openType}}" delta="{{i.delta===undefined?1:i.delta}}" app-id="{{i.appId}}" path="{{i.path}}" extra-data="{{i.extraData}}" version="{{i.version===undefined?'version':i.version}}" hover-class="{{i.hoverClass===undefined?'navigator-hover':i.hoverClass}}" hover-stop-propagation="{{i.hoverStopPropagation===undefined?false:i.hoverStopPropagation}}" hover-start-time="{{i.hoverStartTime===undefined?50:i.hoverStartTime}}" hover-stay-time="{{i.hoverStayTime===undefined?600:i.hoverStayTime}}" bindsuccess="eh" bindfail="eh" bindcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_5_container" data="{{i: item}}" />
+    </block>
+  </navigator>
+</template>
+
+<template name="tmpl_4_image">
+  <image src="{{i.src}}" mode="{{i.mode===undefined?'scaleToFill':i.mode}}" webp="{{i.webp===undefined?false:i.webp}}" lazy-load="{{i.lazyLoad===undefined?false:i.lazyLoad}}" show-menu-by-longpress="{{i.showMenuByLongpress===undefined?false:i.showMenuByLongpress}}" binderror="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_5_container" data="{{i: item}}" />
+    </block>
+  </image>
+</template>
+
+<template name="tmpl_4_video">
+  <video src="{{i.src}}" duration="{{i.duration}}" controls="{{i.controls===undefined?true:i.controls}}" danmu-list="{{i.danmuList}}" danmu-btn="{{i.danmuBtn}}" enable-danmu="{{i.enableDanmu}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" loop="{{i.loop===undefined?false:i.loop}}" muted="{{i.muted===undefined?false:i.muted}}" initial-time="{{i.initialTime===undefined?0:i.initialTime}}" page-gesture="{{i.pageGesture===undefined?false:i.pageGesture}}" direction="{{i.direction}}" show-progress="{{i.showProgress===undefined?true:i.showProgress}}" show-fullscreen-btn="{{i.showFullscreenBtn===undefined?true:i.showFullscreenBtn}}" show-play-btn="{{i.showPlayBtn===undefined?true:i.showPlayBtn}}" show-center-play-btn="{{i.showCenterPlayBtn===undefined?true:i.showCenterPlayBtn}}" enable-progress-gesture="{{i.enableProgressGesture===undefined?true:i.enableProgressGesture}}" object-fit="{{i.objectFit===undefined?'contain':i.objectFit}}" poster="{{i.poster}}" show-mute-btn="{{i.showMuteBtn===undefined?false:i.showMuteBtn}}" title="{{i.title}}" play-btn-position="{{i.playBtnPosition===undefined?'bottom':i.playBtnPosition}}" enable-play-gesture="{{i.enablePlayGesture===undefined?false:i.enablePlayGesture}}" auto-pause-if-navigate="{{i.autoPauseIfNavigate===undefined?true:i.autoPauseIfNavigate}}" auto-pause-if-open-native="{{i.autoPauseIfOpenNative===undefined?true:i.autoPauseIfOpenNative}}" vslide-gesture="{{i.vslideGesture===undefined?false:i.vslideGesture}}" vslide-gesture-in-fullscreen="{{i.vslideGestureInFullscreen===undefined?true:i.vslideGestureInFullscreen}}" ad-unit-id="{{i.adUnitId}}" poster-for-crawler="{{i.posterForCrawler}}" show-casting-button="{{i.showCastingButton===undefined?false:i.showCastingButton}}" picture-in-picture-mode="{{i.pictureInPictureMode===undefined?[]:i.pictureInPictureMode}}" enable-auto-rotation="{{i.enableAutoRotation===undefined?false:i.enableAutoRotation}}" show-screen-lock-button="{{i.showScreenLockButton===undefined?false:i.showScreenLockButton}}" bindplay="eh" bindpause="eh" bindended="eh" bindtimeupdate="eh" bindfullscreenchange="eh" bindwaiting="eh" binderror="eh" bindprogress="eh" bindloadedmetadata="eh" bindcontrolstoggle="eh" bindenterpictureinpicture="eh" bindleavepictureinpicture="eh" bindseekcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></video>
+</template>
+
+<template name="tmpl_4_web-view">
+  <web-view src="{{i.src}}" bindmessage="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_5_container" data="{{i: item}}" />
+    </block>
+  </web-view>
+</template>
+
+<template name="tmpl_4_#text" data="{{i: i}}">
+  <block>{{i.v}}</block>
+</template>
+
+<template name="tmpl_4_container" data="{{i: i}}">
+  <template is="{{'tmpl_4_' + i.nn}}" data="{{i: i}}" />
+</template>
+
+<template name="tmpl_5_view">
+  <view hover-class="{{i.hoverClass===undefined?'none':i.hoverClass}}" hover-stop-propagation="{{i.hoverStopPropagation===undefined?false:i.hoverStopPropagation}}" hover-start-time="{{i.hoverStartTime===undefined?50:i.hoverStartTime}}" hover-stay-time="{{i.hoverStayTime===undefined?400:i.hoverStayTime}}" animation="{{i.animation}}" bindanimationstart="eh" bindanimationiteration="eh" bindanimationend="eh" bindtransitionend="eh" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_6_container" data="{{i: item}}" />
+    </block>
+  </view>
+</template>
+
+<template name="tmpl_5_text">
+  <text selectable="{{i.selectable===undefined?false:i.selectable}}" space="{{i.space}}" decode="{{i.decode===undefined?false:i.decode}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_6_container" data="{{i: item}}" />
+    </block>
+  </text>
+</template>
+
+<template name="tmpl_5_button">
+  <button size="{{i.size===undefined?'default':i.size}}" type="{{i.type}}" plain="{{i.plain===undefined?false:i.plain}}" disabled="{{i.disabled}}" loading="{{i.loading===undefined?false:i.loading}}" form-type="{{i.formType}}" open-type="{{i.openType}}" hover-class="{{i.hoverClass===undefined?'button-hover':i.hoverClass}}" hover-stop-propagation="{{i.hoverStopPropagation===undefined?false:i.hoverStopPropagation}}" hover-start-time="{{i.hoverStartTime===undefined?20:i.hoverStartTime}}" hover-stay-time="{{i.hoverStayTime===undefined?70:i.hoverStayTime}}" lang="{{i.lang===undefined?en:i.lang}}" session-from="{{i.sessionFrom}}" send-message-title="{{i.sendMessageTitle}}" send-message-path="{{i.sendMessagePath}}" send-message-img="{{i.sendMessageImg}}" app-parameter="{{i.appParameter}}" show-message-card="{{i.showMessageCard===undefined?false:i.showMessageCard}}" bindgetuserinfo="eh" bindgetauthorize="eh" bindcontact="eh" bindgetphonenumber="eh" binderror="eh" bindopensetting="eh" bindlaunchapp="eh" scope="{{i.scope}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_6_container" data="{{i: item}}" />
+    </block>
+  </button>
+</template>
+
+<template name="tmpl_5_input">
+  <template is="{{xs.c(i, 'tmpl_5_')}}" data="{{i: i}}" />
+</template>
+
+<template name="tmpl_5_input_focus">
+  <input value="{{i.value}}" type="{{i.type===undefined?'':i.type}}" password="{{i.password===undefined?false:i.password}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'input-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" focus="{{i.focus===undefined?false:i.focus}}" confirm-type="{{i.confirmType===undefined?'done':i.confirmType}}" confirm-hold="{{i.confirmHold===undefined?false:i.confirmHold}}" cursor="{{i.cursor===undefined?i.value.length:i.cursor}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindinput="eh" bindfocus="eh" bindblur="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_5_input_blur">
+  <input value="{{i.value}}" type="{{i.type===undefined?'':i.type}}" password="{{i.password===undefined?false:i.password}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'input-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" confirm-type="{{i.confirmType===undefined?'done':i.confirmType}}" confirm-hold="{{i.confirmHold===undefined?false:i.confirmHold}}" cursor="{{i.cursor===undefined?i.value.length:i.cursor}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindinput="eh" bindfocus="eh" bindblur="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_5_picker">
+  <picker mode="{{i.mode===undefined?'selector':i.mode}}" disabled="{{i.disabled}}" bindcancel="eh" range="{{i.range}}" range-key="{{i.rangeKey}}" value="{{i.value}}" bindchange="eh" bindcolumnchange="eh" start="{{i.start}}" end="{{i.end}}" fields="{{i.fields===undefined?'day':i.fields}}" custom-item="{{i.customItem}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_6_container" data="{{i: item}}" />
+    </block>
+  </picker>
+</template>
+
+<template name="tmpl_5_scroll-view">
+  <scroll-view scroll-x="{{i.scrollX===undefined?false:i.scrollX}}" scroll-y="{{i.scrollY===undefined?false:i.scrollY}}" upper-threshold="{{i.upperThreshold===undefined?50:i.upperThreshold}}" lower-threshold="{{i.lowerThreshold===undefined?50:i.lowerThreshold}}" scroll-top="{{i.scrollTop}}" scroll-left="{{i.scrollLeft}}" scroll-into-view="{{i.scrollIntoView}}" scroll-with-animation="{{i.scrollWithAnimation===undefined?false:i.scrollWithAnimation}}" enable-back-to-top="{{i.enableBackToTop===undefined?false:i.enableBackToTop}}" enable-flex="{{i.enableFlex===undefined?false:i.enableFlex}}" scroll-anchoring="{{i.scrollAnchoring===undefined?false:i.scrollAnchoring}}" refresher-enabled="{{i.refresherEnabled===undefined?false:i.refresherEnabled}}" refresher-threshold="{{i.refresherThreshold===undefined?45:i.refresherThreshold}}" refresher-default-style="{{i.refresherDefaultStyle===undefined?'black':i.refresherDefaultStyle}}" refresher-background="{{i.refresherBackground===undefined?'#FFF':i.refresherBackground}}" refresher-triggered="{{i.refresherTriggered===undefined?false:i.refresherTriggered}}" bindrefresherpulling="eh" bindrefresherrefresh="eh" bindrefresherrestore="eh" bindrefresherabort="eh" bindscrolltoupper="eh" bindscrolltolower="eh" bindscroll="eh" animation="{{i.animation}}" bindtransitionend="eh" bindanimationstart="eh" bindanimationiteration="eh" bindanimationend="eh" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_6_container" data="{{i: item}}" />
+    </block>
+  </scroll-view>
+</template>
+
+<template name="tmpl_5_navigator">
+  <navigator target="{{i.target===undefined?'self':i.target}}" url="{{i.url}}" open-type="{{i.openType===undefined?'navigate':i.openType}}" delta="{{i.delta===undefined?1:i.delta}}" app-id="{{i.appId}}" path="{{i.path}}" extra-data="{{i.extraData}}" version="{{i.version===undefined?'version':i.version}}" hover-class="{{i.hoverClass===undefined?'navigator-hover':i.hoverClass}}" hover-stop-propagation="{{i.hoverStopPropagation===undefined?false:i.hoverStopPropagation}}" hover-start-time="{{i.hoverStartTime===undefined?50:i.hoverStartTime}}" hover-stay-time="{{i.hoverStayTime===undefined?600:i.hoverStayTime}}" bindsuccess="eh" bindfail="eh" bindcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_6_container" data="{{i: item}}" />
+    </block>
+  </navigator>
+</template>
+
+<template name="tmpl_5_image">
+  <image src="{{i.src}}" mode="{{i.mode===undefined?'scaleToFill':i.mode}}" webp="{{i.webp===undefined?false:i.webp}}" lazy-load="{{i.lazyLoad===undefined?false:i.lazyLoad}}" show-menu-by-longpress="{{i.showMenuByLongpress===undefined?false:i.showMenuByLongpress}}" binderror="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_6_container" data="{{i: item}}" />
+    </block>
+  </image>
+</template>
+
+<template name="tmpl_5_video">
+  <video src="{{i.src}}" duration="{{i.duration}}" controls="{{i.controls===undefined?true:i.controls}}" danmu-list="{{i.danmuList}}" danmu-btn="{{i.danmuBtn}}" enable-danmu="{{i.enableDanmu}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" loop="{{i.loop===undefined?false:i.loop}}" muted="{{i.muted===undefined?false:i.muted}}" initial-time="{{i.initialTime===undefined?0:i.initialTime}}" page-gesture="{{i.pageGesture===undefined?false:i.pageGesture}}" direction="{{i.direction}}" show-progress="{{i.showProgress===undefined?true:i.showProgress}}" show-fullscreen-btn="{{i.showFullscreenBtn===undefined?true:i.showFullscreenBtn}}" show-play-btn="{{i.showPlayBtn===undefined?true:i.showPlayBtn}}" show-center-play-btn="{{i.showCenterPlayBtn===undefined?true:i.showCenterPlayBtn}}" enable-progress-gesture="{{i.enableProgressGesture===undefined?true:i.enableProgressGesture}}" object-fit="{{i.objectFit===undefined?'contain':i.objectFit}}" poster="{{i.poster}}" show-mute-btn="{{i.showMuteBtn===undefined?false:i.showMuteBtn}}" title="{{i.title}}" play-btn-position="{{i.playBtnPosition===undefined?'bottom':i.playBtnPosition}}" enable-play-gesture="{{i.enablePlayGesture===undefined?false:i.enablePlayGesture}}" auto-pause-if-navigate="{{i.autoPauseIfNavigate===undefined?true:i.autoPauseIfNavigate}}" auto-pause-if-open-native="{{i.autoPauseIfOpenNative===undefined?true:i.autoPauseIfOpenNative}}" vslide-gesture="{{i.vslideGesture===undefined?false:i.vslideGesture}}" vslide-gesture-in-fullscreen="{{i.vslideGestureInFullscreen===undefined?true:i.vslideGestureInFullscreen}}" ad-unit-id="{{i.adUnitId}}" poster-for-crawler="{{i.posterForCrawler}}" show-casting-button="{{i.showCastingButton===undefined?false:i.showCastingButton}}" picture-in-picture-mode="{{i.pictureInPictureMode===undefined?[]:i.pictureInPictureMode}}" enable-auto-rotation="{{i.enableAutoRotation===undefined?false:i.enableAutoRotation}}" show-screen-lock-button="{{i.showScreenLockButton===undefined?false:i.showScreenLockButton}}" bindplay="eh" bindpause="eh" bindended="eh" bindtimeupdate="eh" bindfullscreenchange="eh" bindwaiting="eh" binderror="eh" bindprogress="eh" bindloadedmetadata="eh" bindcontrolstoggle="eh" bindenterpictureinpicture="eh" bindleavepictureinpicture="eh" bindseekcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></video>
+</template>
+
+<template name="tmpl_5_web-view">
+  <web-view src="{{i.src}}" bindmessage="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_6_container" data="{{i: item}}" />
+    </block>
+  </web-view>
+</template>
+
+<template name="tmpl_5_#text" data="{{i: i}}">
+  <block>{{i.v}}</block>
+</template>
+
+<template name="tmpl_5_container" data="{{i: i}}">
+  <template is="{{'tmpl_5_' + i.nn}}" data="{{i: i}}" />
+</template>
+
+<template name="tmpl_6_view">
+  <view hover-class="{{i.hoverClass===undefined?'none':i.hoverClass}}" hover-stop-propagation="{{i.hoverStopPropagation===undefined?false:i.hoverStopPropagation}}" hover-start-time="{{i.hoverStartTime===undefined?50:i.hoverStartTime}}" hover-stay-time="{{i.hoverStayTime===undefined?400:i.hoverStayTime}}" animation="{{i.animation}}" bindanimationstart="eh" bindanimationiteration="eh" bindanimationend="eh" bindtransitionend="eh" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_7_container" data="{{i: item}}" />
+    </block>
+  </view>
+</template>
+
+<template name="tmpl_6_text">
+  <text selectable="{{i.selectable===undefined?false:i.selectable}}" space="{{i.space}}" decode="{{i.decode===undefined?false:i.decode}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_7_container" data="{{i: item}}" />
+    </block>
+  </text>
+</template>
+
+<template name="tmpl_6_button">
+  <button size="{{i.size===undefined?'default':i.size}}" type="{{i.type}}" plain="{{i.plain===undefined?false:i.plain}}" disabled="{{i.disabled}}" loading="{{i.loading===undefined?false:i.loading}}" form-type="{{i.formType}}" open-type="{{i.openType}}" hover-class="{{i.hoverClass===undefined?'button-hover':i.hoverClass}}" hover-stop-propagation="{{i.hoverStopPropagation===undefined?false:i.hoverStopPropagation}}" hover-start-time="{{i.hoverStartTime===undefined?20:i.hoverStartTime}}" hover-stay-time="{{i.hoverStayTime===undefined?70:i.hoverStayTime}}" lang="{{i.lang===undefined?en:i.lang}}" session-from="{{i.sessionFrom}}" send-message-title="{{i.sendMessageTitle}}" send-message-path="{{i.sendMessagePath}}" send-message-img="{{i.sendMessageImg}}" app-parameter="{{i.appParameter}}" show-message-card="{{i.showMessageCard===undefined?false:i.showMessageCard}}" bindgetuserinfo="eh" bindgetauthorize="eh" bindcontact="eh" bindgetphonenumber="eh" binderror="eh" bindopensetting="eh" bindlaunchapp="eh" scope="{{i.scope}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_7_container" data="{{i: item}}" />
+    </block>
+  </button>
+</template>
+
+<template name="tmpl_6_input">
+  <template is="{{xs.c(i, 'tmpl_6_')}}" data="{{i: i}}" />
+</template>
+
+<template name="tmpl_6_input_focus">
+  <input value="{{i.value}}" type="{{i.type===undefined?'':i.type}}" password="{{i.password===undefined?false:i.password}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'input-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" focus="{{i.focus===undefined?false:i.focus}}" confirm-type="{{i.confirmType===undefined?'done':i.confirmType}}" confirm-hold="{{i.confirmHold===undefined?false:i.confirmHold}}" cursor="{{i.cursor===undefined?i.value.length:i.cursor}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindinput="eh" bindfocus="eh" bindblur="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_6_input_blur">
+  <input value="{{i.value}}" type="{{i.type===undefined?'':i.type}}" password="{{i.password===undefined?false:i.password}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'input-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" confirm-type="{{i.confirmType===undefined?'done':i.confirmType}}" confirm-hold="{{i.confirmHold===undefined?false:i.confirmHold}}" cursor="{{i.cursor===undefined?i.value.length:i.cursor}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindinput="eh" bindfocus="eh" bindblur="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_6_picker">
+  <picker mode="{{i.mode===undefined?'selector':i.mode}}" disabled="{{i.disabled}}" bindcancel="eh" range="{{i.range}}" range-key="{{i.rangeKey}}" value="{{i.value}}" bindchange="eh" bindcolumnchange="eh" start="{{i.start}}" end="{{i.end}}" fields="{{i.fields===undefined?'day':i.fields}}" custom-item="{{i.customItem}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_7_container" data="{{i: item}}" />
+    </block>
+  </picker>
+</template>
+
+<template name="tmpl_6_scroll-view">
+  <scroll-view scroll-x="{{i.scrollX===undefined?false:i.scrollX}}" scroll-y="{{i.scrollY===undefined?false:i.scrollY}}" upper-threshold="{{i.upperThreshold===undefined?50:i.upperThreshold}}" lower-threshold="{{i.lowerThreshold===undefined?50:i.lowerThreshold}}" scroll-top="{{i.scrollTop}}" scroll-left="{{i.scrollLeft}}" scroll-into-view="{{i.scrollIntoView}}" scroll-with-animation="{{i.scrollWithAnimation===undefined?false:i.scrollWithAnimation}}" enable-back-to-top="{{i.enableBackToTop===undefined?false:i.enableBackToTop}}" enable-flex="{{i.enableFlex===undefined?false:i.enableFlex}}" scroll-anchoring="{{i.scrollAnchoring===undefined?false:i.scrollAnchoring}}" refresher-enabled="{{i.refresherEnabled===undefined?false:i.refresherEnabled}}" refresher-threshold="{{i.refresherThreshold===undefined?45:i.refresherThreshold}}" refresher-default-style="{{i.refresherDefaultStyle===undefined?'black':i.refresherDefaultStyle}}" refresher-background="{{i.refresherBackground===undefined?'#FFF':i.refresherBackground}}" refresher-triggered="{{i.refresherTriggered===undefined?false:i.refresherTriggered}}" bindrefresherpulling="eh" bindrefresherrefresh="eh" bindrefresherrestore="eh" bindrefresherabort="eh" bindscrolltoupper="eh" bindscrolltolower="eh" bindscroll="eh" animation="{{i.animation}}" bindtransitionend="eh" bindanimationstart="eh" bindanimationiteration="eh" bindanimationend="eh" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_7_container" data="{{i: item}}" />
+    </block>
+  </scroll-view>
+</template>
+
+<template name="tmpl_6_navigator">
+  <navigator target="{{i.target===undefined?'self':i.target}}" url="{{i.url}}" open-type="{{i.openType===undefined?'navigate':i.openType}}" delta="{{i.delta===undefined?1:i.delta}}" app-id="{{i.appId}}" path="{{i.path}}" extra-data="{{i.extraData}}" version="{{i.version===undefined?'version':i.version}}" hover-class="{{i.hoverClass===undefined?'navigator-hover':i.hoverClass}}" hover-stop-propagation="{{i.hoverStopPropagation===undefined?false:i.hoverStopPropagation}}" hover-start-time="{{i.hoverStartTime===undefined?50:i.hoverStartTime}}" hover-stay-time="{{i.hoverStayTime===undefined?600:i.hoverStayTime}}" bindsuccess="eh" bindfail="eh" bindcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_7_container" data="{{i: item}}" />
+    </block>
+  </navigator>
+</template>
+
+<template name="tmpl_6_image">
+  <image src="{{i.src}}" mode="{{i.mode===undefined?'scaleToFill':i.mode}}" webp="{{i.webp===undefined?false:i.webp}}" lazy-load="{{i.lazyLoad===undefined?false:i.lazyLoad}}" show-menu-by-longpress="{{i.showMenuByLongpress===undefined?false:i.showMenuByLongpress}}" binderror="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_7_container" data="{{i: item}}" />
+    </block>
+  </image>
+</template>
+
+<template name="tmpl_6_video">
+  <video src="{{i.src}}" duration="{{i.duration}}" controls="{{i.controls===undefined?true:i.controls}}" danmu-list="{{i.danmuList}}" danmu-btn="{{i.danmuBtn}}" enable-danmu="{{i.enableDanmu}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" loop="{{i.loop===undefined?false:i.loop}}" muted="{{i.muted===undefined?false:i.muted}}" initial-time="{{i.initialTime===undefined?0:i.initialTime}}" page-gesture="{{i.pageGesture===undefined?false:i.pageGesture}}" direction="{{i.direction}}" show-progress="{{i.showProgress===undefined?true:i.showProgress}}" show-fullscreen-btn="{{i.showFullscreenBtn===undefined?true:i.showFullscreenBtn}}" show-play-btn="{{i.showPlayBtn===undefined?true:i.showPlayBtn}}" show-center-play-btn="{{i.showCenterPlayBtn===undefined?true:i.showCenterPlayBtn}}" enable-progress-gesture="{{i.enableProgressGesture===undefined?true:i.enableProgressGesture}}" object-fit="{{i.objectFit===undefined?'contain':i.objectFit}}" poster="{{i.poster}}" show-mute-btn="{{i.showMuteBtn===undefined?false:i.showMuteBtn}}" title="{{i.title}}" play-btn-position="{{i.playBtnPosition===undefined?'bottom':i.playBtnPosition}}" enable-play-gesture="{{i.enablePlayGesture===undefined?false:i.enablePlayGesture}}" auto-pause-if-navigate="{{i.autoPauseIfNavigate===undefined?true:i.autoPauseIfNavigate}}" auto-pause-if-open-native="{{i.autoPauseIfOpenNative===undefined?true:i.autoPauseIfOpenNative}}" vslide-gesture="{{i.vslideGesture===undefined?false:i.vslideGesture}}" vslide-gesture-in-fullscreen="{{i.vslideGestureInFullscreen===undefined?true:i.vslideGestureInFullscreen}}" ad-unit-id="{{i.adUnitId}}" poster-for-crawler="{{i.posterForCrawler}}" show-casting-button="{{i.showCastingButton===undefined?false:i.showCastingButton}}" picture-in-picture-mode="{{i.pictureInPictureMode===undefined?[]:i.pictureInPictureMode}}" enable-auto-rotation="{{i.enableAutoRotation===undefined?false:i.enableAutoRotation}}" show-screen-lock-button="{{i.showScreenLockButton===undefined?false:i.showScreenLockButton}}" bindplay="eh" bindpause="eh" bindended="eh" bindtimeupdate="eh" bindfullscreenchange="eh" bindwaiting="eh" binderror="eh" bindprogress="eh" bindloadedmetadata="eh" bindcontrolstoggle="eh" bindenterpictureinpicture="eh" bindleavepictureinpicture="eh" bindseekcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></video>
+</template>
+
+<template name="tmpl_6_web-view">
+  <web-view src="{{i.src}}" bindmessage="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_7_container" data="{{i: item}}" />
+    </block>
+  </web-view>
+</template>
+
+<template name="tmpl_6_#text" data="{{i: i}}">
+  <block>{{i.v}}</block>
+</template>
+
+<template name="tmpl_6_container" data="{{i: i}}">
+  <template is="{{'tmpl_6_' + i.nn}}" data="{{i: i}}" />
+</template>
+
+<template name="tmpl_7_view">
+  <view hover-class="{{i.hoverClass===undefined?'none':i.hoverClass}}" hover-stop-propagation="{{i.hoverStopPropagation===undefined?false:i.hoverStopPropagation}}" hover-start-time="{{i.hoverStartTime===undefined?50:i.hoverStartTime}}" hover-stay-time="{{i.hoverStayTime===undefined?400:i.hoverStayTime}}" animation="{{i.animation}}" bindanimationstart="eh" bindanimationiteration="eh" bindanimationend="eh" bindtransitionend="eh" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_8_container" data="{{i: item}}" />
+    </block>
+  </view>
+</template>
+
+<template name="tmpl_7_text">
+  <text selectable="{{i.selectable===undefined?false:i.selectable}}" space="{{i.space}}" decode="{{i.decode===undefined?false:i.decode}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_8_container" data="{{i: item}}" />
+    </block>
+  </text>
+</template>
+
+<template name="tmpl_7_button">
+  <button size="{{i.size===undefined?'default':i.size}}" type="{{i.type}}" plain="{{i.plain===undefined?false:i.plain}}" disabled="{{i.disabled}}" loading="{{i.loading===undefined?false:i.loading}}" form-type="{{i.formType}}" open-type="{{i.openType}}" hover-class="{{i.hoverClass===undefined?'button-hover':i.hoverClass}}" hover-stop-propagation="{{i.hoverStopPropagation===undefined?false:i.hoverStopPropagation}}" hover-start-time="{{i.hoverStartTime===undefined?20:i.hoverStartTime}}" hover-stay-time="{{i.hoverStayTime===undefined?70:i.hoverStayTime}}" lang="{{i.lang===undefined?en:i.lang}}" session-from="{{i.sessionFrom}}" send-message-title="{{i.sendMessageTitle}}" send-message-path="{{i.sendMessagePath}}" send-message-img="{{i.sendMessageImg}}" app-parameter="{{i.appParameter}}" show-message-card="{{i.showMessageCard===undefined?false:i.showMessageCard}}" bindgetuserinfo="eh" bindgetauthorize="eh" bindcontact="eh" bindgetphonenumber="eh" binderror="eh" bindopensetting="eh" bindlaunchapp="eh" scope="{{i.scope}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_8_container" data="{{i: item}}" />
+    </block>
+  </button>
+</template>
+
+<template name="tmpl_7_input">
+  <template is="{{xs.c(i, 'tmpl_7_')}}" data="{{i: i}}" />
+</template>
+
+<template name="tmpl_7_input_focus">
+  <input value="{{i.value}}" type="{{i.type===undefined?'':i.type}}" password="{{i.password===undefined?false:i.password}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'input-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" focus="{{i.focus===undefined?false:i.focus}}" confirm-type="{{i.confirmType===undefined?'done':i.confirmType}}" confirm-hold="{{i.confirmHold===undefined?false:i.confirmHold}}" cursor="{{i.cursor===undefined?i.value.length:i.cursor}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindinput="eh" bindfocus="eh" bindblur="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_7_input_blur">
+  <input value="{{i.value}}" type="{{i.type===undefined?'':i.type}}" password="{{i.password===undefined?false:i.password}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'input-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" confirm-type="{{i.confirmType===undefined?'done':i.confirmType}}" confirm-hold="{{i.confirmHold===undefined?false:i.confirmHold}}" cursor="{{i.cursor===undefined?i.value.length:i.cursor}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindinput="eh" bindfocus="eh" bindblur="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_7_picker">
+  <picker mode="{{i.mode===undefined?'selector':i.mode}}" disabled="{{i.disabled}}" bindcancel="eh" range="{{i.range}}" range-key="{{i.rangeKey}}" value="{{i.value}}" bindchange="eh" bindcolumnchange="eh" start="{{i.start}}" end="{{i.end}}" fields="{{i.fields===undefined?'day':i.fields}}" custom-item="{{i.customItem}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_8_container" data="{{i: item}}" />
+    </block>
+  </picker>
+</template>
+
+<template name="tmpl_7_scroll-view">
+  <scroll-view scroll-x="{{i.scrollX===undefined?false:i.scrollX}}" scroll-y="{{i.scrollY===undefined?false:i.scrollY}}" upper-threshold="{{i.upperThreshold===undefined?50:i.upperThreshold}}" lower-threshold="{{i.lowerThreshold===undefined?50:i.lowerThreshold}}" scroll-top="{{i.scrollTop}}" scroll-left="{{i.scrollLeft}}" scroll-into-view="{{i.scrollIntoView}}" scroll-with-animation="{{i.scrollWithAnimation===undefined?false:i.scrollWithAnimation}}" enable-back-to-top="{{i.enableBackToTop===undefined?false:i.enableBackToTop}}" enable-flex="{{i.enableFlex===undefined?false:i.enableFlex}}" scroll-anchoring="{{i.scrollAnchoring===undefined?false:i.scrollAnchoring}}" refresher-enabled="{{i.refresherEnabled===undefined?false:i.refresherEnabled}}" refresher-threshold="{{i.refresherThreshold===undefined?45:i.refresherThreshold}}" refresher-default-style="{{i.refresherDefaultStyle===undefined?'black':i.refresherDefaultStyle}}" refresher-background="{{i.refresherBackground===undefined?'#FFF':i.refresherBackground}}" refresher-triggered="{{i.refresherTriggered===undefined?false:i.refresherTriggered}}" bindrefresherpulling="eh" bindrefresherrefresh="eh" bindrefresherrestore="eh" bindrefresherabort="eh" bindscrolltoupper="eh" bindscrolltolower="eh" bindscroll="eh" animation="{{i.animation}}" bindtransitionend="eh" bindanimationstart="eh" bindanimationiteration="eh" bindanimationend="eh" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_8_container" data="{{i: item}}" />
+    </block>
+  </scroll-view>
+</template>
+
+<template name="tmpl_7_navigator">
+  <navigator target="{{i.target===undefined?'self':i.target}}" url="{{i.url}}" open-type="{{i.openType===undefined?'navigate':i.openType}}" delta="{{i.delta===undefined?1:i.delta}}" app-id="{{i.appId}}" path="{{i.path}}" extra-data="{{i.extraData}}" version="{{i.version===undefined?'version':i.version}}" hover-class="{{i.hoverClass===undefined?'navigator-hover':i.hoverClass}}" hover-stop-propagation="{{i.hoverStopPropagation===undefined?false:i.hoverStopPropagation}}" hover-start-time="{{i.hoverStartTime===undefined?50:i.hoverStartTime}}" hover-stay-time="{{i.hoverStayTime===undefined?600:i.hoverStayTime}}" bindsuccess="eh" bindfail="eh" bindcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_8_container" data="{{i: item}}" />
+    </block>
+  </navigator>
+</template>
+
+<template name="tmpl_7_image">
+  <image src="{{i.src}}" mode="{{i.mode===undefined?'scaleToFill':i.mode}}" webp="{{i.webp===undefined?false:i.webp}}" lazy-load="{{i.lazyLoad===undefined?false:i.lazyLoad}}" show-menu-by-longpress="{{i.showMenuByLongpress===undefined?false:i.showMenuByLongpress}}" binderror="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_8_container" data="{{i: item}}" />
+    </block>
+  </image>
+</template>
+
+<template name="tmpl_7_video">
+  <video src="{{i.src}}" duration="{{i.duration}}" controls="{{i.controls===undefined?true:i.controls}}" danmu-list="{{i.danmuList}}" danmu-btn="{{i.danmuBtn}}" enable-danmu="{{i.enableDanmu}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" loop="{{i.loop===undefined?false:i.loop}}" muted="{{i.muted===undefined?false:i.muted}}" initial-time="{{i.initialTime===undefined?0:i.initialTime}}" page-gesture="{{i.pageGesture===undefined?false:i.pageGesture}}" direction="{{i.direction}}" show-progress="{{i.showProgress===undefined?true:i.showProgress}}" show-fullscreen-btn="{{i.showFullscreenBtn===undefined?true:i.showFullscreenBtn}}" show-play-btn="{{i.showPlayBtn===undefined?true:i.showPlayBtn}}" show-center-play-btn="{{i.showCenterPlayBtn===undefined?true:i.showCenterPlayBtn}}" enable-progress-gesture="{{i.enableProgressGesture===undefined?true:i.enableProgressGesture}}" object-fit="{{i.objectFit===undefined?'contain':i.objectFit}}" poster="{{i.poster}}" show-mute-btn="{{i.showMuteBtn===undefined?false:i.showMuteBtn}}" title="{{i.title}}" play-btn-position="{{i.playBtnPosition===undefined?'bottom':i.playBtnPosition}}" enable-play-gesture="{{i.enablePlayGesture===undefined?false:i.enablePlayGesture}}" auto-pause-if-navigate="{{i.autoPauseIfNavigate===undefined?true:i.autoPauseIfNavigate}}" auto-pause-if-open-native="{{i.autoPauseIfOpenNative===undefined?true:i.autoPauseIfOpenNative}}" vslide-gesture="{{i.vslideGesture===undefined?false:i.vslideGesture}}" vslide-gesture-in-fullscreen="{{i.vslideGestureInFullscreen===undefined?true:i.vslideGestureInFullscreen}}" ad-unit-id="{{i.adUnitId}}" poster-for-crawler="{{i.posterForCrawler}}" show-casting-button="{{i.showCastingButton===undefined?false:i.showCastingButton}}" picture-in-picture-mode="{{i.pictureInPictureMode===undefined?[]:i.pictureInPictureMode}}" enable-auto-rotation="{{i.enableAutoRotation===undefined?false:i.enableAutoRotation}}" show-screen-lock-button="{{i.showScreenLockButton===undefined?false:i.showScreenLockButton}}" bindplay="eh" bindpause="eh" bindended="eh" bindtimeupdate="eh" bindfullscreenchange="eh" bindwaiting="eh" binderror="eh" bindprogress="eh" bindloadedmetadata="eh" bindcontrolstoggle="eh" bindenterpictureinpicture="eh" bindleavepictureinpicture="eh" bindseekcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></video>
+</template>
+
+<template name="tmpl_7_web-view">
+  <web-view src="{{i.src}}" bindmessage="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_8_container" data="{{i: item}}" />
+    </block>
+  </web-view>
+</template>
+
+<template name="tmpl_7_#text" data="{{i: i}}">
+  <block>{{i.v}}</block>
+</template>
+
+<template name="tmpl_7_container" data="{{i: i}}">
+  <template is="{{'tmpl_7_' + i.nn}}" data="{{i: i}}" />
+</template>
+
+<template name="tmpl_8_view">
+  <view hover-class="{{i.hoverClass===undefined?'none':i.hoverClass}}" hover-stop-propagation="{{i.hoverStopPropagation===undefined?false:i.hoverStopPropagation}}" hover-start-time="{{i.hoverStartTime===undefined?50:i.hoverStartTime}}" hover-stay-time="{{i.hoverStayTime===undefined?400:i.hoverStayTime}}" animation="{{i.animation}}" bindanimationstart="eh" bindanimationiteration="eh" bindanimationend="eh" bindtransitionend="eh" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_9_container" data="{{i: item}}" />
+    </block>
+  </view>
+</template>
+
+<template name="tmpl_8_text">
+  <text selectable="{{i.selectable===undefined?false:i.selectable}}" space="{{i.space}}" decode="{{i.decode===undefined?false:i.decode}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_9_container" data="{{i: item}}" />
+    </block>
+  </text>
+</template>
+
+<template name="tmpl_8_button">
+  <button size="{{i.size===undefined?'default':i.size}}" type="{{i.type}}" plain="{{i.plain===undefined?false:i.plain}}" disabled="{{i.disabled}}" loading="{{i.loading===undefined?false:i.loading}}" form-type="{{i.formType}}" open-type="{{i.openType}}" hover-class="{{i.hoverClass===undefined?'button-hover':i.hoverClass}}" hover-stop-propagation="{{i.hoverStopPropagation===undefined?false:i.hoverStopPropagation}}" hover-start-time="{{i.hoverStartTime===undefined?20:i.hoverStartTime}}" hover-stay-time="{{i.hoverStayTime===undefined?70:i.hoverStayTime}}" lang="{{i.lang===undefined?en:i.lang}}" session-from="{{i.sessionFrom}}" send-message-title="{{i.sendMessageTitle}}" send-message-path="{{i.sendMessagePath}}" send-message-img="{{i.sendMessageImg}}" app-parameter="{{i.appParameter}}" show-message-card="{{i.showMessageCard===undefined?false:i.showMessageCard}}" bindgetuserinfo="eh" bindgetauthorize="eh" bindcontact="eh" bindgetphonenumber="eh" binderror="eh" bindopensetting="eh" bindlaunchapp="eh" scope="{{i.scope}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_9_container" data="{{i: item}}" />
+    </block>
+  </button>
+</template>
+
+<template name="tmpl_8_input">
+  <template is="{{xs.c(i, 'tmpl_8_')}}" data="{{i: i}}" />
+</template>
+
+<template name="tmpl_8_input_focus">
+  <input value="{{i.value}}" type="{{i.type===undefined?'':i.type}}" password="{{i.password===undefined?false:i.password}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'input-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" focus="{{i.focus===undefined?false:i.focus}}" confirm-type="{{i.confirmType===undefined?'done':i.confirmType}}" confirm-hold="{{i.confirmHold===undefined?false:i.confirmHold}}" cursor="{{i.cursor===undefined?i.value.length:i.cursor}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindinput="eh" bindfocus="eh" bindblur="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_8_input_blur">
+  <input value="{{i.value}}" type="{{i.type===undefined?'':i.type}}" password="{{i.password===undefined?false:i.password}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'input-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" confirm-type="{{i.confirmType===undefined?'done':i.confirmType}}" confirm-hold="{{i.confirmHold===undefined?false:i.confirmHold}}" cursor="{{i.cursor===undefined?i.value.length:i.cursor}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindinput="eh" bindfocus="eh" bindblur="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_8_picker">
+  <picker mode="{{i.mode===undefined?'selector':i.mode}}" disabled="{{i.disabled}}" bindcancel="eh" range="{{i.range}}" range-key="{{i.rangeKey}}" value="{{i.value}}" bindchange="eh" bindcolumnchange="eh" start="{{i.start}}" end="{{i.end}}" fields="{{i.fields===undefined?'day':i.fields}}" custom-item="{{i.customItem}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_9_container" data="{{i: item}}" />
+    </block>
+  </picker>
+</template>
+
+<template name="tmpl_8_scroll-view">
+  <scroll-view scroll-x="{{i.scrollX===undefined?false:i.scrollX}}" scroll-y="{{i.scrollY===undefined?false:i.scrollY}}" upper-threshold="{{i.upperThreshold===undefined?50:i.upperThreshold}}" lower-threshold="{{i.lowerThreshold===undefined?50:i.lowerThreshold}}" scroll-top="{{i.scrollTop}}" scroll-left="{{i.scrollLeft}}" scroll-into-view="{{i.scrollIntoView}}" scroll-with-animation="{{i.scrollWithAnimation===undefined?false:i.scrollWithAnimation}}" enable-back-to-top="{{i.enableBackToTop===undefined?false:i.enableBackToTop}}" enable-flex="{{i.enableFlex===undefined?false:i.enableFlex}}" scroll-anchoring="{{i.scrollAnchoring===undefined?false:i.scrollAnchoring}}" refresher-enabled="{{i.refresherEnabled===undefined?false:i.refresherEnabled}}" refresher-threshold="{{i.refresherThreshold===undefined?45:i.refresherThreshold}}" refresher-default-style="{{i.refresherDefaultStyle===undefined?'black':i.refresherDefaultStyle}}" refresher-background="{{i.refresherBackground===undefined?'#FFF':i.refresherBackground}}" refresher-triggered="{{i.refresherTriggered===undefined?false:i.refresherTriggered}}" bindrefresherpulling="eh" bindrefresherrefresh="eh" bindrefresherrestore="eh" bindrefresherabort="eh" bindscrolltoupper="eh" bindscrolltolower="eh" bindscroll="eh" animation="{{i.animation}}" bindtransitionend="eh" bindanimationstart="eh" bindanimationiteration="eh" bindanimationend="eh" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_9_container" data="{{i: item}}" />
+    </block>
+  </scroll-view>
+</template>
+
+<template name="tmpl_8_navigator">
+  <navigator target="{{i.target===undefined?'self':i.target}}" url="{{i.url}}" open-type="{{i.openType===undefined?'navigate':i.openType}}" delta="{{i.delta===undefined?1:i.delta}}" app-id="{{i.appId}}" path="{{i.path}}" extra-data="{{i.extraData}}" version="{{i.version===undefined?'version':i.version}}" hover-class="{{i.hoverClass===undefined?'navigator-hover':i.hoverClass}}" hover-stop-propagation="{{i.hoverStopPropagation===undefined?false:i.hoverStopPropagation}}" hover-start-time="{{i.hoverStartTime===undefined?50:i.hoverStartTime}}" hover-stay-time="{{i.hoverStayTime===undefined?600:i.hoverStayTime}}" bindsuccess="eh" bindfail="eh" bindcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_9_container" data="{{i: item}}" />
+    </block>
+  </navigator>
+</template>
+
+<template name="tmpl_8_image">
+  <image src="{{i.src}}" mode="{{i.mode===undefined?'scaleToFill':i.mode}}" webp="{{i.webp===undefined?false:i.webp}}" lazy-load="{{i.lazyLoad===undefined?false:i.lazyLoad}}" show-menu-by-longpress="{{i.showMenuByLongpress===undefined?false:i.showMenuByLongpress}}" binderror="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_9_container" data="{{i: item}}" />
+    </block>
+  </image>
+</template>
+
+<template name="tmpl_8_video">
+  <video src="{{i.src}}" duration="{{i.duration}}" controls="{{i.controls===undefined?true:i.controls}}" danmu-list="{{i.danmuList}}" danmu-btn="{{i.danmuBtn}}" enable-danmu="{{i.enableDanmu}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" loop="{{i.loop===undefined?false:i.loop}}" muted="{{i.muted===undefined?false:i.muted}}" initial-time="{{i.initialTime===undefined?0:i.initialTime}}" page-gesture="{{i.pageGesture===undefined?false:i.pageGesture}}" direction="{{i.direction}}" show-progress="{{i.showProgress===undefined?true:i.showProgress}}" show-fullscreen-btn="{{i.showFullscreenBtn===undefined?true:i.showFullscreenBtn}}" show-play-btn="{{i.showPlayBtn===undefined?true:i.showPlayBtn}}" show-center-play-btn="{{i.showCenterPlayBtn===undefined?true:i.showCenterPlayBtn}}" enable-progress-gesture="{{i.enableProgressGesture===undefined?true:i.enableProgressGesture}}" object-fit="{{i.objectFit===undefined?'contain':i.objectFit}}" poster="{{i.poster}}" show-mute-btn="{{i.showMuteBtn===undefined?false:i.showMuteBtn}}" title="{{i.title}}" play-btn-position="{{i.playBtnPosition===undefined?'bottom':i.playBtnPosition}}" enable-play-gesture="{{i.enablePlayGesture===undefined?false:i.enablePlayGesture}}" auto-pause-if-navigate="{{i.autoPauseIfNavigate===undefined?true:i.autoPauseIfNavigate}}" auto-pause-if-open-native="{{i.autoPauseIfOpenNative===undefined?true:i.autoPauseIfOpenNative}}" vslide-gesture="{{i.vslideGesture===undefined?false:i.vslideGesture}}" vslide-gesture-in-fullscreen="{{i.vslideGestureInFullscreen===undefined?true:i.vslideGestureInFullscreen}}" ad-unit-id="{{i.adUnitId}}" poster-for-crawler="{{i.posterForCrawler}}" show-casting-button="{{i.showCastingButton===undefined?false:i.showCastingButton}}" picture-in-picture-mode="{{i.pictureInPictureMode===undefined?[]:i.pictureInPictureMode}}" enable-auto-rotation="{{i.enableAutoRotation===undefined?false:i.enableAutoRotation}}" show-screen-lock-button="{{i.showScreenLockButton===undefined?false:i.showScreenLockButton}}" bindplay="eh" bindpause="eh" bindended="eh" bindtimeupdate="eh" bindfullscreenchange="eh" bindwaiting="eh" binderror="eh" bindprogress="eh" bindloadedmetadata="eh" bindcontrolstoggle="eh" bindenterpictureinpicture="eh" bindleavepictureinpicture="eh" bindseekcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></video>
+</template>
+
+<template name="tmpl_8_web-view">
+  <web-view src="{{i.src}}" bindmessage="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_9_container" data="{{i: item}}" />
+    </block>
+  </web-view>
+</template>
+
+<template name="tmpl_8_#text" data="{{i: i}}">
+  <block>{{i.v}}</block>
+</template>
+
+<template name="tmpl_8_container" data="{{i: i}}">
+  <template is="{{'tmpl_8_' + i.nn}}" data="{{i: i}}" />
+</template>
+
+<template name="tmpl_9_view">
+  <view hover-class="{{i.hoverClass===undefined?'none':i.hoverClass}}" hover-stop-propagation="{{i.hoverStopPropagation===undefined?false:i.hoverStopPropagation}}" hover-start-time="{{i.hoverStartTime===undefined?50:i.hoverStartTime}}" hover-stay-time="{{i.hoverStayTime===undefined?400:i.hoverStayTime}}" animation="{{i.animation}}" bindanimationstart="eh" bindanimationiteration="eh" bindanimationend="eh" bindtransitionend="eh" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_10_container" data="{{i: item}}" />
+    </block>
+  </view>
+</template>
+
+<template name="tmpl_9_text">
+  <text selectable="{{i.selectable===undefined?false:i.selectable}}" space="{{i.space}}" decode="{{i.decode===undefined?false:i.decode}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_10_container" data="{{i: item}}" />
+    </block>
+  </text>
+</template>
+
+<template name="tmpl_9_button">
+  <button size="{{i.size===undefined?'default':i.size}}" type="{{i.type}}" plain="{{i.plain===undefined?false:i.plain}}" disabled="{{i.disabled}}" loading="{{i.loading===undefined?false:i.loading}}" form-type="{{i.formType}}" open-type="{{i.openType}}" hover-class="{{i.hoverClass===undefined?'button-hover':i.hoverClass}}" hover-stop-propagation="{{i.hoverStopPropagation===undefined?false:i.hoverStopPropagation}}" hover-start-time="{{i.hoverStartTime===undefined?20:i.hoverStartTime}}" hover-stay-time="{{i.hoverStayTime===undefined?70:i.hoverStayTime}}" lang="{{i.lang===undefined?en:i.lang}}" session-from="{{i.sessionFrom}}" send-message-title="{{i.sendMessageTitle}}" send-message-path="{{i.sendMessagePath}}" send-message-img="{{i.sendMessageImg}}" app-parameter="{{i.appParameter}}" show-message-card="{{i.showMessageCard===undefined?false:i.showMessageCard}}" bindgetuserinfo="eh" bindgetauthorize="eh" bindcontact="eh" bindgetphonenumber="eh" binderror="eh" bindopensetting="eh" bindlaunchapp="eh" scope="{{i.scope}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_10_container" data="{{i: item}}" />
+    </block>
+  </button>
+</template>
+
+<template name="tmpl_9_input">
+  <template is="{{xs.c(i, 'tmpl_9_')}}" data="{{i: i}}" />
+</template>
+
+<template name="tmpl_9_input_focus">
+  <input value="{{i.value}}" type="{{i.type===undefined?'':i.type}}" password="{{i.password===undefined?false:i.password}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'input-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" focus="{{i.focus===undefined?false:i.focus}}" confirm-type="{{i.confirmType===undefined?'done':i.confirmType}}" confirm-hold="{{i.confirmHold===undefined?false:i.confirmHold}}" cursor="{{i.cursor===undefined?i.value.length:i.cursor}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindinput="eh" bindfocus="eh" bindblur="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_9_input_blur">
+  <input value="{{i.value}}" type="{{i.type===undefined?'':i.type}}" password="{{i.password===undefined?false:i.password}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'input-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" confirm-type="{{i.confirmType===undefined?'done':i.confirmType}}" confirm-hold="{{i.confirmHold===undefined?false:i.confirmHold}}" cursor="{{i.cursor===undefined?i.value.length:i.cursor}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindinput="eh" bindfocus="eh" bindblur="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_9_picker">
+  <picker mode="{{i.mode===undefined?'selector':i.mode}}" disabled="{{i.disabled}}" bindcancel="eh" range="{{i.range}}" range-key="{{i.rangeKey}}" value="{{i.value}}" bindchange="eh" bindcolumnchange="eh" start="{{i.start}}" end="{{i.end}}" fields="{{i.fields===undefined?'day':i.fields}}" custom-item="{{i.customItem}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_10_container" data="{{i: item}}" />
+    </block>
+  </picker>
+</template>
+
+<template name="tmpl_9_scroll-view">
+  <scroll-view scroll-x="{{i.scrollX===undefined?false:i.scrollX}}" scroll-y="{{i.scrollY===undefined?false:i.scrollY}}" upper-threshold="{{i.upperThreshold===undefined?50:i.upperThreshold}}" lower-threshold="{{i.lowerThreshold===undefined?50:i.lowerThreshold}}" scroll-top="{{i.scrollTop}}" scroll-left="{{i.scrollLeft}}" scroll-into-view="{{i.scrollIntoView}}" scroll-with-animation="{{i.scrollWithAnimation===undefined?false:i.scrollWithAnimation}}" enable-back-to-top="{{i.enableBackToTop===undefined?false:i.enableBackToTop}}" enable-flex="{{i.enableFlex===undefined?false:i.enableFlex}}" scroll-anchoring="{{i.scrollAnchoring===undefined?false:i.scrollAnchoring}}" refresher-enabled="{{i.refresherEnabled===undefined?false:i.refresherEnabled}}" refresher-threshold="{{i.refresherThreshold===undefined?45:i.refresherThreshold}}" refresher-default-style="{{i.refresherDefaultStyle===undefined?'black':i.refresherDefaultStyle}}" refresher-background="{{i.refresherBackground===undefined?'#FFF':i.refresherBackground}}" refresher-triggered="{{i.refresherTriggered===undefined?false:i.refresherTriggered}}" bindrefresherpulling="eh" bindrefresherrefresh="eh" bindrefresherrestore="eh" bindrefresherabort="eh" bindscrolltoupper="eh" bindscrolltolower="eh" bindscroll="eh" animation="{{i.animation}}" bindtransitionend="eh" bindanimationstart="eh" bindanimationiteration="eh" bindanimationend="eh" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_10_container" data="{{i: item}}" />
+    </block>
+  </scroll-view>
+</template>
+
+<template name="tmpl_9_navigator">
+  <navigator target="{{i.target===undefined?'self':i.target}}" url="{{i.url}}" open-type="{{i.openType===undefined?'navigate':i.openType}}" delta="{{i.delta===undefined?1:i.delta}}" app-id="{{i.appId}}" path="{{i.path}}" extra-data="{{i.extraData}}" version="{{i.version===undefined?'version':i.version}}" hover-class="{{i.hoverClass===undefined?'navigator-hover':i.hoverClass}}" hover-stop-propagation="{{i.hoverStopPropagation===undefined?false:i.hoverStopPropagation}}" hover-start-time="{{i.hoverStartTime===undefined?50:i.hoverStartTime}}" hover-stay-time="{{i.hoverStayTime===undefined?600:i.hoverStayTime}}" bindsuccess="eh" bindfail="eh" bindcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_10_container" data="{{i: item}}" />
+    </block>
+  </navigator>
+</template>
+
+<template name="tmpl_9_image">
+  <image src="{{i.src}}" mode="{{i.mode===undefined?'scaleToFill':i.mode}}" webp="{{i.webp===undefined?false:i.webp}}" lazy-load="{{i.lazyLoad===undefined?false:i.lazyLoad}}" show-menu-by-longpress="{{i.showMenuByLongpress===undefined?false:i.showMenuByLongpress}}" binderror="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_10_container" data="{{i: item}}" />
+    </block>
+  </image>
+</template>
+
+<template name="tmpl_9_video">
+  <video src="{{i.src}}" duration="{{i.duration}}" controls="{{i.controls===undefined?true:i.controls}}" danmu-list="{{i.danmuList}}" danmu-btn="{{i.danmuBtn}}" enable-danmu="{{i.enableDanmu}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" loop="{{i.loop===undefined?false:i.loop}}" muted="{{i.muted===undefined?false:i.muted}}" initial-time="{{i.initialTime===undefined?0:i.initialTime}}" page-gesture="{{i.pageGesture===undefined?false:i.pageGesture}}" direction="{{i.direction}}" show-progress="{{i.showProgress===undefined?true:i.showProgress}}" show-fullscreen-btn="{{i.showFullscreenBtn===undefined?true:i.showFullscreenBtn}}" show-play-btn="{{i.showPlayBtn===undefined?true:i.showPlayBtn}}" show-center-play-btn="{{i.showCenterPlayBtn===undefined?true:i.showCenterPlayBtn}}" enable-progress-gesture="{{i.enableProgressGesture===undefined?true:i.enableProgressGesture}}" object-fit="{{i.objectFit===undefined?'contain':i.objectFit}}" poster="{{i.poster}}" show-mute-btn="{{i.showMuteBtn===undefined?false:i.showMuteBtn}}" title="{{i.title}}" play-btn-position="{{i.playBtnPosition===undefined?'bottom':i.playBtnPosition}}" enable-play-gesture="{{i.enablePlayGesture===undefined?false:i.enablePlayGesture}}" auto-pause-if-navigate="{{i.autoPauseIfNavigate===undefined?true:i.autoPauseIfNavigate}}" auto-pause-if-open-native="{{i.autoPauseIfOpenNative===undefined?true:i.autoPauseIfOpenNative}}" vslide-gesture="{{i.vslideGesture===undefined?false:i.vslideGesture}}" vslide-gesture-in-fullscreen="{{i.vslideGestureInFullscreen===undefined?true:i.vslideGestureInFullscreen}}" ad-unit-id="{{i.adUnitId}}" poster-for-crawler="{{i.posterForCrawler}}" show-casting-button="{{i.showCastingButton===undefined?false:i.showCastingButton}}" picture-in-picture-mode="{{i.pictureInPictureMode===undefined?[]:i.pictureInPictureMode}}" enable-auto-rotation="{{i.enableAutoRotation===undefined?false:i.enableAutoRotation}}" show-screen-lock-button="{{i.showScreenLockButton===undefined?false:i.showScreenLockButton}}" bindplay="eh" bindpause="eh" bindended="eh" bindtimeupdate="eh" bindfullscreenchange="eh" bindwaiting="eh" binderror="eh" bindprogress="eh" bindloadedmetadata="eh" bindcontrolstoggle="eh" bindenterpictureinpicture="eh" bindleavepictureinpicture="eh" bindseekcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></video>
+</template>
+
+<template name="tmpl_9_web-view">
+  <web-view src="{{i.src}}" bindmessage="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_10_container" data="{{i: item}}" />
+    </block>
+  </web-view>
+</template>
+
+<template name="tmpl_9_#text" data="{{i: i}}">
+  <block>{{i.v}}</block>
+</template>
+
+<template name="tmpl_9_container" data="{{i: i}}">
+  <template is="{{'tmpl_9_' + i.nn}}" data="{{i: i}}" />
+</template>
+
+<template name="tmpl_10_view">
+  <view hover-class="{{i.hoverClass===undefined?'none':i.hoverClass}}" hover-stop-propagation="{{i.hoverStopPropagation===undefined?false:i.hoverStopPropagation}}" hover-start-time="{{i.hoverStartTime===undefined?50:i.hoverStartTime}}" hover-stay-time="{{i.hoverStayTime===undefined?400:i.hoverStayTime}}" animation="{{i.animation}}" bindanimationstart="eh" bindanimationiteration="eh" bindanimationend="eh" bindtransitionend="eh" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_11_container" data="{{i: item}}" />
+    </block>
+  </view>
+</template>
+
+<template name="tmpl_10_text">
+  <text selectable="{{i.selectable===undefined?false:i.selectable}}" space="{{i.space}}" decode="{{i.decode===undefined?false:i.decode}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_11_container" data="{{i: item}}" />
+    </block>
+  </text>
+</template>
+
+<template name="tmpl_10_button">
+  <button size="{{i.size===undefined?'default':i.size}}" type="{{i.type}}" plain="{{i.plain===undefined?false:i.plain}}" disabled="{{i.disabled}}" loading="{{i.loading===undefined?false:i.loading}}" form-type="{{i.formType}}" open-type="{{i.openType}}" hover-class="{{i.hoverClass===undefined?'button-hover':i.hoverClass}}" hover-stop-propagation="{{i.hoverStopPropagation===undefined?false:i.hoverStopPropagation}}" hover-start-time="{{i.hoverStartTime===undefined?20:i.hoverStartTime}}" hover-stay-time="{{i.hoverStayTime===undefined?70:i.hoverStayTime}}" lang="{{i.lang===undefined?en:i.lang}}" session-from="{{i.sessionFrom}}" send-message-title="{{i.sendMessageTitle}}" send-message-path="{{i.sendMessagePath}}" send-message-img="{{i.sendMessageImg}}" app-parameter="{{i.appParameter}}" show-message-card="{{i.showMessageCard===undefined?false:i.showMessageCard}}" bindgetuserinfo="eh" bindgetauthorize="eh" bindcontact="eh" bindgetphonenumber="eh" binderror="eh" bindopensetting="eh" bindlaunchapp="eh" scope="{{i.scope}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_11_container" data="{{i: item}}" />
+    </block>
+  </button>
+</template>
+
+<template name="tmpl_10_input">
+  <template is="{{xs.c(i, 'tmpl_10_')}}" data="{{i: i}}" />
+</template>
+
+<template name="tmpl_10_input_focus">
+  <input value="{{i.value}}" type="{{i.type===undefined?'':i.type}}" password="{{i.password===undefined?false:i.password}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'input-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" focus="{{i.focus===undefined?false:i.focus}}" confirm-type="{{i.confirmType===undefined?'done':i.confirmType}}" confirm-hold="{{i.confirmHold===undefined?false:i.confirmHold}}" cursor="{{i.cursor===undefined?i.value.length:i.cursor}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindinput="eh" bindfocus="eh" bindblur="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_10_input_blur">
+  <input value="{{i.value}}" type="{{i.type===undefined?'':i.type}}" password="{{i.password===undefined?false:i.password}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'input-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" confirm-type="{{i.confirmType===undefined?'done':i.confirmType}}" confirm-hold="{{i.confirmHold===undefined?false:i.confirmHold}}" cursor="{{i.cursor===undefined?i.value.length:i.cursor}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindinput="eh" bindfocus="eh" bindblur="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_10_picker">
+  <picker mode="{{i.mode===undefined?'selector':i.mode}}" disabled="{{i.disabled}}" bindcancel="eh" range="{{i.range}}" range-key="{{i.rangeKey}}" value="{{i.value}}" bindchange="eh" bindcolumnchange="eh" start="{{i.start}}" end="{{i.end}}" fields="{{i.fields===undefined?'day':i.fields}}" custom-item="{{i.customItem}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_11_container" data="{{i: item}}" />
+    </block>
+  </picker>
+</template>
+
+<template name="tmpl_10_scroll-view">
+  <scroll-view scroll-x="{{i.scrollX===undefined?false:i.scrollX}}" scroll-y="{{i.scrollY===undefined?false:i.scrollY}}" upper-threshold="{{i.upperThreshold===undefined?50:i.upperThreshold}}" lower-threshold="{{i.lowerThreshold===undefined?50:i.lowerThreshold}}" scroll-top="{{i.scrollTop}}" scroll-left="{{i.scrollLeft}}" scroll-into-view="{{i.scrollIntoView}}" scroll-with-animation="{{i.scrollWithAnimation===undefined?false:i.scrollWithAnimation}}" enable-back-to-top="{{i.enableBackToTop===undefined?false:i.enableBackToTop}}" enable-flex="{{i.enableFlex===undefined?false:i.enableFlex}}" scroll-anchoring="{{i.scrollAnchoring===undefined?false:i.scrollAnchoring}}" refresher-enabled="{{i.refresherEnabled===undefined?false:i.refresherEnabled}}" refresher-threshold="{{i.refresherThreshold===undefined?45:i.refresherThreshold}}" refresher-default-style="{{i.refresherDefaultStyle===undefined?'black':i.refresherDefaultStyle}}" refresher-background="{{i.refresherBackground===undefined?'#FFF':i.refresherBackground}}" refresher-triggered="{{i.refresherTriggered===undefined?false:i.refresherTriggered}}" bindrefresherpulling="eh" bindrefresherrefresh="eh" bindrefresherrestore="eh" bindrefresherabort="eh" bindscrolltoupper="eh" bindscrolltolower="eh" bindscroll="eh" animation="{{i.animation}}" bindtransitionend="eh" bindanimationstart="eh" bindanimationiteration="eh" bindanimationend="eh" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_11_container" data="{{i: item}}" />
+    </block>
+  </scroll-view>
+</template>
+
+<template name="tmpl_10_navigator">
+  <navigator target="{{i.target===undefined?'self':i.target}}" url="{{i.url}}" open-type="{{i.openType===undefined?'navigate':i.openType}}" delta="{{i.delta===undefined?1:i.delta}}" app-id="{{i.appId}}" path="{{i.path}}" extra-data="{{i.extraData}}" version="{{i.version===undefined?'version':i.version}}" hover-class="{{i.hoverClass===undefined?'navigator-hover':i.hoverClass}}" hover-stop-propagation="{{i.hoverStopPropagation===undefined?false:i.hoverStopPropagation}}" hover-start-time="{{i.hoverStartTime===undefined?50:i.hoverStartTime}}" hover-stay-time="{{i.hoverStayTime===undefined?600:i.hoverStayTime}}" bindsuccess="eh" bindfail="eh" bindcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_11_container" data="{{i: item}}" />
+    </block>
+  </navigator>
+</template>
+
+<template name="tmpl_10_image">
+  <image src="{{i.src}}" mode="{{i.mode===undefined?'scaleToFill':i.mode}}" webp="{{i.webp===undefined?false:i.webp}}" lazy-load="{{i.lazyLoad===undefined?false:i.lazyLoad}}" show-menu-by-longpress="{{i.showMenuByLongpress===undefined?false:i.showMenuByLongpress}}" binderror="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_11_container" data="{{i: item}}" />
+    </block>
+  </image>
+</template>
+
+<template name="tmpl_10_video">
+  <video src="{{i.src}}" duration="{{i.duration}}" controls="{{i.controls===undefined?true:i.controls}}" danmu-list="{{i.danmuList}}" danmu-btn="{{i.danmuBtn}}" enable-danmu="{{i.enableDanmu}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" loop="{{i.loop===undefined?false:i.loop}}" muted="{{i.muted===undefined?false:i.muted}}" initial-time="{{i.initialTime===undefined?0:i.initialTime}}" page-gesture="{{i.pageGesture===undefined?false:i.pageGesture}}" direction="{{i.direction}}" show-progress="{{i.showProgress===undefined?true:i.showProgress}}" show-fullscreen-btn="{{i.showFullscreenBtn===undefined?true:i.showFullscreenBtn}}" show-play-btn="{{i.showPlayBtn===undefined?true:i.showPlayBtn}}" show-center-play-btn="{{i.showCenterPlayBtn===undefined?true:i.showCenterPlayBtn}}" enable-progress-gesture="{{i.enableProgressGesture===undefined?true:i.enableProgressGesture}}" object-fit="{{i.objectFit===undefined?'contain':i.objectFit}}" poster="{{i.poster}}" show-mute-btn="{{i.showMuteBtn===undefined?false:i.showMuteBtn}}" title="{{i.title}}" play-btn-position="{{i.playBtnPosition===undefined?'bottom':i.playBtnPosition}}" enable-play-gesture="{{i.enablePlayGesture===undefined?false:i.enablePlayGesture}}" auto-pause-if-navigate="{{i.autoPauseIfNavigate===undefined?true:i.autoPauseIfNavigate}}" auto-pause-if-open-native="{{i.autoPauseIfOpenNative===undefined?true:i.autoPauseIfOpenNative}}" vslide-gesture="{{i.vslideGesture===undefined?false:i.vslideGesture}}" vslide-gesture-in-fullscreen="{{i.vslideGestureInFullscreen===undefined?true:i.vslideGestureInFullscreen}}" ad-unit-id="{{i.adUnitId}}" poster-for-crawler="{{i.posterForCrawler}}" show-casting-button="{{i.showCastingButton===undefined?false:i.showCastingButton}}" picture-in-picture-mode="{{i.pictureInPictureMode===undefined?[]:i.pictureInPictureMode}}" enable-auto-rotation="{{i.enableAutoRotation===undefined?false:i.enableAutoRotation}}" show-screen-lock-button="{{i.showScreenLockButton===undefined?false:i.showScreenLockButton}}" bindplay="eh" bindpause="eh" bindended="eh" bindtimeupdate="eh" bindfullscreenchange="eh" bindwaiting="eh" binderror="eh" bindprogress="eh" bindloadedmetadata="eh" bindcontrolstoggle="eh" bindenterpictureinpicture="eh" bindleavepictureinpicture="eh" bindseekcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></video>
+</template>
+
+<template name="tmpl_10_web-view">
+  <web-view src="{{i.src}}" bindmessage="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_11_container" data="{{i: item}}" />
+    </block>
+  </web-view>
+</template>
+
+<template name="tmpl_10_#text" data="{{i: i}}">
+  <block>{{i.v}}</block>
+</template>
+
+<template name="tmpl_10_container" data="{{i: i}}">
+  <template is="{{'tmpl_10_' + i.nn}}" data="{{i: i}}" />
+</template>
+
+<template name="tmpl_11_view">
+  <view hover-class="{{i.hoverClass===undefined?'none':i.hoverClass}}" hover-stop-propagation="{{i.hoverStopPropagation===undefined?false:i.hoverStopPropagation}}" hover-start-time="{{i.hoverStartTime===undefined?50:i.hoverStartTime}}" hover-stay-time="{{i.hoverStayTime===undefined?400:i.hoverStayTime}}" animation="{{i.animation}}" bindanimationstart="eh" bindanimationiteration="eh" bindanimationend="eh" bindtransitionend="eh" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_12_container" data="{{i: item}}" />
+    </block>
+  </view>
+</template>
+
+<template name="tmpl_11_text">
+  <text selectable="{{i.selectable===undefined?false:i.selectable}}" space="{{i.space}}" decode="{{i.decode===undefined?false:i.decode}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_12_container" data="{{i: item}}" />
+    </block>
+  </text>
+</template>
+
+<template name="tmpl_11_button">
+  <button size="{{i.size===undefined?'default':i.size}}" type="{{i.type}}" plain="{{i.plain===undefined?false:i.plain}}" disabled="{{i.disabled}}" loading="{{i.loading===undefined?false:i.loading}}" form-type="{{i.formType}}" open-type="{{i.openType}}" hover-class="{{i.hoverClass===undefined?'button-hover':i.hoverClass}}" hover-stop-propagation="{{i.hoverStopPropagation===undefined?false:i.hoverStopPropagation}}" hover-start-time="{{i.hoverStartTime===undefined?20:i.hoverStartTime}}" hover-stay-time="{{i.hoverStayTime===undefined?70:i.hoverStayTime}}" lang="{{i.lang===undefined?en:i.lang}}" session-from="{{i.sessionFrom}}" send-message-title="{{i.sendMessageTitle}}" send-message-path="{{i.sendMessagePath}}" send-message-img="{{i.sendMessageImg}}" app-parameter="{{i.appParameter}}" show-message-card="{{i.showMessageCard===undefined?false:i.showMessageCard}}" bindgetuserinfo="eh" bindgetauthorize="eh" bindcontact="eh" bindgetphonenumber="eh" binderror="eh" bindopensetting="eh" bindlaunchapp="eh" scope="{{i.scope}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_12_container" data="{{i: item}}" />
+    </block>
+  </button>
+</template>
+
+<template name="tmpl_11_input">
+  <template is="{{xs.c(i, 'tmpl_11_')}}" data="{{i: i}}" />
+</template>
+
+<template name="tmpl_11_input_focus">
+  <input value="{{i.value}}" type="{{i.type===undefined?'':i.type}}" password="{{i.password===undefined?false:i.password}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'input-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" focus="{{i.focus===undefined?false:i.focus}}" confirm-type="{{i.confirmType===undefined?'done':i.confirmType}}" confirm-hold="{{i.confirmHold===undefined?false:i.confirmHold}}" cursor="{{i.cursor===undefined?i.value.length:i.cursor}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindinput="eh" bindfocus="eh" bindblur="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_11_input_blur">
+  <input value="{{i.value}}" type="{{i.type===undefined?'':i.type}}" password="{{i.password===undefined?false:i.password}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'input-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" confirm-type="{{i.confirmType===undefined?'done':i.confirmType}}" confirm-hold="{{i.confirmHold===undefined?false:i.confirmHold}}" cursor="{{i.cursor===undefined?i.value.length:i.cursor}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindinput="eh" bindfocus="eh" bindblur="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_11_picker">
+  <picker mode="{{i.mode===undefined?'selector':i.mode}}" disabled="{{i.disabled}}" bindcancel="eh" range="{{i.range}}" range-key="{{i.rangeKey}}" value="{{i.value}}" bindchange="eh" bindcolumnchange="eh" start="{{i.start}}" end="{{i.end}}" fields="{{i.fields===undefined?'day':i.fields}}" custom-item="{{i.customItem}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_12_container" data="{{i: item}}" />
+    </block>
+  </picker>
+</template>
+
+<template name="tmpl_11_scroll-view">
+  <scroll-view scroll-x="{{i.scrollX===undefined?false:i.scrollX}}" scroll-y="{{i.scrollY===undefined?false:i.scrollY}}" upper-threshold="{{i.upperThreshold===undefined?50:i.upperThreshold}}" lower-threshold="{{i.lowerThreshold===undefined?50:i.lowerThreshold}}" scroll-top="{{i.scrollTop}}" scroll-left="{{i.scrollLeft}}" scroll-into-view="{{i.scrollIntoView}}" scroll-with-animation="{{i.scrollWithAnimation===undefined?false:i.scrollWithAnimation}}" enable-back-to-top="{{i.enableBackToTop===undefined?false:i.enableBackToTop}}" enable-flex="{{i.enableFlex===undefined?false:i.enableFlex}}" scroll-anchoring="{{i.scrollAnchoring===undefined?false:i.scrollAnchoring}}" refresher-enabled="{{i.refresherEnabled===undefined?false:i.refresherEnabled}}" refresher-threshold="{{i.refresherThreshold===undefined?45:i.refresherThreshold}}" refresher-default-style="{{i.refresherDefaultStyle===undefined?'black':i.refresherDefaultStyle}}" refresher-background="{{i.refresherBackground===undefined?'#FFF':i.refresherBackground}}" refresher-triggered="{{i.refresherTriggered===undefined?false:i.refresherTriggered}}" bindrefresherpulling="eh" bindrefresherrefresh="eh" bindrefresherrestore="eh" bindrefresherabort="eh" bindscrolltoupper="eh" bindscrolltolower="eh" bindscroll="eh" animation="{{i.animation}}" bindtransitionend="eh" bindanimationstart="eh" bindanimationiteration="eh" bindanimationend="eh" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_12_container" data="{{i: item}}" />
+    </block>
+  </scroll-view>
+</template>
+
+<template name="tmpl_11_navigator">
+  <navigator target="{{i.target===undefined?'self':i.target}}" url="{{i.url}}" open-type="{{i.openType===undefined?'navigate':i.openType}}" delta="{{i.delta===undefined?1:i.delta}}" app-id="{{i.appId}}" path="{{i.path}}" extra-data="{{i.extraData}}" version="{{i.version===undefined?'version':i.version}}" hover-class="{{i.hoverClass===undefined?'navigator-hover':i.hoverClass}}" hover-stop-propagation="{{i.hoverStopPropagation===undefined?false:i.hoverStopPropagation}}" hover-start-time="{{i.hoverStartTime===undefined?50:i.hoverStartTime}}" hover-stay-time="{{i.hoverStayTime===undefined?600:i.hoverStayTime}}" bindsuccess="eh" bindfail="eh" bindcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_12_container" data="{{i: item}}" />
+    </block>
+  </navigator>
+</template>
+
+<template name="tmpl_11_image">
+  <image src="{{i.src}}" mode="{{i.mode===undefined?'scaleToFill':i.mode}}" webp="{{i.webp===undefined?false:i.webp}}" lazy-load="{{i.lazyLoad===undefined?false:i.lazyLoad}}" show-menu-by-longpress="{{i.showMenuByLongpress===undefined?false:i.showMenuByLongpress}}" binderror="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_12_container" data="{{i: item}}" />
+    </block>
+  </image>
+</template>
+
+<template name="tmpl_11_video">
+  <video src="{{i.src}}" duration="{{i.duration}}" controls="{{i.controls===undefined?true:i.controls}}" danmu-list="{{i.danmuList}}" danmu-btn="{{i.danmuBtn}}" enable-danmu="{{i.enableDanmu}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" loop="{{i.loop===undefined?false:i.loop}}" muted="{{i.muted===undefined?false:i.muted}}" initial-time="{{i.initialTime===undefined?0:i.initialTime}}" page-gesture="{{i.pageGesture===undefined?false:i.pageGesture}}" direction="{{i.direction}}" show-progress="{{i.showProgress===undefined?true:i.showProgress}}" show-fullscreen-btn="{{i.showFullscreenBtn===undefined?true:i.showFullscreenBtn}}" show-play-btn="{{i.showPlayBtn===undefined?true:i.showPlayBtn}}" show-center-play-btn="{{i.showCenterPlayBtn===undefined?true:i.showCenterPlayBtn}}" enable-progress-gesture="{{i.enableProgressGesture===undefined?true:i.enableProgressGesture}}" object-fit="{{i.objectFit===undefined?'contain':i.objectFit}}" poster="{{i.poster}}" show-mute-btn="{{i.showMuteBtn===undefined?false:i.showMuteBtn}}" title="{{i.title}}" play-btn-position="{{i.playBtnPosition===undefined?'bottom':i.playBtnPosition}}" enable-play-gesture="{{i.enablePlayGesture===undefined?false:i.enablePlayGesture}}" auto-pause-if-navigate="{{i.autoPauseIfNavigate===undefined?true:i.autoPauseIfNavigate}}" auto-pause-if-open-native="{{i.autoPauseIfOpenNative===undefined?true:i.autoPauseIfOpenNative}}" vslide-gesture="{{i.vslideGesture===undefined?false:i.vslideGesture}}" vslide-gesture-in-fullscreen="{{i.vslideGestureInFullscreen===undefined?true:i.vslideGestureInFullscreen}}" ad-unit-id="{{i.adUnitId}}" poster-for-crawler="{{i.posterForCrawler}}" show-casting-button="{{i.showCastingButton===undefined?false:i.showCastingButton}}" picture-in-picture-mode="{{i.pictureInPictureMode===undefined?[]:i.pictureInPictureMode}}" enable-auto-rotation="{{i.enableAutoRotation===undefined?false:i.enableAutoRotation}}" show-screen-lock-button="{{i.showScreenLockButton===undefined?false:i.showScreenLockButton}}" bindplay="eh" bindpause="eh" bindended="eh" bindtimeupdate="eh" bindfullscreenchange="eh" bindwaiting="eh" binderror="eh" bindprogress="eh" bindloadedmetadata="eh" bindcontrolstoggle="eh" bindenterpictureinpicture="eh" bindleavepictureinpicture="eh" bindseekcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></video>
+</template>
+
+<template name="tmpl_11_web-view">
+  <web-view src="{{i.src}}" bindmessage="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_12_container" data="{{i: item}}" />
+    </block>
+  </web-view>
+</template>
+
+<template name="tmpl_11_#text" data="{{i: i}}">
+  <block>{{i.v}}</block>
+</template>
+
+<template name="tmpl_11_container" data="{{i: i}}">
+  <template is="{{'tmpl_11_' + i.nn}}" data="{{i: i}}" />
+</template>
+
+<template name="tmpl_12_view">
+  <view hover-class="{{i.hoverClass===undefined?'none':i.hoverClass}}" hover-stop-propagation="{{i.hoverStopPropagation===undefined?false:i.hoverStopPropagation}}" hover-start-time="{{i.hoverStartTime===undefined?50:i.hoverStartTime}}" hover-stay-time="{{i.hoverStayTime===undefined?400:i.hoverStayTime}}" animation="{{i.animation}}" bindanimationstart="eh" bindanimationiteration="eh" bindanimationend="eh" bindtransitionend="eh" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_13_container" data="{{i: item}}" />
+    </block>
+  </view>
+</template>
+
+<template name="tmpl_12_text">
+  <text selectable="{{i.selectable===undefined?false:i.selectable}}" space="{{i.space}}" decode="{{i.decode===undefined?false:i.decode}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_13_container" data="{{i: item}}" />
+    </block>
+  </text>
+</template>
+
+<template name="tmpl_12_button">
+  <button size="{{i.size===undefined?'default':i.size}}" type="{{i.type}}" plain="{{i.plain===undefined?false:i.plain}}" disabled="{{i.disabled}}" loading="{{i.loading===undefined?false:i.loading}}" form-type="{{i.formType}}" open-type="{{i.openType}}" hover-class="{{i.hoverClass===undefined?'button-hover':i.hoverClass}}" hover-stop-propagation="{{i.hoverStopPropagation===undefined?false:i.hoverStopPropagation}}" hover-start-time="{{i.hoverStartTime===undefined?20:i.hoverStartTime}}" hover-stay-time="{{i.hoverStayTime===undefined?70:i.hoverStayTime}}" lang="{{i.lang===undefined?en:i.lang}}" session-from="{{i.sessionFrom}}" send-message-title="{{i.sendMessageTitle}}" send-message-path="{{i.sendMessagePath}}" send-message-img="{{i.sendMessageImg}}" app-parameter="{{i.appParameter}}" show-message-card="{{i.showMessageCard===undefined?false:i.showMessageCard}}" bindgetuserinfo="eh" bindgetauthorize="eh" bindcontact="eh" bindgetphonenumber="eh" binderror="eh" bindopensetting="eh" bindlaunchapp="eh" scope="{{i.scope}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_13_container" data="{{i: item}}" />
+    </block>
+  </button>
+</template>
+
+<template name="tmpl_12_input">
+  <template is="{{xs.c(i, 'tmpl_12_')}}" data="{{i: i}}" />
+</template>
+
+<template name="tmpl_12_input_focus">
+  <input value="{{i.value}}" type="{{i.type===undefined?'':i.type}}" password="{{i.password===undefined?false:i.password}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'input-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" focus="{{i.focus===undefined?false:i.focus}}" confirm-type="{{i.confirmType===undefined?'done':i.confirmType}}" confirm-hold="{{i.confirmHold===undefined?false:i.confirmHold}}" cursor="{{i.cursor===undefined?i.value.length:i.cursor}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindinput="eh" bindfocus="eh" bindblur="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_12_input_blur">
+  <input value="{{i.value}}" type="{{i.type===undefined?'':i.type}}" password="{{i.password===undefined?false:i.password}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'input-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" confirm-type="{{i.confirmType===undefined?'done':i.confirmType}}" confirm-hold="{{i.confirmHold===undefined?false:i.confirmHold}}" cursor="{{i.cursor===undefined?i.value.length:i.cursor}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindinput="eh" bindfocus="eh" bindblur="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_12_picker">
+  <picker mode="{{i.mode===undefined?'selector':i.mode}}" disabled="{{i.disabled}}" bindcancel="eh" range="{{i.range}}" range-key="{{i.rangeKey}}" value="{{i.value}}" bindchange="eh" bindcolumnchange="eh" start="{{i.start}}" end="{{i.end}}" fields="{{i.fields===undefined?'day':i.fields}}" custom-item="{{i.customItem}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_13_container" data="{{i: item}}" />
+    </block>
+  </picker>
+</template>
+
+<template name="tmpl_12_scroll-view">
+  <scroll-view scroll-x="{{i.scrollX===undefined?false:i.scrollX}}" scroll-y="{{i.scrollY===undefined?false:i.scrollY}}" upper-threshold="{{i.upperThreshold===undefined?50:i.upperThreshold}}" lower-threshold="{{i.lowerThreshold===undefined?50:i.lowerThreshold}}" scroll-top="{{i.scrollTop}}" scroll-left="{{i.scrollLeft}}" scroll-into-view="{{i.scrollIntoView}}" scroll-with-animation="{{i.scrollWithAnimation===undefined?false:i.scrollWithAnimation}}" enable-back-to-top="{{i.enableBackToTop===undefined?false:i.enableBackToTop}}" enable-flex="{{i.enableFlex===undefined?false:i.enableFlex}}" scroll-anchoring="{{i.scrollAnchoring===undefined?false:i.scrollAnchoring}}" refresher-enabled="{{i.refresherEnabled===undefined?false:i.refresherEnabled}}" refresher-threshold="{{i.refresherThreshold===undefined?45:i.refresherThreshold}}" refresher-default-style="{{i.refresherDefaultStyle===undefined?'black':i.refresherDefaultStyle}}" refresher-background="{{i.refresherBackground===undefined?'#FFF':i.refresherBackground}}" refresher-triggered="{{i.refresherTriggered===undefined?false:i.refresherTriggered}}" bindrefresherpulling="eh" bindrefresherrefresh="eh" bindrefresherrestore="eh" bindrefresherabort="eh" bindscrolltoupper="eh" bindscrolltolower="eh" bindscroll="eh" animation="{{i.animation}}" bindtransitionend="eh" bindanimationstart="eh" bindanimationiteration="eh" bindanimationend="eh" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_13_container" data="{{i: item}}" />
+    </block>
+  </scroll-view>
+</template>
+
+<template name="tmpl_12_navigator">
+  <navigator target="{{i.target===undefined?'self':i.target}}" url="{{i.url}}" open-type="{{i.openType===undefined?'navigate':i.openType}}" delta="{{i.delta===undefined?1:i.delta}}" app-id="{{i.appId}}" path="{{i.path}}" extra-data="{{i.extraData}}" version="{{i.version===undefined?'version':i.version}}" hover-class="{{i.hoverClass===undefined?'navigator-hover':i.hoverClass}}" hover-stop-propagation="{{i.hoverStopPropagation===undefined?false:i.hoverStopPropagation}}" hover-start-time="{{i.hoverStartTime===undefined?50:i.hoverStartTime}}" hover-stay-time="{{i.hoverStayTime===undefined?600:i.hoverStayTime}}" bindsuccess="eh" bindfail="eh" bindcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_13_container" data="{{i: item}}" />
+    </block>
+  </navigator>
+</template>
+
+<template name="tmpl_12_image">
+  <image src="{{i.src}}" mode="{{i.mode===undefined?'scaleToFill':i.mode}}" webp="{{i.webp===undefined?false:i.webp}}" lazy-load="{{i.lazyLoad===undefined?false:i.lazyLoad}}" show-menu-by-longpress="{{i.showMenuByLongpress===undefined?false:i.showMenuByLongpress}}" binderror="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_13_container" data="{{i: item}}" />
+    </block>
+  </image>
+</template>
+
+<template name="tmpl_12_video">
+  <video src="{{i.src}}" duration="{{i.duration}}" controls="{{i.controls===undefined?true:i.controls}}" danmu-list="{{i.danmuList}}" danmu-btn="{{i.danmuBtn}}" enable-danmu="{{i.enableDanmu}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" loop="{{i.loop===undefined?false:i.loop}}" muted="{{i.muted===undefined?false:i.muted}}" initial-time="{{i.initialTime===undefined?0:i.initialTime}}" page-gesture="{{i.pageGesture===undefined?false:i.pageGesture}}" direction="{{i.direction}}" show-progress="{{i.showProgress===undefined?true:i.showProgress}}" show-fullscreen-btn="{{i.showFullscreenBtn===undefined?true:i.showFullscreenBtn}}" show-play-btn="{{i.showPlayBtn===undefined?true:i.showPlayBtn}}" show-center-play-btn="{{i.showCenterPlayBtn===undefined?true:i.showCenterPlayBtn}}" enable-progress-gesture="{{i.enableProgressGesture===undefined?true:i.enableProgressGesture}}" object-fit="{{i.objectFit===undefined?'contain':i.objectFit}}" poster="{{i.poster}}" show-mute-btn="{{i.showMuteBtn===undefined?false:i.showMuteBtn}}" title="{{i.title}}" play-btn-position="{{i.playBtnPosition===undefined?'bottom':i.playBtnPosition}}" enable-play-gesture="{{i.enablePlayGesture===undefined?false:i.enablePlayGesture}}" auto-pause-if-navigate="{{i.autoPauseIfNavigate===undefined?true:i.autoPauseIfNavigate}}" auto-pause-if-open-native="{{i.autoPauseIfOpenNative===undefined?true:i.autoPauseIfOpenNative}}" vslide-gesture="{{i.vslideGesture===undefined?false:i.vslideGesture}}" vslide-gesture-in-fullscreen="{{i.vslideGestureInFullscreen===undefined?true:i.vslideGestureInFullscreen}}" ad-unit-id="{{i.adUnitId}}" poster-for-crawler="{{i.posterForCrawler}}" show-casting-button="{{i.showCastingButton===undefined?false:i.showCastingButton}}" picture-in-picture-mode="{{i.pictureInPictureMode===undefined?[]:i.pictureInPictureMode}}" enable-auto-rotation="{{i.enableAutoRotation===undefined?false:i.enableAutoRotation}}" show-screen-lock-button="{{i.showScreenLockButton===undefined?false:i.showScreenLockButton}}" bindplay="eh" bindpause="eh" bindended="eh" bindtimeupdate="eh" bindfullscreenchange="eh" bindwaiting="eh" binderror="eh" bindprogress="eh" bindloadedmetadata="eh" bindcontrolstoggle="eh" bindenterpictureinpicture="eh" bindleavepictureinpicture="eh" bindseekcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></video>
+</template>
+
+<template name="tmpl_12_web-view">
+  <web-view src="{{i.src}}" bindmessage="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_13_container" data="{{i: item}}" />
+    </block>
+  </web-view>
+</template>
+
+<template name="tmpl_12_#text" data="{{i: i}}">
+  <block>{{i.v}}</block>
+</template>
+
+<template name="tmpl_12_container" data="{{i: i}}">
+  <template is="{{'tmpl_12_' + i.nn}}" data="{{i: i}}" />
+</template>
+
+<template name="tmpl_13_view">
+  <view hover-class="{{i.hoverClass===undefined?'none':i.hoverClass}}" hover-stop-propagation="{{i.hoverStopPropagation===undefined?false:i.hoverStopPropagation}}" hover-start-time="{{i.hoverStartTime===undefined?50:i.hoverStartTime}}" hover-stay-time="{{i.hoverStayTime===undefined?400:i.hoverStayTime}}" animation="{{i.animation}}" bindanimationstart="eh" bindanimationiteration="eh" bindanimationend="eh" bindtransitionend="eh" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_14_container" data="{{i: item}}" />
+    </block>
+  </view>
+</template>
+
+<template name="tmpl_13_text">
+  <text selectable="{{i.selectable===undefined?false:i.selectable}}" space="{{i.space}}" decode="{{i.decode===undefined?false:i.decode}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_14_container" data="{{i: item}}" />
+    </block>
+  </text>
+</template>
+
+<template name="tmpl_13_button">
+  <button size="{{i.size===undefined?'default':i.size}}" type="{{i.type}}" plain="{{i.plain===undefined?false:i.plain}}" disabled="{{i.disabled}}" loading="{{i.loading===undefined?false:i.loading}}" form-type="{{i.formType}}" open-type="{{i.openType}}" hover-class="{{i.hoverClass===undefined?'button-hover':i.hoverClass}}" hover-stop-propagation="{{i.hoverStopPropagation===undefined?false:i.hoverStopPropagation}}" hover-start-time="{{i.hoverStartTime===undefined?20:i.hoverStartTime}}" hover-stay-time="{{i.hoverStayTime===undefined?70:i.hoverStayTime}}" lang="{{i.lang===undefined?en:i.lang}}" session-from="{{i.sessionFrom}}" send-message-title="{{i.sendMessageTitle}}" send-message-path="{{i.sendMessagePath}}" send-message-img="{{i.sendMessageImg}}" app-parameter="{{i.appParameter}}" show-message-card="{{i.showMessageCard===undefined?false:i.showMessageCard}}" bindgetuserinfo="eh" bindgetauthorize="eh" bindcontact="eh" bindgetphonenumber="eh" binderror="eh" bindopensetting="eh" bindlaunchapp="eh" scope="{{i.scope}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_14_container" data="{{i: item}}" />
+    </block>
+  </button>
+</template>
+
+<template name="tmpl_13_input">
+  <template is="{{xs.c(i, 'tmpl_13_')}}" data="{{i: i}}" />
+</template>
+
+<template name="tmpl_13_input_focus">
+  <input value="{{i.value}}" type="{{i.type===undefined?'':i.type}}" password="{{i.password===undefined?false:i.password}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'input-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" focus="{{i.focus===undefined?false:i.focus}}" confirm-type="{{i.confirmType===undefined?'done':i.confirmType}}" confirm-hold="{{i.confirmHold===undefined?false:i.confirmHold}}" cursor="{{i.cursor===undefined?i.value.length:i.cursor}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindinput="eh" bindfocus="eh" bindblur="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_13_input_blur">
+  <input value="{{i.value}}" type="{{i.type===undefined?'':i.type}}" password="{{i.password===undefined?false:i.password}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'input-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" confirm-type="{{i.confirmType===undefined?'done':i.confirmType}}" confirm-hold="{{i.confirmHold===undefined?false:i.confirmHold}}" cursor="{{i.cursor===undefined?i.value.length:i.cursor}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindinput="eh" bindfocus="eh" bindblur="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_13_picker">
+  <picker mode="{{i.mode===undefined?'selector':i.mode}}" disabled="{{i.disabled}}" bindcancel="eh" range="{{i.range}}" range-key="{{i.rangeKey}}" value="{{i.value}}" bindchange="eh" bindcolumnchange="eh" start="{{i.start}}" end="{{i.end}}" fields="{{i.fields===undefined?'day':i.fields}}" custom-item="{{i.customItem}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_14_container" data="{{i: item}}" />
+    </block>
+  </picker>
+</template>
+
+<template name="tmpl_13_scroll-view">
+  <scroll-view scroll-x="{{i.scrollX===undefined?false:i.scrollX}}" scroll-y="{{i.scrollY===undefined?false:i.scrollY}}" upper-threshold="{{i.upperThreshold===undefined?50:i.upperThreshold}}" lower-threshold="{{i.lowerThreshold===undefined?50:i.lowerThreshold}}" scroll-top="{{i.scrollTop}}" scroll-left="{{i.scrollLeft}}" scroll-into-view="{{i.scrollIntoView}}" scroll-with-animation="{{i.scrollWithAnimation===undefined?false:i.scrollWithAnimation}}" enable-back-to-top="{{i.enableBackToTop===undefined?false:i.enableBackToTop}}" enable-flex="{{i.enableFlex===undefined?false:i.enableFlex}}" scroll-anchoring="{{i.scrollAnchoring===undefined?false:i.scrollAnchoring}}" refresher-enabled="{{i.refresherEnabled===undefined?false:i.refresherEnabled}}" refresher-threshold="{{i.refresherThreshold===undefined?45:i.refresherThreshold}}" refresher-default-style="{{i.refresherDefaultStyle===undefined?'black':i.refresherDefaultStyle}}" refresher-background="{{i.refresherBackground===undefined?'#FFF':i.refresherBackground}}" refresher-triggered="{{i.refresherTriggered===undefined?false:i.refresherTriggered}}" bindrefresherpulling="eh" bindrefresherrefresh="eh" bindrefresherrestore="eh" bindrefresherabort="eh" bindscrolltoupper="eh" bindscrolltolower="eh" bindscroll="eh" animation="{{i.animation}}" bindtransitionend="eh" bindanimationstart="eh" bindanimationiteration="eh" bindanimationend="eh" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_14_container" data="{{i: item}}" />
+    </block>
+  </scroll-view>
+</template>
+
+<template name="tmpl_13_navigator">
+  <navigator target="{{i.target===undefined?'self':i.target}}" url="{{i.url}}" open-type="{{i.openType===undefined?'navigate':i.openType}}" delta="{{i.delta===undefined?1:i.delta}}" app-id="{{i.appId}}" path="{{i.path}}" extra-data="{{i.extraData}}" version="{{i.version===undefined?'version':i.version}}" hover-class="{{i.hoverClass===undefined?'navigator-hover':i.hoverClass}}" hover-stop-propagation="{{i.hoverStopPropagation===undefined?false:i.hoverStopPropagation}}" hover-start-time="{{i.hoverStartTime===undefined?50:i.hoverStartTime}}" hover-stay-time="{{i.hoverStayTime===undefined?600:i.hoverStayTime}}" bindsuccess="eh" bindfail="eh" bindcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_14_container" data="{{i: item}}" />
+    </block>
+  </navigator>
+</template>
+
+<template name="tmpl_13_image">
+  <image src="{{i.src}}" mode="{{i.mode===undefined?'scaleToFill':i.mode}}" webp="{{i.webp===undefined?false:i.webp}}" lazy-load="{{i.lazyLoad===undefined?false:i.lazyLoad}}" show-menu-by-longpress="{{i.showMenuByLongpress===undefined?false:i.showMenuByLongpress}}" binderror="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_14_container" data="{{i: item}}" />
+    </block>
+  </image>
+</template>
+
+<template name="tmpl_13_video">
+  <video src="{{i.src}}" duration="{{i.duration}}" controls="{{i.controls===undefined?true:i.controls}}" danmu-list="{{i.danmuList}}" danmu-btn="{{i.danmuBtn}}" enable-danmu="{{i.enableDanmu}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" loop="{{i.loop===undefined?false:i.loop}}" muted="{{i.muted===undefined?false:i.muted}}" initial-time="{{i.initialTime===undefined?0:i.initialTime}}" page-gesture="{{i.pageGesture===undefined?false:i.pageGesture}}" direction="{{i.direction}}" show-progress="{{i.showProgress===undefined?true:i.showProgress}}" show-fullscreen-btn="{{i.showFullscreenBtn===undefined?true:i.showFullscreenBtn}}" show-play-btn="{{i.showPlayBtn===undefined?true:i.showPlayBtn}}" show-center-play-btn="{{i.showCenterPlayBtn===undefined?true:i.showCenterPlayBtn}}" enable-progress-gesture="{{i.enableProgressGesture===undefined?true:i.enableProgressGesture}}" object-fit="{{i.objectFit===undefined?'contain':i.objectFit}}" poster="{{i.poster}}" show-mute-btn="{{i.showMuteBtn===undefined?false:i.showMuteBtn}}" title="{{i.title}}" play-btn-position="{{i.playBtnPosition===undefined?'bottom':i.playBtnPosition}}" enable-play-gesture="{{i.enablePlayGesture===undefined?false:i.enablePlayGesture}}" auto-pause-if-navigate="{{i.autoPauseIfNavigate===undefined?true:i.autoPauseIfNavigate}}" auto-pause-if-open-native="{{i.autoPauseIfOpenNative===undefined?true:i.autoPauseIfOpenNative}}" vslide-gesture="{{i.vslideGesture===undefined?false:i.vslideGesture}}" vslide-gesture-in-fullscreen="{{i.vslideGestureInFullscreen===undefined?true:i.vslideGestureInFullscreen}}" ad-unit-id="{{i.adUnitId}}" poster-for-crawler="{{i.posterForCrawler}}" show-casting-button="{{i.showCastingButton===undefined?false:i.showCastingButton}}" picture-in-picture-mode="{{i.pictureInPictureMode===undefined?[]:i.pictureInPictureMode}}" enable-auto-rotation="{{i.enableAutoRotation===undefined?false:i.enableAutoRotation}}" show-screen-lock-button="{{i.showScreenLockButton===undefined?false:i.showScreenLockButton}}" bindplay="eh" bindpause="eh" bindended="eh" bindtimeupdate="eh" bindfullscreenchange="eh" bindwaiting="eh" binderror="eh" bindprogress="eh" bindloadedmetadata="eh" bindcontrolstoggle="eh" bindenterpictureinpicture="eh" bindleavepictureinpicture="eh" bindseekcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></video>
+</template>
+
+<template name="tmpl_13_web-view">
+  <web-view src="{{i.src}}" bindmessage="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_14_container" data="{{i: item}}" />
+    </block>
+  </web-view>
+</template>
+
+<template name="tmpl_13_#text" data="{{i: i}}">
+  <block>{{i.v}}</block>
+</template>
+
+<template name="tmpl_13_container" data="{{i: i}}">
+  <template is="{{'tmpl_13_' + i.nn}}" data="{{i: i}}" />
+</template>
+
+<template name="tmpl_14_view">
+  <view hover-class="{{i.hoverClass===undefined?'none':i.hoverClass}}" hover-stop-propagation="{{i.hoverStopPropagation===undefined?false:i.hoverStopPropagation}}" hover-start-time="{{i.hoverStartTime===undefined?50:i.hoverStartTime}}" hover-stay-time="{{i.hoverStayTime===undefined?400:i.hoverStayTime}}" animation="{{i.animation}}" bindanimationstart="eh" bindanimationiteration="eh" bindanimationend="eh" bindtransitionend="eh" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_15_container" data="{{i: item}}" />
+    </block>
+  </view>
+</template>
+
+<template name="tmpl_14_text">
+  <text selectable="{{i.selectable===undefined?false:i.selectable}}" space="{{i.space}}" decode="{{i.decode===undefined?false:i.decode}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_15_container" data="{{i: item}}" />
+    </block>
+  </text>
+</template>
+
+<template name="tmpl_14_button">
+  <button size="{{i.size===undefined?'default':i.size}}" type="{{i.type}}" plain="{{i.plain===undefined?false:i.plain}}" disabled="{{i.disabled}}" loading="{{i.loading===undefined?false:i.loading}}" form-type="{{i.formType}}" open-type="{{i.openType}}" hover-class="{{i.hoverClass===undefined?'button-hover':i.hoverClass}}" hover-stop-propagation="{{i.hoverStopPropagation===undefined?false:i.hoverStopPropagation}}" hover-start-time="{{i.hoverStartTime===undefined?20:i.hoverStartTime}}" hover-stay-time="{{i.hoverStayTime===undefined?70:i.hoverStayTime}}" lang="{{i.lang===undefined?en:i.lang}}" session-from="{{i.sessionFrom}}" send-message-title="{{i.sendMessageTitle}}" send-message-path="{{i.sendMessagePath}}" send-message-img="{{i.sendMessageImg}}" app-parameter="{{i.appParameter}}" show-message-card="{{i.showMessageCard===undefined?false:i.showMessageCard}}" bindgetuserinfo="eh" bindgetauthorize="eh" bindcontact="eh" bindgetphonenumber="eh" binderror="eh" bindopensetting="eh" bindlaunchapp="eh" scope="{{i.scope}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_15_container" data="{{i: item}}" />
+    </block>
+  </button>
+</template>
+
+<template name="tmpl_14_input">
+  <template is="{{xs.c(i, 'tmpl_14_')}}" data="{{i: i}}" />
+</template>
+
+<template name="tmpl_14_input_focus">
+  <input value="{{i.value}}" type="{{i.type===undefined?'':i.type}}" password="{{i.password===undefined?false:i.password}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'input-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" focus="{{i.focus===undefined?false:i.focus}}" confirm-type="{{i.confirmType===undefined?'done':i.confirmType}}" confirm-hold="{{i.confirmHold===undefined?false:i.confirmHold}}" cursor="{{i.cursor===undefined?i.value.length:i.cursor}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindinput="eh" bindfocus="eh" bindblur="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_14_input_blur">
+  <input value="{{i.value}}" type="{{i.type===undefined?'':i.type}}" password="{{i.password===undefined?false:i.password}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'input-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" confirm-type="{{i.confirmType===undefined?'done':i.confirmType}}" confirm-hold="{{i.confirmHold===undefined?false:i.confirmHold}}" cursor="{{i.cursor===undefined?i.value.length:i.cursor}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindinput="eh" bindfocus="eh" bindblur="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_14_picker">
+  <picker mode="{{i.mode===undefined?'selector':i.mode}}" disabled="{{i.disabled}}" bindcancel="eh" range="{{i.range}}" range-key="{{i.rangeKey}}" value="{{i.value}}" bindchange="eh" bindcolumnchange="eh" start="{{i.start}}" end="{{i.end}}" fields="{{i.fields===undefined?'day':i.fields}}" custom-item="{{i.customItem}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_15_container" data="{{i: item}}" />
+    </block>
+  </picker>
+</template>
+
+<template name="tmpl_14_scroll-view">
+  <scroll-view scroll-x="{{i.scrollX===undefined?false:i.scrollX}}" scroll-y="{{i.scrollY===undefined?false:i.scrollY}}" upper-threshold="{{i.upperThreshold===undefined?50:i.upperThreshold}}" lower-threshold="{{i.lowerThreshold===undefined?50:i.lowerThreshold}}" scroll-top="{{i.scrollTop}}" scroll-left="{{i.scrollLeft}}" scroll-into-view="{{i.scrollIntoView}}" scroll-with-animation="{{i.scrollWithAnimation===undefined?false:i.scrollWithAnimation}}" enable-back-to-top="{{i.enableBackToTop===undefined?false:i.enableBackToTop}}" enable-flex="{{i.enableFlex===undefined?false:i.enableFlex}}" scroll-anchoring="{{i.scrollAnchoring===undefined?false:i.scrollAnchoring}}" refresher-enabled="{{i.refresherEnabled===undefined?false:i.refresherEnabled}}" refresher-threshold="{{i.refresherThreshold===undefined?45:i.refresherThreshold}}" refresher-default-style="{{i.refresherDefaultStyle===undefined?'black':i.refresherDefaultStyle}}" refresher-background="{{i.refresherBackground===undefined?'#FFF':i.refresherBackground}}" refresher-triggered="{{i.refresherTriggered===undefined?false:i.refresherTriggered}}" bindrefresherpulling="eh" bindrefresherrefresh="eh" bindrefresherrestore="eh" bindrefresherabort="eh" bindscrolltoupper="eh" bindscrolltolower="eh" bindscroll="eh" animation="{{i.animation}}" bindtransitionend="eh" bindanimationstart="eh" bindanimationiteration="eh" bindanimationend="eh" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_15_container" data="{{i: item}}" />
+    </block>
+  </scroll-view>
+</template>
+
+<template name="tmpl_14_navigator">
+  <navigator target="{{i.target===undefined?'self':i.target}}" url="{{i.url}}" open-type="{{i.openType===undefined?'navigate':i.openType}}" delta="{{i.delta===undefined?1:i.delta}}" app-id="{{i.appId}}" path="{{i.path}}" extra-data="{{i.extraData}}" version="{{i.version===undefined?'version':i.version}}" hover-class="{{i.hoverClass===undefined?'navigator-hover':i.hoverClass}}" hover-stop-propagation="{{i.hoverStopPropagation===undefined?false:i.hoverStopPropagation}}" hover-start-time="{{i.hoverStartTime===undefined?50:i.hoverStartTime}}" hover-stay-time="{{i.hoverStayTime===undefined?600:i.hoverStayTime}}" bindsuccess="eh" bindfail="eh" bindcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_15_container" data="{{i: item}}" />
+    </block>
+  </navigator>
+</template>
+
+<template name="tmpl_14_image">
+  <image src="{{i.src}}" mode="{{i.mode===undefined?'scaleToFill':i.mode}}" webp="{{i.webp===undefined?false:i.webp}}" lazy-load="{{i.lazyLoad===undefined?false:i.lazyLoad}}" show-menu-by-longpress="{{i.showMenuByLongpress===undefined?false:i.showMenuByLongpress}}" binderror="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_15_container" data="{{i: item}}" />
+    </block>
+  </image>
+</template>
+
+<template name="tmpl_14_video">
+  <video src="{{i.src}}" duration="{{i.duration}}" controls="{{i.controls===undefined?true:i.controls}}" danmu-list="{{i.danmuList}}" danmu-btn="{{i.danmuBtn}}" enable-danmu="{{i.enableDanmu}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" loop="{{i.loop===undefined?false:i.loop}}" muted="{{i.muted===undefined?false:i.muted}}" initial-time="{{i.initialTime===undefined?0:i.initialTime}}" page-gesture="{{i.pageGesture===undefined?false:i.pageGesture}}" direction="{{i.direction}}" show-progress="{{i.showProgress===undefined?true:i.showProgress}}" show-fullscreen-btn="{{i.showFullscreenBtn===undefined?true:i.showFullscreenBtn}}" show-play-btn="{{i.showPlayBtn===undefined?true:i.showPlayBtn}}" show-center-play-btn="{{i.showCenterPlayBtn===undefined?true:i.showCenterPlayBtn}}" enable-progress-gesture="{{i.enableProgressGesture===undefined?true:i.enableProgressGesture}}" object-fit="{{i.objectFit===undefined?'contain':i.objectFit}}" poster="{{i.poster}}" show-mute-btn="{{i.showMuteBtn===undefined?false:i.showMuteBtn}}" title="{{i.title}}" play-btn-position="{{i.playBtnPosition===undefined?'bottom':i.playBtnPosition}}" enable-play-gesture="{{i.enablePlayGesture===undefined?false:i.enablePlayGesture}}" auto-pause-if-navigate="{{i.autoPauseIfNavigate===undefined?true:i.autoPauseIfNavigate}}" auto-pause-if-open-native="{{i.autoPauseIfOpenNative===undefined?true:i.autoPauseIfOpenNative}}" vslide-gesture="{{i.vslideGesture===undefined?false:i.vslideGesture}}" vslide-gesture-in-fullscreen="{{i.vslideGestureInFullscreen===undefined?true:i.vslideGestureInFullscreen}}" ad-unit-id="{{i.adUnitId}}" poster-for-crawler="{{i.posterForCrawler}}" show-casting-button="{{i.showCastingButton===undefined?false:i.showCastingButton}}" picture-in-picture-mode="{{i.pictureInPictureMode===undefined?[]:i.pictureInPictureMode}}" enable-auto-rotation="{{i.enableAutoRotation===undefined?false:i.enableAutoRotation}}" show-screen-lock-button="{{i.showScreenLockButton===undefined?false:i.showScreenLockButton}}" bindplay="eh" bindpause="eh" bindended="eh" bindtimeupdate="eh" bindfullscreenchange="eh" bindwaiting="eh" binderror="eh" bindprogress="eh" bindloadedmetadata="eh" bindcontrolstoggle="eh" bindenterpictureinpicture="eh" bindleavepictureinpicture="eh" bindseekcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></video>
+</template>
+
+<template name="tmpl_14_web-view">
+  <web-view src="{{i.src}}" bindmessage="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_15_container" data="{{i: item}}" />
+    </block>
+  </web-view>
+</template>
+
+<template name="tmpl_14_#text" data="{{i: i}}">
+  <block>{{i.v}}</block>
+</template>
+
+<template name="tmpl_14_container" data="{{i: i}}">
+  <template is="{{'tmpl_14_' + i.nn}}" data="{{i: i}}" />
+</template>
+
+<template name="tmpl_15_view">
+  <view hover-class="{{i.hoverClass===undefined?'none':i.hoverClass}}" hover-stop-propagation="{{i.hoverStopPropagation===undefined?false:i.hoverStopPropagation}}" hover-start-time="{{i.hoverStartTime===undefined?50:i.hoverStartTime}}" hover-stay-time="{{i.hoverStayTime===undefined?400:i.hoverStayTime}}" animation="{{i.animation}}" bindanimationstart="eh" bindanimationiteration="eh" bindanimationend="eh" bindtransitionend="eh" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_16_container" data="{{i: item}}" />
+    </block>
+  </view>
+</template>
+
+<template name="tmpl_15_text">
+  <text selectable="{{i.selectable===undefined?false:i.selectable}}" space="{{i.space}}" decode="{{i.decode===undefined?false:i.decode}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_16_container" data="{{i: item}}" />
+    </block>
+  </text>
+</template>
+
+<template name="tmpl_15_button">
+  <button size="{{i.size===undefined?'default':i.size}}" type="{{i.type}}" plain="{{i.plain===undefined?false:i.plain}}" disabled="{{i.disabled}}" loading="{{i.loading===undefined?false:i.loading}}" form-type="{{i.formType}}" open-type="{{i.openType}}" hover-class="{{i.hoverClass===undefined?'button-hover':i.hoverClass}}" hover-stop-propagation="{{i.hoverStopPropagation===undefined?false:i.hoverStopPropagation}}" hover-start-time="{{i.hoverStartTime===undefined?20:i.hoverStartTime}}" hover-stay-time="{{i.hoverStayTime===undefined?70:i.hoverStayTime}}" lang="{{i.lang===undefined?en:i.lang}}" session-from="{{i.sessionFrom}}" send-message-title="{{i.sendMessageTitle}}" send-message-path="{{i.sendMessagePath}}" send-message-img="{{i.sendMessageImg}}" app-parameter="{{i.appParameter}}" show-message-card="{{i.showMessageCard===undefined?false:i.showMessageCard}}" bindgetuserinfo="eh" bindgetauthorize="eh" bindcontact="eh" bindgetphonenumber="eh" binderror="eh" bindopensetting="eh" bindlaunchapp="eh" scope="{{i.scope}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_16_container" data="{{i: item}}" />
+    </block>
+  </button>
+</template>
+
+<template name="tmpl_15_input">
+  <template is="{{xs.c(i, 'tmpl_15_')}}" data="{{i: i}}" />
+</template>
+
+<template name="tmpl_15_input_focus">
+  <input value="{{i.value}}" type="{{i.type===undefined?'':i.type}}" password="{{i.password===undefined?false:i.password}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'input-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" focus="{{i.focus===undefined?false:i.focus}}" confirm-type="{{i.confirmType===undefined?'done':i.confirmType}}" confirm-hold="{{i.confirmHold===undefined?false:i.confirmHold}}" cursor="{{i.cursor===undefined?i.value.length:i.cursor}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindinput="eh" bindfocus="eh" bindblur="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_15_input_blur">
+  <input value="{{i.value}}" type="{{i.type===undefined?'':i.type}}" password="{{i.password===undefined?false:i.password}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'input-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" confirm-type="{{i.confirmType===undefined?'done':i.confirmType}}" confirm-hold="{{i.confirmHold===undefined?false:i.confirmHold}}" cursor="{{i.cursor===undefined?i.value.length:i.cursor}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindinput="eh" bindfocus="eh" bindblur="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_15_picker">
+  <picker mode="{{i.mode===undefined?'selector':i.mode}}" disabled="{{i.disabled}}" bindcancel="eh" range="{{i.range}}" range-key="{{i.rangeKey}}" value="{{i.value}}" bindchange="eh" bindcolumnchange="eh" start="{{i.start}}" end="{{i.end}}" fields="{{i.fields===undefined?'day':i.fields}}" custom-item="{{i.customItem}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_16_container" data="{{i: item}}" />
+    </block>
+  </picker>
+</template>
+
+<template name="tmpl_15_scroll-view">
+  <scroll-view scroll-x="{{i.scrollX===undefined?false:i.scrollX}}" scroll-y="{{i.scrollY===undefined?false:i.scrollY}}" upper-threshold="{{i.upperThreshold===undefined?50:i.upperThreshold}}" lower-threshold="{{i.lowerThreshold===undefined?50:i.lowerThreshold}}" scroll-top="{{i.scrollTop}}" scroll-left="{{i.scrollLeft}}" scroll-into-view="{{i.scrollIntoView}}" scroll-with-animation="{{i.scrollWithAnimation===undefined?false:i.scrollWithAnimation}}" enable-back-to-top="{{i.enableBackToTop===undefined?false:i.enableBackToTop}}" enable-flex="{{i.enableFlex===undefined?false:i.enableFlex}}" scroll-anchoring="{{i.scrollAnchoring===undefined?false:i.scrollAnchoring}}" refresher-enabled="{{i.refresherEnabled===undefined?false:i.refresherEnabled}}" refresher-threshold="{{i.refresherThreshold===undefined?45:i.refresherThreshold}}" refresher-default-style="{{i.refresherDefaultStyle===undefined?'black':i.refresherDefaultStyle}}" refresher-background="{{i.refresherBackground===undefined?'#FFF':i.refresherBackground}}" refresher-triggered="{{i.refresherTriggered===undefined?false:i.refresherTriggered}}" bindrefresherpulling="eh" bindrefresherrefresh="eh" bindrefresherrestore="eh" bindrefresherabort="eh" bindscrolltoupper="eh" bindscrolltolower="eh" bindscroll="eh" animation="{{i.animation}}" bindtransitionend="eh" bindanimationstart="eh" bindanimationiteration="eh" bindanimationend="eh" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_16_container" data="{{i: item}}" />
+    </block>
+  </scroll-view>
+</template>
+
+<template name="tmpl_15_navigator">
+  <navigator target="{{i.target===undefined?'self':i.target}}" url="{{i.url}}" open-type="{{i.openType===undefined?'navigate':i.openType}}" delta="{{i.delta===undefined?1:i.delta}}" app-id="{{i.appId}}" path="{{i.path}}" extra-data="{{i.extraData}}" version="{{i.version===undefined?'version':i.version}}" hover-class="{{i.hoverClass===undefined?'navigator-hover':i.hoverClass}}" hover-stop-propagation="{{i.hoverStopPropagation===undefined?false:i.hoverStopPropagation}}" hover-start-time="{{i.hoverStartTime===undefined?50:i.hoverStartTime}}" hover-stay-time="{{i.hoverStayTime===undefined?600:i.hoverStayTime}}" bindsuccess="eh" bindfail="eh" bindcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_16_container" data="{{i: item}}" />
+    </block>
+  </navigator>
+</template>
+
+<template name="tmpl_15_image">
+  <image src="{{i.src}}" mode="{{i.mode===undefined?'scaleToFill':i.mode}}" webp="{{i.webp===undefined?false:i.webp}}" lazy-load="{{i.lazyLoad===undefined?false:i.lazyLoad}}" show-menu-by-longpress="{{i.showMenuByLongpress===undefined?false:i.showMenuByLongpress}}" binderror="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_16_container" data="{{i: item}}" />
+    </block>
+  </image>
+</template>
+
+<template name="tmpl_15_video">
+  <video src="{{i.src}}" duration="{{i.duration}}" controls="{{i.controls===undefined?true:i.controls}}" danmu-list="{{i.danmuList}}" danmu-btn="{{i.danmuBtn}}" enable-danmu="{{i.enableDanmu}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" loop="{{i.loop===undefined?false:i.loop}}" muted="{{i.muted===undefined?false:i.muted}}" initial-time="{{i.initialTime===undefined?0:i.initialTime}}" page-gesture="{{i.pageGesture===undefined?false:i.pageGesture}}" direction="{{i.direction}}" show-progress="{{i.showProgress===undefined?true:i.showProgress}}" show-fullscreen-btn="{{i.showFullscreenBtn===undefined?true:i.showFullscreenBtn}}" show-play-btn="{{i.showPlayBtn===undefined?true:i.showPlayBtn}}" show-center-play-btn="{{i.showCenterPlayBtn===undefined?true:i.showCenterPlayBtn}}" enable-progress-gesture="{{i.enableProgressGesture===undefined?true:i.enableProgressGesture}}" object-fit="{{i.objectFit===undefined?'contain':i.objectFit}}" poster="{{i.poster}}" show-mute-btn="{{i.showMuteBtn===undefined?false:i.showMuteBtn}}" title="{{i.title}}" play-btn-position="{{i.playBtnPosition===undefined?'bottom':i.playBtnPosition}}" enable-play-gesture="{{i.enablePlayGesture===undefined?false:i.enablePlayGesture}}" auto-pause-if-navigate="{{i.autoPauseIfNavigate===undefined?true:i.autoPauseIfNavigate}}" auto-pause-if-open-native="{{i.autoPauseIfOpenNative===undefined?true:i.autoPauseIfOpenNative}}" vslide-gesture="{{i.vslideGesture===undefined?false:i.vslideGesture}}" vslide-gesture-in-fullscreen="{{i.vslideGestureInFullscreen===undefined?true:i.vslideGestureInFullscreen}}" ad-unit-id="{{i.adUnitId}}" poster-for-crawler="{{i.posterForCrawler}}" show-casting-button="{{i.showCastingButton===undefined?false:i.showCastingButton}}" picture-in-picture-mode="{{i.pictureInPictureMode===undefined?[]:i.pictureInPictureMode}}" enable-auto-rotation="{{i.enableAutoRotation===undefined?false:i.enableAutoRotation}}" show-screen-lock-button="{{i.showScreenLockButton===undefined?false:i.showScreenLockButton}}" bindplay="eh" bindpause="eh" bindended="eh" bindtimeupdate="eh" bindfullscreenchange="eh" bindwaiting="eh" binderror="eh" bindprogress="eh" bindloadedmetadata="eh" bindcontrolstoggle="eh" bindenterpictureinpicture="eh" bindleavepictureinpicture="eh" bindseekcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></video>
+</template>
+
+<template name="tmpl_15_web-view">
+  <web-view src="{{i.src}}" bindmessage="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_16_container" data="{{i: item}}" />
+    </block>
+  </web-view>
+</template>
+
+<template name="tmpl_15_#text" data="{{i: i}}">
+  <block>{{i.v}}</block>
+</template>
+
+<template name="tmpl_15_container" data="{{i: i}}">
+  <comp i="{{i}}" />
+</template>
