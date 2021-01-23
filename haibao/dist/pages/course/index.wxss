@@ -186,6 +186,9 @@
 .list-content .list .item .item-r .btn-box .btn.active {
               background: #ed1b2e;
 }
+.list-content .list .item .item-r .btn-box .btn.reserve {
+              background: #000;
+}
 .select-box {
   position: absolute;
   top: 0;

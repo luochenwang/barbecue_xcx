@@ -93,6 +93,19 @@ component.options.__file = "src/pages/course/list.vue"
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -106,8 +119,10 @@ component.options.__file = "src/pages/course/list.vue"
       multiArray: [[{}], [{}], [{}]],
       list: [],
       viewVideoSrc: '',
-      page_id: 1,
-      maxPage: 2
+      pageId: 1,
+      maxPage: 2,
+      categoryId: '',
+      listCat: ''
     };
   },
   components: {
@@ -115,6 +130,8 @@ component.options.__file = "src/pages/course/list.vue"
   },
   onLoad: function onLoad(option) {
     this.title = option.title;
+    this.categoryId = option.category_id;
+    this.listCat = option.cat;
   },
   mounted: function mounted() {
     var _this = this;
@@ -123,9 +140,9 @@ component.options.__file = "src/pages/course/list.vue"
       url: 'xcx_request.php',
       data: {
         act: 'get_class_industry',
-        product_id: 1,
+        product_id: 0,
         // 产品id
-        purpose_id: 1 // 目的id
+        purpose_id: 0 // 目的id
 
       }
     }).then(function (res) {
@@ -135,14 +152,39 @@ component.options.__file = "src/pages/course/list.vue"
     });
   },
   methods: {
+    // 预约
+    reserve: function reserve(item, index) {
+      Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_1__[/* ajax */ "a"])({
+        url: 'xcx_request.php',
+        data: {
+          act: 'set_appointment',
+          class_id: item.class_id
+        }
+      }).then(function (res) {
+        if (res.status == 1) {
+          wx.showToast({
+            title: '预约成功，可至个人中心查看',
+            icon: 'none',
+            duration: 2000
+          });
+          item.is_myappointment = 1;
+        } else {
+          wx.showToast({
+            title: res.msg,
+            icon: 'none',
+            duration: 2000
+          });
+        }
+      });
+    },
     loadMore: function loadMore() {
       var self = this; // 当前页是最后一页
 
-      if (self.page_id > this.maxPage) {
+      if (self.pageId > this.maxPage) {
         return;
       }
 
-      ++self.page_id;
+      ++self.pageId;
       self.getData();
     },
     getData: function getData() {
@@ -151,17 +193,19 @@ component.options.__file = "src/pages/course/list.vue"
       Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_1__[/* ajax */ "a"])({
         url: 'xcx_request.php',
         data: {
-          act: 'get_class_list',
-          category_id: 1,
+          act: this.listCat || 'get_class_list',
+          category_id: this.categoryId,
           industry_id: this.multiArray[0][this.multiIndex[0]].id,
-          purpose_id: 1,
-          product_id: this.multiArray[2][this.multiIndex[2]].id,
-          page_id: this.page_id
+          purpose_id: 0,
+          product_id: 0,
+          page_id: this.pageId
         }
       }).then(function (res) {
-        var _this2$list;
+        if (res.list) {
+          var _this2$list;
 
-        (_this2$list = _this2.list).push.apply(_this2$list, Object(_Volumes_D_site_barbecue_xcx_haibao_node_modules_babel_runtime_7_12_5_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(res.list));
+          (_this2$list = _this2.list).push.apply(_this2$list, Object(_Volumes_D_site_barbecue_xcx_haibao_node_modules_babel_runtime_7_12_5_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(res.list));
+        }
 
         _this2.maxPage = res.list_num;
       });
@@ -173,7 +217,7 @@ component.options.__file = "src/pages/course/list.vue"
         url: 'xcx_request.php',
         data: {
           act: 'get_class_purpose',
-          product_id: 1,
+          product_id: 0,
           industry_id: this.multiArray[0][this.multiIndex[0]].id
         }
       }).then(function (res) {
@@ -189,7 +233,7 @@ component.options.__file = "src/pages/course/list.vue"
         url: 'xcx_request.php',
         data: {
           act: 'get_class_product',
-          purpose_id: 1,
+          purpose_id: 0,
           industry_id: this.multiArray[0][this.multiIndex[0]].id
         }
       }).then(function (res) {
@@ -203,7 +247,7 @@ component.options.__file = "src/pages/course/list.vue"
     bindMultiPickerChange: function bindMultiPickerChange(e) {
       console.log('picker发送选择改变，携带值为', e.detail.value);
       this.multiIndex = e.detail.value;
-      this.page_id = 1;
+      this.pageId = 1;
       this.list = [];
       this.getData();
     },
@@ -332,33 +376,97 @@ var render = function() {
                       _vm._v(_vm._s(item.title))
                     ]),
                     _vm._v(" "),
-                    _c("view", { staticClass: "btn-box" }, [
-                      _c(
-                        "view",
-                        {
-                          staticClass: "btn active",
-                          on: {
-                            tap: function($event) {
-                              return _vm.toViewVideo(item)
-                            }
-                          }
-                        },
-                        [_vm._v("查看视频")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "view",
-                        {
-                          staticClass: "btn",
-                          on: {
-                            tap: function($event) {
-                              return _vm.downloadVideo(item)
-                            }
-                          }
-                        },
-                        [_vm._v("下载资料")]
-                      )
-                    ])
+                    _vm.categoryId == "2"
+                      ? _c("view", { staticClass: "btn-box" }, [
+                          item.is_finished > 0
+                            ? _c(
+                                "view",
+                                {
+                                  staticClass: "btn active",
+                                  on: {
+                                    tap: function($event) {
+                                      return _vm.toViewVideo(item)
+                                    }
+                                  }
+                                },
+                                [_vm._v("查看视频")]
+                              )
+                            : _vm._e(),
+                          _vm._v(" "),
+                          item.is_finished > 0
+                            ? _c(
+                                "view",
+                                {
+                                  staticClass: "btn",
+                                  on: {
+                                    tap: function($event) {
+                                      return _vm.downloadVideo(item)
+                                    }
+                                  }
+                                },
+                                [_vm._v("下载资料")]
+                              )
+                            : _vm._e(),
+                          _vm._v(" "),
+                          item.is_myappointment == 0
+                            ? _c(
+                                "view",
+                                {
+                                  staticClass: "btn reserve",
+                                  on: {
+                                    tap: function($event) {
+                                      return _vm.reserve(item, index)
+                                    }
+                                  }
+                                },
+                                [_vm._v("直播预约")]
+                              )
+                            : _c("view", { staticClass: "btn reserve" }, [
+                                _vm._v("已预约")
+                              ])
+                        ])
+                      : _vm.listCat == "get_MyFinished"
+                      ? _c("view", { staticClass: "btn-box" }, [
+                          _c(
+                            "view",
+                            {
+                              staticClass: "btn reserve",
+                              on: {
+                                tap: function($event) {
+                                  return _vm.toViewVideo(item, index)
+                                }
+                              }
+                            },
+                            [_vm._v("查看直播")]
+                          )
+                        ])
+                      : _c("view", { staticClass: "btn-box" }, [
+                          _c(
+                            "view",
+                            {
+                              staticClass: "btn active",
+                              on: {
+                                tap: function($event) {
+                                  return _vm.toViewVideo(item)
+                                }
+                              }
+                            },
+                            [_vm._v("查看视频")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "view",
+                            {
+                              staticClass: "btn",
+                              on: {
+                                tap: function($event) {
+                                  return _vm.downloadVideo(item)
+                                }
+                              }
+                            },
+                            [_vm._v("下载资料")]
+                          )
+                        ])
                   ])
                 ])
               }),

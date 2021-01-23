@@ -177,7 +177,7 @@ var render = function() {
             "navigator",
             {
               staticClass: "item",
-              attrs: { url: "/pages/course/list?title=视频课程" }
+              attrs: { url: "/pages/course/list?title=视频课程&category_id=1" }
             },
             [
               _c("image", {
@@ -195,7 +195,7 @@ var render = function() {
             "navigator",
             {
               staticClass: "item",
-              attrs: { url: "/pages/course/list?title=直播课程" }
+              attrs: { url: "/pages/course/list?title=直播课程&category_id=2" }
             },
             [
               _c("image", {

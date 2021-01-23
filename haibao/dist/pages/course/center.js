@@ -177,7 +177,9 @@ var render = function() {
             "navigator",
             {
               staticClass: "item icon-center1",
-              attrs: { url: "/pages/course/list?title=已完成课程" }
+              attrs: {
+                url: "/pages/course/list?title=已完成课程&cat=get_Myappointment"
+              }
             },
             [_vm._v("已完成课程")]
           ),
@@ -186,7 +188,9 @@ var render = function() {
             "navigator",
             {
               staticClass: "item icon-center2",
-              attrs: { url: "/pages/course/list?title=已预约课程" }
+              attrs: {
+                url: "/pages/course/list?title=已预约课程&cat=get_MyFinished"
+              }
             },
             [_vm._v("已预约课程")]
           )

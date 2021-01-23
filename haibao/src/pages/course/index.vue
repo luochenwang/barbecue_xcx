@@ -4,11 +4,11 @@
         <image src="https://campaign5.method-ad.cn/hypertherm/img/course/banner.jpg" mode="widthFix"/>
     </view>
     <view class="nav">
-        <navigator class="item" url="/pages/course/list?title=视频课程">
+        <navigator class="item" url="/pages/course/list?title=视频课程&category_id=1">
             <image src="https://campaign5.method-ad.cn/hypertherm/img/course/icon_nav1.png"/>
             <text>海宝切割学院</text>
         </navigator>
-        <navigator class="item" url="/pages/course/list?title=直播课程">
+        <navigator class="item" url="/pages/course/list?title=直播课程&category_id=2">
             <image src="https://campaign5.method-ad.cn/hypertherm/img/course/icon_nav2.png"/>
             <text>直播课程</text>
         </navigator>

@@ -23,7 +23,20 @@
                 </view>
                 <view class="item-r">
                     <view class="name">{{item.title}}</view>
-                    <view class="btn-box">
+
+                    <!-- 直播课程 -->
+                    <view class="btn-box" v-if="categoryId == '2'">
+                        <view class="btn active" @tap="toViewVideo(item)" v-if="item.is_finished > 0">查看视频</view>
+                        <view class="btn" @tap="downloadVideo(item)" v-if="item.is_finished > 0">下载资料</view>
+                        <view class="btn reserve" v-if="item.is_myappointment == 0" @tap="reserve(item,index)">直播预约</view>
+                        <view class="btn reserve" v-else>已预约</view>
+                    </view>
+                    <!-- 已完成 -->
+                    <view class="btn-box" v-else-if="listCat == 'get_MyFinished'">
+                        <view class="btn reserve" @tap="toViewVideo(item,index)">查看直播</view>
+                    </view>
+                    <!-- 其他 -->
+                    <view class="btn-box" v-else>
                         <view class="btn active" @tap="toViewVideo(item)">查看视频</view>
                         <view class="btn" @tap="downloadVideo(item)">下载资料</view>
                     </view>
@@ -52,8 +65,10 @@ export default {
         multiArray: [[{}],[{}],[{}]],
         list:[],
         viewVideoSrc:'',
-        page_id:1,
+        pageId:1,
         maxPage:2,
+        categoryId:'',
+        listCat:'',
     }
   },
   components: {
@@ -61,14 +76,16 @@ export default {
   },
   onLoad(option) {
     this.title = option.title;
+    this.categoryId = option.category_id;
+    this.listCat = option.cat;
   },
   mounted() {
         ajax({
               url:'xcx_request.php',
               data:{
                   act:'get_class_industry',
-                  product_id:1, // 产品id
-                  purpose_id:1, // 目的id
+                  product_id:0, // 产品id
+                  purpose_id:0, // 目的id
               },
         }).then(res=>{
             this.$set(this.multiArray,0,res.list);
@@ -76,30 +93,57 @@ export default {
         })
     },
     methods: {
+      // 预约
+      reserve(item,index){
+        ajax({
+              url:'xcx_request.php',
+              data:{
+                act:'set_appointment',
+                class_id:item.class_id
+              },
+        }).then(res=>{
+            if(res.status == 1){
+              wx.showToast({
+                  title: '预约成功，可至个人中心查看',
+                  icon: 'none',
+                  duration: 2000,
+              });
+              item.is_myappointment = 1;
+            }else{
+              wx.showToast({
+                  title: res.msg,
+                  icon: 'none',
+                  duration: 2000,
+              })
+            }
+        })
+      },
       loadMore(){
         var self = this;
         // 当前页是最后一页
-        if (self.page_id > this.maxPage){
+        if (self.pageId > this.maxPage){
           return;
         }
         
-        ++self.page_id;
+        ++self.pageId;
         self.getData();
       },
         getData(){
             ajax({
                   url:'xcx_request.php',
                   data:{
-                      act:'get_class_list',
-                      category_id:1,
+                      act:this.listCat || 'get_class_list',
+                      category_id:this.categoryId,
                       industry_id:this.multiArray[0][this.multiIndex[0]].id,
-                      purpose_id:1,
-                      product_id:this.multiArray[2][this.multiIndex[2]].id,
-                      page_id:this.page_id,
+                      purpose_id:0,
+                      product_id:0,
+                      page_id:this.pageId,
                   },
             }).then(res=>{
+              if(res.list){
                 this.list.push(...res.list);
-                this.maxPage = res.list_num;
+              }
+              this.maxPage = res.list_num;
             })
         },
         getPurpose(isRefresh){
@@ -107,7 +151,7 @@ export default {
                   url:'xcx_request.php',
                   data:{
                       act:'get_class_purpose',
-                      product_id:1,
+                      product_id:0,
                       industry_id:this.multiArray[0][this.multiIndex[0]].id,
                   },
             }).then(res=>{
@@ -120,7 +164,7 @@ export default {
                   url:'xcx_request.php',
                   data:{
                       act:'get_class_product',
-                      purpose_id:1,
+                      purpose_id:0,
                       industry_id:this.multiArray[0][this.multiIndex[0]].id,
                   },
             }).then(res=>{
@@ -133,7 +177,7 @@ export default {
         bindMultiPickerChange: function (e) {
             console.log('picker发送选择改变，携带值为', e.detail.value);
             this.multiIndex = e.detail.value;
-            this.page_id = 1;
+            this.pageId = 1;
             this.list = [];
             this.getData();
         },

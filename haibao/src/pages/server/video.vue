@@ -45,7 +45,7 @@ export default {
   padding:30rpx 40rpx 150rpx;
   .tt{
     position: relative;
-    padding-left:10px;
+    padding-left:12px;
     font-size: 28rpx;
     margin-bottom:20rpx;
     &:after{
@@ -53,7 +53,7 @@ export default {
       position: absolute;
       left:0;
       top:0;
-      width:4px;
+      width:6px;
       height:100%;
       background:#ed1b2e;
     }

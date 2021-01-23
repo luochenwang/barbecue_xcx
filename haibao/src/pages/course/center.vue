@@ -11,8 +11,8 @@
         <!-- <button open-type="getUserInfo" @getuserinfo="userInfoHandler" v-else>微信登录</button> -->
     </view>
     <view class="nav">
-        <navigator class="item icon-center1" url="/pages/course/list?title=已完成课程">已完成课程</navigator>
-        <navigator class="item icon-center2" url="/pages/course/list?title=已预约课程">已预约课程</navigator>
+        <navigator class="item icon-center1" url="/pages/course/list?title=已完成课程&cat=get_Myappointment">已完成课程</navigator>
+        <navigator class="item icon-center2" url="/pages/course/list?title=已预约课程&cat=get_MyFinished">已预约课程</navigator>
     </view>
 
 
