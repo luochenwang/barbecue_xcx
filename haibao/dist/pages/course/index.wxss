@@ -134,6 +134,10 @@
 .list-content .list {
     padding-left: 20rpx;
 }
+.list-content .list .list-box {
+      height: calc(100vh - 160rpx);
+      overflow: hidden;
+}
 .list-content .list .item {
       padding: 35rpx 0;
       display: -webkit-flex;

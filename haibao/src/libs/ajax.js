@@ -5,18 +5,17 @@ const globalData = createCache();
 // console.log(c.get("test"));
 
 const DOMAIN = 'https://campaign5.method-ad.cn/hypertherm/';
-export function ajax(options = {}) {
+export function getOpenid() {
     return new Promise((resolve, reject) => {
         var openid = globalData.get("openid");
-        let obj = Object.assign({}, options.data || {}, {openid:openid});
         if(openid){
-            getdata(options,obj,resolve,reject);
+            resolve(openid);
         }else{
             wx.login({
               success (res) {
                 if (res.code) {
                   Taro.request({
-                        url: DOMAIN + options.url + '?rndv='+Math.random() + '&act=getOpenid',
+                        url: DOMAIN + 'xcx_request.php?rndv='+Math.random() + '&act=getOpenid',
                         data: {
                             code:res.code
                         },
@@ -27,7 +26,7 @@ export function ajax(options = {}) {
                         success (res) {
                             if(res.data.status == 1){
                                 globalData.set('openid',res.data.openid);
-                                getdata(options,obj,resolve,reject);
+                                resolve(res.data.openid);
                             }
                         },
                         fail(e){
@@ -42,21 +41,24 @@ export function ajax(options = {}) {
         }
     })
 }
-
-
-function getdata(options,obj,resolve,reject){
-    Taro.request({
-        url: DOMAIN + options.url + '?rndv='+Math.random() + '&act='+obj.act,
-        data: obj,
-        method:'post',
-        header:{
-            'Content-Type':'application/x-www-form-urlencoded'
-        },
-        success (res) {
-            resolve(res.data);
-        },
-        fail(e){
-            reject(e);
-        }
-    });
-}
+export function ajax(options = {}) {
+    return new Promise((resolve, reject) => {
+        getOpenid().then(openid=>{
+            let obj = Object.assign({}, options.data || {}, {openid:openid});
+            Taro.request({
+                url: DOMAIN + options.url + '?rndv='+Math.random() + '&act='+obj.act,
+                data: obj,
+                method:'post',
+                header:{
+                    'Content-Type':'application/x-www-form-urlencoded'
+                },
+                success (res) {
+                    resolve(res.data);
+                },
+                fail(e){
+                    reject(e);
+                }
+            });
+        })
+    })
+};

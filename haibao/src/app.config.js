@@ -2,8 +2,10 @@ export default {
   pages: [
     'pages/index/index',
     'pages/consult/index',
+    'pages/server/index',
     'pages/server/list',
     'pages/server/details',
+    'pages/server/video',
     'pages/webview/index',
     'pages/course/center',
     'pages/course/list',
@@ -17,7 +19,7 @@ export default {
   },
   "plugins": {
       "ykfchat": {
-        "version": "2.0.16",
+        "version": "2.0.26",
         "provider": "wx1fdc8c9f3a3a05e4"
       }
   }

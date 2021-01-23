@@ -2,26 +2,55 @@
 <template>
     <view class="sidebar">
         <view class="item icon-consult" @tap="service">在线咨询</view>
-        <view class="item icon-back">返回上级</view>
+        <view class="item icon-back" @tap="back">返回上级</view>
     </view>
 </template>
 
 <script>
+var plugin = requirePlugin("ykfchat");
+import { createCache } from "./../libs/globalData";
+const globalData = createCache();
   export default {
     name: 'sidebar',
     data() {
         return {
-
+          openid:''
         }
       },
-    onLoad(option) {
-
+    computed:{
+      authModel(){
+          return this.$store.state.authModel;
+      },
+      userInfo(){
+          return this.$store.state.userInfo;
+      }
     },
+    onLoad(option) {
+      this.openid = globalData.get('openid');
+    },
+
     methods: {
+      back(){
+        wx.navigateBack();
+      },
+      getOpenId(callback) {
+          let data = {
+            openid: this.openid
+          }
+          callback(data)
+      },
+      session(callback) {
+          let data = {
+            sessionFrom: this.userInfo
+          }
+          callback(data)
+      },
       service(){
-          wx.navigateTo({
+        plugin.callback.on("getOpenId", this.getOpenId, this); // 传递openid，注意路径后一定要声名&getOpenIdType=2，否则传递无效
+        plugin.callback.on("getSessionFrom", this.session, this); // 传递客户资料
+        wx.navigateTo({
             url: 'plugin://ykfchat/chat-page?wechatapp_id=218941&channel_id=25183&scene=p86772ux3apl',
-         });
+        });
       }
     }
   }

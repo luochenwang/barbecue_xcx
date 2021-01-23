@@ -4,11 +4,11 @@
         <image src="https://campaign5.method-ad.cn/hypertherm/img/course/banner.jpg" mode="widthFix"/>
     </view>
     <view class="nav">
-        <view class="item">
+        <navigator class="item" url="/pages/course/list?title=视频课程">
             <image src="https://campaign5.method-ad.cn/hypertherm/img/course/icon_nav1.png"/>
             <text>海宝切割学院</text>
-        </view>
-        <navigator class="item" url="/pages/course/list">
+        </navigator>
+        <navigator class="item" url="/pages/course/list?title=直播课程">
             <image src="https://campaign5.method-ad.cn/hypertherm/img/course/icon_nav2.png"/>
             <text>直播课程</text>
         </navigator>
@@ -28,25 +28,26 @@
                 <view class="item-r">
                     <view class="name">{{item.title}}</view>
                     <view class="btn-box">
-                        <view class="btn active" @tap='viewVideo(item)'>查看视频</view>
-                        <view class="btn" @tap="download(item)">下载资料</view>
+                        <view class="btn active" @tap='toViewVideo(item)'>查看视频</view>
+                        <view class="btn" @tap="downloadVideo(item)">下载资料</view>
                     </view>
                 </view>
             </view>
         </view>
     </view>
 
-
-    <videVideo :viewVideoSrc.sync="viewVideoSrc"/>
+    <sidebar/>
   </view>
 </template>
 
 <script>
 import { ajax } from "../../libs/ajax";
 import videVideo from "../../components/videVideo";
+import mixin from "../../libs/mixin";
 
 export default {
   name: 'course',
+  mixins: [mixin],
   data() {
       return {
         list:[],
@@ -69,45 +70,7 @@ export default {
       })
   },
   methods: {
-    viewVideo(item){
-        this.viewVideoSrc = item.video_filename;
-    },
-    download(item){
-        wx.showLoading({
-            title: '加载中...',
-        })
-        wx.downloadFile({
-         url: item.video_filename,
-         success: res => {
-           let filePath = res.filePath;
-           wx.saveVideoToPhotosAlbum({
-             filePath,
-             success: file => {
-               wx.showModal({
-                 title: '提示',
-                 content: '下载成功~',
-               })
-               let fileMgr = wx.getFileSystemManager();
-               fileMgr.unlink({
-                 filePath: item.video_filename,
-                 success: function(r) {
-                    
-                 },
-               })
-               wx.hideLoading();
-             },
-             fail: err => {
-               console.log(err)
-               wx.showModal({
-                 title: '提示',
-                 content: '获取权限失败，将无法保存到相册哦~',
-               })
-               wx.hideLoading();
-             }
-           })
-         }
-       })
-    }
+
   }
 }
 </script>

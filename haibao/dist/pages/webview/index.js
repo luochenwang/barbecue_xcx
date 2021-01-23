@@ -57,6 +57,7 @@ component.options.__file = "src/pages/webview/index.vue"
   name: 'webview',
   data: function data() {
     return {
+      title: '',
       src: ''
     };
   },
@@ -64,11 +65,12 @@ component.options.__file = "src/pages/webview/index.vue"
   onShareAppMessage: function onShareAppMessage(res) {
     // return eventHandler接收到的分享参数
     return {
-      title: '自定义转发标题',
+      title: this.title,
       path: '/pages/webview/index?src=' + this.src
     };
   },
   onLoad: function onLoad(option) {
+    this.title = option.title;
     this.src = option.src;
   },
   methods: {}

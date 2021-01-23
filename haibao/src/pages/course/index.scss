@@ -106,6 +106,10 @@
     }
     .list{
         padding-left:20rpx;
+        .list-box{
+            height:calc(100vh - 160rpx);
+            overflow: hidden;
+        }
         .item{
             padding:35rpx 0;
             display: flex;

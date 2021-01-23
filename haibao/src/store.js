@@ -1,15 +1,23 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-
+import { createCache } from "./libs/globalData";
+const globalData = createCache();
 Vue.use(Vuex)
 
 const state = {
-  numbers: [1, 2, 3]
+  authModel:false,
+  userInfo:{}
 }
 
 const mutations = {
-  ADD_NUMBER(state, payload) {
-    state.numbers.push(payload)
+  set_useriNfo(state, obj) {
+    state.userInfo = obj
+  },
+  set_authModel(state, bo = false){
+    if(bo){
+      state.userInfo = globalData.get("userInfo");
+    }
+    state.authModel = bo
   }
 }
 
@@ -19,8 +27,9 @@ const actions = {
   }
 }
 
+
 const getters = {
-  getNumbers(state) {
+  authModel(state) {
     return state.numbers
   }
 }

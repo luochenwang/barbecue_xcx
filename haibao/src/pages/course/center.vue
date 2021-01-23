@@ -4,16 +4,19 @@
         <view class="headimg">
             <image :src="userInfo.avatarUrl" mode=""/>
         </view>
-        <view v-if="userInfo.nickName">
+        <view>
           <view class="name">昵称：{{userInfo.nickName}}</view>
           <view class="time">2020-12-31</view>
         </view>
-        <button open-type="getUserInfo" @getuserinfo="userInfoHandler" v-else>微信登录</button>
+        <!-- <button open-type="getUserInfo" @getuserinfo="userInfoHandler" v-else>微信登录</button> -->
     </view>
     <view class="nav">
-        <view class="item icon-center1">已完成课程</view>
-        <view class="item icon-center2">已预约课程</view>
+        <navigator class="item icon-center1" url="/pages/course/list?title=已完成课程">已完成课程</navigator>
+        <navigator class="item icon-center2" url="/pages/course/list?title=已预约课程">已预约课程</navigator>
     </view>
+
+
+    <sidebar/>
   </view>
 </template>
 
@@ -26,14 +29,21 @@ export default {
   name: 'center',
   data() {
       return {
-        userInfo:{}
+
       }
     },
   components: {
       
   },
+  computed:{
+    authModel(){
+        return this.$store.state.authModel;
+    },
+    userInfo(){
+        return this.$store.state.userInfo;
+    }
+  },
   onLoad(option) {
-      this.userInfo = globalData.get("userInfo") || {};
       ajax({
           url:'xcx_request.php',
           data:{

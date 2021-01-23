@@ -49,8 +49,7 @@ component.options.__file = "src/pages/server/list.vue"
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var _components_sidebar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../components/sidebar */ "./src/components/sidebar.vue");
-/* harmony import */ var _libs_ajax__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../libs/ajax */ "./src/libs/ajax.js");
+/* harmony import */ var _libs_ajax__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../libs/ajax */ "./src/libs/ajax.js");
 //
 //
 //
@@ -69,23 +68,22 @@ component.options.__file = "src/pages/server/list.vue"
 //
 //
 //
-
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: 'server_list',
   data: function data() {
     return {
+      searchBox: false,
       searchVal: '',
       list: []
     };
   },
-  components: {
-    sidebar: _components_sidebar__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"]
-  },
+  components: {},
   onLoad: function onLoad(option) {
     var _this = this;
 
-    Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_1__[/* ajax */ "a"])({
+    this.searchVal = option.search_val;
+    Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
       url: 'xcx_request.php',
       data: {
         act: 'get_tech_list',
@@ -95,7 +93,33 @@ component.options.__file = "src/pages/server/list.vue"
       _this.list = res.list;
     });
   },
-  methods: {}
+  methods: {
+    searchAjax: function searchAjax() {
+      var _this2 = this;
+
+      Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
+        url: 'xcx_request.php',
+        data: {
+          act: 'get_tech_search',
+          keywords: this.searchVal
+        }
+      }).then(function (res) {
+        _this2.list = res.list;
+      });
+    },
+    search: function search() {
+      if (this.searchVal == '') {
+        wx.showToast({
+          title: '请输入要搜索的内容',
+          icon: 'none',
+          duration: 2000
+        });
+        return false;
+      }
+
+      this.searchAjax();
+    }
+  }
 });
 
 /***/ }),

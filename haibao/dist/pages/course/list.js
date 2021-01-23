@@ -49,8 +49,11 @@ component.options.__file = "src/pages/course/list.vue"
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var _libs_ajax__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../libs/ajax */ "./src/libs/ajax.js");
-/* harmony import */ var _components_videVideo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/videVideo */ "./src/components/videVideo.vue");
+/* harmony import */ var _Volumes_D_site_barbecue_xcx_haibao_node_modules_babel_runtime_7_12_5_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/_@babel_runtime@7.12.5@@babel/runtime/helpers/esm/toConsumableArray */ "./node_modules/_@babel_runtime@7.12.5@@babel/runtime/helpers/esm/toConsumableArray.js");
+/* harmony import */ var _libs_ajax__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../libs/ajax */ "./src/libs/ajax.js");
+/* harmony import */ var _components_videVideo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/videVideo */ "./src/components/videVideo.vue");
+/* harmony import */ var _libs_mixin__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../libs/mixin */ "./src/libs/mixin.js");
+
 //
 //
 //
@@ -90,30 +93,40 @@ component.options.__file = "src/pages/course/list.vue"
 //
 //
 //
+
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: 'course_list',
+  mixins: [_libs_mixin__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"]],
   data: function data() {
     return {
+      title: '',
       multiIndex: [0, 0, 0],
       multiArray: [[{}], [{}], [{}]],
       list: [],
-      viewVideoSrc: ''
+      viewVideoSrc: '',
+      page_id: 1,
+      maxPage: 2
     };
   },
   components: {
-    videVideo: _components_videVideo__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"]
+    videVideo: _components_videVideo__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"]
+  },
+  onLoad: function onLoad(option) {
+    this.title = option.title;
   },
   mounted: function mounted() {
     var _this = this;
 
-    Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
+    Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_1__[/* ajax */ "a"])({
       url: 'xcx_request.php',
       data: {
         act: 'get_class_industry',
         product_id: 1,
-        purpose_id: 1
+        // 产品id
+        purpose_id: 1 // 目的id
+
       }
     }).then(function (res) {
       _this.$set(_this.multiArray, 0, res.list);
@@ -122,30 +135,41 @@ component.options.__file = "src/pages/course/list.vue"
     });
   },
   methods: {
-    viewVideo: function viewVideo(item) {
-      this.viewVideoSrc = item.video_filename;
+    loadMore: function loadMore() {
+      var self = this; // 当前页是最后一页
+
+      if (self.page_id > this.maxPage) {
+        return;
+      }
+
+      ++self.page_id;
+      self.getData();
     },
     getData: function getData() {
       var _this2 = this;
 
-      Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
+      Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_1__[/* ajax */ "a"])({
         url: 'xcx_request.php',
         data: {
           act: 'get_class_list',
           category_id: 1,
           industry_id: this.multiArray[0][this.multiIndex[0]].id,
-          purpose_id: this.multiArray[1][this.multiIndex[1]].id,
+          purpose_id: 1,
           product_id: this.multiArray[2][this.multiIndex[2]].id,
-          page_id: 1
+          page_id: this.page_id
         }
       }).then(function (res) {
-        _this2.list = res.list;
+        var _this2$list;
+
+        (_this2$list = _this2.list).push.apply(_this2$list, Object(_Volumes_D_site_barbecue_xcx_haibao_node_modules_babel_runtime_7_12_5_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(res.list));
+
+        _this2.maxPage = res.list_num;
       });
     },
     getPurpose: function getPurpose(isRefresh) {
       var _this3 = this;
 
-      Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
+      Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_1__[/* ajax */ "a"])({
         url: 'xcx_request.php',
         data: {
           act: 'get_class_purpose',
@@ -161,12 +185,12 @@ component.options.__file = "src/pages/course/list.vue"
     getProduct: function getProduct(isRefresh) {
       var _this4 = this;
 
-      Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
+      Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_1__[/* ajax */ "a"])({
         url: 'xcx_request.php',
         data: {
           act: 'get_class_product',
           purpose_id: 1,
-          industry_id: this.multiArray[1][this.multiIndex[1]].id
+          industry_id: this.multiArray[0][this.multiIndex[0]].id
         }
       }).then(function (res) {
         _this4.$set(_this4.multiArray, 2, res.list);
@@ -179,6 +203,8 @@ component.options.__file = "src/pages/course/list.vue"
     bindMultiPickerChange: function bindMultiPickerChange(e) {
       console.log('picker发送选择改变，携带值为', e.detail.value);
       this.multiIndex = e.detail.value;
+      this.page_id = 1;
+      this.list = [];
       this.getData();
     },
     bindMultiPickerColumnChange: function bindMultiPickerColumnChange(e) {
@@ -228,41 +254,43 @@ var render = function() {
     { staticClass: "container" },
     [
       _c("view", { staticClass: "category-nav" }, [
-        _c(
-          "view",
-          { staticClass: "select-box" },
-          [
-            _c(
-              "picker",
-              {
-                attrs: {
-                  mode: "multiSelector",
-                  value: _vm.multiIndex,
-                  range: _vm.multiArray,
-                  "range-key": "title"
-                },
-                on: {
-                  change: _vm.bindMultiPickerChange,
-                  columnchange: _vm.bindMultiPickerColumnChange
-                }
-              },
+        _vm.multiArray[2].length > 1
+          ? _c(
+              "view",
+              { staticClass: "select-box" },
               [
-                _c("view", { staticClass: "picker" }, [
-                  _vm._v(
-                    "\n                当前选择：" +
-                      _vm._s(_vm.multiArray[0][_vm.multiIndex[0]].title) +
-                      "，" +
-                      _vm._s(_vm.multiArray[1][_vm.multiIndex[1]].title) +
-                      "，" +
-                      _vm._s(_vm.multiArray[2][_vm.multiIndex[2]].title) +
-                      "\n              "
-                  )
-                ])
-              ]
+                _c(
+                  "picker",
+                  {
+                    attrs: {
+                      mode: "multiSelector",
+                      value: _vm.multiIndex,
+                      range: _vm.multiArray,
+                      "range-key": "title"
+                    },
+                    on: {
+                      change: _vm.bindMultiPickerChange,
+                      columnchange: _vm.bindMultiPickerColumnChange
+                    }
+                  },
+                  [
+                    _c("view", { staticClass: "picker" }, [
+                      _vm._v(
+                        "\n                当前选择：" +
+                          _vm._s(_vm.multiArray[0][_vm.multiIndex[0]].title) +
+                          "，" +
+                          _vm._s(_vm.multiArray[1][_vm.multiIndex[1]].title) +
+                          "，" +
+                          _vm._s(_vm.multiArray[2][_vm.multiIndex[2]].title) +
+                          "\n              "
+                      )
+                    ])
+                  ]
+                )
+              ],
+              1
             )
-          ],
-          1
-        ),
+          : _vm._e(),
         _vm._v(" "),
         _c("view", { staticClass: "item" }, [
           _vm._v(_vm._s(_vm.multiArray[0][_vm.multiIndex[0]].title))
@@ -278,56 +306,70 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("view", { staticClass: "list-content" }, [
-        _c("view", { staticClass: "tt" }, [_vm._v("视频课程")]),
+        _c("view", { staticClass: "tt" }, [_vm._v(_vm._s(_vm.title))]),
         _vm._v(" "),
         _c(
           "view",
           { staticClass: "list" },
-          _vm._l(_vm.list, function(item, index) {
-            return _c("view", { staticClass: "item" }, [
-              _c("view", { staticClass: "item-l" }, [
-                _c("image", { attrs: { src: item.picture, mode: "widthFix" } })
-              ]),
-              _vm._v(" "),
-              _c("view", { staticClass: "item-r" }, [
-                _c("view", { staticClass: "name" }, [
-                  _vm._v(_vm._s(item.title))
-                ]),
-                _vm._v(" "),
-                _c("view", { staticClass: "btn-box" }, [
-                  _c(
-                    "view",
-                    {
-                      staticClass: "btn active",
-                      on: {
-                        tap: function($event) {
-                          return _vm.viewVideo(item)
-                        }
-                      }
-                    },
-                    [_vm._v("查看视频")]
-                  ),
+          [
+            _c(
+              "scroll-view",
+              {
+                staticClass: "list-box",
+                attrs: { "scroll-y": true },
+                on: { scrolltolower: _vm.loadMore }
+              },
+              _vm._l(_vm.list, function(item, index) {
+                return _c("view", { staticClass: "item" }, [
+                  _c("view", { staticClass: "item-l" }, [
+                    _c("image", {
+                      attrs: { src: item.picture, mode: "widthFix" }
+                    })
+                  ]),
                   _vm._v(" "),
-                  _c("view", { staticClass: "btn" }, [_vm._v("下载资料")])
+                  _c("view", { staticClass: "item-r" }, [
+                    _c("view", { staticClass: "name" }, [
+                      _vm._v(_vm._s(item.title))
+                    ]),
+                    _vm._v(" "),
+                    _c("view", { staticClass: "btn-box" }, [
+                      _c(
+                        "view",
+                        {
+                          staticClass: "btn active",
+                          on: {
+                            tap: function($event) {
+                              return _vm.toViewVideo(item)
+                            }
+                          }
+                        },
+                        [_vm._v("查看视频")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "view",
+                        {
+                          staticClass: "btn",
+                          on: {
+                            tap: function($event) {
+                              return _vm.downloadVideo(item)
+                            }
+                          }
+                        },
+                        [_vm._v("下载资料")]
+                      )
+                    ])
+                  ])
                 ])
-              ])
-            ])
-          }),
-          0
+              }),
+              0
+            )
+          ],
+          1
         )
       ]),
       _vm._v(" "),
-      _c("videVideo", {
-        attrs: { viewVideoSrc: _vm.viewVideoSrc },
-        on: {
-          "update:viewVideoSrc": function($event) {
-            _vm.viewVideoSrc = $event
-          },
-          "update:view-video-src": function($event) {
-            _vm.viewVideoSrc = $event
-          }
-        }
-      })
+      _c("sidebar")
     ],
     1
   )

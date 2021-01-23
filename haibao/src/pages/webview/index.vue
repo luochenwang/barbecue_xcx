@@ -8,6 +8,7 @@ export default {
   name: 'webview',
   data() {
       return {
+        title:'',
         src:''
       }
     },
@@ -17,11 +18,12 @@ export default {
   onShareAppMessage: function(res) {
   // return eventHandler接收到的分享参数
     return {
-      title: '自定义转发标题',
+      title: this.title,
       path: '/pages/webview/index?src='+this.src
     };
   },
   onLoad(option) {
+    this.title = option.title;
     this.src = option.src;
   },
   methods: {

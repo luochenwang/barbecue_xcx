@@ -17,21 +17,22 @@
 </template>
 
 <script>
-import sidebar from "../../components/sidebar";
 import { ajax } from "../../libs/ajax";
 
 export default {
   name: 'server_list',
   data() {
       return {
+        searchBox:false,
         searchVal:'',
         list:[]
       }
     },
   components: {
-      sidebar
+    
   },
   onLoad(option) {
+      this.searchVal = option.search_val;
       ajax({
           url:'xcx_request.php',
           data:{
@@ -40,10 +41,31 @@ export default {
           },
       }).then(res=>{
           this.list = res.list;
-      })
+      });
   },
   methods: {
-
+    searchAjax(){
+      ajax({
+            url:'xcx_request.php',
+            data:{
+                act:'get_tech_search',
+                keywords:this.searchVal
+            },
+        }).then(res=>{
+            this.list = res.list;
+        })
+    },
+    search(){
+        if(this.searchVal == ''){
+            wx.showToast({
+                title: '请输入要搜索的内容',
+                icon: 'none',
+                duration: 2000,
+            })
+            return false;
+        }
+        this.searchAjax();
+    }
   }
 }
 </script>

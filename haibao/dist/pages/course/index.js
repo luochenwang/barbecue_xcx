@@ -51,6 +51,7 @@ component.options.__file = "src/pages/course/index.vue"
 "use strict";
 /* harmony import */ var _libs_ajax__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../libs/ajax */ "./src/libs/ajax.js");
 /* harmony import */ var _components_videVideo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/videVideo */ "./src/components/videVideo.vue");
+/* harmony import */ var _libs_mixin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../libs/mixin */ "./src/libs/mixin.js");
 //
 //
 //
@@ -93,11 +94,12 @@ component.options.__file = "src/pages/course/index.vue"
 //
 //
 //
-//
+
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: 'course',
+  mixins: [_libs_mixin__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"]],
   data: function data() {
     return {
       list: [],
@@ -121,45 +123,7 @@ component.options.__file = "src/pages/course/index.vue"
       _this.list = res.list;
     });
   },
-  methods: {
-    viewVideo: function viewVideo(item) {
-      this.viewVideoSrc = item.video_filename;
-    },
-    download: function download(item) {
-      wx.showLoading({
-        title: '加载中...'
-      });
-      wx.downloadFile({
-        url: item.video_filename,
-        success: function success(res) {
-          var filePath = res.filePath;
-          wx.saveVideoToPhotosAlbum({
-            filePath: filePath,
-            success: function success(file) {
-              wx.showModal({
-                title: '提示',
-                content: '下载成功~'
-              });
-              var fileMgr = wx.getFileSystemManager();
-              fileMgr.unlink({
-                filePath: item.video_filename,
-                success: function success(r) {}
-              });
-              wx.hideLoading();
-            },
-            fail: function fail(err) {
-              console.log(err);
-              wx.showModal({
-                title: '提示',
-                content: '获取权限失败，将无法保存到相册哦~'
-              });
-              wx.hideLoading();
-            }
-          });
-        }
-      });
-    }
-  }
+  methods: {}
 });
 
 /***/ }),
@@ -209,20 +173,30 @@ var render = function() {
         "view",
         { staticClass: "nav" },
         [
-          _c("view", { staticClass: "item" }, [
-            _c("image", {
-              attrs: {
-                src:
-                  "https://campaign5.method-ad.cn/hypertherm/img/course/icon_nav1.png"
-              }
-            }),
-            _vm._v(" "),
-            _c("text", [_vm._v("海宝切割学院")])
-          ]),
+          _c(
+            "navigator",
+            {
+              staticClass: "item",
+              attrs: { url: "/pages/course/list?title=视频课程" }
+            },
+            [
+              _c("image", {
+                attrs: {
+                  src:
+                    "https://campaign5.method-ad.cn/hypertherm/img/course/icon_nav1.png"
+                }
+              }),
+              _vm._v(" "),
+              _c("text", [_vm._v("海宝切割学院")])
+            ]
+          ),
           _vm._v(" "),
           _c(
             "navigator",
-            { staticClass: "item", attrs: { url: "/pages/course/list" } },
+            {
+              staticClass: "item",
+              attrs: { url: "/pages/course/list?title=直播课程" }
+            },
             [
               _c("image", {
                 attrs: {
@@ -277,7 +251,7 @@ var render = function() {
                       staticClass: "btn active",
                       on: {
                         tap: function($event) {
-                          return _vm.viewVideo(item)
+                          return _vm.toViewVideo(item)
                         }
                       }
                     },
@@ -290,7 +264,7 @@ var render = function() {
                       staticClass: "btn",
                       on: {
                         tap: function($event) {
-                          return _vm.download(item)
+                          return _vm.downloadVideo(item)
                         }
                       }
                     },
@@ -304,17 +278,7 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _c("videVideo", {
-        attrs: { viewVideoSrc: _vm.viewVideoSrc },
-        on: {
-          "update:viewVideoSrc": function($event) {
-            _vm.viewVideoSrc = $event
-          },
-          "update:view-video-src": function($event) {
-            _vm.viewVideoSrc = $event
-          }
-        }
-      })
+      _c("sidebar")
     ],
     1
   )

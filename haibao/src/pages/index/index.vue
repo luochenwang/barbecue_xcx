@@ -1,84 +1,116 @@
 <template>
-    <view class="container">
-        <!-- <webheader/> -->
-        
-        <view class="banner">
-            <image src="https://campaign5.method-ad.cn/hypertherm/img/banner.jpg" mode="widthFix"/>
-        </view>
-        <view class="search-box">
-            <input type="text" placeholder="在这里输入您要搜索的内容" placeholder-style="color:#ca8989" v-model='searchVal'/>
-            <view class="search-btn" @tap="search()">点击搜索</view>
-        </view>
-        <view class="nav">
-            <navigator class="item" url="/pages/server/list?id=1">
-                <image src="https://campaign5.method-ad.cn/hypertherm/img/nav1.png"/>
-                <text>安装</text>
-            </navigator>
-            <navigator class="item" url="/pages/server/list?id=2">
-                <image src="https://campaign5.method-ad.cn/hypertherm/img/nav2.png"/>
-                <text>日常维护</text>
-            </navigator>
-            <navigator class="item" url="/pages/server/list?id=3">
-                <image src="https://campaign5.method-ad.cn/hypertherm/img/nav3.png"/>
-                <text>故障处理</text>
-            </navigator>
-            <navigator class="item" url="/pages/server/list?id=4">
-                <image src="https://campaign5.method-ad.cn/hypertherm/img/nav4.png"/>
-                <text>切割优化</text>
-            </navigator>
-            <navigator class="item" url="/pages/server/list?id=5">
-                <image src="https://campaign5.method-ad.cn/hypertherm/img/nav5.png"/>
-                <text>部件查询</text>
-            </navigator>
-            <navigator class="item" url="/pages/server/list?id=6">
-                <image src="https://campaign5.method-ad.cn/hypertherm/img/nav6.png"/>
-                <text>部件拆装</text>
-            </navigator>
-        </view>
-
-        <sidebar/>
+  <view class="container">
+    <view class="banner">
+      <image src="https://campaign5.method-ad.cn/hypertherm/img/home.jpg" mode="widthFix" />
     </view>
+    <view class="nav">
+      <navigator class="item" url="/pages/server/index">
+        <image src="https://campaign5.method-ad.cn/hypertherm/img/menu1.png" />
+        <text>技术服务</text>
+      </navigator>
+      <view class="item" @tap="service">
+        <image src="https://campaign5.method-ad.cn/hypertherm/img/menu2.png" />
+        <text>在线咨询</text>
+      </view>
+      <navigator class="item" url="/pages/course/index">
+        <image src="https://campaign5.method-ad.cn/hypertherm/img/menu3.png" />
+        <text>在线课堂</text>
+      </navigator>
+      <view class="item" @tap="none">
+        <image src="https://campaign5.method-ad.cn/hypertherm/img/menu4.png" />
+        <text>产品展厅</text>
+      </view>
+      <view class="item" @tap="none">
+        <image src="https://campaign5.method-ad.cn/hypertherm/img/menu5.png" />
+        <text>产品应用</text>
+      </view>
+      <view class="item" @tap="none">
+        <image src="https://campaign5.method-ad.cn/hypertherm/img/menu6.png" />
+        <text>合作伙伴信息查询</text>
+      </view>
+    </view>
+    <auth :authModel.sync="authModel" v-if="authModel"/>
+  </view>
 </template>
-
 <script>
 import { createCache } from "../../libs/globalData";
-import { ajax } from "../../libs/ajax";
-import sidebar from "../../components/sidebar";
+import { ajax,getOpenid } from "../../libs/ajax";
 import webheader from "../../components/webheader";
-const c = createCache();
-c.set("test", 100);
-console.log(c.get("test"));
+const globalData = createCache();
+globalData.set("test", 100);
+var plugin = requirePlugin("ykfchat");
 
 export default {
   name: "Index",
   data() {
-      return {
-        searchVal:''
-      }
-    },
+    return {
+      searchVal: '',
+      openid: '',
+    }
+  },
   components: {
-      sidebar,
-      webheader
+    webheader,
+  },
+  computed:{
+    authModel(){
+        return this.$store.state.authModel;
+    },
+    userInfo(){
+        return this.$store.state.userInfo;
+    }
   },
   mounted() {
+    getOpenid().then(openid=>{
+        this.openid = openid;
+    });
 
+    var that = this;
+    if(!this.userInfo.nickName){
+        wx.request({
+            url: 'https://campaign5.method-ad.cn/hypertherm/auth.json?v='+Math.random(),
+            success (res) {
+                if(res.data > 0){
+                    that.$store.commit('set_authModel',true);
+                }
+            },
+            fail(e){
+
+            }
+        });
+    }
   },
   methods: {
-    search(){
-        if(this.searchVal == ''){
-            wx.showToast({
-                title: '请输入要搜索的内容',
-                icon: 'none',
-                duration: 2000,
-            })
-            return false;
+    getOpenId(callback) {
+        let data = {
+          openid: this.openid
         }
-        wx.navigateTo({url:'/pages/server/details?search_val='+this.searchVal});
+        callback(data)
+    },
+    session(callback) {
+        let data = {
+          sessionFrom: this.userInfo
+        }
+        callback(data)
+    },
+    service() {
+      plugin.callback.on("getOpenId", this.getOpenId, this); // 传递openid，注意路径后一定要声名&getOpenIdType=2，否则传递无效
+      plugin.callback.on("getSessionFrom", this.session, this); // 传递客户资料
+      wx.navigateTo({
+        url: 'plugin://ykfchat/chat-page?wechatapp_id=218941&channel_id=25183&scene=p86772ux3apl&getOpenIdType=2',
+      });
+    },
+    none() {
+      wx.showToast({
+        title: '正在开发中，敬请期待',
+        icon: 'none',
+        duration: 2000,
+      })
     }
   }
 };
-</script>
 
+</script>
 <style lang="scss">
 @import "./index";
+
 </style>

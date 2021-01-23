@@ -121,8 +121,8 @@ component.options.__file = "src/pages/server/details.vue"
 
 "use strict";
 /* harmony import */ var _Volumes_D_site_barbecue_xcx_haibao_node_modules_babel_runtime_7_12_5_babel_runtime_helpers_esm_createForOfIteratorHelper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/_@babel_runtime@7.12.5@@babel/runtime/helpers/esm/createForOfIteratorHelper */ "./node_modules/_@babel_runtime@7.12.5@@babel/runtime/helpers/esm/createForOfIteratorHelper.js");
-/* harmony import */ var _components_sidebar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/sidebar */ "./src/components/sidebar.vue");
-/* harmony import */ var _libs_ajax__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../libs/ajax */ "./src/libs/ajax.js");
+/* harmony import */ var _libs_ajax__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../libs/ajax */ "./src/libs/ajax.js");
+/* harmony import */ var _libs_mixin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../libs/mixin */ "./src/libs/mixin.js");
 
 //
 //
@@ -162,20 +162,19 @@ component.options.__file = "src/pages/server/details.vue"
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: 'server_details',
+  mixins: [_libs_mixin__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"]],
   data: function data() {
     return {
       searchVal: '',
       list: []
     };
   },
-  components: {
-    sidebar: _components_sidebar__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"]
-  },
+  components: {},
   onLoad: function onLoad(option) {
     var _this = this;
 
     if (option.id) {
-      Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_2__[/* ajax */ "a"])({
+      Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_1__[/* ajax */ "a"])({
         url: 'xcx_request.php',
         data: {
           act: 'get_tech_detail',
@@ -199,13 +198,27 @@ component.options.__file = "src/pages/server/details.vue"
         _this.list = res.list;
       });
     } else {
-      Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_2__[/* ajax */ "a"])({
+      Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_1__[/* ajax */ "a"])({
         url: 'xcx_request.php',
         data: {
           act: 'get_tech_search',
           keywords: option.search_val
         }
       }).then(function (res) {
+        var _iterator2 = Object(_Volumes_D_site_barbecue_xcx_haibao_node_modules_babel_runtime_7_12_5_babel_runtime_helpers_esm_createForOfIteratorHelper__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(res.list),
+            _step2;
+
+        try {
+          for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+            var item = _step2.value;
+            item.show = false;
+          }
+        } catch (err) {
+          _iterator2.e(err);
+        } finally {
+          _iterator2.f();
+        }
+
         _this.list = res.list;
       });
     }
@@ -213,23 +226,6 @@ component.options.__file = "src/pages/server/details.vue"
   methods: {
     toggleInfo: function toggleInfo(index) {
       this.list[index].show = !this.list[index].show;
-    },
-    viewPdf: function viewPdf(item) {
-      wx.navigateTo({
-        url: '/pages/webview/index?src=' + item.pdf_filename
-      }); // wx.downloadFile({
-      //   // 示例 url，并非真实存在
-      //   url:item.pdf_filename,
-      //   success: function (res) {
-      //     const filePath = res.tempFilePath
-      //     wx.openDocument({
-      //       filePath: filePath,
-      //       success: function (res) {
-      //         console.log('打开文档成功')
-      //       }
-      //     })
-      //   }
-      // })
     }
   }
 });
@@ -303,11 +299,22 @@ var render = function() {
                 },
                 [
                   _c("view", { staticClass: "info" }, [
-                    _c("view", { staticClass: "info-l" }, [
-                      _c("image", {
-                        attrs: { src: item.pdf_picture, mode: "widthFix" }
-                      })
-                    ]),
+                    _c(
+                      "view",
+                      {
+                        staticClass: "info-l",
+                        on: {
+                          tap: function($event) {
+                            return _vm.toViewPdf(item)
+                          }
+                        }
+                      },
+                      [
+                        _c("image", {
+                          attrs: { src: item.pdf_picture, mode: "widthFix" }
+                        })
+                      ]
+                    ),
                     _vm._v(" "),
                     _c("view", { staticClass: "info-r" }, [
                       _c(
@@ -316,16 +323,25 @@ var render = function() {
                           staticClass: "txt icon-file",
                           on: {
                             tap: function($event) {
-                              return _vm.viewPdf(item)
+                              return _vm.toViewPdf(item)
                             }
                           }
                         },
                         [_vm._v("操作指南")]
                       ),
                       _vm._v(" "),
-                      _c("view", { staticClass: "txt icon-download" }, [
-                        _vm._v("下载资料")
-                      ]),
+                      _c(
+                        "view",
+                        {
+                          staticClass: "txt icon-download",
+                          on: {
+                            tap: function($event) {
+                              return _vm.downloadPdf(item)
+                            }
+                          }
+                        },
+                        [_vm._v("下载资料")]
+                      ),
                       _vm._v(" "),
                       _c("view", { staticClass: "time" }, [
                         _vm._v("更新时间：2021年1月8日")
@@ -334,18 +350,49 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("view", { staticClass: "info" }, [
-                    _c("view", { staticClass: "info-l" }, [
-                      _c("video", { attrs: { src: item.video_filename } })
-                    ]),
+                    _c(
+                      "view",
+                      {
+                        staticClass: "info-l",
+                        on: {
+                          tap: function($event) {
+                            return _vm.toViewVideo(item)
+                          }
+                        }
+                      },
+                      [
+                        _c("image", {
+                          attrs: { src: item.video_picture, mode: "widthFix" }
+                        })
+                      ]
+                    ),
                     _vm._v(" "),
                     _c("view", { staticClass: "info-r" }, [
-                      _c("view", { staticClass: "txt icon-play" }, [
-                        _vm._v("操作视频")
-                      ]),
+                      _c(
+                        "view",
+                        {
+                          staticClass: "txt icon-play",
+                          on: {
+                            tap: function($event) {
+                              return _vm.toViewVideo(item)
+                            }
+                          }
+                        },
+                        [_vm._v("操作视频")]
+                      ),
                       _vm._v(" "),
-                      _c("view", { staticClass: "txt icon-download" }, [
-                        _vm._v("下载资料")
-                      ]),
+                      _c(
+                        "view",
+                        {
+                          staticClass: "txt icon-download",
+                          on: {
+                            tap: function($event) {
+                              return _vm.downloadVideo(item)
+                            }
+                          }
+                        },
+                        [_vm._v("下载资料")]
+                      ),
                       _vm._v(" "),
                       _c("view", { staticClass: "time" }, [
                         _vm._v("更新时间：2021年1月8日")

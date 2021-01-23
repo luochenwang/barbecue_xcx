@@ -5,22 +5,22 @@
             <view class="name" @tap="toggleInfo(index)">{{item.title}}</view>
             <view class="info-content" v-show="item.show">
               <view class="info">
-                <view class="info-l">
+                <view class="info-l" @tap="toViewPdf(item)">
                   <image :src="item.pdf_picture" mode="widthFix"/>
                 </view>
                 <view class="info-r">
-                  <view class="txt icon-file" @tap="viewPdf(item)">操作指南</view>
-                  <view class="txt icon-download">下载资料</view>
+                  <view class="txt icon-file" @tap="toViewPdf(item)">操作指南</view>
+                  <view class="txt icon-download" @tap="downloadPdf(item)">下载资料</view>
                   <view class="time">更新时间：2021年1月8日</view>
                 </view>
               </view>
               <view class="info">
-                <view class="info-l">
-                  <video :src="item.video_filename"></video>
+                <view class="info-l" @tap="toViewVideo(item)">
+                  <image :src="item.video_picture" mode="widthFix"/>
                 </view>
                 <view class="info-r">
-                  <view class="txt icon-play">操作视频</view>
-                  <view class="txt icon-download">下载资料</view>
+                  <view class="txt icon-play" @tap="toViewVideo(item)">操作视频</view>
+                  <view class="txt icon-download" @tap="downloadVideo(item)">下载资料</view>
                   <view class="time">更新时间：2021年1月8日</view>
                 </view>
               </view>
@@ -33,11 +33,12 @@
 </template>
 
 <script>
-import sidebar from "../../components/sidebar";
 import { ajax } from "../../libs/ajax";
+import mixin from "../../libs/mixin";
 
 export default {
   name: 'server_details',
+  mixins: [mixin],
   data() {
       return {
         searchVal:'',
@@ -45,7 +46,7 @@ export default {
       }
     },
   components: {
-      sidebar
+
   },
   onLoad(option) {
       if(option.id){
@@ -69,6 +70,9 @@ export default {
                 keywords:option.search_val
             },
         }).then(res=>{
+            for(let item of res.list){
+              item.show = false;
+            }
             this.list = res.list;
         })
       }
@@ -76,23 +80,6 @@ export default {
   methods: {
     toggleInfo(index){
       this.list[index].show = !this.list[index].show;
-    },
-    viewPdf(item){
-      
-      wx.navigateTo({url:'/pages/webview/index?src='+item.pdf_filename});
-      // wx.downloadFile({
-      //   // 示例 url，并非真实存在
-      //   url:item.pdf_filename,
-      //   success: function (res) {
-      //     const filePath = res.tempFilePath
-      //     wx.openDocument({
-      //       filePath: filePath,
-      //       success: function (res) {
-      //         console.log('打开文档成功')
-      //       }
-      //     })
-      //   }
-      // })
     }
   }
 }

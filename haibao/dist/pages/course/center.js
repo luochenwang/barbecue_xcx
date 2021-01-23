@@ -70,21 +70,29 @@ component.options.__file = "src/pages/course/center.vue"
 //
 //
 //
+//
+//
+//
 
 
 var globalData = Object(_libs_globalData__WEBPACK_IMPORTED_MODULE_1__[/* createCache */ "a"])();
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: 'center',
   data: function data() {
-    return {
-      userInfo: {}
-    };
+    return {};
   },
   components: {},
+  computed: {
+    authModel: function authModel() {
+      return this.$store.state.authModel;
+    },
+    userInfo: function userInfo() {
+      return this.$store.state.userInfo;
+    }
+  },
   onLoad: function onLoad(option) {
     var _this = this;
 
-    this.userInfo = globalData.get("userInfo") || {};
     Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
       url: 'xcx_request.php',
       data: {
@@ -143,36 +151,53 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("view", { staticClass: "container" }, [
-    _c("view", { staticClass: "user-info" }, [
-      _c("view", { staticClass: "headimg" }, [
-        _c("image", { attrs: { src: _vm.userInfo.avatarUrl, mode: "" } })
+  return _c(
+    "view",
+    { staticClass: "container" },
+    [
+      _c("view", { staticClass: "user-info" }, [
+        _c("view", { staticClass: "headimg" }, [
+          _c("image", { attrs: { src: _vm.userInfo.avatarUrl, mode: "" } })
+        ]),
+        _vm._v(" "),
+        _c("view", [
+          _c("view", { staticClass: "name" }, [
+            _vm._v("昵称：" + _vm._s(_vm.userInfo.nickName))
+          ]),
+          _vm._v(" "),
+          _c("view", { staticClass: "time" }, [_vm._v("2020-12-31")])
+        ])
       ]),
       _vm._v(" "),
-      _vm.userInfo.nickName
-        ? _c("view", [
-            _c("view", { staticClass: "name" }, [
-              _vm._v("昵称：" + _vm._s(_vm.userInfo.nickName))
-            ]),
-            _vm._v(" "),
-            _c("view", { staticClass: "time" }, [_vm._v("2020-12-31")])
-          ])
-        : _c(
-            "button",
+      _c(
+        "view",
+        { staticClass: "nav" },
+        [
+          _c(
+            "navigator",
             {
-              attrs: { "open-type": "getUserInfo" },
-              on: { getuserinfo: _vm.userInfoHandler }
+              staticClass: "item icon-center1",
+              attrs: { url: "/pages/course/list?title=已完成课程" }
             },
-            [_vm._v("微信登录")]
+            [_vm._v("已完成课程")]
+          ),
+          _vm._v(" "),
+          _c(
+            "navigator",
+            {
+              staticClass: "item icon-center2",
+              attrs: { url: "/pages/course/list?title=已预约课程" }
+            },
+            [_vm._v("已预约课程")]
           )
-    ]),
-    _vm._v(" "),
-    _c("view", { staticClass: "nav" }, [
-      _c("view", { staticClass: "item icon-center1" }, [_vm._v("已完成课程")]),
+        ],
+        1
+      ),
       _vm._v(" "),
-      _c("view", { staticClass: "item icon-center2" }, [_vm._v("已预约课程")])
-    ])
-  ])
+      _c("sidebar")
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
