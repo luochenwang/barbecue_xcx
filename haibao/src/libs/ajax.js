@@ -47,7 +47,7 @@ export function ajax(options = {}) {
             let obj = Object.assign({}, options.data || {}, {openid:openid});
             Taro.request({
                 url: DOMAIN + options.url + '?rndv='+Math.random() + '&act='+obj.act,
-                data: obj,
+                data: {...obj,act:options.data.act2 || '' },
                 method:'post',
                 header:{
                     'Content-Type':'application/x-www-form-urlencoded'

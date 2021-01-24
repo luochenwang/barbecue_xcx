@@ -115,13 +115,12 @@ component.options.__file = "src/pages/course/index.vue"
     Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
       url: 'xcx_request.php',
       data: {
-        act: 'get_class_hot',
-        openid: 'oojTs4sapi_RIJnyJe0Abn_thtYA'
+        act: 'get_class_hot'
       }
     }).then(function (res) {
-      console.log(res);
       _this.list = res.list;
     });
+    this.$store.commit('set_category', 300);
   },
   methods: {}
 });

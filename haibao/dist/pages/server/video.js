@@ -49,6 +49,7 @@ component.options.__file = "src/pages/server/video.vue"
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var _libs_ajax__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../libs/ajax */ "./src/libs/ajax.js");
 //
 //
 //
@@ -63,6 +64,7 @@ component.options.__file = "src/pages/server/video.vue"
 //
 //
 //
+
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: 'video',
   data: function data() {
@@ -72,16 +74,46 @@ component.options.__file = "src/pages/server/video.vue"
   },
   components: {},
   onShareAppMessage: function onShareAppMessage(res) {
+    var _this = this;
+
     return {
       title: this.videoInfo.title,
-      path: '/pages/server/video?title=' + this.videoInfo.title + '&video_filename=' + this.videoInfo.video_filename + '&video_picture=' + this.videoInfo.video_picture
+      path: '/pages/server/video?title=' + this.videoInfo.title + '&video_filename=' + this.videoInfo.video_filename + '&video_picture=' + this.videoInfo.video_picture + '&id=' + this.videoInfo.id,
+      success: function success(res) {
+        Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
+          url: 'xcx_request.php',
+          data: {
+            act: 'set_File_History',
+            act2: 'share',
+            tp: _this.$store.state.category,
+            tp_value: item.class_id,
+            file_tp: 'video',
+            watch_time: 0
+          }
+        });
+      }
     };
   },
   onLoad: function onLoad(option) {
     console.log(option);
     this.videoInfo = option;
   },
-  methods: {}
+  methods: {
+    getLength: function getLength(e) {
+      var time = parseInt(e.detail.duration);
+      Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
+        url: 'xcx_request.php',
+        data: {
+          act: 'set_File_History',
+          act2: 'read',
+          tp: this.$store.state.category,
+          tp_value: this.videoInfo.id,
+          file_tp: 'video',
+          watch_time: time
+        }
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -125,7 +157,8 @@ var render = function() {
             src: _vm.videoInfo.video_filename,
             autoplay: true,
             controls: true
-          }
+          },
+          on: { loadedmetadata: _vm.getLength }
         })
       ]),
       _vm._v(" "),
@@ -228,5 +261,5 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ })
 
-},[["./src/pages/server/video.vue","runtime","taro","vendors"]]]);
+},[["./src/pages/server/video.vue","runtime","taro","vendors","common"]]]);
 //# sourceMappingURL=video.js.map

@@ -150,7 +150,7 @@ var plugin = requirePlugin("ykfchat");
       plugin.callback.on("getSessionFrom", this.session, this); // 传递客户资料
 
       wx.navigateTo({
-        url: 'plugin://ykfchat/chat-page?wechatapp_id=218941&channel_id=25183&scene=p86772ux3apl&getOpenIdType=2'
+        url: 'plugin://ykfchat/chat-page?wechatapp_id=219196&channel_id=25200&scene=p86776wmyjpl&getOpenIdType=2'
       });
     },
     none: function none() {

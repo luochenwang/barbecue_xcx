@@ -41,10 +41,8 @@
 </template>
 
 <script>
-import { createCache } from "../../libs/globalData";
 import { ajax } from "../../libs/ajax";
 import webheader from "../../components/webheader";
-const c = createCache();
 
 export default {
   name: "Index",
@@ -57,7 +55,14 @@ export default {
       webheader
   },
   mounted() {
-
+    this.$store.commit('set_category',100);
+    ajax({
+        url:'xcx_request.php',
+        data:{
+            act:'set_Visit_History',
+            tp:100,
+        },
+    });
   },
   methods: {
     search(){

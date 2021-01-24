@@ -2,7 +2,7 @@
   <view class="container">
     <view class="tt">{{videoInfo.title}}</view>
     <view class="video-box">
-        <video :src="videoInfo.video_filename" :autoplay='true' :controls="true"></video>
+        <video :src="videoInfo.video_filename" :autoplay='true' :controls="true" @loadedmetadata="getLength"></video>
     </view>
     <view class="btn-box">
       <view class="btn" @tap="downVideo(videoInfo)">下载资料</view>
@@ -13,6 +13,7 @@
 </template>
 
 <script>
+import { ajax } from "../../libs/ajax";
 
 export default {
   name: 'video',
@@ -27,7 +28,20 @@ export default {
   onShareAppMessage: function(res) {
     return {
       title: this.videoInfo.title,
-      path: '/pages/server/video?title='+this.videoInfo.title+'&video_filename='+this.videoInfo.video_filename+'&video_picture='+this.videoInfo.video_picture
+      path: '/pages/server/video?title='+this.videoInfo.title+'&video_filename='+this.videoInfo.video_filename+'&video_picture='+this.videoInfo.video_picture + '&id='+this.videoInfo.id,
+      success: (res) => {
+        ajax({
+            url:'xcx_request.php',
+            data:{
+                act:'set_File_History',
+                act2:'share',
+                tp:this.$store.state.category,
+                tp_value:item.class_id,
+                file_tp:'video',
+                watch_time:0,
+            },
+        });
+      },
     };
   },
   onLoad(option) {
@@ -35,7 +49,20 @@ export default {
     this.videoInfo = option;
   },
   methods: {
-
+    getLength(e){
+      let time = parseInt(e.detail.duration);
+      ajax({
+        url: 'xcx_request.php',
+        data: {
+          act: 'set_File_History',
+          act2: 'read',
+          tp: this.$store.state.category,
+          tp_value: this.videoInfo.id,
+          file_tp: 'video',
+          watch_time: time,
+        },
+      });
+    }
   }
 }
 </script>

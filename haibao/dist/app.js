@@ -115,7 +115,7 @@ var globalData = Object(_libs_globalData__WEBPACK_IMPORTED_MODULE_0__[/* createC
       plugin.callback.on("getSessionFrom", this.session, this); // 传递客户资料
 
       wx.navigateTo({
-        url: 'plugin://ykfchat/chat-page?wechatapp_id=218941&channel_id=25183&scene=p86772ux3apl'
+        url: 'plugin://ykfchat/chat-page?wechatapp_id=219196&channel_id=25200&scene=p86776wmyjpl&getOpenIdType=2'
       });
     }
   }
@@ -10682,11 +10682,15 @@ var globalData = Object(_libs_globalData__WEBPACK_IMPORTED_MODULE_2__[/* createC
 vue__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].use(vuex__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"]);
 var state = {
   authModel: false,
-  userInfo: {}
+  userInfo: {},
+  category: 0
 };
 var mutations = {
   set_useriNfo: function set_useriNfo(state, obj) {
     state.userInfo = obj;
+  },
+  set_category: function set_category(state, val) {
+    state.category = val;
   },
   set_authModel: function set_authModel(state) {
     var bo = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;

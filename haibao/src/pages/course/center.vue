@@ -52,7 +52,17 @@ export default {
           },
       }).then(res=>{
           this.list = res.list;
-      })
+      });
+
+
+      ajax({
+        url:'xcx_request.php',
+        data:{
+            act:'set_Visit_History',
+            tp: 310,
+            tp_value: 3
+        },
+    });
   },
   methods: {
     userInfoHandler(){

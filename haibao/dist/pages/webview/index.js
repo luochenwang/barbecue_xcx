@@ -49,10 +49,12 @@ component.options.__file = "src/pages/webview/index.vue"
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var _libs_ajax__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../libs/ajax */ "./src/libs/ajax.js");
 //
 //
 //
 //
+
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: 'webview',
   data: function data() {
@@ -63,10 +65,25 @@ component.options.__file = "src/pages/webview/index.vue"
   },
   components: {},
   onShareAppMessage: function onShareAppMessage(res) {
+    var _this = this;
+
     // return eventHandler接收到的分享参数
     return {
       title: this.title,
-      path: '/pages/webview/index?src=' + this.src
+      path: '/pages/webview/index?src=' + this.src,
+      success: function success(res) {
+        Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
+          url: 'xcx_request.php',
+          data: {
+            act: 'set_File_History',
+            act2: 'share',
+            tp: _this.$store.state.category,
+            tp_value: item.class_id,
+            file_tp: 'video',
+            watch_time: 0
+          }
+        });
+      }
     };
   },
   onLoad: function onLoad(option) {
@@ -186,5 +203,5 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ })
 
-},[["./src/pages/webview/index.vue","runtime","taro","vendors"]]]);
+},[["./src/pages/webview/index.vue","runtime","taro","vendors","common"]]]);
 //# sourceMappingURL=index.js.map

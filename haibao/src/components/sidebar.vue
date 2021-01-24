@@ -49,7 +49,7 @@ const globalData = createCache();
         plugin.callback.on("getOpenId", this.getOpenId, this); // 传递openid，注意路径后一定要声名&getOpenIdType=2，否则传递无效
         plugin.callback.on("getSessionFrom", this.session, this); // 传递客户资料
         wx.navigateTo({
-            url: 'plugin://ykfchat/chat-page?wechatapp_id=218941&channel_id=25183&scene=p86772ux3apl',
+            url: 'plugin://ykfchat/chat-page?wechatapp_id=219196&channel_id=25200&scene=p86776wmyjpl&getOpenIdType=2',
         });
       }
     }

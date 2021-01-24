@@ -102,6 +102,14 @@ var globalData = Object(_libs_globalData__WEBPACK_IMPORTED_MODULE_1__[/* createC
     }).then(function (res) {
       _this.list = res.list;
     });
+    Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
+      url: 'xcx_request.php',
+      data: {
+        act: 'set_Visit_History',
+        tp: 310,
+        tp_value: 3
+      }
+    });
   },
   methods: {
     userInfoHandler: function userInfoHandler() {

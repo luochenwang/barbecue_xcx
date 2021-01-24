@@ -299,12 +299,14 @@ component.options.__file = "src/components/webheader.vue"
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return getOpenid; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ajax; });
-/* harmony import */ var _tarojs_taro__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tarojs/taro */ "./node_modules/_@tarojs_taro@3.0.8@@tarojs/taro/index.js");
-/* harmony import */ var _tarojs_taro__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_tarojs_taro__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _globalData__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./globalData */ "./src/libs/globalData.js");
+/* harmony import */ var _Volumes_D_site_barbecue_xcx_haibao_node_modules_babel_runtime_7_12_5_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/_@babel_runtime@7.12.5@@babel/runtime/helpers/esm/objectSpread2 */ "./node_modules/_@babel_runtime@7.12.5@@babel/runtime/helpers/esm/objectSpread2.js");
+/* harmony import */ var _tarojs_taro__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @tarojs/taro */ "./node_modules/_@tarojs_taro@3.0.8@@tarojs/taro/index.js");
+/* harmony import */ var _tarojs_taro__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_tarojs_taro__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _globalData__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./globalData */ "./src/libs/globalData.js");
 
 
-var globalData = Object(_globalData__WEBPACK_IMPORTED_MODULE_1__[/* createCache */ "a"])(); // c.set("test", 100);
+
+var globalData = Object(_globalData__WEBPACK_IMPORTED_MODULE_2__[/* createCache */ "a"])(); // c.set("test", 100);
 // console.log(c.get("test"));
 
 var DOMAIN = 'https://campaign5.method-ad.cn/hypertherm/';
@@ -318,7 +320,7 @@ function getOpenid() {
       wx.login({
         success: function success(res) {
           if (res.code) {
-            _tarojs_taro__WEBPACK_IMPORTED_MODULE_0___default.a.request({
+            _tarojs_taro__WEBPACK_IMPORTED_MODULE_1___default.a.request({
               url: DOMAIN + 'xcx_request.php?rndv=' + Math.random() + '&act=getOpenid',
               data: {
                 code: res.code
@@ -352,9 +354,11 @@ function ajax() {
       var obj = Object.assign({}, options.data || {}, {
         openid: openid
       });
-      _tarojs_taro__WEBPACK_IMPORTED_MODULE_0___default.a.request({
+      _tarojs_taro__WEBPACK_IMPORTED_MODULE_1___default.a.request({
         url: DOMAIN + options.url + '?rndv=' + Math.random() + '&act=' + obj.act,
-        data: obj,
+        data: Object(_Volumes_D_site_barbecue_xcx_haibao_node_modules_babel_runtime_7_12_5_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(Object(_Volumes_D_site_barbecue_xcx_haibao_node_modules_babel_runtime_7_12_5_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({}, obj), {}, {
+          act: options.data.act2 || ''
+        }),
         method: 'post',
         header: {
           'Content-Type': 'application/x-www-form-urlencoded'
@@ -407,14 +411,28 @@ function createCache() {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var _ajax__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ajax */ "./src/libs/ajax.js");
+
 /* harmony default export */ __webpack_exports__["a"] = ({
   methods: {
     viewVideo: function viewVideo(item) {
       this.viewVideoSrc = item.video_filename;
     },
     toViewPdf: function toViewPdf(item) {
+      var tp = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 100;
       wx.navigateTo({
         url: '/pages/webview/index?src=' + item.pdf_filename + '&title=' + item.title
+      });
+      Object(_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
+        url: 'xcx_request.php',
+        data: {
+          act: 'set_File_History',
+          act2: 'read',
+          tp: this.$store.state.category,
+          tp_value: item.class_id || item.tech_id,
+          file_tp: 'pdf',
+          watch_time: 0
+        }
       }); // wx.downloadFile({
       //   // 示例 url，并非真实存在
       //   url:item.pdf_filename,
@@ -430,11 +448,13 @@ function createCache() {
       // })
     },
     toViewVideo: function toViewVideo(item) {
+      var tp = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 100;
       wx.navigateTo({
-        url: '/pages/server/video?title=' + item.title + '&video_filename=' + item.video_filename + '&video_picture=' + item.video_picture
+        url: '/pages/server/video?title=' + item.title + '&video_filename=' + item.video_filename + '&video_picture=' + item.video_picture + '&id=' + (item.class_id || item.tech_id)
       });
     },
     downloadPdf: function downloadPdf(item) {
+      var tp = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 100;
       wx.showLoading({
         title: '加载中...'
       });
@@ -467,8 +487,20 @@ function createCache() {
           });
         }
       });
+      Object(_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
+        url: 'xcx_request.php',
+        data: {
+          act: 'set_File_History',
+          act2: 'download',
+          tp: this.$store.state.category,
+          tp_value: item.class_id || item.tech_id,
+          file_tp: 'pdf',
+          watch_time: 0
+        }
+      });
     },
     downloadVideo: function downloadVideo(item) {
+      var tp = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 100;
       wx.showLoading({
         title: '加载中...'
       });
@@ -499,6 +531,17 @@ function createCache() {
               wx.hideLoading();
             }
           });
+        }
+      });
+      Object(_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
+        url: 'xcx_request.php',
+        data: {
+          act: 'set_File_History',
+          act2: 'download',
+          tp: this.$store.state.category,
+          tp_value: item.class_id || item.tech_id,
+          file_tp: 'video',
+          watch_time: 0
         }
       });
     }

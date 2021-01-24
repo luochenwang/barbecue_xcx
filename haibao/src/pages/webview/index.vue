@@ -3,6 +3,7 @@
 </template>
 
 <script>
+import { ajax } from "../../libs/ajax";
 
 export default {
   name: 'webview',
@@ -19,7 +20,20 @@ export default {
   // return eventHandler接收到的分享参数
     return {
       title: this.title,
-      path: '/pages/webview/index?src='+this.src
+      path: '/pages/webview/index?src='+this.src,
+      success: (res) => {
+        ajax({
+            url:'xcx_request.php',
+            data:{
+                act:'set_File_History',
+                act2:'share',
+                tp:this.$store.state.category,
+                tp_value:item.class_id,
+                file_tp:'video',
+                watch_time:0,
+            },
+        });
+      },
     };
   },
   onLoad(option) {

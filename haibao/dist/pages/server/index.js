@@ -49,9 +49,8 @@ component.options.__file = "src/pages/server/index.vue"
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var _libs_globalData__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../libs/globalData */ "./src/libs/globalData.js");
-/* harmony import */ var _libs_ajax__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../libs/ajax */ "./src/libs/ajax.js");
-/* harmony import */ var _components_webheader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/webheader */ "./src/components/webheader.vue");
+/* harmony import */ var _libs_ajax__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../libs/ajax */ "./src/libs/ajax.js");
+/* harmony import */ var _components_webheader__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/webheader */ "./src/components/webheader.vue");
 //
 //
 //
@@ -96,8 +95,6 @@ component.options.__file = "src/pages/server/index.vue"
 //
 
 
-
-var c = Object(_libs_globalData__WEBPACK_IMPORTED_MODULE_0__[/* createCache */ "a"])();
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: "Index",
   data: function data() {
@@ -106,9 +103,18 @@ var c = Object(_libs_globalData__WEBPACK_IMPORTED_MODULE_0__[/* createCache */ "
     };
   },
   components: {
-    webheader: _components_webheader__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"]
+    webheader: _components_webheader__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"]
   },
-  mounted: function mounted() {},
+  mounted: function mounted() {
+    this.$store.commit('set_category', 100);
+    Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
+      url: 'xcx_request.php',
+      data: {
+        act: 'set_Visit_History',
+        tp: 100
+      }
+    });
+  },
   methods: {
     search: function search() {
       if (this.searchVal == '') {

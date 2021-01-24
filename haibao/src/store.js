@@ -6,12 +6,17 @@ Vue.use(Vuex)
 
 const state = {
   authModel:false,
-  userInfo:{}
+  userInfo:{},
+
+  category:0,
 }
 
 const mutations = {
   set_useriNfo(state, obj) {
     state.userInfo = obj
+  },
+  set_category(state, val) {
+    state.category = val
   },
   set_authModel(state, bo = false){
     if(bo){
