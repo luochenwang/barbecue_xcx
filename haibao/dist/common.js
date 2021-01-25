@@ -429,7 +429,7 @@ function createCache() {
           act: 'set_File_History',
           act2: 'read',
           tp: this.$store.state.category,
-          tp_value: item.class_id || item.tech_id,
+          tp_value: item.class_id || item.tech_detail_id,
           file_tp: 'pdf',
           watch_time: 0
         }
@@ -450,7 +450,7 @@ function createCache() {
     toViewVideo: function toViewVideo(item) {
       var tp = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 100;
       wx.navigateTo({
-        url: '/pages/server/video?title=' + item.title + '&video_filename=' + item.video_filename + '&video_picture=' + item.video_picture + '&id=' + (item.class_id || item.tech_id)
+        url: '/pages/server/video?title=' + item.title + '&video_filename=' + item.video_filename + '&video_picture=' + item.video_picture + '&id=' + (item.class_id || item.tech_detail_id)
       });
     },
     downloadPdf: function downloadPdf(item) {
@@ -493,7 +493,7 @@ function createCache() {
           act: 'set_File_History',
           act2: 'download',
           tp: this.$store.state.category,
-          tp_value: item.class_id || item.tech_id,
+          tp_value: item.class_id || item.tech_detail_id,
           file_tp: 'pdf',
           watch_time: 0
         }
@@ -539,7 +539,7 @@ function createCache() {
           act: 'set_File_History',
           act2: 'download',
           tp: this.$store.state.category,
-          tp_value: item.class_id || item.tech_id,
+          tp_value: item.class_id || item.tech_detail_id,
           file_tp: 'video',
           watch_time: 0
         }

@@ -14,7 +14,7 @@ export default {
           act: 'set_File_History',
           act2: 'read',
           tp: this.$store.state.category,
-          tp_value: item.class_id || item.tech_id,
+          tp_value: item.class_id || item.tech_detail_id,
           file_tp: 'pdf',
           watch_time: 0,
         },
@@ -34,7 +34,7 @@ export default {
       // })
     },
     toViewVideo(item, tp = 100) {
-      wx.navigateTo({ url: '/pages/server/video?title=' + item.title + '&video_filename=' + item.video_filename + '&video_picture=' + item.video_picture + '&id=' + (item.class_id || item.tech_id) });
+      wx.navigateTo({ url: '/pages/server/video?title=' + item.title + '&video_filename=' + item.video_filename + '&video_picture=' + item.video_picture + '&id=' + (item.class_id || item.tech_detail_id) });
     },
     downloadPdf(item, tp = 100) {
       wx.showLoading({
@@ -79,7 +79,7 @@ export default {
           act: 'set_File_History',
           act2: 'download',
           tp: this.$store.state.category,
-          tp_value: item.class_id || item.tech_id,
+          tp_value: item.class_id || item.tech_detail_id,
           file_tp: 'pdf',
           watch_time: 0,
         },
@@ -128,7 +128,7 @@ export default {
                   act:'set_File_History',
                   act2:'download',
                   tp:this.$store.state.category,
-                  tp_value:item.class_id || item.tech_id,
+                  tp_value:item.class_id || item.tech_detail_id,
                   file_tp:'video',
                   watch_time:0,
               },
