@@ -1,17 +1,18 @@
 <template>
-  <view class="container">
+  <view class="container" :style="{paddingTop:containerTop+'px'}">
+    <webheader/>
     <view class="user-info">
         <view class="headimg">
             <image :src="userInfo.avatarUrl" mode=""/>
         </view>
         <view>
           <view class="name">昵称：{{userInfo.nickName}}</view>
-          <view class="time">2020-12-31</view>
+          <view class="time">{{time}}</view>
         </view>
         <!-- <button open-type="getUserInfo" @getuserinfo="userInfoHandler" v-else>微信登录</button> -->
     </view>
     <view class="nav">
-        <navigator class="item icon-center1" url="/pages/course/list?title=已完成课程&cat=get_Myappointment">已完成课程</navigator>
+        <navigator class="item icon-center1" url="/pages/course/list?title=已观看视频&cat=get_Myappointment">已观看视频</navigator>
         <navigator class="item icon-center2" url="/pages/course/list?title=已预约课程&cat=get_MyFinished">已预约课程</navigator>
     </view>
 
@@ -21,15 +22,17 @@
 </template>
 
 <script>
+import mixin from "../../libs/mixin";
 import { ajax } from "../../libs/ajax";
 import { createCache } from "../../libs/globalData";
 const globalData = createCache();
 
 export default {
   name: 'center',
+  mixins: [mixin],
   data() {
       return {
-
+        time:''
       }
     },
   components: {
@@ -62,9 +65,17 @@ export default {
             tp: 310,
             tp_value: 3
         },
-    });
+      });
+      this.getTime();
   },
   methods: {
+    getTime(){
+      var datetime = new Date();
+      var year = datetime.getFullYear();
+      var month = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1;
+      var date = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate();
+      this.time = year + '-' + month + '-' + date;
+    },
     userInfoHandler(){
       var that = this;
       wx.getSetting({

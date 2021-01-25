@@ -106,6 +106,7 @@ component.options.__file = "src/pages/course/list.vue"
 //
 //
 //
+//
 
 
 
@@ -295,8 +296,13 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "view",
-    { staticClass: "container" },
+    {
+      staticClass: "container",
+      style: { paddingTop: _vm.containerTop + "px" }
+    },
     [
+      _c("webheader"),
+      _vm._v(" "),
       _c("view", { staticClass: "category-nav" }, [
         _vm.multiArray[2].length > 1
           ? _c(

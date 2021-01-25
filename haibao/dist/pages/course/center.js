@@ -49,8 +49,10 @@ component.options.__file = "src/pages/course/center.vue"
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var _libs_ajax__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../libs/ajax */ "./src/libs/ajax.js");
-/* harmony import */ var _libs_globalData__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../libs/globalData */ "./src/libs/globalData.js");
+/* harmony import */ var _libs_mixin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../libs/mixin */ "./src/libs/mixin.js");
+/* harmony import */ var _libs_ajax__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../libs/ajax */ "./src/libs/ajax.js");
+/* harmony import */ var _libs_globalData__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../libs/globalData */ "./src/libs/globalData.js");
+//
 //
 //
 //
@@ -75,11 +77,15 @@ component.options.__file = "src/pages/course/center.vue"
 //
 
 
-var globalData = Object(_libs_globalData__WEBPACK_IMPORTED_MODULE_1__[/* createCache */ "a"])();
+
+var globalData = Object(_libs_globalData__WEBPACK_IMPORTED_MODULE_2__[/* createCache */ "a"])();
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: 'center',
+  mixins: [_libs_mixin__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"]],
   data: function data() {
-    return {};
+    return {
+      time: ''
+    };
   },
   components: {},
   computed: {
@@ -93,7 +99,7 @@ var globalData = Object(_libs_globalData__WEBPACK_IMPORTED_MODULE_1__[/* createC
   onLoad: function onLoad(option) {
     var _this = this;
 
-    Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
+    Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_1__[/* ajax */ "a"])({
       url: 'xcx_request.php',
       data: {
         act: 'get_tech_list',
@@ -102,7 +108,7 @@ var globalData = Object(_libs_globalData__WEBPACK_IMPORTED_MODULE_1__[/* createC
     }).then(function (res) {
       _this.list = res.list;
     });
-    Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
+    Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_1__[/* ajax */ "a"])({
       url: 'xcx_request.php',
       data: {
         act: 'set_Visit_History',
@@ -110,8 +116,16 @@ var globalData = Object(_libs_globalData__WEBPACK_IMPORTED_MODULE_1__[/* createC
         tp_value: 3
       }
     });
+    this.getTime();
   },
   methods: {
+    getTime: function getTime() {
+      var datetime = new Date();
+      var year = datetime.getFullYear();
+      var month = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1;
+      var date = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate();
+      this.time = year + '-' + month + '-' + date;
+    },
     userInfoHandler: function userInfoHandler() {
       var that = this;
       wx.getSetting({
@@ -161,8 +175,13 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "view",
-    { staticClass: "container" },
+    {
+      staticClass: "container",
+      style: { paddingTop: _vm.containerTop + "px" }
+    },
     [
+      _c("webheader"),
+      _vm._v(" "),
       _c("view", { staticClass: "user-info" }, [
         _c("view", { staticClass: "headimg" }, [
           _c("image", { attrs: { src: _vm.userInfo.avatarUrl, mode: "" } })
@@ -173,7 +192,7 @@ var render = function() {
             _vm._v("昵称：" + _vm._s(_vm.userInfo.nickName))
           ]),
           _vm._v(" "),
-          _c("view", { staticClass: "time" }, [_vm._v("2020-12-31")])
+          _c("view", { staticClass: "time" }, [_vm._v(_vm._s(_vm.time))])
         ])
       ]),
       _vm._v(" "),
@@ -186,10 +205,10 @@ var render = function() {
             {
               staticClass: "item icon-center1",
               attrs: {
-                url: "/pages/course/list?title=已完成课程&cat=get_Myappointment"
+                url: "/pages/course/list?title=已观看视频&cat=get_Myappointment"
               }
             },
-            [_vm._v("已完成课程")]
+            [_vm._v("已观看视频")]
           ),
           _vm._v(" "),
           _c(
@@ -232,7 +251,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_tarojs_taro_loader_3_0_8_tarojs_taro_loader_lib_raw_js_center_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/_@tarojs_taro-loader@3.0.8@@tarojs/taro-loader/lib/raw.js!./center.vue */ "./node_modules/_@tarojs_taro-loader@3.0.8@@tarojs/taro-loader/lib/raw.js!./src/pages/course/center.vue");
 
 
-var config = {"navigationBarTitleText":"首页"};
+var config = {"navigationBarTitleText":"首页","navigationStyle":"custom"};
 
 
 var inst = Page(Object(_tarojs_runtime__WEBPACK_IMPORTED_MODULE_0__["createPageConfig"])(_node_modules_tarojs_taro_loader_3_0_8_tarojs_taro_loader_lib_raw_js_center_vue__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"], 'pages/course/center', {}, config || {}))

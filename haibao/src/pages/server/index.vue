@@ -1,6 +1,6 @@
 <template>
-    <view class="container">
-        <!-- <webheader/> -->
+    <view class="container" :style="{paddingTop:containerTop+'px'}">
+        <webheader/>
         
         <view class="banner">
             <image src="https://campaign5.method-ad.cn/hypertherm/img/banner.jpg" mode="widthFix"/>
@@ -42,17 +42,18 @@
 
 <script>
 import { ajax } from "../../libs/ajax";
-import webheader from "../../components/webheader";
+import mixin from "../../libs/mixin";
 
 export default {
   name: "Index",
+  mixins: [mixin],
   data() {
       return {
         searchVal:''
       }
     },
   components: {
-      webheader
+
   },
   mounted() {
     this.$store.commit('set_category',100);

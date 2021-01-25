@@ -1,5 +1,6 @@
 <template>
-  <view class="container">
+  <view class="container" :style="{paddingTop:containerTop+'px'}">
+    <webheader/>
     <view class="list">
         <navigator class="item" v-for="(item,index) in list" :key="index" :url="'/pages/server/details?id='+item.tech_id">
             <view class="item-l">
@@ -18,9 +19,11 @@
 
 <script>
 import { ajax } from "../../libs/ajax";
+import mixin from "../../libs/mixin";
 
 export default {
   name: 'server_list',
+  mixins: [mixin],
   data() {
       return {
         searchBox:false,
@@ -29,7 +32,7 @@ export default {
       }
     },
   components: {
-    
+
   },
   onLoad(option) {
       this.searchVal = option.search_val;

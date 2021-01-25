@@ -50,8 +50,9 @@ component.options.__file = "src/pages/index/index.vue"
 
 "use strict";
 /* harmony import */ var _libs_globalData__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../libs/globalData */ "./src/libs/globalData.js");
-/* harmony import */ var _libs_ajax__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../libs/ajax */ "./src/libs/ajax.js");
-/* harmony import */ var _components_webheader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/webheader */ "./src/components/webheader.vue");
+/* harmony import */ var _libs_mixin__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../libs/mixin */ "./src/libs/mixin.js");
+/* harmony import */ var _libs_ajax__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../libs/ajax */ "./src/libs/ajax.js");
+//
 //
 //
 //
@@ -100,9 +101,8 @@ var plugin = requirePlugin("ykfchat");
       openid: ''
     };
   },
-  components: {
-    webheader: _components_webheader__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"]
-  },
+  mixins: [_libs_mixin__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"]],
+  components: {},
   computed: {
     authModel: function authModel() {
       return this.$store.state.authModel;
@@ -114,7 +114,7 @@ var plugin = requirePlugin("ykfchat");
   mounted: function mounted() {
     var _this = this;
 
-    Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_1__[/* getOpenid */ "b"])().then(function (openid) {
+    Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_2__[/* getOpenid */ "b"])().then(function (openid) {
       _this.openid = openid;
     });
     var that = this;
@@ -194,8 +194,13 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "view",
-    { staticClass: "container" },
+    {
+      staticClass: "container",
+      style: { paddingTop: _vm.containerTop + "px" }
+    },
     [
+      _c("webheader"),
+      _vm._v(" "),
       _c("view", { staticClass: "banner" }, [
         _c("image", {
           attrs: {
@@ -318,7 +323,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_tarojs_taro_loader_3_0_8_tarojs_taro_loader_lib_raw_js_index_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/_@tarojs_taro-loader@3.0.8@@tarojs/taro-loader/lib/raw.js!./index.vue */ "./node_modules/_@tarojs_taro-loader@3.0.8@@tarojs/taro-loader/lib/raw.js!./src/pages/index/index.vue");
 
 
-var config = {"navigationBarTitleText":"首页"};
+var config = {"navigationBarTitleText":"首页","navigationStyle":"custom"};
 
 
 var inst = Page(Object(_tarojs_runtime__WEBPACK_IMPORTED_MODULE_0__["createPageConfig"])(_node_modules_tarojs_taro_loader_3_0_8_tarojs_taro_loader_lib_raw_js_index_vue__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"], 'pages/index/index', {}, config || {}))

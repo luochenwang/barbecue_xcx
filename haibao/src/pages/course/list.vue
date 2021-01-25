@@ -1,5 +1,6 @@
 <template>
-  <view class="container">
+  <view class="container" :style="{paddingTop:containerTop+'px'}">
+    <webheader/>
     <view class="category-nav">
         <view class="select-box" v-if="multiArray[2].length > 1">
             <picker mode="multiSelector" @change="bindMultiPickerChange" @columnchange="bindMultiPickerColumnChange" :value="multiIndex" :range="multiArray" :range-key="'title'">

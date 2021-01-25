@@ -92,12 +92,13 @@
         height: 100%;
 }
 .list .item .item-r {
-      width: 300rpx;
+      width: 350rpx;
       padding-left: 70rpx;
 }
 .list .item .item-r .name {
         font-size: 27rpx;
         color: #696969;
         font-weight: bold;
+        white-space: nowrap;
 }
 

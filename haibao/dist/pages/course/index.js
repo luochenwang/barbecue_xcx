@@ -94,6 +94,7 @@ component.options.__file = "src/pages/course/index.vue"
 //
 //
 //
+//
 
 
 
@@ -156,8 +157,13 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "view",
-    { staticClass: "container" },
+    {
+      staticClass: "container",
+      style: { paddingTop: _vm.containerTop + "px" }
+    },
     [
+      _c("webheader"),
+      _vm._v(" "),
       _c("view", { staticClass: "banner" }, [
         _c("image", {
           attrs: {

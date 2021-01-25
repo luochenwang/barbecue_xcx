@@ -1,5 +1,6 @@
 <template>
-  <view class="container">
+  <view class="container" :style="{paddingTop:containerTop+'px'}">
+    <webheader/>
     <view class="list">
         <view class="item" :class="{'active' : item.show}" v-for="(item,index) in list">
             <view class="name" @tap="toggleInfo(index)">{{item.title}}</view>

@@ -50,6 +50,8 @@ component.options.__file = "src/pages/server/video.vue"
 
 "use strict";
 /* harmony import */ var _libs_ajax__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../libs/ajax */ "./src/libs/ajax.js");
+/* harmony import */ var _libs_mixin__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../libs/mixin */ "./src/libs/mixin.js");
+//
 //
 //
 //
@@ -65,8 +67,10 @@ component.options.__file = "src/pages/server/video.vue"
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: 'video',
+  mixins: [_libs_mixin__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"]],
   data: function data() {
     return {
       videoInfo: {}
@@ -147,8 +151,13 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "view",
-    { staticClass: "container" },
+    {
+      staticClass: "container",
+      style: { paddingTop: _vm.containerTop + "px" }
+    },
     [
+      _c("webheader"),
+      _vm._v(" "),
       _c("view", { staticClass: "tt" }, [_vm._v(_vm._s(_vm.videoInfo.title))]),
       _vm._v(" "),
       _c("view", { staticClass: "video-box" }, [

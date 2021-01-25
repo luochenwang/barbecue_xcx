@@ -50,6 +50,8 @@ component.options.__file = "src/pages/consult/index.vue"
 
 "use strict";
 /* harmony import */ var _libs_ajax__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../libs/ajax */ "./src/libs/ajax.js");
+/* harmony import */ var _libs_mixin__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../libs/mixin */ "./src/libs/mixin.js");
+//
 //
 //
 //
@@ -95,9 +97,11 @@ component.options.__file = "src/pages/consult/index.vue"
 //
 //
 
+
 var timr = null;
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: 'user',
+  mixins: [_libs_mixin__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"]],
   data: function data() {
     return {
       newsVal: '',
@@ -229,165 +233,178 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("view", { staticClass: "container" }, [
-    _c(
-      "view",
-      { staticClass: "main" },
-      [
-        _c(
-          "scroll-view",
-          { attrs: { "scroll-y": true } },
-          [
-            _c("view", { staticClass: "time" }, [
-              _c("text", [_vm._v("18:10")])
-            ]),
-            _vm._v(" "),
-            _c("view", { staticClass: "chat" }, [
-              _c("view", { staticClass: "headimg" }, [
-                _c("image", {
-                  attrs: {
-                    src:
-                      "https://campaign5.method-ad.cn/hypertherm/img/consult/logo.jpg",
-                    mode: "widthFix"
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _c(
-                "view",
-                { staticClass: "info" },
-                [
-                  _c("view", [
-                    _vm._v("您好！有什么可以帮您的？以下是常见问题列表。")
-                  ]),
-                  _vm._v(" "),
-                  _vm._l(_vm.questionList, function(item, index) {
-                    return _c(
-                      "view",
-                      {
-                        on: {
-                          tap: function($event) {
-                            return _vm.viewQuestion(item)
-                          }
-                        }
-                      },
-                      [_vm._v(_vm._s(item.title))]
-                    )
-                  })
-                ],
-                2
-              )
-            ]),
-            _vm._v(" "),
-            _vm._l(_vm.newsList, function(item, index) {
-              return _c(
-                "view",
-                { staticClass: "chat", class: { active: item.active } },
-                [
-                  _c("view", { staticClass: "headimg" }, [
-                    _c("image", {
-                      attrs: {
-                        src:
-                          "https://campaign5.method-ad.cn/hypertherm/img/consult/logo.jpg",
-                        mode: "widthFix"
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("view", { staticClass: "info" }, [
-                    _vm._v(_vm._s(item.content))
-                  ])
-                ]
-              )
-            }),
-            _vm._v(" "),
-            _c("view", { staticClass: "review" }, [
-              _c("view", { staticClass: "tt" }, [
-                _vm._v("是否已解决您的问题？")
-              ]),
-              _vm._v(" "),
-              _c("view", { staticClass: "star" }, [
-                _c("image", {
-                  attrs: {
-                    src:
-                      "https://campaign5.method-ad.cn/hypertherm/img/consult/star2.png",
-                    mode: "widthFix"
-                  }
-                }),
-                _vm._v(" "),
-                _c("image", {
-                  attrs: {
-                    src:
-                      "https://campaign5.method-ad.cn/hypertherm/img/consult/star2.png",
-                    mode: "widthFix"
-                  }
-                }),
-                _vm._v(" "),
-                _c("image", {
-                  attrs: {
-                    src:
-                      "https://campaign5.method-ad.cn/hypertherm/img/consult/star2.png",
-                    mode: "widthFix"
-                  }
-                }),
-                _vm._v(" "),
-                _c("image", {
-                  attrs: {
-                    src:
-                      "https://campaign5.method-ad.cn/hypertherm/img/consult/star2.png",
-                    mode: "widthFix"
-                  }
-                }),
-                _vm._v(" "),
-                _c("image", {
-                  attrs: {
-                    src:
-                      "https://campaign5.method-ad.cn/hypertherm/img/consult/star2.png",
-                    mode: "widthFix"
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _c("view", { staticClass: "btn-box" }, [
-                _c("view", { staticClass: "btn active" }, [_vm._v("已解决")]),
-                _vm._v(" "),
-                _c("view", { staticClass: "btn" }, [_vm._v("继续咨询")])
-              ])
-            ])
-          ],
-          2
-        )
-      ],
-      1
-    ),
-    _vm._v(" "),
-    _c("view", { staticClass: "footer-box" }, [
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.newsVal,
-            expression: "newsVal"
-          }
-        ],
-        attrs: { type: "text", placeholder: "很高兴为您服务，请描述您的问题" },
-        domProps: { value: _vm.newsVal },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.newsVal = $event.target.value
-          }
-        }
-      }),
+  return _c(
+    "view",
+    {
+      staticClass: "container",
+      style: { paddingTop: _vm.containerTop + "px" }
+    },
+    [
+      _c("webheader"),
       _vm._v(" "),
-      _c("view", { staticClass: "send-btn", on: { tap: _vm.send } }, [
-        _vm._v("发 送")
+      _c(
+        "view",
+        { staticClass: "main" },
+        [
+          _c(
+            "scroll-view",
+            { attrs: { "scroll-y": true } },
+            [
+              _c("view", { staticClass: "time" }, [
+                _c("text", [_vm._v("18:10")])
+              ]),
+              _vm._v(" "),
+              _c("view", { staticClass: "chat" }, [
+                _c("view", { staticClass: "headimg" }, [
+                  _c("image", {
+                    attrs: {
+                      src:
+                        "https://campaign5.method-ad.cn/hypertherm/img/consult/logo.jpg",
+                      mode: "widthFix"
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c(
+                  "view",
+                  { staticClass: "info" },
+                  [
+                    _c("view", [
+                      _vm._v("您好！有什么可以帮您的？以下是常见问题列表。")
+                    ]),
+                    _vm._v(" "),
+                    _vm._l(_vm.questionList, function(item, index) {
+                      return _c(
+                        "view",
+                        {
+                          on: {
+                            tap: function($event) {
+                              return _vm.viewQuestion(item)
+                            }
+                          }
+                        },
+                        [_vm._v(_vm._s(item.title))]
+                      )
+                    })
+                  ],
+                  2
+                )
+              ]),
+              _vm._v(" "),
+              _vm._l(_vm.newsList, function(item, index) {
+                return _c(
+                  "view",
+                  { staticClass: "chat", class: { active: item.active } },
+                  [
+                    _c("view", { staticClass: "headimg" }, [
+                      _c("image", {
+                        attrs: {
+                          src:
+                            "https://campaign5.method-ad.cn/hypertherm/img/consult/logo.jpg",
+                          mode: "widthFix"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("view", { staticClass: "info" }, [
+                      _vm._v(_vm._s(item.content))
+                    ])
+                  ]
+                )
+              }),
+              _vm._v(" "),
+              _c("view", { staticClass: "review" }, [
+                _c("view", { staticClass: "tt" }, [
+                  _vm._v("是否已解决您的问题？")
+                ]),
+                _vm._v(" "),
+                _c("view", { staticClass: "star" }, [
+                  _c("image", {
+                    attrs: {
+                      src:
+                        "https://campaign5.method-ad.cn/hypertherm/img/consult/star2.png",
+                      mode: "widthFix"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("image", {
+                    attrs: {
+                      src:
+                        "https://campaign5.method-ad.cn/hypertherm/img/consult/star2.png",
+                      mode: "widthFix"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("image", {
+                    attrs: {
+                      src:
+                        "https://campaign5.method-ad.cn/hypertherm/img/consult/star2.png",
+                      mode: "widthFix"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("image", {
+                    attrs: {
+                      src:
+                        "https://campaign5.method-ad.cn/hypertherm/img/consult/star2.png",
+                      mode: "widthFix"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("image", {
+                    attrs: {
+                      src:
+                        "https://campaign5.method-ad.cn/hypertherm/img/consult/star2.png",
+                      mode: "widthFix"
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("view", { staticClass: "btn-box" }, [
+                  _c("view", { staticClass: "btn active" }, [_vm._v("已解决")]),
+                  _vm._v(" "),
+                  _c("view", { staticClass: "btn" }, [_vm._v("继续咨询")])
+                ])
+              ])
+            ],
+            2
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("view", { staticClass: "footer-box" }, [
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.newsVal,
+              expression: "newsVal"
+            }
+          ],
+          attrs: {
+            type: "text",
+            placeholder: "很高兴为您服务，请描述您的问题"
+          },
+          domProps: { value: _vm.newsVal },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.newsVal = $event.target.value
+            }
+          }
+        }),
+        _vm._v(" "),
+        _c("view", { staticClass: "send-btn", on: { tap: _vm.send } }, [
+          _vm._v("发 送")
+        ])
       ])
-    ])
-  ])
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

@@ -1,6 +1,15 @@
 import { ajax } from "./ajax";
 
 export default {
+  data() {
+    return {
+        containerTop:0
+    }
+  },
+  created() {
+    let menuButtonObject = wx.getMenuButtonBoundingClientRect();
+    this.containerTop = menuButtonObject.height+menuButtonObject.top+10;
+  },
   methods: {
     viewVideo(item) {
       this.viewVideoSrc = item.video_filename;
@@ -90,49 +99,49 @@ export default {
         title: '加载中...',
       })
       wx.downloadFile({
-          url: item.video_filename,
-          success: res => {
-            let filePath = res.filePath;
-            wx.saveVideoToPhotosAlbum({
-              filePath,
-              success: file => {
-                wx.showModal({
-                  title: '提示',
-                  content: '下载成功~',
-                })
-                let fileMgr = wx.getFileSystemManager();
-                fileMgr.unlink({
-                  filePath: item.video_filename,
-                  success: function(r) {
+        url: item.video_filename,
+        success: res => {
+          let filePath = res.filePath;
+          wx.saveVideoToPhotosAlbum({
+            filePath,
+            success: file => {
+              wx.showModal({
+                title: '提示',
+                content: '下载成功~',
+              })
+              let fileMgr = wx.getFileSystemManager();
+              fileMgr.unlink({
+                filePath: item.video_filename,
+                success: function(r) {
 
-                  },
-                })
-                wx.hideLoading();
-              },
-              fail: err => {
-                console.log(err)
-                wx.showModal({
-                  title: '提示',
-                  content: '获取权限失败，将无法保存到相册哦~',
-                })
-                wx.hideLoading();
-              }
-            })
-          }
-        });
+                },
+              })
+              wx.hideLoading();
+            },
+            fail: err => {
+              console.log(err)
+              wx.showModal({
+                title: '提示',
+                content: '获取权限失败，将无法保存到相册哦~',
+              })
+              wx.hideLoading();
+            }
+          })
+        }
+      });
 
 
-       ajax({
-              url:'xcx_request.php',
-              data:{
-                  act:'set_File_History',
-                  act2:'download',
-                  tp:this.$store.state.category,
-                  tp_value:item.class_id || item.tech_detail_id,
-                  file_tp:'video',
-                  watch_time:0,
-              },
-        });
-      }
+      ajax({
+        url: 'xcx_request.php',
+        data: {
+          act: 'set_File_History',
+          act2: 'download',
+          tp: this.$store.state.category,
+          tp_value: item.class_id || item.tech_detail_id,
+          file_tp: 'video',
+          watch_time: 0,
+        },
+      });
     }
   }
+}

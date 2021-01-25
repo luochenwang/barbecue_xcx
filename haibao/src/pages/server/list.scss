@@ -75,12 +75,13 @@
             }
         }
         .item-r{
-            width:300rpx;
+            width:350rpx;
             padding-left:70rpx;
             .name{
                 font-size:27rpx;
                 color:#696969;
                 font-weight: bold;
+                white-space:nowrap;
             }
             .name-cn{
 

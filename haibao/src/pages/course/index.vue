@@ -1,5 +1,6 @@
 <template>
-  <view class="container">
+  <view class="container" :style="{paddingTop:containerTop+'px'}">
+    <webheader/>
     <view class="banner">
         <image src="https://campaign5.method-ad.cn/hypertherm/img/course/banner.jpg" mode="widthFix"/>
     </view>

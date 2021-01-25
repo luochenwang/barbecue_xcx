@@ -1,5 +1,6 @@
 <template>
-  <view class="container">
+  <view class="container" :style="{paddingTop:containerTop+'px'}">
+    <webheader/>
     <view class="main">
         <scroll-view :scroll-y="true">
             <view class="time"><text>18:10</text></view>
@@ -44,9 +45,12 @@
 
 <script>
 import { ajax } from "../../libs/ajax";
+import mixin from "../../libs/mixin";
+
 var timr = null;
 export default {
   name: 'user',
+  mixins: [mixin],
   data() {
       return {
         newsVal:'',

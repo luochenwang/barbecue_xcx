@@ -50,7 +50,7 @@ component.options.__file = "src/pages/server/index.vue"
 
 "use strict";
 /* harmony import */ var _libs_ajax__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../libs/ajax */ "./src/libs/ajax.js");
-/* harmony import */ var _components_webheader__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/webheader */ "./src/components/webheader.vue");
+/* harmony import */ var _libs_mixin__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../libs/mixin */ "./src/libs/mixin.js");
 //
 //
 //
@@ -97,14 +97,13 @@ component.options.__file = "src/pages/server/index.vue"
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: "Index",
+  mixins: [_libs_mixin__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"]],
   data: function data() {
     return {
       searchVal: ''
     };
   },
-  components: {
-    webheader: _components_webheader__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"]
-  },
+  components: {},
   mounted: function mounted() {
     this.$store.commit('set_category', 100);
     Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
@@ -164,8 +163,13 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "view",
-    { staticClass: "container" },
+    {
+      staticClass: "container",
+      style: { paddingTop: _vm.containerTop + "px" }
+    },
     [
+      _c("webheader"),
+      _vm._v(" "),
       _c("view", { staticClass: "banner" }, [
         _c("image", {
           attrs: {
@@ -332,7 +336,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_tarojs_taro_loader_3_0_8_tarojs_taro_loader_lib_raw_js_index_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/_@tarojs_taro-loader@3.0.8@@tarojs/taro-loader/lib/raw.js!./index.vue */ "./node_modules/_@tarojs_taro-loader@3.0.8@@tarojs/taro-loader/lib/raw.js!./src/pages/server/index.vue");
 
 
-var config = {"navigationBarTitleText":"首页"};
+var config = {"navigationBarTitleText":"首页","navigationStyle":"custom"};
 
 
 var inst = Page(Object(_tarojs_runtime__WEBPACK_IMPORTED_MODULE_0__["createPageConfig"])(_node_modules_tarojs_taro_loader_3_0_8_tarojs_taro_loader_lib_raw_js_index_vue__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"], 'pages/server/index', {}, config || {}))

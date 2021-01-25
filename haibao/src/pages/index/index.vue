@@ -1,5 +1,6 @@
 <template>
-  <view class="container">
+  <view class="container" :style="{paddingTop:containerTop+'px'}">
+    <webheader/>
     <view class="banner">
       <image src="https://campaign5.method-ad.cn/hypertherm/img/home.jpg" mode="widthFix" />
     </view>
@@ -34,8 +35,8 @@
 </template>
 <script>
 import { createCache } from "../../libs/globalData";
+import mixin from "../../libs/mixin";
 import { ajax,getOpenid } from "../../libs/ajax";
-import webheader from "../../components/webheader";
 const globalData = createCache();
 globalData.set("test", 100);
 var plugin = requirePlugin("ykfchat");
@@ -48,8 +49,9 @@ export default {
       openid: '',
     }
   },
+  mixins: [mixin],
   components: {
-    webheader,
+
   },
   computed:{
     authModel(){

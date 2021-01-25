@@ -1,5 +1,6 @@
 <template>
-  <view class="container">
+  <view class="container" :style="{paddingTop:containerTop+'px'}">
+    <webheader/>
     <view class="tt">{{videoInfo.title}}</view>
     <view class="video-box">
         <video :src="videoInfo.video_filename" :autoplay='true' :controls="true" @loadedmetadata="getLength"></video>
@@ -14,9 +15,11 @@
 
 <script>
 import { ajax } from "../../libs/ajax";
+import mixin from "../../libs/mixin";
 
 export default {
   name: 'video',
+  mixins: [mixin],
   data() {
       return {
         videoInfo:{}
