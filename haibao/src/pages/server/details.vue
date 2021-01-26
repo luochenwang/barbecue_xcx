@@ -2,7 +2,7 @@
   <view class="container" :style="{paddingTop:containerTop+'px'}">
     <webheader/>
 
-    <view class="search-box">
+    <view class="search-box" v-if="searchModel">
         <input type="text" placeholder="在这里输入您要搜索的内容" placeholder-style="color:#ca8989" v-model='searchVal'/>
         <view class="search-btn" @tap="search()">点击搜索</view>
     </view>
@@ -10,7 +10,10 @@
 
     <view class="list">
         <view class="item" :class="{'active' : item.show}" v-for="(item,index) in list">
-            <view class="name" @tap="toggleInfo(index)">{{item.title}}</view>
+            <view class="name" @tap="toggleInfo(index)">
+              <image :src="item.product_ || proCover" mode="widthFix" class="name-l"/>
+              <view class="name-r">{{item.title}}</view>
+            </view>
             <view class="info-content" v-show="item.show">
               <view class="info">
                 <view class="info-l" @tap="toViewPdf(item)">
@@ -49,8 +52,10 @@ export default {
   mixins: [mixin],
   data() {
       return {
+        searchModel:false,
         searchVal:'',
         list:[],
+        proCover:''
       }
     },
   components: {
@@ -65,12 +70,14 @@ export default {
                 tech_id:option.id
             },
         }).then(res=>{
+            this.proCover = res.picture
             for(let item of res.list){
               item.show = false;
             }
             this.list = res.list;
         })
       }else{
+        this.searchModel = true;
         this.searchVal = option.search_val;
         this.search();
       }
@@ -100,7 +107,7 @@ export default {
             item.show = false;
           }
           this.list = res.list;
-          
+
         }
           this.searchVal = '';
       })

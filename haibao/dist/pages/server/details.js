@@ -166,6 +166,9 @@ component.options.__file = "src/pages/server/details.vue"
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
@@ -173,8 +176,10 @@ component.options.__file = "src/pages/server/details.vue"
   mixins: [_libs_mixin__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"]],
   data: function data() {
     return {
+      searchModel: false,
       searchVal: '',
-      list: []
+      list: [],
+      proCover: ''
     };
   },
   components: {},
@@ -189,6 +194,8 @@ component.options.__file = "src/pages/server/details.vue"
           tech_id: option.id
         }
       }).then(function (res) {
+        _this.proCover = res.picture;
+
         var _iterator = Object(_Volumes_D_site_barbecue_xcx_haibao_node_modules_babel_runtime_7_12_5_babel_runtime_helpers_esm_createForOfIteratorHelper__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(res.list),
             _step;
 
@@ -206,6 +213,7 @@ component.options.__file = "src/pages/server/details.vue"
         _this.list = res.list;
       });
     } else {
+      this.searchModel = true;
       this.searchVal = option.search_val;
       this.search();
     }
@@ -295,45 +303,47 @@ var render = function() {
     [
       _c("webheader"),
       _vm._v(" "),
-      _c("view", { staticClass: "search-box" }, [
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.searchVal,
-              expression: "searchVal"
-            }
-          ],
-          attrs: {
-            type: "text",
-            placeholder: "在这里输入您要搜索的内容",
-            "placeholder-style": "color:#ca8989"
-          },
-          domProps: { value: _vm.searchVal },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
+      _vm.searchModel
+        ? _c("view", { staticClass: "search-box" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.searchVal,
+                  expression: "searchVal"
+                }
+              ],
+              attrs: {
+                type: "text",
+                placeholder: "在这里输入您要搜索的内容",
+                "placeholder-style": "color:#ca8989"
+              },
+              domProps: { value: _vm.searchVal },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.searchVal = $event.target.value
+                }
               }
-              _vm.searchVal = $event.target.value
-            }
-          }
-        }),
-        _vm._v(" "),
-        _c(
-          "view",
-          {
-            staticClass: "search-btn",
-            on: {
-              tap: function($event) {
-                return _vm.search()
-              }
-            }
-          },
-          [_vm._v("点击搜索")]
-        )
-      ]),
+            }),
+            _vm._v(" "),
+            _c(
+              "view",
+              {
+                staticClass: "search-btn",
+                on: {
+                  tap: function($event) {
+                    return _vm.search()
+                  }
+                }
+              },
+              [_vm._v("点击搜索")]
+            )
+          ])
+        : _vm._e(),
       _vm._v(" "),
       _c(
         "view",
@@ -353,7 +363,19 @@ var render = function() {
                     }
                   }
                 },
-                [_vm._v(_vm._s(item.title))]
+                [
+                  _c("image", {
+                    staticClass: "name-l",
+                    attrs: {
+                      src: item.product_ || _vm.proCover,
+                      mode: "widthFix"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("view", { staticClass: "name-r" }, [
+                    _vm._v(_vm._s(item.title))
+                  ])
+                ]
               ),
               _vm._v(" "),
               _c(

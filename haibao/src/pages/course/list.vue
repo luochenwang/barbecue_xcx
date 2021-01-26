@@ -29,7 +29,7 @@
                     <view class="btn-box" v-if="categoryId == '2'">
                         <view class="btn active" @tap="toViewVideo(item)" v-if="item.is_appointment == 0">查看视频</view>
                         <view class="btn" @tap="downloadVideo(item)" v-if="item.is_appointment == 0">下载资料</view>
-                        <view class="btn reserve" v-if="item.is_myappointment != 0" @tap="reserve(item,index)">直播预约</view>
+                        <view class="btn reserve" v-if="item.is_appointment != 0" @tap="reserve(item,index)">直播预约</view>
                     </view>
                     <!-- 已完成 -->
                     <view class="btn-box" v-else-if="listCat == 'get_MyFinished'">

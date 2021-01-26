@@ -411,7 +411,7 @@ var render = function() {
                               )
                             : _vm._e(),
                           _vm._v(" "),
-                          item.is_myappointment != 0
+                          item.is_appointment != 0
                             ? _c(
                                 "view",
                                 {
