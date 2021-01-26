@@ -133,10 +133,10 @@ export default {
                   data:{
                       act:this.listCat || 'get_class_list',
                       category_id:this.categoryId,
-                      industry_id:this.multiArray[0][this.multiIndex[0]].id,
+                      industry_id:this.multiArray[0][this.multiIndex[0]].industry_id,
                       purpose_id:0,
                       product_id:0,
-                      page_id:this.pageId,
+                      page:this.pageId,
                   },
             }).then(res=>{
               if(res.list){
@@ -151,7 +151,7 @@ export default {
                   data:{
                       act:'get_class_purpose',
                       product_id:0,
-                      industry_id:this.multiArray[0][this.multiIndex[0]].id,
+                      industry_id:this.multiArray[0][this.multiIndex[0]].industry_id,
                   },
             }).then(res=>{
                 this.$set(this.multiArray,1,res.list);
@@ -164,7 +164,7 @@ export default {
                   data:{
                       act:'get_class_product',
                       purpose_id:0,
-                      industry_id:this.multiArray[0][this.multiIndex[0]].id,
+                      industry_id:this.multiArray[0][this.multiIndex[0]].industry_id,
                   },
             }).then(res=>{
                 this.$set(this.multiArray,2,res.list);
