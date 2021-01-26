@@ -159,6 +159,13 @@ component.options.__file = "src/pages/server/details.vue"
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
@@ -199,34 +206,53 @@ component.options.__file = "src/pages/server/details.vue"
         _this.list = res.list;
       });
     } else {
-      Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_1__[/* ajax */ "a"])({
-        url: 'xcx_request.php',
-        data: {
-          act: 'get_tech_search',
-          keywords: option.search_val
-        }
-      }).then(function (res) {
-        var _iterator2 = Object(_Volumes_D_site_barbecue_xcx_haibao_node_modules_babel_runtime_7_12_5_babel_runtime_helpers_esm_createForOfIteratorHelper__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(res.list),
-            _step2;
-
-        try {
-          for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
-            var item = _step2.value;
-            item.show = false;
-          }
-        } catch (err) {
-          _iterator2.e(err);
-        } finally {
-          _iterator2.f();
-        }
-
-        _this.list = res.list;
-      });
+      this.searchVal = option.search_val;
+      this.search();
     }
   },
   methods: {
     toggleInfo: function toggleInfo(index) {
       this.list[index].show = !this.list[index].show;
+    },
+    search: function search() {
+      var _this2 = this;
+
+      if (this.searchVal == '') {
+        wx.showToast({
+          title: '请输入要搜索的内容',
+          icon: 'none',
+          duration: 2000
+        });
+        return false;
+      }
+
+      Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_1__[/* ajax */ "a"])({
+        url: 'xcx_request.php',
+        data: {
+          act: 'get_tech_search',
+          keywords: this.searchVal
+        }
+      }).then(function (res) {
+        if (res.list) {
+          var _iterator2 = Object(_Volumes_D_site_barbecue_xcx_haibao_node_modules_babel_runtime_7_12_5_babel_runtime_helpers_esm_createForOfIteratorHelper__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(res.list),
+              _step2;
+
+          try {
+            for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+              var item = _step2.value;
+              item.show = false;
+            }
+          } catch (err) {
+            _iterator2.e(err);
+          } finally {
+            _iterator2.f();
+          }
+
+          _this2.list = res.list;
+        }
+
+        _this2.searchVal = '';
+      });
     }
   }
 });
@@ -268,6 +294,46 @@ var render = function() {
     },
     [
       _c("webheader"),
+      _vm._v(" "),
+      _c("view", { staticClass: "search-box" }, [
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.searchVal,
+              expression: "searchVal"
+            }
+          ],
+          attrs: {
+            type: "text",
+            placeholder: "在这里输入您要搜索的内容",
+            "placeholder-style": "color:#ca8989"
+          },
+          domProps: { value: _vm.searchVal },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.searchVal = $event.target.value
+            }
+          }
+        }),
+        _vm._v(" "),
+        _c(
+          "view",
+          {
+            staticClass: "search-btn",
+            on: {
+              tap: function($event) {
+                return _vm.search()
+              }
+            }
+          },
+          [_vm._v("点击搜索")]
+        )
+      ]),
       _vm._v(" "),
       _c(
         "view",
@@ -439,7 +505,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_tarojs_taro_loader_3_0_8_tarojs_taro_loader_lib_raw_js_details_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/_@tarojs_taro-loader@3.0.8@@tarojs/taro-loader/lib/raw.js!./details.vue */ "./node_modules/_@tarojs_taro-loader@3.0.8@@tarojs/taro-loader/lib/raw.js!./src/pages/server/details.vue");
 
 
-var config = {"navigationBarTitleText":"首页"};
+var config = {"navigationBarTitleText":"首页","navigationStyle":"custom"};
 
 
 var inst = Page(Object(_tarojs_runtime__WEBPACK_IMPORTED_MODULE_0__["createPageConfig"])(_node_modules_tarojs_taro_loader_3_0_8_tarojs_taro_loader_lib_raw_js_details_vue__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"], 'pages/server/details', {}, config || {}))

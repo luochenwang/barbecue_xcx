@@ -1,6 +1,13 @@
 <template>
   <view class="container" :style="{paddingTop:containerTop+'px'}">
     <webheader/>
+
+    <view class="search-box">
+        <input type="text" placeholder="在这里输入您要搜索的内容" placeholder-style="color:#ca8989" v-model='searchVal'/>
+        <view class="search-btn" @tap="search()">点击搜索</view>
+    </view>
+
+
     <view class="list">
         <view class="item" :class="{'active' : item.show}" v-for="(item,index) in list">
             <view class="name" @tap="toggleInfo(index)">{{item.title}}</view>
@@ -43,7 +50,7 @@ export default {
   data() {
       return {
         searchVal:'',
-        list:[]
+        list:[],
       }
     },
   components: {
@@ -64,23 +71,39 @@ export default {
             this.list = res.list;
         })
       }else{
-        ajax({
-            url:'xcx_request.php',
-            data:{
-                act:'get_tech_search',
-                keywords:option.search_val
-            },
-        }).then(res=>{
-            for(let item of res.list){
-              item.show = false;
-            }
-            this.list = res.list;
-        })
+        this.searchVal = option.search_val;
+        this.search();
       }
   },
   methods: {
     toggleInfo(index){
       this.list[index].show = !this.list[index].show;
+    },
+    search(){
+      if(this.searchVal == ''){
+          wx.showToast({
+              title: '请输入要搜索的内容',
+              icon: 'none',
+              duration: 2000,
+          })
+          return false;
+      }
+      ajax({
+          url:'xcx_request.php',
+          data:{
+              act:'get_tech_search',
+              keywords:this.searchVal
+          },
+      }).then(res=>{
+        if(res.list){
+          for(let item of res.list){
+            item.show = false;
+          }
+          this.list = res.list;
+          
+        }
+          this.searchVal = '';
+      })
     }
   }
 }
