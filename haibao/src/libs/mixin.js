@@ -3,12 +3,12 @@ import { ajax } from "./ajax";
 export default {
   data() {
     return {
-        containerTop:0
+      containerTop: 0
     }
   },
   created() {
     let menuButtonObject = wx.getMenuButtonBoundingClientRect();
-    this.containerTop = menuButtonObject.height+menuButtonObject.top+10;
+    this.containerTop = menuButtonObject.height + menuButtonObject.top + 10;
   },
   methods: {
     viewVideo(item) {
@@ -49,35 +49,21 @@ export default {
       wx.showLoading({
         title: '加载中...',
       })
+      const fileExtName = ".pdf";
+      const randfile = new Date().getTime() + fileExtName;
+      const newPath = `${wx.env.USER_DATA_PATH}/${randfile}`;
       wx.downloadFile({
         url: item.pdf_filename,
+        filePath: newPath,
         success: res => {
-          let filePath = res.filePath;
-          wx.saveVideoToPhotosAlbum({
-            filePath,
-            success: file => {
-              wx.showModal({
-                title: '提示',
-                content: '下载成功~',
-              })
-              let fileMgr = wx.getFileSystemManager();
-              fileMgr.unlink({
-                filePath: item.pdf_filename,
-                success: function(r) {
-
-                },
-              })
-              wx.hideLoading();
-            },
-            fail: err => {
-              console.log(err)
-              wx.showModal({
-                title: '提示',
-                content: '获取权限失败，将无法保存到相册哦~',
-              })
-              wx.hideLoading();
-            }
+          let filePath = res.tempFilePath;
+          wx.openDocument({
+            filePath: newPath,
+            showMenu: true,
+            fileType: 'pdf',
+            success: function(res) {}
           })
+          wx.hideLoading();
         }
       });
 
@@ -101,28 +87,24 @@ export default {
       wx.downloadFile({
         url: item.video_filename,
         success: res => {
-          let filePath = res.filePath;
+          let filePath = res.tempFilePath;
+          console.log(res);
           wx.saveVideoToPhotosAlbum({
-            filePath,
+            filePath: filePath,
             success: file => {
-              wx.showModal({
-                title: '提示',
-                content: '下载成功~',
-              })
-              let fileMgr = wx.getFileSystemManager();
-              fileMgr.unlink({
-                filePath: item.video_filename,
-                success: function(r) {
-
-                },
+              wx.showToast({
+                title: '下载成功~',
+                icon: 'none',
+                duration: 2000,
               })
               wx.hideLoading();
             },
             fail: err => {
               console.log(err)
-              wx.showModal({
-                title: '提示',
-                content: '获取权限失败，将无法保存到相册哦~',
+              wx.showToast({
+                title: '获取权限失败，将无法保存到相册哦~',
+                icon: 'none',
+                duration: 2000,
               })
               wx.hideLoading();
             }

@@ -347,33 +347,21 @@ function createCache() {
       wx.showLoading({
         title: '加载中...'
       });
+      var fileExtName = ".pdf";
+      var randfile = new Date().getTime() + fileExtName;
+      var newPath = "".concat(wx.env.USER_DATA_PATH, "/").concat(randfile);
       wx.downloadFile({
         url: item.pdf_filename,
+        filePath: newPath,
         success: function success(res) {
-          var filePath = res.filePath;
-          wx.saveVideoToPhotosAlbum({
-            filePath: filePath,
-            success: function success(file) {
-              wx.showModal({
-                title: '提示',
-                content: '下载成功~'
-              });
-              var fileMgr = wx.getFileSystemManager();
-              fileMgr.unlink({
-                filePath: item.pdf_filename,
-                success: function success(r) {}
-              });
-              wx.hideLoading();
-            },
-            fail: function fail(err) {
-              console.log(err);
-              wx.showModal({
-                title: '提示',
-                content: '获取权限失败，将无法保存到相册哦~'
-              });
-              wx.hideLoading();
-            }
+          var filePath = res.tempFilePath;
+          wx.openDocument({
+            filePath: newPath,
+            showMenu: true,
+            fileType: 'pdf',
+            success: function success(res) {}
           });
+          wx.hideLoading();
         }
       });
       Object(_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
@@ -396,26 +384,24 @@ function createCache() {
       wx.downloadFile({
         url: item.video_filename,
         success: function success(res) {
-          var filePath = res.filePath;
+          var filePath = res.tempFilePath;
+          console.log(res);
           wx.saveVideoToPhotosAlbum({
             filePath: filePath,
             success: function success(file) {
-              wx.showModal({
-                title: '提示',
-                content: '下载成功~'
-              });
-              var fileMgr = wx.getFileSystemManager();
-              fileMgr.unlink({
-                filePath: item.video_filename,
-                success: function success(r) {}
+              wx.showToast({
+                title: '下载成功~',
+                icon: 'none',
+                duration: 2000
               });
               wx.hideLoading();
             },
             fail: function fail(err) {
               console.log(err);
-              wx.showModal({
-                title: '提示',
-                content: '获取权限失败，将无法保存到相册哦~'
+              wx.showToast({
+                title: '获取权限失败，将无法保存到相册哦~',
+                icon: 'none',
+                duration: 2000
               });
               wx.hideLoading();
             }
