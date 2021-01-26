@@ -106,7 +106,6 @@ component.options.__file = "src/pages/course/list.vue"
 //
 //
 //
-//
 
 
 
@@ -130,13 +129,11 @@ component.options.__file = "src/pages/course/list.vue"
     videVideo: _components_videVideo__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"]
   },
   onLoad: function onLoad(option) {
+    var _this = this;
+
     this.title = option.title;
     this.categoryId = option.category_id;
     this.listCat = option.cat;
-  },
-  mounted: function mounted() {
-    var _this = this;
-
     Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_1__[/* ajax */ "a"])({
       url: 'xcx_request.php',
       data: {
@@ -290,8 +287,204 @@ component.options.__file = "src/pages/course/list.vue"
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return staticRenderFns; });
-var render = function () {}
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "view",
+    {
+      staticClass: "container",
+      style: { paddingTop: _vm.containerTop + "px" }
+    },
+    [
+      _c("webheader"),
+      _vm._v(" "),
+      _c("view", { staticClass: "category-nav" }, [
+        _vm.multiArray[2].length > 1
+          ? _c(
+              "view",
+              { staticClass: "select-box" },
+              [
+                _c(
+                  "picker",
+                  {
+                    attrs: {
+                      mode: "multiSelector",
+                      value: _vm.multiIndex,
+                      range: _vm.multiArray,
+                      "range-key": "title"
+                    },
+                    on: {
+                      change: _vm.bindMultiPickerChange,
+                      columnchange: _vm.bindMultiPickerColumnChange
+                    }
+                  },
+                  [
+                    _c("view", { staticClass: "picker" }, [
+                      _vm._v(
+                        "\n                当前选择：" +
+                          _vm._s(_vm.multiArray[0][_vm.multiIndex[0]].title) +
+                          "，" +
+                          _vm._s(_vm.multiArray[1][_vm.multiIndex[1]].title) +
+                          "，" +
+                          _vm._s(_vm.multiArray[2][_vm.multiIndex[2]].title) +
+                          "\n              "
+                      )
+                    ])
+                  ]
+                )
+              ],
+              1
+            )
+          : _vm._e(),
+        _vm._v(" "),
+        _c("view", { staticClass: "item" }, [
+          _vm._v(_vm._s(_vm.multiArray[0][_vm.multiIndex[0]].title))
+        ]),
+        _vm._v(" "),
+        _c("view", { staticClass: "item" }, [
+          _vm._v(_vm._s(_vm.multiArray[1][_vm.multiIndex[1]].title))
+        ]),
+        _vm._v(" "),
+        _c("view", { staticClass: "item" }, [
+          _vm._v(_vm._s(_vm.multiArray[2][_vm.multiIndex[2]].title))
+        ])
+      ]),
+      _vm._v(" "),
+      _c("view", { staticClass: "list-content" }, [
+        _c("view", { staticClass: "tt" }, [_vm._v(_vm._s(_vm.title))]),
+        _vm._v(" "),
+        _c(
+          "view",
+          { staticClass: "list" },
+          [
+            _c(
+              "scroll-view",
+              {
+                staticClass: "list-box",
+                attrs: { "scroll-y": true },
+                on: { scrolltolower: _vm.loadMore }
+              },
+              _vm._l(_vm.list, function(item, index) {
+                return _c("view", { staticClass: "item" }, [
+                  _c("view", { staticClass: "item-l" }, [
+                    _c("image", {
+                      attrs: { src: item.picture, mode: "widthFix" }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("view", { staticClass: "item-r" }, [
+                    _c("view", { staticClass: "name" }, [
+                      _vm._v(_vm._s(item.title))
+                    ]),
+                    _vm._v(" "),
+                    _vm.categoryId == "2"
+                      ? _c("view", { staticClass: "btn-box" }, [
+                          item.is_appointment == 0
+                            ? _c(
+                                "view",
+                                {
+                                  staticClass: "btn active",
+                                  on: {
+                                    tap: function($event) {
+                                      return _vm.toViewVideo(item)
+                                    }
+                                  }
+                                },
+                                [_vm._v("查看视频")]
+                              )
+                            : _vm._e(),
+                          _vm._v(" "),
+                          item.is_appointment == 0
+                            ? _c(
+                                "view",
+                                {
+                                  staticClass: "btn",
+                                  on: {
+                                    tap: function($event) {
+                                      return _vm.downloadVideo(item)
+                                    }
+                                  }
+                                },
+                                [_vm._v("下载资料")]
+                              )
+                            : _vm._e(),
+                          _vm._v(" "),
+                          item.is_myappointment != 0
+                            ? _c(
+                                "view",
+                                {
+                                  staticClass: "btn reserve",
+                                  on: {
+                                    tap: function($event) {
+                                      return _vm.reserve(item, index)
+                                    }
+                                  }
+                                },
+                                [_vm._v("直播预约")]
+                              )
+                            : _vm._e()
+                        ])
+                      : _vm.listCat == "get_MyFinished"
+                      ? _c("view", { staticClass: "btn-box" }, [
+                          _c(
+                            "view",
+                            {
+                              staticClass: "btn reserve",
+                              on: {
+                                tap: function($event) {
+                                  return _vm.toViewVideo(item, index)
+                                }
+                              }
+                            },
+                            [_vm._v("查看直播")]
+                          )
+                        ])
+                      : _c("view", { staticClass: "btn-box" }, [
+                          _c(
+                            "view",
+                            {
+                              staticClass: "btn active",
+                              on: {
+                                tap: function($event) {
+                                  return _vm.toViewVideo(item)
+                                }
+                              }
+                            },
+                            [_vm._v("查看视频")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "view",
+                            {
+                              staticClass: "btn",
+                              on: {
+                                tap: function($event) {
+                                  return _vm.downloadVideo(item)
+                                }
+                              }
+                            },
+                            [_vm._v("下载资料")]
+                          )
+                        ])
+                  ])
+                ])
+              }),
+              0
+            )
+          ],
+          1
+        )
+      ]),
+      _vm._v(" "),
+      _c("sidebar")
+    ],
+    1
+  )
+}
 var staticRenderFns = []
+render._withStripped = true
 
 
 

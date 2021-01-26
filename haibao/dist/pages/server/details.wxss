@@ -1,7 +1,7 @@
 .search-box {
   width: 700rpx;
   height: 50rpx;
-  margin: 55rpx auto;
+  margin: 25rpx auto 0;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
