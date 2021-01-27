@@ -49,6 +49,22 @@
   </picker>
 </template>
 
+<template name="tmpl_0_movable-area">
+  <movable-area scale-area="{{i.scaleArea===undefined?false:i.scaleArea}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_1_container" data="{{i: item}}" />
+    </block>
+  </movable-area>
+</template>
+
+<template name="tmpl_0_movable-view">
+  <movable-view direction="{{i.direction===undefined?none:i.direction}}" inertia="{{i.inertia===undefined?false:i.inertia}}" out-of-bounds="{{i.outOfBounds===undefined?false:i.outOfBounds}}" x="{{i.x}}" y="{{i.y}}" damping="{{i.damping===undefined?20:i.damping}}" friction="{{i.friction===undefined?2:i.friction}}" disabled="{{i.disabled}}" scale="{{i.scale===undefined?false:i.scale}}" scale-min="{{i.scaleMin===undefined?0.5:i.scaleMin}}" scale-max="{{i.scaleMax===undefined?10:i.scaleMax}}" scale-value="{{i.scaleValue===undefined?1:i.scaleValue}}" animation="{{i.animation===undefined?true:i.animation}}" bindanimationend="eh" bindchange="eh" bindscale="eh" htouchmove="{{eh}}" vtouchmove="{{eh}}" width="{{i.width===undefined?'10px':i.width}}" height="{{i.height===undefined?'10px':i.height}}" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_1_container" data="{{i: item}}" />
+    </block>
+  </movable-view>
+</template>
+
 <template name="tmpl_0_scroll-view">
   <scroll-view scroll-x="{{i.scrollX===undefined?false:i.scrollX}}" scroll-y="{{i.scrollY===undefined?false:i.scrollY}}" upper-threshold="{{i.upperThreshold===undefined?50:i.upperThreshold}}" lower-threshold="{{i.lowerThreshold===undefined?50:i.lowerThreshold}}" scroll-top="{{i.scrollTop}}" scroll-left="{{i.scrollLeft}}" scroll-into-view="{{i.scrollIntoView}}" scroll-with-animation="{{i.scrollWithAnimation===undefined?false:i.scrollWithAnimation}}" enable-back-to-top="{{i.enableBackToTop===undefined?false:i.enableBackToTop}}" enable-flex="{{i.enableFlex===undefined?false:i.enableFlex}}" scroll-anchoring="{{i.scrollAnchoring===undefined?false:i.scrollAnchoring}}" refresher-enabled="{{i.refresherEnabled===undefined?false:i.refresherEnabled}}" refresher-threshold="{{i.refresherThreshold===undefined?45:i.refresherThreshold}}" refresher-default-style="{{i.refresherDefaultStyle===undefined?'black':i.refresherDefaultStyle}}" refresher-background="{{i.refresherBackground===undefined?'#FFF':i.refresherBackground}}" refresher-triggered="{{i.refresherTriggered===undefined?false:i.refresherTriggered}}" bindrefresherpulling="eh" bindrefresherrefresh="eh" bindrefresherrestore="eh" bindrefresherabort="eh" bindscrolltoupper="eh" bindscrolltolower="eh" bindscroll="eh" animation="{{i.animation}}" bindtransitionend="eh" bindanimationstart="eh" bindanimationiteration="eh" bindanimationend="eh" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
     <block wx:for="{{i.cn}}" wx:key="id">
@@ -135,6 +151,22 @@
       <template is="tmpl_2_container" data="{{i: item}}" />
     </block>
   </picker>
+</template>
+
+<template name="tmpl_1_movable-area">
+  <movable-area scale-area="{{i.scaleArea===undefined?false:i.scaleArea}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_2_container" data="{{i: item}}" />
+    </block>
+  </movable-area>
+</template>
+
+<template name="tmpl_1_movable-view">
+  <movable-view direction="{{i.direction===undefined?none:i.direction}}" inertia="{{i.inertia===undefined?false:i.inertia}}" out-of-bounds="{{i.outOfBounds===undefined?false:i.outOfBounds}}" x="{{i.x}}" y="{{i.y}}" damping="{{i.damping===undefined?20:i.damping}}" friction="{{i.friction===undefined?2:i.friction}}" disabled="{{i.disabled}}" scale="{{i.scale===undefined?false:i.scale}}" scale-min="{{i.scaleMin===undefined?0.5:i.scaleMin}}" scale-max="{{i.scaleMax===undefined?10:i.scaleMax}}" scale-value="{{i.scaleValue===undefined?1:i.scaleValue}}" animation="{{i.animation===undefined?true:i.animation}}" bindanimationend="eh" bindchange="eh" bindscale="eh" htouchmove="{{eh}}" vtouchmove="{{eh}}" width="{{i.width===undefined?'10px':i.width}}" height="{{i.height===undefined?'10px':i.height}}" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_2_container" data="{{i: item}}" />
+    </block>
+  </movable-view>
 </template>
 
 <template name="tmpl_1_scroll-view">
@@ -225,6 +257,22 @@
   </picker>
 </template>
 
+<template name="tmpl_2_movable-area">
+  <movable-area scale-area="{{i.scaleArea===undefined?false:i.scaleArea}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_3_container" data="{{i: item}}" />
+    </block>
+  </movable-area>
+</template>
+
+<template name="tmpl_2_movable-view">
+  <movable-view direction="{{i.direction===undefined?none:i.direction}}" inertia="{{i.inertia===undefined?false:i.inertia}}" out-of-bounds="{{i.outOfBounds===undefined?false:i.outOfBounds}}" x="{{i.x}}" y="{{i.y}}" damping="{{i.damping===undefined?20:i.damping}}" friction="{{i.friction===undefined?2:i.friction}}" disabled="{{i.disabled}}" scale="{{i.scale===undefined?false:i.scale}}" scale-min="{{i.scaleMin===undefined?0.5:i.scaleMin}}" scale-max="{{i.scaleMax===undefined?10:i.scaleMax}}" scale-value="{{i.scaleValue===undefined?1:i.scaleValue}}" animation="{{i.animation===undefined?true:i.animation}}" bindanimationend="eh" bindchange="eh" bindscale="eh" htouchmove="{{eh}}" vtouchmove="{{eh}}" width="{{i.width===undefined?'10px':i.width}}" height="{{i.height===undefined?'10px':i.height}}" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_3_container" data="{{i: item}}" />
+    </block>
+  </movable-view>
+</template>
+
 <template name="tmpl_2_scroll-view">
   <scroll-view scroll-x="{{i.scrollX===undefined?false:i.scrollX}}" scroll-y="{{i.scrollY===undefined?false:i.scrollY}}" upper-threshold="{{i.upperThreshold===undefined?50:i.upperThreshold}}" lower-threshold="{{i.lowerThreshold===undefined?50:i.lowerThreshold}}" scroll-top="{{i.scrollTop}}" scroll-left="{{i.scrollLeft}}" scroll-into-view="{{i.scrollIntoView}}" scroll-with-animation="{{i.scrollWithAnimation===undefined?false:i.scrollWithAnimation}}" enable-back-to-top="{{i.enableBackToTop===undefined?false:i.enableBackToTop}}" enable-flex="{{i.enableFlex===undefined?false:i.enableFlex}}" scroll-anchoring="{{i.scrollAnchoring===undefined?false:i.scrollAnchoring}}" refresher-enabled="{{i.refresherEnabled===undefined?false:i.refresherEnabled}}" refresher-threshold="{{i.refresherThreshold===undefined?45:i.refresherThreshold}}" refresher-default-style="{{i.refresherDefaultStyle===undefined?'black':i.refresherDefaultStyle}}" refresher-background="{{i.refresherBackground===undefined?'#FFF':i.refresherBackground}}" refresher-triggered="{{i.refresherTriggered===undefined?false:i.refresherTriggered}}" bindrefresherpulling="eh" bindrefresherrefresh="eh" bindrefresherrestore="eh" bindrefresherabort="eh" bindscrolltoupper="eh" bindscrolltolower="eh" bindscroll="eh" animation="{{i.animation}}" bindtransitionend="eh" bindanimationstart="eh" bindanimationiteration="eh" bindanimationend="eh" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
     <block wx:for="{{i.cn}}" wx:key="id">
@@ -311,6 +359,22 @@
       <template is="tmpl_4_container" data="{{i: item}}" />
     </block>
   </picker>
+</template>
+
+<template name="tmpl_3_movable-area">
+  <movable-area scale-area="{{i.scaleArea===undefined?false:i.scaleArea}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_4_container" data="{{i: item}}" />
+    </block>
+  </movable-area>
+</template>
+
+<template name="tmpl_3_movable-view">
+  <movable-view direction="{{i.direction===undefined?none:i.direction}}" inertia="{{i.inertia===undefined?false:i.inertia}}" out-of-bounds="{{i.outOfBounds===undefined?false:i.outOfBounds}}" x="{{i.x}}" y="{{i.y}}" damping="{{i.damping===undefined?20:i.damping}}" friction="{{i.friction===undefined?2:i.friction}}" disabled="{{i.disabled}}" scale="{{i.scale===undefined?false:i.scale}}" scale-min="{{i.scaleMin===undefined?0.5:i.scaleMin}}" scale-max="{{i.scaleMax===undefined?10:i.scaleMax}}" scale-value="{{i.scaleValue===undefined?1:i.scaleValue}}" animation="{{i.animation===undefined?true:i.animation}}" bindanimationend="eh" bindchange="eh" bindscale="eh" htouchmove="{{eh}}" vtouchmove="{{eh}}" width="{{i.width===undefined?'10px':i.width}}" height="{{i.height===undefined?'10px':i.height}}" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_4_container" data="{{i: item}}" />
+    </block>
+  </movable-view>
 </template>
 
 <template name="tmpl_3_scroll-view">
@@ -401,6 +465,22 @@
   </picker>
 </template>
 
+<template name="tmpl_4_movable-area">
+  <movable-area scale-area="{{i.scaleArea===undefined?false:i.scaleArea}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_5_container" data="{{i: item}}" />
+    </block>
+  </movable-area>
+</template>
+
+<template name="tmpl_4_movable-view">
+  <movable-view direction="{{i.direction===undefined?none:i.direction}}" inertia="{{i.inertia===undefined?false:i.inertia}}" out-of-bounds="{{i.outOfBounds===undefined?false:i.outOfBounds}}" x="{{i.x}}" y="{{i.y}}" damping="{{i.damping===undefined?20:i.damping}}" friction="{{i.friction===undefined?2:i.friction}}" disabled="{{i.disabled}}" scale="{{i.scale===undefined?false:i.scale}}" scale-min="{{i.scaleMin===undefined?0.5:i.scaleMin}}" scale-max="{{i.scaleMax===undefined?10:i.scaleMax}}" scale-value="{{i.scaleValue===undefined?1:i.scaleValue}}" animation="{{i.animation===undefined?true:i.animation}}" bindanimationend="eh" bindchange="eh" bindscale="eh" htouchmove="{{eh}}" vtouchmove="{{eh}}" width="{{i.width===undefined?'10px':i.width}}" height="{{i.height===undefined?'10px':i.height}}" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_5_container" data="{{i: item}}" />
+    </block>
+  </movable-view>
+</template>
+
 <template name="tmpl_4_scroll-view">
   <scroll-view scroll-x="{{i.scrollX===undefined?false:i.scrollX}}" scroll-y="{{i.scrollY===undefined?false:i.scrollY}}" upper-threshold="{{i.upperThreshold===undefined?50:i.upperThreshold}}" lower-threshold="{{i.lowerThreshold===undefined?50:i.lowerThreshold}}" scroll-top="{{i.scrollTop}}" scroll-left="{{i.scrollLeft}}" scroll-into-view="{{i.scrollIntoView}}" scroll-with-animation="{{i.scrollWithAnimation===undefined?false:i.scrollWithAnimation}}" enable-back-to-top="{{i.enableBackToTop===undefined?false:i.enableBackToTop}}" enable-flex="{{i.enableFlex===undefined?false:i.enableFlex}}" scroll-anchoring="{{i.scrollAnchoring===undefined?false:i.scrollAnchoring}}" refresher-enabled="{{i.refresherEnabled===undefined?false:i.refresherEnabled}}" refresher-threshold="{{i.refresherThreshold===undefined?45:i.refresherThreshold}}" refresher-default-style="{{i.refresherDefaultStyle===undefined?'black':i.refresherDefaultStyle}}" refresher-background="{{i.refresherBackground===undefined?'#FFF':i.refresherBackground}}" refresher-triggered="{{i.refresherTriggered===undefined?false:i.refresherTriggered}}" bindrefresherpulling="eh" bindrefresherrefresh="eh" bindrefresherrestore="eh" bindrefresherabort="eh" bindscrolltoupper="eh" bindscrolltolower="eh" bindscroll="eh" animation="{{i.animation}}" bindtransitionend="eh" bindanimationstart="eh" bindanimationiteration="eh" bindanimationend="eh" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
     <block wx:for="{{i.cn}}" wx:key="id">
@@ -487,6 +567,22 @@
       <template is="tmpl_6_container" data="{{i: item}}" />
     </block>
   </picker>
+</template>
+
+<template name="tmpl_5_movable-area">
+  <movable-area scale-area="{{i.scaleArea===undefined?false:i.scaleArea}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_6_container" data="{{i: item}}" />
+    </block>
+  </movable-area>
+</template>
+
+<template name="tmpl_5_movable-view">
+  <movable-view direction="{{i.direction===undefined?none:i.direction}}" inertia="{{i.inertia===undefined?false:i.inertia}}" out-of-bounds="{{i.outOfBounds===undefined?false:i.outOfBounds}}" x="{{i.x}}" y="{{i.y}}" damping="{{i.damping===undefined?20:i.damping}}" friction="{{i.friction===undefined?2:i.friction}}" disabled="{{i.disabled}}" scale="{{i.scale===undefined?false:i.scale}}" scale-min="{{i.scaleMin===undefined?0.5:i.scaleMin}}" scale-max="{{i.scaleMax===undefined?10:i.scaleMax}}" scale-value="{{i.scaleValue===undefined?1:i.scaleValue}}" animation="{{i.animation===undefined?true:i.animation}}" bindanimationend="eh" bindchange="eh" bindscale="eh" htouchmove="{{eh}}" vtouchmove="{{eh}}" width="{{i.width===undefined?'10px':i.width}}" height="{{i.height===undefined?'10px':i.height}}" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_6_container" data="{{i: item}}" />
+    </block>
+  </movable-view>
 </template>
 
 <template name="tmpl_5_scroll-view">
@@ -577,6 +673,22 @@
   </picker>
 </template>
 
+<template name="tmpl_6_movable-area">
+  <movable-area scale-area="{{i.scaleArea===undefined?false:i.scaleArea}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_7_container" data="{{i: item}}" />
+    </block>
+  </movable-area>
+</template>
+
+<template name="tmpl_6_movable-view">
+  <movable-view direction="{{i.direction===undefined?none:i.direction}}" inertia="{{i.inertia===undefined?false:i.inertia}}" out-of-bounds="{{i.outOfBounds===undefined?false:i.outOfBounds}}" x="{{i.x}}" y="{{i.y}}" damping="{{i.damping===undefined?20:i.damping}}" friction="{{i.friction===undefined?2:i.friction}}" disabled="{{i.disabled}}" scale="{{i.scale===undefined?false:i.scale}}" scale-min="{{i.scaleMin===undefined?0.5:i.scaleMin}}" scale-max="{{i.scaleMax===undefined?10:i.scaleMax}}" scale-value="{{i.scaleValue===undefined?1:i.scaleValue}}" animation="{{i.animation===undefined?true:i.animation}}" bindanimationend="eh" bindchange="eh" bindscale="eh" htouchmove="{{eh}}" vtouchmove="{{eh}}" width="{{i.width===undefined?'10px':i.width}}" height="{{i.height===undefined?'10px':i.height}}" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_7_container" data="{{i: item}}" />
+    </block>
+  </movable-view>
+</template>
+
 <template name="tmpl_6_scroll-view">
   <scroll-view scroll-x="{{i.scrollX===undefined?false:i.scrollX}}" scroll-y="{{i.scrollY===undefined?false:i.scrollY}}" upper-threshold="{{i.upperThreshold===undefined?50:i.upperThreshold}}" lower-threshold="{{i.lowerThreshold===undefined?50:i.lowerThreshold}}" scroll-top="{{i.scrollTop}}" scroll-left="{{i.scrollLeft}}" scroll-into-view="{{i.scrollIntoView}}" scroll-with-animation="{{i.scrollWithAnimation===undefined?false:i.scrollWithAnimation}}" enable-back-to-top="{{i.enableBackToTop===undefined?false:i.enableBackToTop}}" enable-flex="{{i.enableFlex===undefined?false:i.enableFlex}}" scroll-anchoring="{{i.scrollAnchoring===undefined?false:i.scrollAnchoring}}" refresher-enabled="{{i.refresherEnabled===undefined?false:i.refresherEnabled}}" refresher-threshold="{{i.refresherThreshold===undefined?45:i.refresherThreshold}}" refresher-default-style="{{i.refresherDefaultStyle===undefined?'black':i.refresherDefaultStyle}}" refresher-background="{{i.refresherBackground===undefined?'#FFF':i.refresherBackground}}" refresher-triggered="{{i.refresherTriggered===undefined?false:i.refresherTriggered}}" bindrefresherpulling="eh" bindrefresherrefresh="eh" bindrefresherrestore="eh" bindrefresherabort="eh" bindscrolltoupper="eh" bindscrolltolower="eh" bindscroll="eh" animation="{{i.animation}}" bindtransitionend="eh" bindanimationstart="eh" bindanimationiteration="eh" bindanimationend="eh" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
     <block wx:for="{{i.cn}}" wx:key="id">
@@ -663,6 +775,22 @@
       <template is="tmpl_8_container" data="{{i: item}}" />
     </block>
   </picker>
+</template>
+
+<template name="tmpl_7_movable-area">
+  <movable-area scale-area="{{i.scaleArea===undefined?false:i.scaleArea}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_8_container" data="{{i: item}}" />
+    </block>
+  </movable-area>
+</template>
+
+<template name="tmpl_7_movable-view">
+  <movable-view direction="{{i.direction===undefined?none:i.direction}}" inertia="{{i.inertia===undefined?false:i.inertia}}" out-of-bounds="{{i.outOfBounds===undefined?false:i.outOfBounds}}" x="{{i.x}}" y="{{i.y}}" damping="{{i.damping===undefined?20:i.damping}}" friction="{{i.friction===undefined?2:i.friction}}" disabled="{{i.disabled}}" scale="{{i.scale===undefined?false:i.scale}}" scale-min="{{i.scaleMin===undefined?0.5:i.scaleMin}}" scale-max="{{i.scaleMax===undefined?10:i.scaleMax}}" scale-value="{{i.scaleValue===undefined?1:i.scaleValue}}" animation="{{i.animation===undefined?true:i.animation}}" bindanimationend="eh" bindchange="eh" bindscale="eh" htouchmove="{{eh}}" vtouchmove="{{eh}}" width="{{i.width===undefined?'10px':i.width}}" height="{{i.height===undefined?'10px':i.height}}" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_8_container" data="{{i: item}}" />
+    </block>
+  </movable-view>
 </template>
 
 <template name="tmpl_7_scroll-view">
@@ -753,6 +881,22 @@
   </picker>
 </template>
 
+<template name="tmpl_8_movable-area">
+  <movable-area scale-area="{{i.scaleArea===undefined?false:i.scaleArea}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_9_container" data="{{i: item}}" />
+    </block>
+  </movable-area>
+</template>
+
+<template name="tmpl_8_movable-view">
+  <movable-view direction="{{i.direction===undefined?none:i.direction}}" inertia="{{i.inertia===undefined?false:i.inertia}}" out-of-bounds="{{i.outOfBounds===undefined?false:i.outOfBounds}}" x="{{i.x}}" y="{{i.y}}" damping="{{i.damping===undefined?20:i.damping}}" friction="{{i.friction===undefined?2:i.friction}}" disabled="{{i.disabled}}" scale="{{i.scale===undefined?false:i.scale}}" scale-min="{{i.scaleMin===undefined?0.5:i.scaleMin}}" scale-max="{{i.scaleMax===undefined?10:i.scaleMax}}" scale-value="{{i.scaleValue===undefined?1:i.scaleValue}}" animation="{{i.animation===undefined?true:i.animation}}" bindanimationend="eh" bindchange="eh" bindscale="eh" htouchmove="{{eh}}" vtouchmove="{{eh}}" width="{{i.width===undefined?'10px':i.width}}" height="{{i.height===undefined?'10px':i.height}}" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_9_container" data="{{i: item}}" />
+    </block>
+  </movable-view>
+</template>
+
 <template name="tmpl_8_scroll-view">
   <scroll-view scroll-x="{{i.scrollX===undefined?false:i.scrollX}}" scroll-y="{{i.scrollY===undefined?false:i.scrollY}}" upper-threshold="{{i.upperThreshold===undefined?50:i.upperThreshold}}" lower-threshold="{{i.lowerThreshold===undefined?50:i.lowerThreshold}}" scroll-top="{{i.scrollTop}}" scroll-left="{{i.scrollLeft}}" scroll-into-view="{{i.scrollIntoView}}" scroll-with-animation="{{i.scrollWithAnimation===undefined?false:i.scrollWithAnimation}}" enable-back-to-top="{{i.enableBackToTop===undefined?false:i.enableBackToTop}}" enable-flex="{{i.enableFlex===undefined?false:i.enableFlex}}" scroll-anchoring="{{i.scrollAnchoring===undefined?false:i.scrollAnchoring}}" refresher-enabled="{{i.refresherEnabled===undefined?false:i.refresherEnabled}}" refresher-threshold="{{i.refresherThreshold===undefined?45:i.refresherThreshold}}" refresher-default-style="{{i.refresherDefaultStyle===undefined?'black':i.refresherDefaultStyle}}" refresher-background="{{i.refresherBackground===undefined?'#FFF':i.refresherBackground}}" refresher-triggered="{{i.refresherTriggered===undefined?false:i.refresherTriggered}}" bindrefresherpulling="eh" bindrefresherrefresh="eh" bindrefresherrestore="eh" bindrefresherabort="eh" bindscrolltoupper="eh" bindscrolltolower="eh" bindscroll="eh" animation="{{i.animation}}" bindtransitionend="eh" bindanimationstart="eh" bindanimationiteration="eh" bindanimationend="eh" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
     <block wx:for="{{i.cn}}" wx:key="id">
@@ -839,6 +983,22 @@
       <template is="tmpl_10_container" data="{{i: item}}" />
     </block>
   </picker>
+</template>
+
+<template name="tmpl_9_movable-area">
+  <movable-area scale-area="{{i.scaleArea===undefined?false:i.scaleArea}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_10_container" data="{{i: item}}" />
+    </block>
+  </movable-area>
+</template>
+
+<template name="tmpl_9_movable-view">
+  <movable-view direction="{{i.direction===undefined?none:i.direction}}" inertia="{{i.inertia===undefined?false:i.inertia}}" out-of-bounds="{{i.outOfBounds===undefined?false:i.outOfBounds}}" x="{{i.x}}" y="{{i.y}}" damping="{{i.damping===undefined?20:i.damping}}" friction="{{i.friction===undefined?2:i.friction}}" disabled="{{i.disabled}}" scale="{{i.scale===undefined?false:i.scale}}" scale-min="{{i.scaleMin===undefined?0.5:i.scaleMin}}" scale-max="{{i.scaleMax===undefined?10:i.scaleMax}}" scale-value="{{i.scaleValue===undefined?1:i.scaleValue}}" animation="{{i.animation===undefined?true:i.animation}}" bindanimationend="eh" bindchange="eh" bindscale="eh" htouchmove="{{eh}}" vtouchmove="{{eh}}" width="{{i.width===undefined?'10px':i.width}}" height="{{i.height===undefined?'10px':i.height}}" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_10_container" data="{{i: item}}" />
+    </block>
+  </movable-view>
 </template>
 
 <template name="tmpl_9_scroll-view">
@@ -929,6 +1089,22 @@
   </picker>
 </template>
 
+<template name="tmpl_10_movable-area">
+  <movable-area scale-area="{{i.scaleArea===undefined?false:i.scaleArea}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_11_container" data="{{i: item}}" />
+    </block>
+  </movable-area>
+</template>
+
+<template name="tmpl_10_movable-view">
+  <movable-view direction="{{i.direction===undefined?none:i.direction}}" inertia="{{i.inertia===undefined?false:i.inertia}}" out-of-bounds="{{i.outOfBounds===undefined?false:i.outOfBounds}}" x="{{i.x}}" y="{{i.y}}" damping="{{i.damping===undefined?20:i.damping}}" friction="{{i.friction===undefined?2:i.friction}}" disabled="{{i.disabled}}" scale="{{i.scale===undefined?false:i.scale}}" scale-min="{{i.scaleMin===undefined?0.5:i.scaleMin}}" scale-max="{{i.scaleMax===undefined?10:i.scaleMax}}" scale-value="{{i.scaleValue===undefined?1:i.scaleValue}}" animation="{{i.animation===undefined?true:i.animation}}" bindanimationend="eh" bindchange="eh" bindscale="eh" htouchmove="{{eh}}" vtouchmove="{{eh}}" width="{{i.width===undefined?'10px':i.width}}" height="{{i.height===undefined?'10px':i.height}}" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_11_container" data="{{i: item}}" />
+    </block>
+  </movable-view>
+</template>
+
 <template name="tmpl_10_scroll-view">
   <scroll-view scroll-x="{{i.scrollX===undefined?false:i.scrollX}}" scroll-y="{{i.scrollY===undefined?false:i.scrollY}}" upper-threshold="{{i.upperThreshold===undefined?50:i.upperThreshold}}" lower-threshold="{{i.lowerThreshold===undefined?50:i.lowerThreshold}}" scroll-top="{{i.scrollTop}}" scroll-left="{{i.scrollLeft}}" scroll-into-view="{{i.scrollIntoView}}" scroll-with-animation="{{i.scrollWithAnimation===undefined?false:i.scrollWithAnimation}}" enable-back-to-top="{{i.enableBackToTop===undefined?false:i.enableBackToTop}}" enable-flex="{{i.enableFlex===undefined?false:i.enableFlex}}" scroll-anchoring="{{i.scrollAnchoring===undefined?false:i.scrollAnchoring}}" refresher-enabled="{{i.refresherEnabled===undefined?false:i.refresherEnabled}}" refresher-threshold="{{i.refresherThreshold===undefined?45:i.refresherThreshold}}" refresher-default-style="{{i.refresherDefaultStyle===undefined?'black':i.refresherDefaultStyle}}" refresher-background="{{i.refresherBackground===undefined?'#FFF':i.refresherBackground}}" refresher-triggered="{{i.refresherTriggered===undefined?false:i.refresherTriggered}}" bindrefresherpulling="eh" bindrefresherrefresh="eh" bindrefresherrestore="eh" bindrefresherabort="eh" bindscrolltoupper="eh" bindscrolltolower="eh" bindscroll="eh" animation="{{i.animation}}" bindtransitionend="eh" bindanimationstart="eh" bindanimationiteration="eh" bindanimationend="eh" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
     <block wx:for="{{i.cn}}" wx:key="id">
@@ -1015,6 +1191,22 @@
       <template is="tmpl_12_container" data="{{i: item}}" />
     </block>
   </picker>
+</template>
+
+<template name="tmpl_11_movable-area">
+  <movable-area scale-area="{{i.scaleArea===undefined?false:i.scaleArea}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_12_container" data="{{i: item}}" />
+    </block>
+  </movable-area>
+</template>
+
+<template name="tmpl_11_movable-view">
+  <movable-view direction="{{i.direction===undefined?none:i.direction}}" inertia="{{i.inertia===undefined?false:i.inertia}}" out-of-bounds="{{i.outOfBounds===undefined?false:i.outOfBounds}}" x="{{i.x}}" y="{{i.y}}" damping="{{i.damping===undefined?20:i.damping}}" friction="{{i.friction===undefined?2:i.friction}}" disabled="{{i.disabled}}" scale="{{i.scale===undefined?false:i.scale}}" scale-min="{{i.scaleMin===undefined?0.5:i.scaleMin}}" scale-max="{{i.scaleMax===undefined?10:i.scaleMax}}" scale-value="{{i.scaleValue===undefined?1:i.scaleValue}}" animation="{{i.animation===undefined?true:i.animation}}" bindanimationend="eh" bindchange="eh" bindscale="eh" htouchmove="{{eh}}" vtouchmove="{{eh}}" width="{{i.width===undefined?'10px':i.width}}" height="{{i.height===undefined?'10px':i.height}}" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_12_container" data="{{i: item}}" />
+    </block>
+  </movable-view>
 </template>
 
 <template name="tmpl_11_scroll-view">
@@ -1105,6 +1297,22 @@
   </picker>
 </template>
 
+<template name="tmpl_12_movable-area">
+  <movable-area scale-area="{{i.scaleArea===undefined?false:i.scaleArea}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_13_container" data="{{i: item}}" />
+    </block>
+  </movable-area>
+</template>
+
+<template name="tmpl_12_movable-view">
+  <movable-view direction="{{i.direction===undefined?none:i.direction}}" inertia="{{i.inertia===undefined?false:i.inertia}}" out-of-bounds="{{i.outOfBounds===undefined?false:i.outOfBounds}}" x="{{i.x}}" y="{{i.y}}" damping="{{i.damping===undefined?20:i.damping}}" friction="{{i.friction===undefined?2:i.friction}}" disabled="{{i.disabled}}" scale="{{i.scale===undefined?false:i.scale}}" scale-min="{{i.scaleMin===undefined?0.5:i.scaleMin}}" scale-max="{{i.scaleMax===undefined?10:i.scaleMax}}" scale-value="{{i.scaleValue===undefined?1:i.scaleValue}}" animation="{{i.animation===undefined?true:i.animation}}" bindanimationend="eh" bindchange="eh" bindscale="eh" htouchmove="{{eh}}" vtouchmove="{{eh}}" width="{{i.width===undefined?'10px':i.width}}" height="{{i.height===undefined?'10px':i.height}}" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_13_container" data="{{i: item}}" />
+    </block>
+  </movable-view>
+</template>
+
 <template name="tmpl_12_scroll-view">
   <scroll-view scroll-x="{{i.scrollX===undefined?false:i.scrollX}}" scroll-y="{{i.scrollY===undefined?false:i.scrollY}}" upper-threshold="{{i.upperThreshold===undefined?50:i.upperThreshold}}" lower-threshold="{{i.lowerThreshold===undefined?50:i.lowerThreshold}}" scroll-top="{{i.scrollTop}}" scroll-left="{{i.scrollLeft}}" scroll-into-view="{{i.scrollIntoView}}" scroll-with-animation="{{i.scrollWithAnimation===undefined?false:i.scrollWithAnimation}}" enable-back-to-top="{{i.enableBackToTop===undefined?false:i.enableBackToTop}}" enable-flex="{{i.enableFlex===undefined?false:i.enableFlex}}" scroll-anchoring="{{i.scrollAnchoring===undefined?false:i.scrollAnchoring}}" refresher-enabled="{{i.refresherEnabled===undefined?false:i.refresherEnabled}}" refresher-threshold="{{i.refresherThreshold===undefined?45:i.refresherThreshold}}" refresher-default-style="{{i.refresherDefaultStyle===undefined?'black':i.refresherDefaultStyle}}" refresher-background="{{i.refresherBackground===undefined?'#FFF':i.refresherBackground}}" refresher-triggered="{{i.refresherTriggered===undefined?false:i.refresherTriggered}}" bindrefresherpulling="eh" bindrefresherrefresh="eh" bindrefresherrestore="eh" bindrefresherabort="eh" bindscrolltoupper="eh" bindscrolltolower="eh" bindscroll="eh" animation="{{i.animation}}" bindtransitionend="eh" bindanimationstart="eh" bindanimationiteration="eh" bindanimationend="eh" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
     <block wx:for="{{i.cn}}" wx:key="id">
@@ -1191,6 +1399,22 @@
       <template is="tmpl_14_container" data="{{i: item}}" />
     </block>
   </picker>
+</template>
+
+<template name="tmpl_13_movable-area">
+  <movable-area scale-area="{{i.scaleArea===undefined?false:i.scaleArea}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_14_container" data="{{i: item}}" />
+    </block>
+  </movable-area>
+</template>
+
+<template name="tmpl_13_movable-view">
+  <movable-view direction="{{i.direction===undefined?none:i.direction}}" inertia="{{i.inertia===undefined?false:i.inertia}}" out-of-bounds="{{i.outOfBounds===undefined?false:i.outOfBounds}}" x="{{i.x}}" y="{{i.y}}" damping="{{i.damping===undefined?20:i.damping}}" friction="{{i.friction===undefined?2:i.friction}}" disabled="{{i.disabled}}" scale="{{i.scale===undefined?false:i.scale}}" scale-min="{{i.scaleMin===undefined?0.5:i.scaleMin}}" scale-max="{{i.scaleMax===undefined?10:i.scaleMax}}" scale-value="{{i.scaleValue===undefined?1:i.scaleValue}}" animation="{{i.animation===undefined?true:i.animation}}" bindanimationend="eh" bindchange="eh" bindscale="eh" htouchmove="{{eh}}" vtouchmove="{{eh}}" width="{{i.width===undefined?'10px':i.width}}" height="{{i.height===undefined?'10px':i.height}}" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_14_container" data="{{i: item}}" />
+    </block>
+  </movable-view>
 </template>
 
 <template name="tmpl_13_scroll-view">
@@ -1281,6 +1505,22 @@
   </picker>
 </template>
 
+<template name="tmpl_14_movable-area">
+  <movable-area scale-area="{{i.scaleArea===undefined?false:i.scaleArea}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_15_container" data="{{i: item}}" />
+    </block>
+  </movable-area>
+</template>
+
+<template name="tmpl_14_movable-view">
+  <movable-view direction="{{i.direction===undefined?none:i.direction}}" inertia="{{i.inertia===undefined?false:i.inertia}}" out-of-bounds="{{i.outOfBounds===undefined?false:i.outOfBounds}}" x="{{i.x}}" y="{{i.y}}" damping="{{i.damping===undefined?20:i.damping}}" friction="{{i.friction===undefined?2:i.friction}}" disabled="{{i.disabled}}" scale="{{i.scale===undefined?false:i.scale}}" scale-min="{{i.scaleMin===undefined?0.5:i.scaleMin}}" scale-max="{{i.scaleMax===undefined?10:i.scaleMax}}" scale-value="{{i.scaleValue===undefined?1:i.scaleValue}}" animation="{{i.animation===undefined?true:i.animation}}" bindanimationend="eh" bindchange="eh" bindscale="eh" htouchmove="{{eh}}" vtouchmove="{{eh}}" width="{{i.width===undefined?'10px':i.width}}" height="{{i.height===undefined?'10px':i.height}}" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_15_container" data="{{i: item}}" />
+    </block>
+  </movable-view>
+</template>
+
 <template name="tmpl_14_scroll-view">
   <scroll-view scroll-x="{{i.scrollX===undefined?false:i.scrollX}}" scroll-y="{{i.scrollY===undefined?false:i.scrollY}}" upper-threshold="{{i.upperThreshold===undefined?50:i.upperThreshold}}" lower-threshold="{{i.lowerThreshold===undefined?50:i.lowerThreshold}}" scroll-top="{{i.scrollTop}}" scroll-left="{{i.scrollLeft}}" scroll-into-view="{{i.scrollIntoView}}" scroll-with-animation="{{i.scrollWithAnimation===undefined?false:i.scrollWithAnimation}}" enable-back-to-top="{{i.enableBackToTop===undefined?false:i.enableBackToTop}}" enable-flex="{{i.enableFlex===undefined?false:i.enableFlex}}" scroll-anchoring="{{i.scrollAnchoring===undefined?false:i.scrollAnchoring}}" refresher-enabled="{{i.refresherEnabled===undefined?false:i.refresherEnabled}}" refresher-threshold="{{i.refresherThreshold===undefined?45:i.refresherThreshold}}" refresher-default-style="{{i.refresherDefaultStyle===undefined?'black':i.refresherDefaultStyle}}" refresher-background="{{i.refresherBackground===undefined?'#FFF':i.refresherBackground}}" refresher-triggered="{{i.refresherTriggered===undefined?false:i.refresherTriggered}}" bindrefresherpulling="eh" bindrefresherrefresh="eh" bindrefresherrestore="eh" bindrefresherabort="eh" bindscrolltoupper="eh" bindscrolltolower="eh" bindscroll="eh" animation="{{i.animation}}" bindtransitionend="eh" bindanimationstart="eh" bindanimationiteration="eh" bindanimationend="eh" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
     <block wx:for="{{i.cn}}" wx:key="id">
@@ -1367,6 +1607,22 @@
       <template is="tmpl_16_container" data="{{i: item}}" />
     </block>
   </picker>
+</template>
+
+<template name="tmpl_15_movable-area">
+  <movable-area scale-area="{{i.scaleArea===undefined?false:i.scaleArea}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_16_container" data="{{i: item}}" />
+    </block>
+  </movable-area>
+</template>
+
+<template name="tmpl_15_movable-view">
+  <movable-view direction="{{i.direction===undefined?none:i.direction}}" inertia="{{i.inertia===undefined?false:i.inertia}}" out-of-bounds="{{i.outOfBounds===undefined?false:i.outOfBounds}}" x="{{i.x}}" y="{{i.y}}" damping="{{i.damping===undefined?20:i.damping}}" friction="{{i.friction===undefined?2:i.friction}}" disabled="{{i.disabled}}" scale="{{i.scale===undefined?false:i.scale}}" scale-min="{{i.scaleMin===undefined?0.5:i.scaleMin}}" scale-max="{{i.scaleMax===undefined?10:i.scaleMax}}" scale-value="{{i.scaleValue===undefined?1:i.scaleValue}}" animation="{{i.animation===undefined?true:i.animation}}" bindanimationend="eh" bindchange="eh" bindscale="eh" htouchmove="{{eh}}" vtouchmove="{{eh}}" width="{{i.width===undefined?'10px':i.width}}" height="{{i.height===undefined?'10px':i.height}}" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_16_container" data="{{i: item}}" />
+    </block>
+  </movable-view>
 </template>
 
 <template name="tmpl_15_scroll-view">

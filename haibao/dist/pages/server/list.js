@@ -94,7 +94,9 @@ component.options.__file = "src/pages/server/list.vue"
         category_id: option.id
       }
     }).then(function (res) {
-      _this.list = res.list;
+      if (res.list) {
+        _this.list = res.list;
+      }
     });
   },
   methods: {

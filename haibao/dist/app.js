@@ -72,9 +72,14 @@ var globalData = Object(_libs_globalData__WEBPACK_IMPORTED_MODULE_0__[/* createC
 //
 //
 //
+//
+//
+//
+//
 var plugin = requirePlugin("ykfchat");
 
 var globalData = Object(_libs_globalData__WEBPACK_IMPORTED_MODULE_0__[/* createCache */ "a"])();
+var timr = null;
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: 'sidebar',
   data: function data() {
@@ -88,10 +93,17 @@ var globalData = Object(_libs_globalData__WEBPACK_IMPORTED_MODULE_0__[/* createC
     },
     userInfo: function userInfo() {
       return this.$store.state.userInfo;
+    },
+    y: function y() {
+      return this.$store.state.sidebarY;
     }
   },
-  onLoad: function onLoad(option) {
+  created: function created() {
     this.openid = globalData.get('openid');
+
+    if (!this.y) {
+      this.$store.commit('set_sidebarY', wx.getSystemInfoSync().windowHeight - 130);
+    }
   },
   methods: {
     back: function back() {
@@ -117,6 +129,14 @@ var globalData = Object(_libs_globalData__WEBPACK_IMPORTED_MODULE_0__[/* createC
       wx.navigateTo({
         url: 'plugin://ykfchat/chat-page?wechatapp_id=219196&channel_id=25200&scene=p86776wmyjpl&getOpenIdType=2'
       });
+    },
+    moveEnd: function moveEnd(e) {
+      var _this = this;
+
+      clearTimeout(timr);
+      timr = setTimeout(function () {
+        _this.$store.commit('set_sidebarY', e.detail.y);
+      }, 500);
     }
   }
 });
@@ -762,15 +782,35 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("view", { staticClass: "sidebar" }, [
-    _c("view", { staticClass: "item icon-consult", on: { tap: _vm.service } }, [
-      _vm._v("在线咨询")
-    ]),
-    _vm._v(" "),
-    _c("view", { staticClass: "item icon-back", on: { tap: _vm.back } }, [
-      _vm._v("返回上级")
-    ])
-  ])
+  return _c(
+    "movable-area",
+    { staticClass: "sidebar" },
+    [
+      _c(
+        "movable-view",
+        {
+          attrs: { direction: "vertical", y: _vm.y },
+          on: { change: _vm.moveEnd }
+        },
+        [
+          _c("view", [
+            _c(
+              "view",
+              { staticClass: "item icon-consult", on: { tap: _vm.service } },
+              [_vm._v("在线咨询")]
+            ),
+            _vm._v(" "),
+            _c(
+              "view",
+              { staticClass: "item icon-back", on: { tap: _vm.back } },
+              [_vm._v("返回上级")]
+            )
+          ])
+        ]
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -10862,7 +10902,8 @@ vue__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].use(vuex__WEBPACK_IMPORTED_M
 var state = {
   authModel: false,
   userInfo: {},
-  category: 0
+  category: 0,
+  sidebarY: ''
 };
 var mutations = {
   set_useriNfo: function set_useriNfo(state, obj) {
@@ -10870,6 +10911,9 @@ var mutations = {
   },
   set_category: function set_category(state, val) {
     state.category = val;
+  },
+  set_sidebarY: function set_sidebarY(state, val) {
+    state.sidebarY = val;
   },
   set_authModel: function set_authModel(state) {
     var bo = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;

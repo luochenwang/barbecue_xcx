@@ -216,10 +216,10 @@ var render = function() {
             {
               staticClass: "item icon-center2",
               attrs: {
-                url: "/pages/course/list?title=已预约课程&cat=get_MyFinished"
+                url: "/pages/course/list?title=已预约直播&cat=get_MyFinished"
               }
             },
-            [_vm._v("已预约课程")]
+            [_vm._v("已预约直播")]
           )
         ],
         1

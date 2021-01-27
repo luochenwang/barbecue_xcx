@@ -90,18 +90,27 @@
             .info{
                 display: flex;
                 align-items: center;
-                border-bottom:1px solid #fefefe;
                 padding:25rpx 0;
-                &:last-child{
-                    border-bottom:0;
+                position: relative;
+                &:after{
+                    content:'';
+                    position: absolute;
+                    bottom:0;
+                    left:50%;
+                    width:70%;
+                    margin-left:-35%;
+                    height:1px;
+                    background:#fefefe;
+                }
+                &:last-child:after{
+                    content:none;
                 }
                 .info-l{
                     image{
-                        width:295rpx;
-                        height:300rpx;
+                        width:280rpx;
                     }
                     video{
-                        width:295rpx;
+                        width:280rpx;
                         height:200rpx;
                     }
                 }
@@ -118,7 +127,7 @@
                         color:#fff;
                         font-size:23rpx;
                         border-radius:15rpx;
-                        margin-bottom:35rpx;
+                        margin-bottom:25rpx;
                         margin-left:60rpx;
                         position: relative;
                         text-align: center;
@@ -145,7 +154,6 @@
                         font-size:16rpx;
                         color:#333333;
                         text-align: center;
-                        margin-top:45rpx;
                     }
                 }
             }

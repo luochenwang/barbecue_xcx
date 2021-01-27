@@ -1,20 +1,25 @@
 <!--页面底部-->
 <template>
-    <view class="sidebar">
-        <view class="item icon-consult" @tap="service">在线咨询</view>
-        <view class="item icon-back" @tap="back">返回上级</view>
-    </view>
+    <movable-area class="sidebar">
+      <movable-view :direction="'vertical'" :y="y" @change="moveEnd">
+        <view>
+            <view class="item icon-consult" @tap="service">在线咨询</view>
+            <view class="item icon-back" @tap="back">返回上级</view>
+        </view>
+      </movable-view>
+    </movable-area>
 </template>
 
 <script>
 var plugin = requirePlugin("ykfchat");
 import { createCache } from "./../libs/globalData";
 const globalData = createCache();
+var timr = null;
   export default {
     name: 'sidebar',
     data() {
         return {
-          openid:''
+          openid:'',
         }
       },
     computed:{
@@ -23,12 +28,17 @@ const globalData = createCache();
       },
       userInfo(){
           return this.$store.state.userInfo;
+      },
+      y(){
+          return this.$store.state.sidebarY;
       }
     },
-    onLoad(option) {
+    created(){
       this.openid = globalData.get('openid');
+      if(!this.y){
+        this.$store.commit('set_sidebarY',wx.getSystemInfoSync().windowHeight - 130);
+      }
     },
-
     methods: {
       back(){
         wx.navigateBack();
@@ -51,6 +61,12 @@ const globalData = createCache();
         wx.navigateTo({
             url: 'plugin://ykfchat/chat-page?wechatapp_id=219196&channel_id=25200&scene=p86776wmyjpl&getOpenIdType=2',
         });
+      },
+      moveEnd(e){
+        clearTimeout(timr);
+        timr = setTimeout(()=>{
+          this.$store.commit('set_sidebarY',e.detail.y);
+        },500);
       }
     }
   }
@@ -60,7 +76,8 @@ const globalData = createCache();
   .sidebar{
       position: fixed;
       left:-1px;
-      bottom:30rpx;
+      height:100%;
+      top:0;
       z-index:10;
       .icon-consult:before{
           content:'';

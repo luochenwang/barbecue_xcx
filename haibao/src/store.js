@@ -9,6 +9,8 @@ const state = {
   userInfo:{},
 
   category:0,
+
+  sidebarY:''
 }
 
 const mutations = {
@@ -17,6 +19,9 @@ const mutations = {
   },
   set_category(state, val) {
     state.category = val
+  },
+  set_sidebarY(state, val) {
+    state.sidebarY = val
   },
   set_authModel(state, bo = false){
     if(bo){

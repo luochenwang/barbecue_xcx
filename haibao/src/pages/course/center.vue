@@ -13,7 +13,7 @@
     </view>
     <view class="nav">
         <navigator class="item icon-center1" url="/pages/course/list?title=已观看视频&cat=get_Myappointment">已观看视频</navigator>
-        <navigator class="item icon-center2" url="/pages/course/list?title=已预约课程&cat=get_MyFinished">已预约课程</navigator>
+        <navigator class="item icon-center2" url="/pages/course/list?title=已预约直播&cat=get_MyFinished">已预约直播</navigator>
     </view>
 
 

@@ -93,7 +93,7 @@ export default {
             filePath: filePath,
             success: file => {
               wx.showToast({
-                title: '下载成功~',
+                title: '已保存到相册',
                 icon: 'none',
                 duration: 2000,
               })

@@ -43,7 +43,9 @@ export default {
               category_id:option.id
           },
       }).then(res=>{
-          this.list = res.list;
+          if(res.list){
+            this.list = res.list;
+          }
       });
   },
   methods: {
