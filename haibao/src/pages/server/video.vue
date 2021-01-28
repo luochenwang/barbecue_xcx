@@ -31,7 +31,8 @@ export default {
   onShareAppMessage: function(res) {
     return {
       title: this.videoInfo.title,
-      path: '/pages/server/video?title='+this.videoInfo.title+'&video_filename='+this.videoInfo.video_filename+'&video_picture='+this.videoInfo.video_picture + '&id='+this.videoInfo.id,
+      imageUrl:this.videoInfo.share_img,
+      path: '/pages/server/video?title='+this.videoInfo.title+'&video_filename='+this.videoInfo.video_filename+'&share_img='+this.videoInfo.share_img+'&video_picture='+this.videoInfo.video_picture + '&id='+this.videoInfo.id,
       success: (res) => {
         ajax({
             url:'xcx_request.php',

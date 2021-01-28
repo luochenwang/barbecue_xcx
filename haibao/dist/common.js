@@ -339,7 +339,7 @@ function createCache() {
     toViewVideo: function toViewVideo(item) {
       var tp = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 100;
       wx.navigateTo({
-        url: '/pages/server/video?title=' + item.title + '&video_filename=' + item.video_filename + '&video_picture=' + item.video_picture + '&id=' + (item.class_id || item.tech_detail_id)
+        url: '/pages/server/video?title=' + item.title + '&video_filename=' + item.video_filename + '&video_picture=' + item.video_picture + '&share_img=' + item.video_picture + '&id=' + (item.class_id || item.tech_detail_id)
       });
     },
     downloadPdf: function downloadPdf(item) {

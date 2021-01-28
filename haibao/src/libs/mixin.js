@@ -43,7 +43,7 @@ export default {
       // })
     },
     toViewVideo(item, tp = 100) {
-      wx.navigateTo({ url: '/pages/server/video?title=' + item.title + '&video_filename=' + item.video_filename + '&video_picture=' + item.video_picture + '&id=' + (item.class_id || item.tech_detail_id) });
+      wx.navigateTo({ url: '/pages/server/video?title=' + item.title + '&video_filename=' + item.video_filename + '&video_picture=' + item.video_picture + '&share_img=' + item.video_picture + '&id=' + (item.class_id || item.tech_detail_id) });
     },
     downloadPdf(item, tp = 100) {
       wx.showLoading({

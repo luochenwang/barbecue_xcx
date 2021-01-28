@@ -438,7 +438,7 @@ var render = function() {
                       ),
                       _vm._v(" "),
                       _c("view", { staticClass: "time" }, [
-                        _vm._v("更新时间：2021年1月8日")
+                        _vm._v("更新时间：" + _vm._s(item.pdf_update_date))
                       ])
                     ])
                   ]),
@@ -489,7 +489,7 @@ var render = function() {
                       ),
                       _vm._v(" "),
                       _c("view", { staticClass: "time" }, [
-                        _vm._v("更新时间：2021年1月8日")
+                        _vm._v("更新时间：" + _vm._s(item.video_update_date))
                       ])
                     ])
                   ])
