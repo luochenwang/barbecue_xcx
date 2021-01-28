@@ -60,7 +60,8 @@ component.options.__file = "src/pages/webview/index.vue"
   data: function data() {
     return {
       title: '',
-      src: ''
+      src: '',
+      share_picture: ''
     };
   },
   components: {},
@@ -70,7 +71,8 @@ component.options.__file = "src/pages/webview/index.vue"
     // return eventHandler接收到的分享参数
     return {
       title: this.title,
-      path: '/pages/webview/index?src=' + this.src,
+      imageUrl: this.share_picture,
+      path: '/pages/webview/index?src=' + this.src + '&share_picture=' + this.share_picture + '&title=' + this.title,
       success: function success(res) {
         Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
           url: 'xcx_request.php',
@@ -89,6 +91,7 @@ component.options.__file = "src/pages/webview/index.vue"
   onLoad: function onLoad(option) {
     this.title = option.title;
     this.src = option.src;
+    this.share_picture = option.share_picture;
   },
   methods: {}
 });

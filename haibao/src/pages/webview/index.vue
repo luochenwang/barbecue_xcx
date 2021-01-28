@@ -10,7 +10,8 @@ export default {
   data() {
       return {
         title:'',
-        src:''
+        src:'',
+        share_picture:''
       }
     },
   components: {
@@ -20,7 +21,8 @@ export default {
   // return eventHandler接收到的分享参数
     return {
       title: this.title,
-      path: '/pages/webview/index?src='+this.src,
+      imageUrl:this.share_picture,
+      path: '/pages/webview/index?src='+this.src+'&share_picture='+this.share_picture+'&title='+this.title,
       success: (res) => {
         ajax({
             url:'xcx_request.php',
@@ -39,6 +41,7 @@ export default {
   onLoad(option) {
     this.title = option.title;
     this.src = option.src;
+    this.share_picture = option.share_picture;
   },
   methods: {
 
