@@ -247,7 +247,7 @@ var render = function() {
                 }
               }),
               _vm._v(" "),
-              _c("text", [_vm._v("日常维护")])
+              _c("text", [_vm._v("维护保养")])
             ]
           ),
           _vm._v(" "),
@@ -261,7 +261,7 @@ var render = function() {
                 }
               }),
               _vm._v(" "),
-              _c("text", [_vm._v("故障处理")])
+              _c("text", [_vm._v("故障诊断")])
             ]
           ),
           _vm._v(" "),

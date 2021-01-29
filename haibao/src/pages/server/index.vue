@@ -16,11 +16,11 @@
             </navigator>
             <navigator class="item" url="/pages/server/list?id=2">
                 <image src="https://campaign5.method-ad.cn/hypertherm/img/nav2.png"/>
-                <text>日常维护</text>
+                <text>维护保养</text>
             </navigator>
             <navigator class="item" url="/pages/server/list?id=3">
                 <image src="https://campaign5.method-ad.cn/hypertherm/img/nav3.png"/>
-                <text>故障处理</text>
+                <text>故障诊断</text>
             </navigator>
             <navigator class="item" url="/pages/server/list?id=4">
                 <image src="https://campaign5.method-ad.cn/hypertherm/img/nav4.png"/>
