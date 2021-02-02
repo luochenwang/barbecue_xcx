@@ -54,6 +54,9 @@ component.options.__file = "src/pages/webview/index.vue"
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: 'webview',
@@ -92,8 +95,23 @@ component.options.__file = "src/pages/webview/index.vue"
     this.title = option.title;
     this.src = option.src;
     this.share_picture = option.share_picture;
+    this.openPdf();
   },
-  methods: {}
+  methods: {
+    openPdf: function openPdf() {
+      wx.downloadFile({
+        url: this.src,
+        success: function success(res) {
+          console.log(res);
+          var data = res.tempFilePath;
+          wx.openDocument({
+            filePath: data,
+            fileType: 'pdf'
+          });
+        }
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -125,7 +143,22 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("web-view", { attrs: { src: _vm.src } })
+  return _c(
+    "view",
+    {
+      staticClass: "container",
+      style: { paddingTop: _vm.containerTop + "px" }
+    },
+    [
+      _c("webheader"),
+      _vm._v(" "),
+      _c("image", {
+        attrs: { src: _vm.share_picture, mode: "widthFix" },
+        on: { tap: _vm.openPdf }
+      })
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

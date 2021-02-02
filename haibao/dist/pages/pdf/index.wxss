@@ -1,5 +1,4 @@
-image {
-  width: 50%;
+.pdf-img {
   display: block;
   margin: 0 auto;
 }

@@ -200,7 +200,10 @@ var render = function() {
             "navigator",
             {
               staticClass: "item",
-              attrs: { url: "/pages/course/list?title=直播课程&category_id=2" }
+              attrs: {
+                url:
+                  "/pages/course/list?title=直播课程&category_id=2&no_search=1"
+              }
             },
             [
               _c("image", {
@@ -273,7 +276,7 @@ var render = function() {
                         }
                       }
                     },
-                    [_vm._v("下载资料")]
+                    [_vm._v("下载视频")]
                   )
                 ])
               ])

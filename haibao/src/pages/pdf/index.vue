@@ -1,12 +1,18 @@
 <template>
-  <web-view :src="src"></web-view>
+  <view class="container" :style="{paddingTop:containerTop+'px'}">
+    <webheader/>
+    <image :src="share_picture" mode="widthFix" @tap="openPdf" class="pdf-img"/>
+  </view>
 </template>
 
 <script>
 import { ajax } from "../../libs/ajax";
+import mixin from "../../libs/mixin";
 
 export default {
   name: 'webview',
+  mixins: [mixin],
+  
   data() {
       return {
         title:'',
@@ -42,13 +48,30 @@ export default {
     this.title = option.title;
     this.src = option.src;
     this.share_picture = option.share_picture;
+    this.openPdf();
   },
   methods: {
-
+    openPdf(){
+      wx.downloadFile({
+        url:this.src,
+        success(res){
+          console.log(res)
+          let data = res.tempFilePath;
+          wx.openDocument({
+            filePath:data,
+            fileType:'pdf'
+          })
+        }
+      })
+    }
   }
 }
 </script>
 
 <style lang="scss">
-@import "./index";
+.pdf-img{
+  display: block;
+  margin:0 auto;
+}
+
 </style>

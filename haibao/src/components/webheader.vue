@@ -39,6 +39,7 @@ export default {
 
   image {
     width: 191rpx;
+    height:35rpx;
     vertical-align: middle;
     margin-top:-5px;
   }

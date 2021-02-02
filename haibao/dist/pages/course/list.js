@@ -115,39 +115,41 @@ component.options.__file = "src/pages/course/list.vue"
   data: function data() {
     return {
       title: '',
-      multiIndex: [0, 0, 0],
-      multiArray: [[{}], [{}], [{}]],
+      multiIndex: [0, 0],
+      multiArray: [[{}], [{}]],
       list: [],
       viewVideoSrc: '',
       pageId: 1,
       maxPage: 2,
       categoryId: '',
-      listCat: ''
+      listCat: '',
+      searchModel: true
     };
   },
   components: {
     videVideo: _components_videVideo__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"]
   },
   onLoad: function onLoad(option) {
-    var _this = this;
-
     this.title = option.title;
     this.categoryId = option.category_id;
     this.listCat = option.cat;
-    Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_1__[/* ajax */ "a"])({
-      url: 'xcx_request.php',
-      data: {
-        act: 'get_class_industry',
-        product_id: 0,
-        // 产品id
-        purpose_id: 0 // 目的id
 
-      }
-    }).then(function (res) {
-      _this.$set(_this.multiArray, 0, res.list);
+    if (option.no_search) {
+      this.searchModel = false;
+    } // ajax({
+    //       url:'xcx_request.php',
+    //       data:{
+    //           act:'get_class_industry',
+    //           product_id:0, // 产品id
+    //           purpose_id:0, // 目的id
+    //       },
+    // }).then(res=>{
+    //     this.$set(this.multiArray,0,res.list);
+    //     this.getPurpose(true);
+    // })
 
-      _this.getPurpose(true);
-    });
+
+    this.getPurpose(true);
   },
   methods: {
     // 预约
@@ -186,59 +188,59 @@ component.options.__file = "src/pages/course/list.vue"
       self.getData();
     },
     getData: function getData() {
-      var _this2 = this;
+      var _this = this;
 
       Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_1__[/* ajax */ "a"])({
         url: 'xcx_request.php',
         data: {
           act: this.listCat || 'get_class_list',
           category_id: this.categoryId,
-          industry_id: this.multiArray[0][this.multiIndex[0]].industry_id,
+          // industry_id:this.multiArray[0][this.multiIndex[0]].industry_id,
           purpose_id: 0,
           product_id: 0,
           page: this.pageId
         }
       }).then(function (res) {
         if (res.list) {
-          var _this2$list;
+          var _this$list;
 
-          (_this2$list = _this2.list).push.apply(_this2$list, Object(_Volumes_D_site_barbecue_xcx_haibao_node_modules_babel_runtime_7_12_5_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(res.list));
+          (_this$list = _this.list).push.apply(_this$list, Object(_Volumes_D_site_barbecue_xcx_haibao_node_modules_babel_runtime_7_12_5_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(res.list));
         }
 
-        _this2.maxPage = res.list_num;
+        _this.maxPage = res.list_num;
       });
     },
     getPurpose: function getPurpose(isRefresh) {
-      var _this3 = this;
+      var _this2 = this;
 
       Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_1__[/* ajax */ "a"])({
         url: 'xcx_request.php',
         data: {
           act: 'get_class_purpose',
-          product_id: 0,
-          industry_id: this.multiArray[0][this.multiIndex[0]].industry_id
+          product_id: 0 // industry_id:this.multiArray[0][this.multiIndex[0]].industry_id,
+
         }
       }).then(function (res) {
-        _this3.$set(_this3.multiArray, 1, res.list);
+        _this2.$set(_this2.multiArray, 0, res.list);
 
-        _this3.getProduct(isRefresh);
+        _this2.getProduct(isRefresh);
       });
     },
     getProduct: function getProduct(isRefresh) {
-      var _this4 = this;
+      var _this3 = this;
 
       Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_1__[/* ajax */ "a"])({
         url: 'xcx_request.php',
         data: {
           act: 'get_class_product',
-          purpose_id: 0,
-          industry_id: this.multiArray[0][this.multiIndex[0]].industry_id
+          purpose_id: 0 // industry_id:this.multiArray[0][this.multiIndex[0]].industry_id,
+
         }
       }).then(function (res) {
-        _this4.$set(_this4.multiArray, 2, res.list);
+        _this3.$set(_this3.multiArray, 1, res.list);
 
         if (isRefresh) {
-          _this4.getData();
+          _this3.getData();
         }
       });
     },
@@ -301,7 +303,7 @@ var render = function() {
       _c("webheader"),
       _vm._v(" "),
       _c("view", { staticClass: "category-nav" }, [
-        _vm.multiArray[2].length > 1
+        _vm.multiArray[1].length > 1 && _vm.searchModel
           ? _c(
               "view",
               { staticClass: "select-box" },
@@ -327,8 +329,6 @@ var render = function() {
                           _vm._s(_vm.multiArray[0][_vm.multiIndex[0]].title) +
                           "，" +
                           _vm._s(_vm.multiArray[1][_vm.multiIndex[1]].title) +
-                          "，" +
-                          _vm._s(_vm.multiArray[2][_vm.multiIndex[2]].title) +
                           "\n              "
                       )
                     ])
@@ -345,10 +345,6 @@ var render = function() {
         _vm._v(" "),
         _c("view", { staticClass: "item" }, [
           _vm._v(_vm._s(_vm.multiArray[1][_vm.multiIndex[1]].title))
-        ]),
-        _vm._v(" "),
-        _c("view", { staticClass: "item" }, [
-          _vm._v(_vm._s(_vm.multiArray[2][_vm.multiIndex[2]].title))
         ])
       ]),
       _vm._v(" "),
@@ -407,7 +403,7 @@ var render = function() {
                                     }
                                   }
                                 },
-                                [_vm._v("下载资料")]
+                                [_vm._v("下载视频")]
                               )
                             : _vm._e(),
                           _vm._v(" "),
@@ -465,7 +461,7 @@ var render = function() {
                                 }
                               }
                             },
-                            [_vm._v("下载资料")]
+                            [_vm._v("下载视频")]
                           )
                         ])
                   ])

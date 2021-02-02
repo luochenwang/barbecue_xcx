@@ -109,7 +109,6 @@ export default {
           this.list = res.list;
 
         }
-          this.searchVal = '';
       })
     }
   }

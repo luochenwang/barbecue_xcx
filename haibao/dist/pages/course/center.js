@@ -205,7 +205,8 @@ var render = function() {
             {
               staticClass: "item icon-center1",
               attrs: {
-                url: "/pages/course/list?title=已观看视频&cat=get_Myappointment"
+                url:
+                  "/pages/course/list?title=已观看视频&cat=get_Myappointment&no_search=1"
               }
             },
             [_vm._v("已观看视频")]
@@ -216,7 +217,8 @@ var render = function() {
             {
               staticClass: "item icon-center2",
               attrs: {
-                url: "/pages/course/list?title=已预约直播&cat=get_MyFinished"
+                url:
+                  "/pages/course/list?title=已预约直播&cat=get_MyFinished&no_search=1"
               }
             },
             [_vm._v("已预约直播")]

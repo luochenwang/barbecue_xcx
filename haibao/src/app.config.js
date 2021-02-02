@@ -6,7 +6,7 @@ export default {
     'pages/server/list',
     'pages/server/details',
     'pages/server/video',
-    'pages/webview/index',
+    'pages/pdf/index',
     'pages/course/center',
     'pages/course/list',
     'pages/course/index'

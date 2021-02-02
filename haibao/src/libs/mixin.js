@@ -15,7 +15,7 @@ export default {
       this.viewVideoSrc = item.video_filename;
     },
     toViewPdf(item, tp = 100) {
-      wx.navigateTo({ url: '/pages/webview/index?src=' + item.pdf_filename + '&title=' + item.title+'&share_picture='+item.pdf_share_picture });
+      wx.navigateTo({ url: '/pages/pdf/index?src=' + item.pdf_filename + '&title=' + item.title+'&share_picture='+item.pdf_share_picture });
 
       ajax({
         url: 'xcx_request.php',

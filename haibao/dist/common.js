@@ -310,7 +310,7 @@ function createCache() {
     toViewPdf: function toViewPdf(item) {
       var tp = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 100;
       wx.navigateTo({
-        url: '/pages/webview/index?src=' + item.pdf_filename + '&title=' + item.title + '&share_picture=' + item.pdf_share_picture
+        url: '/pages/pdf/index?src=' + item.pdf_filename + '&title=' + item.title + '&share_picture=' + item.pdf_share_picture
       });
       Object(_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
         url: 'xcx_request.php',

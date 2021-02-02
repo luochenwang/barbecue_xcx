@@ -2,17 +2,17 @@
   <view class="container" :style="{paddingTop:containerTop+'px'}">
     <webheader/>
     <view class="category-nav">
-        <view class="select-box" v-if="multiArray[2].length > 1">
+        <view class="select-box" v-if="multiArray[1].length > 1 && searchModel">
             <picker mode="multiSelector" @change="bindMultiPickerChange" @columnchange="bindMultiPickerColumnChange" :value="multiIndex" :range="multiArray" :range-key="'title'">
                 <view class="picker">
-                  当前选择：{{multiArray[0][multiIndex[0]].title}}，{{multiArray[1][multiIndex[1]].title}}，{{multiArray[2][multiIndex[2]].title}}
+                  当前选择：{{multiArray[0][multiIndex[0]].title}}，{{multiArray[1][multiIndex[1]].title}}
                 </view>
             </picker>
         </view>
 
         <view class="item">{{multiArray[0][multiIndex[0]].title}}</view>
         <view class="item">{{multiArray[1][multiIndex[1]].title}}</view>
-        <view class="item">{{multiArray[2][multiIndex[2]].title}}</view>
+        <!-- <view class="item">{{multiArray[2][multiIndex[2]].title}}</view> -->
     </view>
     <view class="list-content">
         <view class="tt">{{title}}</view>
@@ -28,7 +28,7 @@
                     <!-- 直播课程 -->
                     <view class="btn-box" v-if="categoryId == '2'">
                         <view class="btn active" @tap="toViewVideo(item)" v-if="item.is_appointment == 0">查看视频</view>
-                        <view class="btn" @tap="downloadVideo(item)" v-if="item.is_appointment == 0">下载资料</view>
+                        <view class="btn" @tap="downloadVideo(item)" v-if="item.is_appointment == 0">下载视频</view>
                         <view class="btn reserve" v-if="item.is_appointment != 0" @tap="reserve(item,index)">直播预约</view>
                     </view>
                     <!-- 已完成 -->
@@ -38,7 +38,7 @@
                     <!-- 其他 -->
                     <view class="btn-box" v-else>
                         <view class="btn active" @tap="toViewVideo(item)">查看视频</view>
-                        <view class="btn" @tap="downloadVideo(item)">下载资料</view>
+                        <view class="btn" @tap="downloadVideo(item)">下载视频</view>
                     </view>
                 </view>
             </view>
@@ -61,14 +61,16 @@ export default {
   data(){
     return {
         title:'',
-        multiIndex: [0, 0, 0],
-        multiArray: [[{}],[{}],[{}]],
+        multiIndex: [0, 0],
+        multiArray: [[{}],[{}]],
         list:[],
         viewVideoSrc:'',
         pageId:1,
         maxPage:2,
         categoryId:'',
         listCat:'',
+
+        searchModel:true
     }
   },
   components: {
@@ -78,18 +80,22 @@ export default {
     this.title = option.title;
     this.categoryId = option.category_id;
     this.listCat = option.cat;
+    if(option.no_search){
+      this.searchModel = false;
+    }
 
-    ajax({
-          url:'xcx_request.php',
-          data:{
-              act:'get_class_industry',
-              product_id:0, // 产品id
-              purpose_id:0, // 目的id
-          },
-    }).then(res=>{
-        this.$set(this.multiArray,0,res.list);
-        this.getPurpose(true);
-    })
+    // ajax({
+    //       url:'xcx_request.php',
+    //       data:{
+    //           act:'get_class_industry',
+    //           product_id:0, // 产品id
+    //           purpose_id:0, // 目的id
+    //       },
+    // }).then(res=>{
+    //     this.$set(this.multiArray,0,res.list);
+    //     this.getPurpose(true);
+    // })
+    this.getPurpose(true);
   },
     methods: {
       // 预约
@@ -133,7 +139,7 @@ export default {
                   data:{
                       act:this.listCat || 'get_class_list',
                       category_id:this.categoryId,
-                      industry_id:this.multiArray[0][this.multiIndex[0]].industry_id,
+                      // industry_id:this.multiArray[0][this.multiIndex[0]].industry_id,
                       purpose_id:0,
                       product_id:0,
                       page:this.pageId,
@@ -151,10 +157,10 @@ export default {
                   data:{
                       act:'get_class_purpose',
                       product_id:0,
-                      industry_id:this.multiArray[0][this.multiIndex[0]].industry_id,
+                      // industry_id:this.multiArray[0][this.multiIndex[0]].industry_id,
                   },
             }).then(res=>{
-                this.$set(this.multiArray,1,res.list);
+                this.$set(this.multiArray,0,res.list);
                 this.getProduct(isRefresh);
             })
         },
@@ -164,10 +170,10 @@ export default {
                   data:{
                       act:'get_class_product',
                       purpose_id:0,
-                      industry_id:this.multiArray[0][this.multiIndex[0]].industry_id,
+                      // industry_id:this.multiArray[0][this.multiIndex[0]].industry_id,
                   },
             }).then(res=>{
-                this.$set(this.multiArray,2,res.list);
+                this.$set(this.multiArray,1,res.list);
                 if(isRefresh){
                     this.getData();
                 }

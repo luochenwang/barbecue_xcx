@@ -258,8 +258,6 @@ component.options.__file = "src/pages/server/details.vue"
 
           _this2.list = res.list;
         }
-
-        _this2.searchVal = '';
       });
     }
   }

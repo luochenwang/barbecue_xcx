@@ -9,7 +9,7 @@
             <image src="https://campaign5.method-ad.cn/hypertherm/img/course/icon_nav1.png"/>
             <text>海宝切割学院</text>
         </navigator>
-        <navigator class="item" url="/pages/course/list?title=直播课程&category_id=2">
+        <navigator class="item" url="/pages/course/list?title=直播课程&category_id=2&no_search=1">
             <image src="https://campaign5.method-ad.cn/hypertherm/img/course/icon_nav2.png"/>
             <text>直播课程</text>
         </navigator>
@@ -30,7 +30,7 @@
                     <view class="name">{{item.title}}</view>
                     <view class="btn-box">
                         <view class="btn active" @tap='toViewVideo(item)'>查看视频</view>
-                        <view class="btn" @tap="downloadVideo(item)">下载资料</view>
+                        <view class="btn" @tap="downloadVideo(item)">下载视频</view>
                     </view>
                 </view>
             </view>
