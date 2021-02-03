@@ -1,5 +1,6 @@
 export default {
   pages: [
+    'pages/map/index',
     'pages/index/index',
     'pages/user/index',
     'pages/user/authorization',
@@ -17,8 +18,7 @@ export default {
     'pages/coupon/rule',
     'pages/coupon/list',
     'pages/after/index',
-    'pages/after/list',
-    'pages/map/index'
+    'pages/after/list'
   ],
   window: {
     backgroundTextStyle: 'light',

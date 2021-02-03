@@ -37,7 +37,7 @@
         </view>
 
         <view class="no-data">
-            <image src="http://192.168.241.6:2832/user/coupon_nodata.png"/>
+            <image src="http://172.16.1.142:3833/user/coupon_nodata.png"/>
             <view class="txt">哇哦 ~ 您目前没有任何优惠券哦~</view>
             <navigator url="/pages/index/index" class="to-home">回首页看看</navigator>
         </view>

@@ -31,7 +31,7 @@
                     margin-right:30rpx;
                     &.active:after{
                         border:0;
-                        background:url(http://192.168.241.6:2832/address-img/icon_select.png) no-repeat top center/100% auto;
+                        background:url(http://172.16.1.142:3833/address-img/icon_select.png) no-repeat top center/100% auto;
                     }
                     &:after{
                         content:'';
@@ -76,7 +76,7 @@
         position: relative;
         &.active:after{
             border:0;
-            background:url(http://192.168.241.6:2832/address-img/icon_select.png) no-repeat top center/100% auto;
+            background:url(http://172.16.1.142:3833/address-img/icon_select.png) no-repeat top center/100% auto;
         }
         &:after{
             content:'';

@@ -29,23 +29,23 @@
       </view>
       <view class="nav">
         <view class="item">
-          <image src="http://192.168.241.6:2832/user/icon_dfk.png" mode="widthFix"></image>
+          <image src="http://172.16.1.142:3833/user/icon_dfk.png" mode="widthFix"></image>
           <view class="txt">待付款</view>
         </view>
         <view class="item">
-          <image src="http://192.168.241.6:2832/user/icon_dfh.png" mode="widthFix"></image>
+          <image src="http://172.16.1.142:3833/user/icon_dfh.png" mode="widthFix"></image>
           <view class="txt">代配送</view>
         </view>
         <view class="item">
-          <image src="http://192.168.241.6:2832/user/icon_dsh.png" mode="widthFix"></image>
+          <image src="http://172.16.1.142:3833/user/icon_dsh.png" mode="widthFix"></image>
           <view class="txt">待收货</view>
         </view>
         <view class="item">
-          <image src="http://192.168.241.6:2832/user/icon_sh.png" mode="widthFix"></image>
+          <image src="http://172.16.1.142:3833/user/icon_sh.png" mode="widthFix"></image>
           <view class="txt">售后/退款</view>
         </view>
         <view class="item">
-          <image src="http://192.168.241.6:2832/user/icon_pt.png" mode="widthFix"></image>
+          <image src="http://172.16.1.142:3833/user/icon_pt.png" mode="widthFix"></image>
           <view class="txt">拼团</view>
         </view>
       </view>

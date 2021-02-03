@@ -32,10 +32,10 @@
             margin-top:-25rpx;
         }
         &.icon-phone:after{
-            background:url(http://192.168.241.6:2832/user/icon_phone.png) no-repeat top center/100% auto;
+            background:url(http://172.16.1.142:3833/user/icon_phone.png) no-repeat top center/100% auto;
         }
         &.icon-lock:after{
-            background:url(http://192.168.241.6:2832/user/icon_lock.png) no-repeat top center/100% auto;
+            background:url(http://172.16.1.142:3833/user/icon_lock.png) no-repeat top center/100% auto;
         }
     }
 }

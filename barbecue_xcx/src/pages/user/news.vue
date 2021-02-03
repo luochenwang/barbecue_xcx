@@ -5,7 +5,7 @@
             <view class="list-box">
                 <view class="list-top">
                     <view class="newslist-name">系统消息名称系统消息名称</view>
-                    <image src="http://192.168.241.6:2832/news-img/unread.png" mode="widthFix" class="newslist-status"></image>
+                    <image src="http://172.16.1.142:3833/news-img/unread.png" mode="widthFix" class="newslist-status"></image>
                     <view class="newslist-data">2020/12/02&nbsp;12:20:11 </view>
                 </view>
                 <view class="newslist-content">系统消息系统消息系统消息系统消息系统消息系统消息系统 系统消息系统消息系统消息
@@ -15,7 +15,7 @@
             <view class="list-box">
                 <view class="list-top">
                     <view class="newslist-name">系统</view>
-                    <image src="http://192.168.241.6:2832/news-img/unread.png" mode="widthFix" class="newslist-status"></image>
+                    <image src="http://172.16.1.142:3833/news-img/unread.png" mode="widthFix" class="newslist-status"></image>
                     <view class="newslist-data">2020/12/02&nbsp;12:20:11 </view>
                 </view>
                 <view class="newslist-content">系统消息系统消息系统消息系统消息系统消息系统消息系统 系统消息系统消息系统消息

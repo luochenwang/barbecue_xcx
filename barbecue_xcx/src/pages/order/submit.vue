@@ -24,7 +24,7 @@
                 </view>
             </view>
             <view class="no-data">
-                <image src="http://192.168.241.6:2832/order/no_data.png" mode="widthFix"></image>
+                <image src="http://172.16.1.142:3833/order/no_data.png" mode="widthFix"></image>
                 <view class="txt">哇哦 ~ 当前没有可用设备哦~</view>
             </view>
         </view>

@@ -1,7 +1,7 @@
 <template>
   <view class="container">
     <view class="logo">
-        <image src="http://192.168.241.6:2832/user/logo.png" mode="widthFix"></image>
+        <image src="http://172.16.1.142:3833/user/logo.png" mode="widthFix"></image>
     </view>
     
     <button class='btn wechat-login' type='default' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">授权登录</button>

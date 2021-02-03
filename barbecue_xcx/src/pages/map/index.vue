@@ -9,6 +9,7 @@
              id='map'
              :markers="markers"
              style='width:100%;height:100%;'
+             @markertap="markertap"
           >
         </map>
 
@@ -25,8 +26,8 @@ export default {
         return {
             markers:[{
                  height: 37,
-                 iconPath:"http://192.168.56.138:2832/map/shape1.png",
-                 id: 0,
+                 iconPath:"http://172.16.1.142:3833/map/shape1.png",
+                 id: 2,
                  label: {content:"汉中市-佛坪县", color:'#eee',fontSize: 14, anchorX: 0, anchorY: 5,textAlign:'center'},
                  latitude:"33.549939112272",
                  longitude:"107.92883622761",
@@ -41,7 +42,9 @@ export default {
 
   },
   methods: {
-
+    markertap(e){
+      console.log(e);
+    }
   }
 }
 </script>

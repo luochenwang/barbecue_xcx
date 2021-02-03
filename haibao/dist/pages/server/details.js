@@ -169,6 +169,13 @@ component.options.__file = "src/pages/server/details.vue"
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
@@ -179,7 +186,8 @@ component.options.__file = "src/pages/server/details.vue"
       searchModel: false,
       searchVal: '',
       list: [],
-      proCover: ''
+      proCover: '',
+      isFirstAjax: true
     };
   },
   components: {},
@@ -196,21 +204,25 @@ component.options.__file = "src/pages/server/details.vue"
       }).then(function (res) {
         _this.proCover = res.picture;
 
-        var _iterator = Object(_Volumes_D_site_barbecue_xcx_haibao_node_modules_babel_runtime_7_12_5_babel_runtime_helpers_esm_createForOfIteratorHelper__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(res.list),
-            _step;
+        if (res.list) {
+          var _iterator = Object(_Volumes_D_site_barbecue_xcx_haibao_node_modules_babel_runtime_7_12_5_babel_runtime_helpers_esm_createForOfIteratorHelper__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(res.list),
+              _step;
 
-        try {
-          for (_iterator.s(); !(_step = _iterator.n()).done;) {
-            var item = _step.value;
-            item.show = false;
+          try {
+            for (_iterator.s(); !(_step = _iterator.n()).done;) {
+              var item = _step.value;
+              item.show = false;
+            }
+          } catch (err) {
+            _iterator.e(err);
+          } finally {
+            _iterator.f();
           }
-        } catch (err) {
-          _iterator.e(err);
-        } finally {
-          _iterator.f();
+
+          _this.list = res.list;
         }
 
-        _this.list = res.list;
+        _this.isFirstAjax = false;
       });
     } else {
       this.searchModel = true;
@@ -258,6 +270,8 @@ component.options.__file = "src/pages/server/details.vue"
 
           _this2.list = res.list;
         }
+
+        _this2.isFirstAjax = false;
       });
     }
   }
@@ -343,161 +357,194 @@ var render = function() {
           ])
         : _vm._e(),
       _vm._v(" "),
-      _c(
-        "view",
-        { staticClass: "list" },
-        _vm._l(_vm.list, function(item, index) {
-          return _c(
+      _vm.list.length
+        ? _c(
             "view",
-            { staticClass: "item", class: { active: item.show } },
-            [
-              _c(
+            { staticClass: "list" },
+            _vm._l(_vm.list, function(item, index) {
+              return _c(
                 "view",
-                {
-                  staticClass: "name",
-                  on: {
-                    tap: function($event) {
-                      return _vm.toggleInfo(index)
-                    }
-                  }
-                },
+                { staticClass: "item", class: { active: item.show } },
                 [
-                  _c("image", {
-                    staticClass: "name-l",
-                    attrs: {
-                      src: item.product_ || _vm.proCover,
-                      mode: "widthFix"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("view", { staticClass: "name-r" }, [
-                    _vm._v(_vm._s(item.title))
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "view",
-                {
-                  directives: [
+                  _c(
+                    "view",
                     {
-                      name: "show",
-                      rawName: "v-show",
-                      value: item.show,
-                      expression: "item.show"
-                    }
-                  ],
-                  staticClass: "info-content"
-                },
-                [
-                  _c("view", { staticClass: "info" }, [
-                    _c(
-                      "view",
-                      {
-                        staticClass: "info-l",
-                        on: {
-                          tap: function($event) {
-                            return _vm.toViewPdf(item)
-                          }
+                      staticClass: "name",
+                      on: {
+                        tap: function($event) {
+                          return _vm.toggleInfo(index)
                         }
-                      },
-                      [
-                        _c("image", {
-                          attrs: { src: item.pdf_picture, mode: "widthFix" }
-                        })
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("view", { staticClass: "info-r" }, [
-                      _c(
-                        "view",
-                        {
-                          staticClass: "txt icon-file",
-                          on: {
-                            tap: function($event) {
-                              return _vm.toViewPdf(item)
-                            }
-                          }
-                        },
-                        [_vm._v("操作指南")]
-                      ),
+                      }
+                    },
+                    [
+                      _c("image", {
+                        staticClass: "name-l",
+                        attrs: {
+                          src: item.product_ || _vm.proCover,
+                          mode: "widthFix"
+                        }
+                      }),
                       _vm._v(" "),
-                      _c(
-                        "view",
-                        {
-                          staticClass: "txt icon-download",
-                          on: {
-                            tap: function($event) {
-                              return _vm.downloadPdf(item)
-                            }
-                          }
-                        },
-                        [_vm._v("下载资料")]
-                      ),
-                      _vm._v(" "),
-                      _c("view", { staticClass: "time" }, [
-                        _vm._v("更新时间：" + _vm._s(item.pdf_update_date))
+                      _c("view", { staticClass: "name-r" }, [
+                        _vm._v(_vm._s(item.title))
                       ])
-                    ])
-                  ]),
+                    ]
+                  ),
                   _vm._v(" "),
-                  _c("view", { staticClass: "info" }, [
-                    _c(
-                      "view",
-                      {
-                        staticClass: "info-l",
-                        on: {
-                          tap: function($event) {
-                            return _vm.toViewVideo(item)
-                          }
+                  _c(
+                    "view",
+                    {
+                      directives: [
+                        {
+                          name: "show",
+                          rawName: "v-show",
+                          value: item.show,
+                          expression: "item.show"
                         }
-                      },
-                      [
-                        _c("image", {
-                          attrs: { src: item.video_picture, mode: "widthFix" }
-                        })
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("view", { staticClass: "info-r" }, [
-                      _c(
-                        "view",
-                        {
-                          staticClass: "txt icon-play",
-                          on: {
-                            tap: function($event) {
-                              return _vm.toViewVideo(item)
+                      ],
+                      staticClass: "info-content"
+                    },
+                    [
+                      _c("view", { staticClass: "info" }, [
+                        _c(
+                          "view",
+                          {
+                            staticClass: "info-l",
+                            on: {
+                              tap: function($event) {
+                                return _vm.toViewPdf(item)
+                              }
                             }
-                          }
-                        },
-                        [_vm._v("操作视频")]
-                      ),
+                          },
+                          [
+                            _c("image", {
+                              attrs: { src: item.pdf_picture, mode: "widthFix" }
+                            })
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("view", { staticClass: "info-r" }, [
+                          _c(
+                            "view",
+                            {
+                              staticClass: "txt icon-file",
+                              on: {
+                                tap: function($event) {
+                                  return _vm.toViewPdf(item)
+                                }
+                              }
+                            },
+                            [_vm._v("操作指南")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "view",
+                            {
+                              staticClass: "txt icon-download",
+                              on: {
+                                tap: function($event) {
+                                  return _vm.downloadPdf(item)
+                                }
+                              }
+                            },
+                            [_vm._v("下载资料")]
+                          ),
+                          _vm._v(" "),
+                          _c("view", { staticClass: "time" }, [
+                            _vm._v("更新时间：" + _vm._s(item.pdf_update_date))
+                          ])
+                        ])
+                      ]),
                       _vm._v(" "),
-                      _c(
-                        "view",
-                        {
-                          staticClass: "txt icon-download",
-                          on: {
-                            tap: function($event) {
-                              return _vm.downloadVideo(item)
+                      _c("view", { staticClass: "info" }, [
+                        _c(
+                          "view",
+                          {
+                            staticClass: "info-l",
+                            on: {
+                              tap: function($event) {
+                                return _vm.toViewVideo(item)
+                              }
                             }
-                          }
-                        },
-                        [_vm._v("下载资料")]
-                      ),
-                      _vm._v(" "),
-                      _c("view", { staticClass: "time" }, [
-                        _vm._v("更新时间：" + _vm._s(item.video_update_date))
+                          },
+                          [
+                            _c("image", {
+                              attrs: {
+                                src: item.video_picture,
+                                mode: "widthFix"
+                              }
+                            })
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("view", { staticClass: "info-r" }, [
+                          _c(
+                            "view",
+                            {
+                              staticClass: "txt icon-play",
+                              on: {
+                                tap: function($event) {
+                                  return _vm.toViewVideo(item)
+                                }
+                              }
+                            },
+                            [_vm._v("操作视频")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "view",
+                            {
+                              staticClass: "txt icon-download",
+                              on: {
+                                tap: function($event) {
+                                  return _vm.downloadVideo(item)
+                                }
+                              }
+                            },
+                            [_vm._v("下载资料")]
+                          ),
+                          _vm._v(" "),
+                          _c("view", { staticClass: "time" }, [
+                            _vm._v(
+                              "更新时间：" + _vm._s(item.video_update_date)
+                            )
+                          ])
+                        ])
                       ])
-                    ])
-                  ])
+                    ]
+                  )
                 ]
               )
-            ]
+            }),
+            0
           )
-        }),
-        0
-      ),
+        : _vm._e(),
+      _vm._v(" "),
+      !_vm.list.length && !_vm.isFirstAjax
+        ? _c("view", { staticClass: "no-data" }, [
+            _c("view", { staticClass: "tt txt" }, [
+              _vm._v("抱歉，无法查询到相关内容。")
+            ]),
+            _vm._v(" "),
+            _c("view", { staticClass: "txt" }, [
+              _vm._v("如果您想要查询技术相关内容，请点击菜单栏中的"),
+              _c("text", [_vm._v("“ 在线咨询 ”")]),
+              _vm._v("；")
+            ]),
+            _vm._v(" "),
+            _c("view", { staticClass: "txt" }, [
+              _vm._v("如果您想要购买产品，请点击菜单栏中的"),
+              _c("text", [_vm._v("“ 何处购买 ”")]),
+              _vm._v("；")
+            ]),
+            _vm._v(" "),
+            _c("view", { staticClass: "txt" }, [
+              _vm._v("如果您想要咨询其他内容，请点击菜单栏中的"),
+              _c("text", [_vm._v("“ 联系我们 ”")]),
+              _vm._v("。")
+            ])
+          ])
+        : _vm._e(),
       _vm._v(" "),
       _c("sidebar")
     ],

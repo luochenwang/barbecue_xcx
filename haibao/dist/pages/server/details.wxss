@@ -185,4 +185,19 @@
             color: #333333;
             text-align: center;
 }
+.no-data {
+  text-align: center;
+  margin-top: 50rpx;
+}
+.no-data .txt {
+    font-size: 22rpx;
+    color: #919191;
+    margin-bottom: 10rpx;
+}
+.no-data .tt {
+    margin-bottom: 50rpx;
+}
+.no-data text {
+    font-weight: bold;
+}
 
