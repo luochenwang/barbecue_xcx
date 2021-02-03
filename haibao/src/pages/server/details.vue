@@ -118,6 +118,8 @@ export default {
             item.show = false;
           }
           this.list = res.list;
+        }else{
+          this.list = [];
         }
         this.isFirstAjax = false;
       })

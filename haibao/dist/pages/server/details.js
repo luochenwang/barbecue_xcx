@@ -269,6 +269,8 @@ component.options.__file = "src/pages/server/details.vue"
           }
 
           _this2.list = res.list;
+        } else {
+          _this2.list = [];
         }
 
         _this2.isFirstAjax = false;
