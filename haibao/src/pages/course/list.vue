@@ -1,8 +1,8 @@
 <template>
   <view class="container" :style="{paddingTop:containerTop+'px'}">
     <webheader/>
-    <view class="category-nav">
-        <view class="select-box" v-if="multiArray[1].length > 1 && searchModel">
+    <view class="category-nav" v-if="searchModel">
+        <view class="select-box" v-if="multiArray[1].length > 1">
             <picker mode="multiSelector" @change="bindMultiPickerChange" @columnchange="bindMultiPickerColumnChange" :value="multiIndex" :range="multiArray" :range-key="'title'">
                 <view class="picker">
                   当前选择：{{multiArray[0][multiIndex[0]].title}}，{{multiArray[1][multiIndex[1]].title}}
@@ -80,6 +80,7 @@ export default {
     this.title = option.title;
     this.categoryId = option.category_id;
     this.listCat = option.cat;
+    console.log(option.no_search)
     if(option.no_search){
       this.searchModel = false;
     }

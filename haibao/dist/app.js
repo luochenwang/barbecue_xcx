@@ -10596,7 +10596,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var config = {"pages":["pages/index/index","pages/consult/index","pages/server/index","pages/server/list","pages/server/details","pages/server/video","pages/webview/index","pages/course/center","pages/course/list","pages/course/index"],"window":{"backgroundTextStyle":"light","navigationBarBackgroundColor":"#000","navigationBarTitleText":"WeChat","navigationBarTextStyle":"white"},"plugins":{"ykfchat":{"version":"2.0.26","provider":"wx1fdc8c9f3a3a05e4"}}};
+var config = {"pages":["pages/index/index","pages/consult/index","pages/server/index","pages/server/list","pages/server/details","pages/server/video","pages/pdf/index","pages/course/center","pages/course/list","pages/course/index"],"window":{"backgroundTextStyle":"light","navigationBarBackgroundColor":"#000","navigationBarTitleText":"WeChat","navigationBarTextStyle":"white"},"plugins":{"ykfchat":{"version":"2.0.26","provider":"wx1fdc8c9f3a3a05e4"}}};
 _tarojs_runtime__WEBPACK_IMPORTED_MODULE_0__["window"].__taroAppConfig = config
 var inst = App(Object(_tarojs_runtime__WEBPACK_IMPORTED_MODULE_0__["createVueApp"])(_node_modules_babel_loader_8_0_6_babel_loader_lib_index_js_app_js__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"], vue__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"], config))
 

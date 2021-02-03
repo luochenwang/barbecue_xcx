@@ -133,6 +133,7 @@ component.options.__file = "src/pages/course/list.vue"
     this.title = option.title;
     this.categoryId = option.category_id;
     this.listCat = option.cat;
+    console.log(option.no_search);
 
     if (option.no_search) {
       this.searchModel = false;
@@ -302,51 +303,57 @@ var render = function() {
     [
       _c("webheader"),
       _vm._v(" "),
-      _c("view", { staticClass: "category-nav" }, [
-        _vm.multiArray[1].length > 1 && _vm.searchModel
-          ? _c(
-              "view",
-              { staticClass: "select-box" },
-              [
-                _c(
-                  "picker",
-                  {
-                    attrs: {
-                      mode: "multiSelector",
-                      value: _vm.multiIndex,
-                      range: _vm.multiArray,
-                      "range-key": "title"
-                    },
-                    on: {
-                      change: _vm.bindMultiPickerChange,
-                      columnchange: _vm.bindMultiPickerColumnChange
-                    }
-                  },
+      _vm.searchModel
+        ? _c("view", { staticClass: "category-nav" }, [
+            _vm.multiArray[1].length > 1
+              ? _c(
+                  "view",
+                  { staticClass: "select-box" },
                   [
-                    _c("view", { staticClass: "picker" }, [
-                      _vm._v(
-                        "\n                当前选择：" +
-                          _vm._s(_vm.multiArray[0][_vm.multiIndex[0]].title) +
-                          "，" +
-                          _vm._s(_vm.multiArray[1][_vm.multiIndex[1]].title) +
-                          "\n              "
-                      )
-                    ])
-                  ]
+                    _c(
+                      "picker",
+                      {
+                        attrs: {
+                          mode: "multiSelector",
+                          value: _vm.multiIndex,
+                          range: _vm.multiArray,
+                          "range-key": "title"
+                        },
+                        on: {
+                          change: _vm.bindMultiPickerChange,
+                          columnchange: _vm.bindMultiPickerColumnChange
+                        }
+                      },
+                      [
+                        _c("view", { staticClass: "picker" }, [
+                          _vm._v(
+                            "\n                当前选择：" +
+                              _vm._s(
+                                _vm.multiArray[0][_vm.multiIndex[0]].title
+                              ) +
+                              "，" +
+                              _vm._s(
+                                _vm.multiArray[1][_vm.multiIndex[1]].title
+                              ) +
+                              "\n              "
+                          )
+                        ])
+                      ]
+                    )
+                  ],
+                  1
                 )
-              ],
-              1
-            )
-          : _vm._e(),
-        _vm._v(" "),
-        _c("view", { staticClass: "item" }, [
-          _vm._v(_vm._s(_vm.multiArray[0][_vm.multiIndex[0]].title))
-        ]),
-        _vm._v(" "),
-        _c("view", { staticClass: "item" }, [
-          _vm._v(_vm._s(_vm.multiArray[1][_vm.multiIndex[1]].title))
-        ])
-      ]),
+              : _vm._e(),
+            _vm._v(" "),
+            _c("view", { staticClass: "item" }, [
+              _vm._v(_vm._s(_vm.multiArray[0][_vm.multiIndex[0]].title))
+            ]),
+            _vm._v(" "),
+            _c("view", { staticClass: "item" }, [
+              _vm._v(_vm._s(_vm.multiArray[1][_vm.multiIndex[1]].title))
+            ])
+          ])
+        : _vm._e(),
       _vm._v(" "),
       _c("view", { staticClass: "list-content" }, [
         _c("view", { staticClass: "tt" }, [_vm._v(_vm._s(_vm.title))]),
