@@ -329,10 +329,12 @@ var render = function() {
               attrs: {
                 type: "text",
                 placeholder: "在这里输入您要搜索的内容",
-                "placeholder-style": "color:#ca8989"
+                "placeholder-style": "color:#ca8989",
+                "confirm-type": "search"
               },
               domProps: { value: _vm.searchVal },
               on: {
+                confirm: _vm.search,
                 input: function($event) {
                   if ($event.target.composing) {
                     return

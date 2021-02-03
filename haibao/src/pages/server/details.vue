@@ -3,7 +3,7 @@
     <webheader/>
 
     <view class="search-box" v-if="searchModel">
-        <input type="text" placeholder="在这里输入您要搜索的内容" placeholder-style="color:#ca8989" v-model='searchVal'/>
+        <input type="text" placeholder="在这里输入您要搜索的内容" placeholder-style="color:#ca8989" v-model='searchVal' confirm-type="search" @confirm="search"/>
         <view class="search-btn" @tap="search()">点击搜索</view>
     </view>
 
