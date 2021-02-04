@@ -25,7 +25,7 @@
                   <view class="time">更新时间：{{item.pdf_update_date}}</view>
                 </view>
               </view>
-              <view class="info">
+              <view class="info" v-if="item.video_picture">
                 <view class="info-l" @tap="toViewVideo(item)">
                   <image :src="item.video_picture" mode="widthFix"/>
                 </view>

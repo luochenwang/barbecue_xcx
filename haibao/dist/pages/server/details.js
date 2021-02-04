@@ -460,61 +460,63 @@ var render = function() {
                         ])
                       ]),
                       _vm._v(" "),
-                      _c("view", { staticClass: "info" }, [
-                        _c(
-                          "view",
-                          {
-                            staticClass: "info-l",
-                            on: {
-                              tap: function($event) {
-                                return _vm.toViewVideo(item)
-                              }
-                            }
-                          },
-                          [
-                            _c("image", {
-                              attrs: {
-                                src: item.video_picture,
-                                mode: "widthFix"
-                              }
-                            })
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("view", { staticClass: "info-r" }, [
-                          _c(
-                            "view",
-                            {
-                              staticClass: "txt icon-play",
-                              on: {
-                                tap: function($event) {
-                                  return _vm.toViewVideo(item)
+                      item.video_picture
+                        ? _c("view", { staticClass: "info" }, [
+                            _c(
+                              "view",
+                              {
+                                staticClass: "info-l",
+                                on: {
+                                  tap: function($event) {
+                                    return _vm.toViewVideo(item)
+                                  }
                                 }
-                              }
-                            },
-                            [_vm._v("操作视频")]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "view",
-                            {
-                              staticClass: "txt icon-download",
-                              on: {
-                                tap: function($event) {
-                                  return _vm.downloadVideo(item)
-                                }
-                              }
-                            },
-                            [_vm._v("下载资料")]
-                          ),
-                          _vm._v(" "),
-                          _c("view", { staticClass: "time" }, [
-                            _vm._v(
-                              "更新时间：" + _vm._s(item.video_update_date)
-                            )
+                              },
+                              [
+                                _c("image", {
+                                  attrs: {
+                                    src: item.video_picture,
+                                    mode: "widthFix"
+                                  }
+                                })
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("view", { staticClass: "info-r" }, [
+                              _c(
+                                "view",
+                                {
+                                  staticClass: "txt icon-play",
+                                  on: {
+                                    tap: function($event) {
+                                      return _vm.toViewVideo(item)
+                                    }
+                                  }
+                                },
+                                [_vm._v("操作视频")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "view",
+                                {
+                                  staticClass: "txt icon-download",
+                                  on: {
+                                    tap: function($event) {
+                                      return _vm.downloadVideo(item)
+                                    }
+                                  }
+                                },
+                                [_vm._v("下载资料")]
+                              ),
+                              _vm._v(" "),
+                              _c("view", { staticClass: "time" }, [
+                                _vm._v(
+                                  "更新时间：" + _vm._s(item.video_update_date)
+                                )
+                              ])
+                            ])
                           ])
-                        ])
-                      ])
+                        : _vm._e()
                     ]
                   )
                 ]
