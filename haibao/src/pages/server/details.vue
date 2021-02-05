@@ -31,7 +31,7 @@
                 </view>
                 <view class="info-r">
                   <view class="txt icon-play" @tap="toViewVideo(item)">操作视频</view>
-                  <view class="txt icon-download" @tap="downloadVideo(item)">下载资料</view>
+                  <!-- <view class="txt icon-download" @tap="downloadVideo(item)">下载资料</view> -->
                   <view class="time">更新时间：{{item.video_update_date}}</view>
                 </view>
               </view>

@@ -6,7 +6,7 @@
         <video :src="videoInfo.video_filename" :autoplay='true' :controls="true" @loadedmetadata="getLength"></video>
     </view>
     <view class="btn-box">
-      <view class="btn" @tap="downloadVideo(videoInfo)">下载资料</view>
+      <!-- <view class="btn" @tap="downloadVideo(videoInfo)">下载资料</view> -->
     </view>
 
     <sidebar/>

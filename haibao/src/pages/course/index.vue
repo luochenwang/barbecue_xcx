@@ -30,7 +30,7 @@
                     <view class="name">{{item.title}}</view>
                     <view class="btn-box">
                         <view class="btn active" @tap='toViewVideo(item)'>查看视频</view>
-                        <view class="btn" @tap="downloadVideo(item)">下载视频</view>
+                        <!-- <view class="btn" @tap="downloadVideo(item)">下载视频</view> -->
                     </view>
                 </view>
             </view>

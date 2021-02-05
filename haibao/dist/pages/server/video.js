@@ -172,20 +172,7 @@ var render = function() {
         })
       ]),
       _vm._v(" "),
-      _c("view", { staticClass: "btn-box" }, [
-        _c(
-          "view",
-          {
-            staticClass: "btn",
-            on: {
-              tap: function($event) {
-                return _vm.downloadVideo(_vm.videoInfo)
-              }
-            }
-          },
-          [_vm._v("下载资料")]
-        )
-      ]),
+      _c("view", { staticClass: "btn-box" }),
       _vm._v(" "),
       _c("sidebar")
     ],

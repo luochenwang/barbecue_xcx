@@ -28,7 +28,7 @@
                     <!-- 直播课程 -->
                     <view class="btn-box" v-if="categoryId == '2'">
                         <view class="btn active" @tap="toViewVideo(item)" v-if="item.is_appointment == 0">查看视频</view>
-                        <view class="btn" @tap="downloadVideo(item)" v-if="item.is_appointment == 0">下载视频</view>
+                        <!-- <view class="btn" @tap="downloadVideo(item)" v-if="item.is_appointment == 0">下载视频</view> -->
                         <view class="btn reserve" v-if="item.is_appointment != 0" @tap="reserve(item,index)">直播预约</view>
                     </view>
                     <!-- 已完成 -->
@@ -38,7 +38,7 @@
                     <!-- 其他 -->
                     <view class="btn-box" v-else>
                         <view class="btn active" @tap="toViewVideo(item)">查看视频</view>
-                        <view class="btn" @tap="downloadVideo(item)">下载视频</view>
+                        <!-- <view class="btn" @tap="downloadVideo(item)">下载视频</view> -->
                     </view>
                 </view>
             </view>

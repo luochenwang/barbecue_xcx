@@ -264,19 +264,6 @@ var render = function() {
                       }
                     },
                     [_vm._v("查看视频")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "view",
-                    {
-                      staticClass: "btn",
-                      on: {
-                        tap: function($event) {
-                          return _vm.downloadVideo(item)
-                        }
-                      }
-                    },
-                    [_vm._v("下载视频")]
                   )
                 ])
               ])
