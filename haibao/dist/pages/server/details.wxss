@@ -57,6 +57,43 @@
 .list {
   padding: 20rpx 24rpx;
 }
+.list.default-list .item {
+    margin-bottom: 0;
+    border-radius: 0;
+    padding: 0 34rpx;
+}
+.list.default-list .item:last-child .name .name-r {
+      border-bottom: 0;
+}
+.list.default-list .item .info-content {
+      border-top: 0;
+}
+.list.default-list .item .info-content .info {
+        padding: 25rpx 20rpx;
+}
+.list.default-list .item .info-content .info:after {
+          background: #cecece;
+}
+.list.default-list .item .name .name-l {
+      display: none;
+}
+.list.default-list .item .name .name-r {
+      line-height: 160rpx;
+      width: 100%;
+      font-size: 31rpx;
+      border-bottom: 1rpx solid #cecece;
+      padding-left: 30rpx;
+}
+.list.default-list .item .name:after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: 10rpx;
+      width: 30rpx;
+      height: 30rpx;
+      margin-top: -15rpx;
+      background: url(https://campaign5.method-ad.cn/hypertherm/img/server/icon_arrow2.png?v=2) no-repeat 0 0/100% auto;
+}
 .list .item {
     padding: 8rpx;
     background: #eaeaea;

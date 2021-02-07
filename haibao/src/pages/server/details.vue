@@ -8,7 +8,7 @@
     </view>
 
 
-    <view class="list" v-if="list.length">
+    <view class="list" v-if="list.length" :class="{'default-list' : !searchModel}">
         <view class="item" :class="{'active' : item.show}" v-for="(item,index) in list">
             <view class="name" @tap="toggleInfo(index)">
               <image :src="item.product_ || proCover" mode="widthFix" class="name-l"/>

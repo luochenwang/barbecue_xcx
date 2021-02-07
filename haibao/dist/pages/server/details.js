@@ -364,7 +364,10 @@ var render = function() {
       _vm.list.length
         ? _c(
             "view",
-            { staticClass: "list" },
+            {
+              staticClass: "list",
+              class: { "default-list": !_vm.searchModel }
+            },
             _vm._l(_vm.list, function(item, index) {
               return _c(
                 "view",
