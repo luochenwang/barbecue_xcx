@@ -102,10 +102,19 @@ export default {
     methods: {
       // 预约
       reserve(item,index){
-        this.$store.commit('set_liveLeadsModel',true);
-        item.appointment = true;
-        item.tp = 320;
-        this.$store.commit('set_leadsItem',item);
+        if(item.appointment_isform > 0){
+          wx.showToast({
+              title: '您已预约成功',
+              icon: 'none',
+              duration: 2000,
+          });
+          this.onLoad();
+        }else{
+          this.$store.commit('set_liveLeadsModel',true);
+          item.appointment = true;
+          item.tp = 320;
+          this.$store.commit('set_leadsItem',item);
+        }
       },
       loadMore(){
         var self = this;

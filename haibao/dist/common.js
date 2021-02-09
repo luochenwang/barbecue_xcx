@@ -338,15 +338,42 @@ function createCache() {
     },
     toViewVideo: function toViewVideo(item) {
       var tp = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 100;
-      this.$store.commit('set_liveLeadsModel', true);
-      item.tp = tp;
-      this.$store.commit('set_leadsItem', item); // wx.navigateTo({ url: '/pages/server/video?title=' + item.title + '&video_filename=' + item.video_filename + '&video_picture=' + item.video_picture + '&share_img=' + item.video_share_picture + '&id=' + (item.class_id || item.tech_detail_id) });
+
+      if (item.appointment_isform > 0) {
+        wx.navigateTo({
+          url: '/pages/server/video?title=' + item.title + '&video_filename=' + item.video_filename + '&video_picture=' + item.video_picture + '&share_img=' + item.video_share_picture + '&id=' + (item.class_id || item.tech_detail_id)
+        });
+      } else {
+        this.$store.commit('set_liveLeadsModel', true);
+        item.tp = tp;
+        this.$store.commit('set_leadsItem', item);
+      }
     },
     downloadPdf: function downloadPdf(item) {
       var tp = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 100;
-      this.$store.commit('set_downloadLeadsModel', true);
-      item.tp = tp;
-      this.$store.commit('set_leadsItem', item); // wx.showLoading({
+
+      if (item.pdf_isform > 0) {
+        wx.showToast({
+          title: '资料已发送到您的邮箱',
+          icon: 'none',
+          duration: 2000
+        });
+        Object(_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
+          url: 'xcx_request.php',
+          data: {
+            act: 'set_File_History',
+            act2: 'download',
+            tp: this.$store.state.category,
+            tp_value: item.class_id || item.tech_detail_id,
+            file_tp: 'pdf',
+            watch_time: 0
+          }
+        });
+      } else {
+        this.$store.commit('set_downloadLeadsModel', true);
+        item.tp = tp;
+        this.$store.commit('set_leadsItem', item);
+      } // wx.showLoading({
       //   title: '加载中...',
       // })
       // const fileExtName = ".pdf";
@@ -366,6 +393,7 @@ function createCache() {
       //     wx.hideLoading();
       //   }
       // });
+
     },
     downloadVideo: function downloadVideo(item) {
       var tp = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 100;
