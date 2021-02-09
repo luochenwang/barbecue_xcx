@@ -38,6 +38,8 @@
     </view>
 
     <sidebar/>
+
+    <live-leads/>
   </view>
 </template>
 
@@ -68,7 +70,7 @@ export default {
           this.list = res.list;
       });
 
-      this.$store.commit('set_category',300);
+      this.$store.commit('set_category',310);
   },
   methods: {
 

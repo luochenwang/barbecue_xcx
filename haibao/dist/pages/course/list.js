@@ -106,6 +106,7 @@ component.options.__file = "src/pages/course/list.vue"
 //
 //
 //
+//
 
 
 
@@ -155,28 +156,10 @@ component.options.__file = "src/pages/course/list.vue"
   methods: {
     // 预约
     reserve: function reserve(item, index) {
-      Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_1__[/* ajax */ "a"])({
-        url: 'xcx_request.php',
-        data: {
-          act: 'set_appointment',
-          class_id: item.class_id
-        }
-      }).then(function (res) {
-        if (res.status == 1) {
-          wx.showToast({
-            title: '预约成功，可至个人中心查看',
-            icon: 'none',
-            duration: 2000
-          });
-          item.is_myappointment = 1;
-        } else {
-          wx.showToast({
-            title: res.msg,
-            icon: 'none',
-            duration: 2000
-          });
-        }
-      });
+      this.$store.commit('set_liveLeadsModel', true);
+      item.appointment = true;
+      item.tp = 320;
+      this.$store.commit('set_leadsItem', item);
     },
     loadMore: function loadMore() {
       var self = this; // 当前页是最后一页
@@ -453,7 +436,9 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _c("sidebar")
+      _c("sidebar"),
+      _vm._v(" "),
+      _c("live-leads")
     ],
     1
   )

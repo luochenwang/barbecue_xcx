@@ -1,6 +1,7 @@
 export default {
   pages: [
     'pages/index/index',
+    'pages/webview/index',
     'pages/consult/index',
     'pages/server/index',
     'pages/server/list',

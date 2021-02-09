@@ -47,6 +47,7 @@
     </view>
 
     <sidebar/>
+    <live-leads/>
   </view>
 </template>
 
@@ -101,28 +102,10 @@ export default {
     methods: {
       // 预约
       reserve(item,index){
-        ajax({
-              url:'xcx_request.php',
-              data:{
-                act:'set_appointment',
-                class_id:item.class_id
-              },
-        }).then(res=>{
-            if(res.status == 1){
-              wx.showToast({
-                  title: '预约成功，可至个人中心查看',
-                  icon: 'none',
-                  duration: 2000,
-              });
-              item.is_myappointment = 1;
-            }else{
-              wx.showToast({
-                  title: res.msg,
-                  icon: 'none',
-                  duration: 2000,
-              })
-            }
-        })
+        this.$store.commit('set_liveLeadsModel',true);
+        item.appointment = true;
+        item.tp = 320;
+        this.$store.commit('set_leadsItem',item);
       },
       loadMore(){
         var self = this;

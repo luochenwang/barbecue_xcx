@@ -10,10 +10,28 @@ const state = {
 
   category:0,
 
-  sidebarY:''
+  sidebarY:'',
+
+
+  liveLeadsModel:false,
+  downloadLeadsModel:false,
+  consultLeadsModel:false,
+  leadsItem:{},
 }
 
 const mutations = {
+  set_leadsItem(state, obj) {
+    state.leadsItem = obj || {};
+  },
+  set_liveLeadsModel(state, bo) {
+    state.liveLeadsModel = bo || false;
+  },
+  set_downloadLeadsModel(state, bo) {
+    state.downloadLeadsModel = bo || false;
+  },
+  set_consultLeadsModel(state, bo) {
+    state.consultLeadsModel = bo || false;
+  },
   set_useriNfo(state, obj) {
     state.userInfo = obj
   },

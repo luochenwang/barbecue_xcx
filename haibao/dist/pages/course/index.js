@@ -95,6 +95,8 @@ component.options.__file = "src/pages/course/index.vue"
 //
 //
 //
+//
+//
 
 
 
@@ -121,7 +123,7 @@ component.options.__file = "src/pages/course/index.vue"
     }).then(function (res) {
       _this.list = res.list;
     });
-    this.$store.commit('set_category', 300);
+    this.$store.commit('set_category', 310);
   },
   methods: {}
 });
@@ -273,7 +275,9 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _c("sidebar")
+      _c("sidebar"),
+      _vm._v(" "),
+      _c("live-leads")
     ],
     1
   )

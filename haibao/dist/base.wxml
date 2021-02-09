@@ -29,6 +29,22 @@
   </button>
 </template>
 
+<template name="tmpl_0_checkbox">
+  <checkbox value="{{i.value}}" disabled="{{i.disabled}}" checked="{{i.checked===undefined?false:i.checked}}" color="{{i.color===undefined?'#09BB07':i.color}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_1_container" data="{{i: item}}" />
+    </block>
+  </checkbox>
+</template>
+
+<template name="tmpl_0_checkbox-group">
+  <checkbox-group bindchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_1_container" data="{{i: item}}" />
+    </block>
+  </checkbox-group>
+</template>
+
 <template name="tmpl_0_input">
   <template is="{{xs.c(i, 'tmpl_0_')}}" data="{{i: i}}" />
 </template>
@@ -39,6 +55,14 @@
 
 <template name="tmpl_0_input_blur">
   <input value="{{i.value}}" type="{{i.type===undefined?'':i.type}}" password="{{i.password===undefined?false:i.password}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'input-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" confirm-type="{{i.confirmType===undefined?'done':i.confirmType}}" confirm-hold="{{i.confirmHold===undefined?false:i.confirmHold}}" cursor="{{i.cursor===undefined?i.value.length:i.cursor}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindinput="eh" bindfocus="eh" bindblur="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_0_label">
+  <label for="{{i.for}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_1_container" data="{{i: item}}" />
+    </block>
+  </label>
 </template>
 
 <template name="tmpl_0_picker">
@@ -93,6 +117,14 @@
   <video src="{{i.src}}" duration="{{i.duration}}" controls="{{i.controls===undefined?true:i.controls}}" danmu-list="{{i.danmuList}}" danmu-btn="{{i.danmuBtn}}" enable-danmu="{{i.enableDanmu}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" loop="{{i.loop===undefined?false:i.loop}}" muted="{{i.muted===undefined?false:i.muted}}" initial-time="{{i.initialTime===undefined?0:i.initialTime}}" page-gesture="{{i.pageGesture===undefined?false:i.pageGesture}}" direction="{{i.direction}}" show-progress="{{i.showProgress===undefined?true:i.showProgress}}" show-fullscreen-btn="{{i.showFullscreenBtn===undefined?true:i.showFullscreenBtn}}" show-play-btn="{{i.showPlayBtn===undefined?true:i.showPlayBtn}}" show-center-play-btn="{{i.showCenterPlayBtn===undefined?true:i.showCenterPlayBtn}}" enable-progress-gesture="{{i.enableProgressGesture===undefined?true:i.enableProgressGesture}}" object-fit="{{i.objectFit===undefined?'contain':i.objectFit}}" poster="{{i.poster}}" show-mute-btn="{{i.showMuteBtn===undefined?false:i.showMuteBtn}}" title="{{i.title}}" play-btn-position="{{i.playBtnPosition===undefined?'bottom':i.playBtnPosition}}" enable-play-gesture="{{i.enablePlayGesture===undefined?false:i.enablePlayGesture}}" auto-pause-if-navigate="{{i.autoPauseIfNavigate===undefined?true:i.autoPauseIfNavigate}}" auto-pause-if-open-native="{{i.autoPauseIfOpenNative===undefined?true:i.autoPauseIfOpenNative}}" vslide-gesture="{{i.vslideGesture===undefined?false:i.vslideGesture}}" vslide-gesture-in-fullscreen="{{i.vslideGestureInFullscreen===undefined?true:i.vslideGestureInFullscreen}}" ad-unit-id="{{i.adUnitId}}" poster-for-crawler="{{i.posterForCrawler}}" show-casting-button="{{i.showCastingButton===undefined?false:i.showCastingButton}}" picture-in-picture-mode="{{i.pictureInPictureMode===undefined?[]:i.pictureInPictureMode}}" enable-auto-rotation="{{i.enableAutoRotation===undefined?false:i.enableAutoRotation}}" show-screen-lock-button="{{i.showScreenLockButton===undefined?false:i.showScreenLockButton}}" bindplay="eh" bindpause="eh" bindended="eh" bindtimeupdate="eh" bindfullscreenchange="eh" bindwaiting="eh" binderror="eh" bindprogress="eh" bindloadedmetadata="eh" bindcontrolstoggle="eh" bindenterpictureinpicture="eh" bindleavepictureinpicture="eh" bindseekcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></video>
 </template>
 
+<template name="tmpl_0_web-view">
+  <web-view src="{{i.src}}" bindmessage="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_1_container" data="{{i: item}}" />
+    </block>
+  </web-view>
+</template>
+
 <template name="tmpl_0_#text" data="{{i: i}}">
   <block>{{i.v}}</block>
 </template>
@@ -125,6 +157,22 @@
   </button>
 </template>
 
+<template name="tmpl_1_checkbox">
+  <checkbox value="{{i.value}}" disabled="{{i.disabled}}" checked="{{i.checked===undefined?false:i.checked}}" color="{{i.color===undefined?'#09BB07':i.color}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_2_container" data="{{i: item}}" />
+    </block>
+  </checkbox>
+</template>
+
+<template name="tmpl_1_checkbox-group">
+  <checkbox-group bindchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_2_container" data="{{i: item}}" />
+    </block>
+  </checkbox-group>
+</template>
+
 <template name="tmpl_1_input">
   <template is="{{xs.c(i, 'tmpl_1_')}}" data="{{i: i}}" />
 </template>
@@ -135,6 +183,14 @@
 
 <template name="tmpl_1_input_blur">
   <input value="{{i.value}}" type="{{i.type===undefined?'':i.type}}" password="{{i.password===undefined?false:i.password}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'input-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" confirm-type="{{i.confirmType===undefined?'done':i.confirmType}}" confirm-hold="{{i.confirmHold===undefined?false:i.confirmHold}}" cursor="{{i.cursor===undefined?i.value.length:i.cursor}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindinput="eh" bindfocus="eh" bindblur="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_1_label">
+  <label for="{{i.for}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_2_container" data="{{i: item}}" />
+    </block>
+  </label>
 </template>
 
 <template name="tmpl_1_picker">
@@ -189,6 +245,14 @@
   <video src="{{i.src}}" duration="{{i.duration}}" controls="{{i.controls===undefined?true:i.controls}}" danmu-list="{{i.danmuList}}" danmu-btn="{{i.danmuBtn}}" enable-danmu="{{i.enableDanmu}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" loop="{{i.loop===undefined?false:i.loop}}" muted="{{i.muted===undefined?false:i.muted}}" initial-time="{{i.initialTime===undefined?0:i.initialTime}}" page-gesture="{{i.pageGesture===undefined?false:i.pageGesture}}" direction="{{i.direction}}" show-progress="{{i.showProgress===undefined?true:i.showProgress}}" show-fullscreen-btn="{{i.showFullscreenBtn===undefined?true:i.showFullscreenBtn}}" show-play-btn="{{i.showPlayBtn===undefined?true:i.showPlayBtn}}" show-center-play-btn="{{i.showCenterPlayBtn===undefined?true:i.showCenterPlayBtn}}" enable-progress-gesture="{{i.enableProgressGesture===undefined?true:i.enableProgressGesture}}" object-fit="{{i.objectFit===undefined?'contain':i.objectFit}}" poster="{{i.poster}}" show-mute-btn="{{i.showMuteBtn===undefined?false:i.showMuteBtn}}" title="{{i.title}}" play-btn-position="{{i.playBtnPosition===undefined?'bottom':i.playBtnPosition}}" enable-play-gesture="{{i.enablePlayGesture===undefined?false:i.enablePlayGesture}}" auto-pause-if-navigate="{{i.autoPauseIfNavigate===undefined?true:i.autoPauseIfNavigate}}" auto-pause-if-open-native="{{i.autoPauseIfOpenNative===undefined?true:i.autoPauseIfOpenNative}}" vslide-gesture="{{i.vslideGesture===undefined?false:i.vslideGesture}}" vslide-gesture-in-fullscreen="{{i.vslideGestureInFullscreen===undefined?true:i.vslideGestureInFullscreen}}" ad-unit-id="{{i.adUnitId}}" poster-for-crawler="{{i.posterForCrawler}}" show-casting-button="{{i.showCastingButton===undefined?false:i.showCastingButton}}" picture-in-picture-mode="{{i.pictureInPictureMode===undefined?[]:i.pictureInPictureMode}}" enable-auto-rotation="{{i.enableAutoRotation===undefined?false:i.enableAutoRotation}}" show-screen-lock-button="{{i.showScreenLockButton===undefined?false:i.showScreenLockButton}}" bindplay="eh" bindpause="eh" bindended="eh" bindtimeupdate="eh" bindfullscreenchange="eh" bindwaiting="eh" binderror="eh" bindprogress="eh" bindloadedmetadata="eh" bindcontrolstoggle="eh" bindenterpictureinpicture="eh" bindleavepictureinpicture="eh" bindseekcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></video>
 </template>
 
+<template name="tmpl_1_web-view">
+  <web-view src="{{i.src}}" bindmessage="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_2_container" data="{{i: item}}" />
+    </block>
+  </web-view>
+</template>
+
 <template name="tmpl_1_#text" data="{{i: i}}">
   <block>{{i.v}}</block>
 </template>
@@ -221,6 +285,22 @@
   </button>
 </template>
 
+<template name="tmpl_2_checkbox">
+  <checkbox value="{{i.value}}" disabled="{{i.disabled}}" checked="{{i.checked===undefined?false:i.checked}}" color="{{i.color===undefined?'#09BB07':i.color}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_3_container" data="{{i: item}}" />
+    </block>
+  </checkbox>
+</template>
+
+<template name="tmpl_2_checkbox-group">
+  <checkbox-group bindchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_3_container" data="{{i: item}}" />
+    </block>
+  </checkbox-group>
+</template>
+
 <template name="tmpl_2_input">
   <template is="{{xs.c(i, 'tmpl_2_')}}" data="{{i: i}}" />
 </template>
@@ -231,6 +311,14 @@
 
 <template name="tmpl_2_input_blur">
   <input value="{{i.value}}" type="{{i.type===undefined?'':i.type}}" password="{{i.password===undefined?false:i.password}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'input-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" confirm-type="{{i.confirmType===undefined?'done':i.confirmType}}" confirm-hold="{{i.confirmHold===undefined?false:i.confirmHold}}" cursor="{{i.cursor===undefined?i.value.length:i.cursor}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindinput="eh" bindfocus="eh" bindblur="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_2_label">
+  <label for="{{i.for}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_3_container" data="{{i: item}}" />
+    </block>
+  </label>
 </template>
 
 <template name="tmpl_2_picker">
@@ -285,6 +373,14 @@
   <video src="{{i.src}}" duration="{{i.duration}}" controls="{{i.controls===undefined?true:i.controls}}" danmu-list="{{i.danmuList}}" danmu-btn="{{i.danmuBtn}}" enable-danmu="{{i.enableDanmu}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" loop="{{i.loop===undefined?false:i.loop}}" muted="{{i.muted===undefined?false:i.muted}}" initial-time="{{i.initialTime===undefined?0:i.initialTime}}" page-gesture="{{i.pageGesture===undefined?false:i.pageGesture}}" direction="{{i.direction}}" show-progress="{{i.showProgress===undefined?true:i.showProgress}}" show-fullscreen-btn="{{i.showFullscreenBtn===undefined?true:i.showFullscreenBtn}}" show-play-btn="{{i.showPlayBtn===undefined?true:i.showPlayBtn}}" show-center-play-btn="{{i.showCenterPlayBtn===undefined?true:i.showCenterPlayBtn}}" enable-progress-gesture="{{i.enableProgressGesture===undefined?true:i.enableProgressGesture}}" object-fit="{{i.objectFit===undefined?'contain':i.objectFit}}" poster="{{i.poster}}" show-mute-btn="{{i.showMuteBtn===undefined?false:i.showMuteBtn}}" title="{{i.title}}" play-btn-position="{{i.playBtnPosition===undefined?'bottom':i.playBtnPosition}}" enable-play-gesture="{{i.enablePlayGesture===undefined?false:i.enablePlayGesture}}" auto-pause-if-navigate="{{i.autoPauseIfNavigate===undefined?true:i.autoPauseIfNavigate}}" auto-pause-if-open-native="{{i.autoPauseIfOpenNative===undefined?true:i.autoPauseIfOpenNative}}" vslide-gesture="{{i.vslideGesture===undefined?false:i.vslideGesture}}" vslide-gesture-in-fullscreen="{{i.vslideGestureInFullscreen===undefined?true:i.vslideGestureInFullscreen}}" ad-unit-id="{{i.adUnitId}}" poster-for-crawler="{{i.posterForCrawler}}" show-casting-button="{{i.showCastingButton===undefined?false:i.showCastingButton}}" picture-in-picture-mode="{{i.pictureInPictureMode===undefined?[]:i.pictureInPictureMode}}" enable-auto-rotation="{{i.enableAutoRotation===undefined?false:i.enableAutoRotation}}" show-screen-lock-button="{{i.showScreenLockButton===undefined?false:i.showScreenLockButton}}" bindplay="eh" bindpause="eh" bindended="eh" bindtimeupdate="eh" bindfullscreenchange="eh" bindwaiting="eh" binderror="eh" bindprogress="eh" bindloadedmetadata="eh" bindcontrolstoggle="eh" bindenterpictureinpicture="eh" bindleavepictureinpicture="eh" bindseekcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></video>
 </template>
 
+<template name="tmpl_2_web-view">
+  <web-view src="{{i.src}}" bindmessage="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_3_container" data="{{i: item}}" />
+    </block>
+  </web-view>
+</template>
+
 <template name="tmpl_2_#text" data="{{i: i}}">
   <block>{{i.v}}</block>
 </template>
@@ -317,6 +413,22 @@
   </button>
 </template>
 
+<template name="tmpl_3_checkbox">
+  <checkbox value="{{i.value}}" disabled="{{i.disabled}}" checked="{{i.checked===undefined?false:i.checked}}" color="{{i.color===undefined?'#09BB07':i.color}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_4_container" data="{{i: item}}" />
+    </block>
+  </checkbox>
+</template>
+
+<template name="tmpl_3_checkbox-group">
+  <checkbox-group bindchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_4_container" data="{{i: item}}" />
+    </block>
+  </checkbox-group>
+</template>
+
 <template name="tmpl_3_input">
   <template is="{{xs.c(i, 'tmpl_3_')}}" data="{{i: i}}" />
 </template>
@@ -327,6 +439,14 @@
 
 <template name="tmpl_3_input_blur">
   <input value="{{i.value}}" type="{{i.type===undefined?'':i.type}}" password="{{i.password===undefined?false:i.password}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'input-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" confirm-type="{{i.confirmType===undefined?'done':i.confirmType}}" confirm-hold="{{i.confirmHold===undefined?false:i.confirmHold}}" cursor="{{i.cursor===undefined?i.value.length:i.cursor}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindinput="eh" bindfocus="eh" bindblur="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_3_label">
+  <label for="{{i.for}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_4_container" data="{{i: item}}" />
+    </block>
+  </label>
 </template>
 
 <template name="tmpl_3_picker">
@@ -381,6 +501,14 @@
   <video src="{{i.src}}" duration="{{i.duration}}" controls="{{i.controls===undefined?true:i.controls}}" danmu-list="{{i.danmuList}}" danmu-btn="{{i.danmuBtn}}" enable-danmu="{{i.enableDanmu}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" loop="{{i.loop===undefined?false:i.loop}}" muted="{{i.muted===undefined?false:i.muted}}" initial-time="{{i.initialTime===undefined?0:i.initialTime}}" page-gesture="{{i.pageGesture===undefined?false:i.pageGesture}}" direction="{{i.direction}}" show-progress="{{i.showProgress===undefined?true:i.showProgress}}" show-fullscreen-btn="{{i.showFullscreenBtn===undefined?true:i.showFullscreenBtn}}" show-play-btn="{{i.showPlayBtn===undefined?true:i.showPlayBtn}}" show-center-play-btn="{{i.showCenterPlayBtn===undefined?true:i.showCenterPlayBtn}}" enable-progress-gesture="{{i.enableProgressGesture===undefined?true:i.enableProgressGesture}}" object-fit="{{i.objectFit===undefined?'contain':i.objectFit}}" poster="{{i.poster}}" show-mute-btn="{{i.showMuteBtn===undefined?false:i.showMuteBtn}}" title="{{i.title}}" play-btn-position="{{i.playBtnPosition===undefined?'bottom':i.playBtnPosition}}" enable-play-gesture="{{i.enablePlayGesture===undefined?false:i.enablePlayGesture}}" auto-pause-if-navigate="{{i.autoPauseIfNavigate===undefined?true:i.autoPauseIfNavigate}}" auto-pause-if-open-native="{{i.autoPauseIfOpenNative===undefined?true:i.autoPauseIfOpenNative}}" vslide-gesture="{{i.vslideGesture===undefined?false:i.vslideGesture}}" vslide-gesture-in-fullscreen="{{i.vslideGestureInFullscreen===undefined?true:i.vslideGestureInFullscreen}}" ad-unit-id="{{i.adUnitId}}" poster-for-crawler="{{i.posterForCrawler}}" show-casting-button="{{i.showCastingButton===undefined?false:i.showCastingButton}}" picture-in-picture-mode="{{i.pictureInPictureMode===undefined?[]:i.pictureInPictureMode}}" enable-auto-rotation="{{i.enableAutoRotation===undefined?false:i.enableAutoRotation}}" show-screen-lock-button="{{i.showScreenLockButton===undefined?false:i.showScreenLockButton}}" bindplay="eh" bindpause="eh" bindended="eh" bindtimeupdate="eh" bindfullscreenchange="eh" bindwaiting="eh" binderror="eh" bindprogress="eh" bindloadedmetadata="eh" bindcontrolstoggle="eh" bindenterpictureinpicture="eh" bindleavepictureinpicture="eh" bindseekcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></video>
 </template>
 
+<template name="tmpl_3_web-view">
+  <web-view src="{{i.src}}" bindmessage="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_4_container" data="{{i: item}}" />
+    </block>
+  </web-view>
+</template>
+
 <template name="tmpl_3_#text" data="{{i: i}}">
   <block>{{i.v}}</block>
 </template>
@@ -413,6 +541,22 @@
   </button>
 </template>
 
+<template name="tmpl_4_checkbox">
+  <checkbox value="{{i.value}}" disabled="{{i.disabled}}" checked="{{i.checked===undefined?false:i.checked}}" color="{{i.color===undefined?'#09BB07':i.color}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_5_container" data="{{i: item}}" />
+    </block>
+  </checkbox>
+</template>
+
+<template name="tmpl_4_checkbox-group">
+  <checkbox-group bindchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_5_container" data="{{i: item}}" />
+    </block>
+  </checkbox-group>
+</template>
+
 <template name="tmpl_4_input">
   <template is="{{xs.c(i, 'tmpl_4_')}}" data="{{i: i}}" />
 </template>
@@ -423,6 +567,14 @@
 
 <template name="tmpl_4_input_blur">
   <input value="{{i.value}}" type="{{i.type===undefined?'':i.type}}" password="{{i.password===undefined?false:i.password}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'input-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" confirm-type="{{i.confirmType===undefined?'done':i.confirmType}}" confirm-hold="{{i.confirmHold===undefined?false:i.confirmHold}}" cursor="{{i.cursor===undefined?i.value.length:i.cursor}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindinput="eh" bindfocus="eh" bindblur="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_4_label">
+  <label for="{{i.for}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_5_container" data="{{i: item}}" />
+    </block>
+  </label>
 </template>
 
 <template name="tmpl_4_picker">
@@ -477,6 +629,14 @@
   <video src="{{i.src}}" duration="{{i.duration}}" controls="{{i.controls===undefined?true:i.controls}}" danmu-list="{{i.danmuList}}" danmu-btn="{{i.danmuBtn}}" enable-danmu="{{i.enableDanmu}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" loop="{{i.loop===undefined?false:i.loop}}" muted="{{i.muted===undefined?false:i.muted}}" initial-time="{{i.initialTime===undefined?0:i.initialTime}}" page-gesture="{{i.pageGesture===undefined?false:i.pageGesture}}" direction="{{i.direction}}" show-progress="{{i.showProgress===undefined?true:i.showProgress}}" show-fullscreen-btn="{{i.showFullscreenBtn===undefined?true:i.showFullscreenBtn}}" show-play-btn="{{i.showPlayBtn===undefined?true:i.showPlayBtn}}" show-center-play-btn="{{i.showCenterPlayBtn===undefined?true:i.showCenterPlayBtn}}" enable-progress-gesture="{{i.enableProgressGesture===undefined?true:i.enableProgressGesture}}" object-fit="{{i.objectFit===undefined?'contain':i.objectFit}}" poster="{{i.poster}}" show-mute-btn="{{i.showMuteBtn===undefined?false:i.showMuteBtn}}" title="{{i.title}}" play-btn-position="{{i.playBtnPosition===undefined?'bottom':i.playBtnPosition}}" enable-play-gesture="{{i.enablePlayGesture===undefined?false:i.enablePlayGesture}}" auto-pause-if-navigate="{{i.autoPauseIfNavigate===undefined?true:i.autoPauseIfNavigate}}" auto-pause-if-open-native="{{i.autoPauseIfOpenNative===undefined?true:i.autoPauseIfOpenNative}}" vslide-gesture="{{i.vslideGesture===undefined?false:i.vslideGesture}}" vslide-gesture-in-fullscreen="{{i.vslideGestureInFullscreen===undefined?true:i.vslideGestureInFullscreen}}" ad-unit-id="{{i.adUnitId}}" poster-for-crawler="{{i.posterForCrawler}}" show-casting-button="{{i.showCastingButton===undefined?false:i.showCastingButton}}" picture-in-picture-mode="{{i.pictureInPictureMode===undefined?[]:i.pictureInPictureMode}}" enable-auto-rotation="{{i.enableAutoRotation===undefined?false:i.enableAutoRotation}}" show-screen-lock-button="{{i.showScreenLockButton===undefined?false:i.showScreenLockButton}}" bindplay="eh" bindpause="eh" bindended="eh" bindtimeupdate="eh" bindfullscreenchange="eh" bindwaiting="eh" binderror="eh" bindprogress="eh" bindloadedmetadata="eh" bindcontrolstoggle="eh" bindenterpictureinpicture="eh" bindleavepictureinpicture="eh" bindseekcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></video>
 </template>
 
+<template name="tmpl_4_web-view">
+  <web-view src="{{i.src}}" bindmessage="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_5_container" data="{{i: item}}" />
+    </block>
+  </web-view>
+</template>
+
 <template name="tmpl_4_#text" data="{{i: i}}">
   <block>{{i.v}}</block>
 </template>
@@ -509,6 +669,22 @@
   </button>
 </template>
 
+<template name="tmpl_5_checkbox">
+  <checkbox value="{{i.value}}" disabled="{{i.disabled}}" checked="{{i.checked===undefined?false:i.checked}}" color="{{i.color===undefined?'#09BB07':i.color}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_6_container" data="{{i: item}}" />
+    </block>
+  </checkbox>
+</template>
+
+<template name="tmpl_5_checkbox-group">
+  <checkbox-group bindchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_6_container" data="{{i: item}}" />
+    </block>
+  </checkbox-group>
+</template>
+
 <template name="tmpl_5_input">
   <template is="{{xs.c(i, 'tmpl_5_')}}" data="{{i: i}}" />
 </template>
@@ -519,6 +695,14 @@
 
 <template name="tmpl_5_input_blur">
   <input value="{{i.value}}" type="{{i.type===undefined?'':i.type}}" password="{{i.password===undefined?false:i.password}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'input-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" confirm-type="{{i.confirmType===undefined?'done':i.confirmType}}" confirm-hold="{{i.confirmHold===undefined?false:i.confirmHold}}" cursor="{{i.cursor===undefined?i.value.length:i.cursor}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindinput="eh" bindfocus="eh" bindblur="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_5_label">
+  <label for="{{i.for}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_6_container" data="{{i: item}}" />
+    </block>
+  </label>
 </template>
 
 <template name="tmpl_5_picker">
@@ -573,6 +757,14 @@
   <video src="{{i.src}}" duration="{{i.duration}}" controls="{{i.controls===undefined?true:i.controls}}" danmu-list="{{i.danmuList}}" danmu-btn="{{i.danmuBtn}}" enable-danmu="{{i.enableDanmu}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" loop="{{i.loop===undefined?false:i.loop}}" muted="{{i.muted===undefined?false:i.muted}}" initial-time="{{i.initialTime===undefined?0:i.initialTime}}" page-gesture="{{i.pageGesture===undefined?false:i.pageGesture}}" direction="{{i.direction}}" show-progress="{{i.showProgress===undefined?true:i.showProgress}}" show-fullscreen-btn="{{i.showFullscreenBtn===undefined?true:i.showFullscreenBtn}}" show-play-btn="{{i.showPlayBtn===undefined?true:i.showPlayBtn}}" show-center-play-btn="{{i.showCenterPlayBtn===undefined?true:i.showCenterPlayBtn}}" enable-progress-gesture="{{i.enableProgressGesture===undefined?true:i.enableProgressGesture}}" object-fit="{{i.objectFit===undefined?'contain':i.objectFit}}" poster="{{i.poster}}" show-mute-btn="{{i.showMuteBtn===undefined?false:i.showMuteBtn}}" title="{{i.title}}" play-btn-position="{{i.playBtnPosition===undefined?'bottom':i.playBtnPosition}}" enable-play-gesture="{{i.enablePlayGesture===undefined?false:i.enablePlayGesture}}" auto-pause-if-navigate="{{i.autoPauseIfNavigate===undefined?true:i.autoPauseIfNavigate}}" auto-pause-if-open-native="{{i.autoPauseIfOpenNative===undefined?true:i.autoPauseIfOpenNative}}" vslide-gesture="{{i.vslideGesture===undefined?false:i.vslideGesture}}" vslide-gesture-in-fullscreen="{{i.vslideGestureInFullscreen===undefined?true:i.vslideGestureInFullscreen}}" ad-unit-id="{{i.adUnitId}}" poster-for-crawler="{{i.posterForCrawler}}" show-casting-button="{{i.showCastingButton===undefined?false:i.showCastingButton}}" picture-in-picture-mode="{{i.pictureInPictureMode===undefined?[]:i.pictureInPictureMode}}" enable-auto-rotation="{{i.enableAutoRotation===undefined?false:i.enableAutoRotation}}" show-screen-lock-button="{{i.showScreenLockButton===undefined?false:i.showScreenLockButton}}" bindplay="eh" bindpause="eh" bindended="eh" bindtimeupdate="eh" bindfullscreenchange="eh" bindwaiting="eh" binderror="eh" bindprogress="eh" bindloadedmetadata="eh" bindcontrolstoggle="eh" bindenterpictureinpicture="eh" bindleavepictureinpicture="eh" bindseekcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></video>
 </template>
 
+<template name="tmpl_5_web-view">
+  <web-view src="{{i.src}}" bindmessage="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_6_container" data="{{i: item}}" />
+    </block>
+  </web-view>
+</template>
+
 <template name="tmpl_5_#text" data="{{i: i}}">
   <block>{{i.v}}</block>
 </template>
@@ -605,6 +797,22 @@
   </button>
 </template>
 
+<template name="tmpl_6_checkbox">
+  <checkbox value="{{i.value}}" disabled="{{i.disabled}}" checked="{{i.checked===undefined?false:i.checked}}" color="{{i.color===undefined?'#09BB07':i.color}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_7_container" data="{{i: item}}" />
+    </block>
+  </checkbox>
+</template>
+
+<template name="tmpl_6_checkbox-group">
+  <checkbox-group bindchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_7_container" data="{{i: item}}" />
+    </block>
+  </checkbox-group>
+</template>
+
 <template name="tmpl_6_input">
   <template is="{{xs.c(i, 'tmpl_6_')}}" data="{{i: i}}" />
 </template>
@@ -615,6 +823,14 @@
 
 <template name="tmpl_6_input_blur">
   <input value="{{i.value}}" type="{{i.type===undefined?'':i.type}}" password="{{i.password===undefined?false:i.password}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'input-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" confirm-type="{{i.confirmType===undefined?'done':i.confirmType}}" confirm-hold="{{i.confirmHold===undefined?false:i.confirmHold}}" cursor="{{i.cursor===undefined?i.value.length:i.cursor}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindinput="eh" bindfocus="eh" bindblur="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_6_label">
+  <label for="{{i.for}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_7_container" data="{{i: item}}" />
+    </block>
+  </label>
 </template>
 
 <template name="tmpl_6_picker">
@@ -669,6 +885,14 @@
   <video src="{{i.src}}" duration="{{i.duration}}" controls="{{i.controls===undefined?true:i.controls}}" danmu-list="{{i.danmuList}}" danmu-btn="{{i.danmuBtn}}" enable-danmu="{{i.enableDanmu}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" loop="{{i.loop===undefined?false:i.loop}}" muted="{{i.muted===undefined?false:i.muted}}" initial-time="{{i.initialTime===undefined?0:i.initialTime}}" page-gesture="{{i.pageGesture===undefined?false:i.pageGesture}}" direction="{{i.direction}}" show-progress="{{i.showProgress===undefined?true:i.showProgress}}" show-fullscreen-btn="{{i.showFullscreenBtn===undefined?true:i.showFullscreenBtn}}" show-play-btn="{{i.showPlayBtn===undefined?true:i.showPlayBtn}}" show-center-play-btn="{{i.showCenterPlayBtn===undefined?true:i.showCenterPlayBtn}}" enable-progress-gesture="{{i.enableProgressGesture===undefined?true:i.enableProgressGesture}}" object-fit="{{i.objectFit===undefined?'contain':i.objectFit}}" poster="{{i.poster}}" show-mute-btn="{{i.showMuteBtn===undefined?false:i.showMuteBtn}}" title="{{i.title}}" play-btn-position="{{i.playBtnPosition===undefined?'bottom':i.playBtnPosition}}" enable-play-gesture="{{i.enablePlayGesture===undefined?false:i.enablePlayGesture}}" auto-pause-if-navigate="{{i.autoPauseIfNavigate===undefined?true:i.autoPauseIfNavigate}}" auto-pause-if-open-native="{{i.autoPauseIfOpenNative===undefined?true:i.autoPauseIfOpenNative}}" vslide-gesture="{{i.vslideGesture===undefined?false:i.vslideGesture}}" vslide-gesture-in-fullscreen="{{i.vslideGestureInFullscreen===undefined?true:i.vslideGestureInFullscreen}}" ad-unit-id="{{i.adUnitId}}" poster-for-crawler="{{i.posterForCrawler}}" show-casting-button="{{i.showCastingButton===undefined?false:i.showCastingButton}}" picture-in-picture-mode="{{i.pictureInPictureMode===undefined?[]:i.pictureInPictureMode}}" enable-auto-rotation="{{i.enableAutoRotation===undefined?false:i.enableAutoRotation}}" show-screen-lock-button="{{i.showScreenLockButton===undefined?false:i.showScreenLockButton}}" bindplay="eh" bindpause="eh" bindended="eh" bindtimeupdate="eh" bindfullscreenchange="eh" bindwaiting="eh" binderror="eh" bindprogress="eh" bindloadedmetadata="eh" bindcontrolstoggle="eh" bindenterpictureinpicture="eh" bindleavepictureinpicture="eh" bindseekcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></video>
 </template>
 
+<template name="tmpl_6_web-view">
+  <web-view src="{{i.src}}" bindmessage="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_7_container" data="{{i: item}}" />
+    </block>
+  </web-view>
+</template>
+
 <template name="tmpl_6_#text" data="{{i: i}}">
   <block>{{i.v}}</block>
 </template>
@@ -701,6 +925,22 @@
   </button>
 </template>
 
+<template name="tmpl_7_checkbox">
+  <checkbox value="{{i.value}}" disabled="{{i.disabled}}" checked="{{i.checked===undefined?false:i.checked}}" color="{{i.color===undefined?'#09BB07':i.color}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_8_container" data="{{i: item}}" />
+    </block>
+  </checkbox>
+</template>
+
+<template name="tmpl_7_checkbox-group">
+  <checkbox-group bindchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_8_container" data="{{i: item}}" />
+    </block>
+  </checkbox-group>
+</template>
+
 <template name="tmpl_7_input">
   <template is="{{xs.c(i, 'tmpl_7_')}}" data="{{i: i}}" />
 </template>
@@ -711,6 +951,14 @@
 
 <template name="tmpl_7_input_blur">
   <input value="{{i.value}}" type="{{i.type===undefined?'':i.type}}" password="{{i.password===undefined?false:i.password}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'input-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" confirm-type="{{i.confirmType===undefined?'done':i.confirmType}}" confirm-hold="{{i.confirmHold===undefined?false:i.confirmHold}}" cursor="{{i.cursor===undefined?i.value.length:i.cursor}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindinput="eh" bindfocus="eh" bindblur="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_7_label">
+  <label for="{{i.for}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_8_container" data="{{i: item}}" />
+    </block>
+  </label>
 </template>
 
 <template name="tmpl_7_picker">
@@ -765,6 +1013,14 @@
   <video src="{{i.src}}" duration="{{i.duration}}" controls="{{i.controls===undefined?true:i.controls}}" danmu-list="{{i.danmuList}}" danmu-btn="{{i.danmuBtn}}" enable-danmu="{{i.enableDanmu}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" loop="{{i.loop===undefined?false:i.loop}}" muted="{{i.muted===undefined?false:i.muted}}" initial-time="{{i.initialTime===undefined?0:i.initialTime}}" page-gesture="{{i.pageGesture===undefined?false:i.pageGesture}}" direction="{{i.direction}}" show-progress="{{i.showProgress===undefined?true:i.showProgress}}" show-fullscreen-btn="{{i.showFullscreenBtn===undefined?true:i.showFullscreenBtn}}" show-play-btn="{{i.showPlayBtn===undefined?true:i.showPlayBtn}}" show-center-play-btn="{{i.showCenterPlayBtn===undefined?true:i.showCenterPlayBtn}}" enable-progress-gesture="{{i.enableProgressGesture===undefined?true:i.enableProgressGesture}}" object-fit="{{i.objectFit===undefined?'contain':i.objectFit}}" poster="{{i.poster}}" show-mute-btn="{{i.showMuteBtn===undefined?false:i.showMuteBtn}}" title="{{i.title}}" play-btn-position="{{i.playBtnPosition===undefined?'bottom':i.playBtnPosition}}" enable-play-gesture="{{i.enablePlayGesture===undefined?false:i.enablePlayGesture}}" auto-pause-if-navigate="{{i.autoPauseIfNavigate===undefined?true:i.autoPauseIfNavigate}}" auto-pause-if-open-native="{{i.autoPauseIfOpenNative===undefined?true:i.autoPauseIfOpenNative}}" vslide-gesture="{{i.vslideGesture===undefined?false:i.vslideGesture}}" vslide-gesture-in-fullscreen="{{i.vslideGestureInFullscreen===undefined?true:i.vslideGestureInFullscreen}}" ad-unit-id="{{i.adUnitId}}" poster-for-crawler="{{i.posterForCrawler}}" show-casting-button="{{i.showCastingButton===undefined?false:i.showCastingButton}}" picture-in-picture-mode="{{i.pictureInPictureMode===undefined?[]:i.pictureInPictureMode}}" enable-auto-rotation="{{i.enableAutoRotation===undefined?false:i.enableAutoRotation}}" show-screen-lock-button="{{i.showScreenLockButton===undefined?false:i.showScreenLockButton}}" bindplay="eh" bindpause="eh" bindended="eh" bindtimeupdate="eh" bindfullscreenchange="eh" bindwaiting="eh" binderror="eh" bindprogress="eh" bindloadedmetadata="eh" bindcontrolstoggle="eh" bindenterpictureinpicture="eh" bindleavepictureinpicture="eh" bindseekcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></video>
 </template>
 
+<template name="tmpl_7_web-view">
+  <web-view src="{{i.src}}" bindmessage="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_8_container" data="{{i: item}}" />
+    </block>
+  </web-view>
+</template>
+
 <template name="tmpl_7_#text" data="{{i: i}}">
   <block>{{i.v}}</block>
 </template>
@@ -797,6 +1053,22 @@
   </button>
 </template>
 
+<template name="tmpl_8_checkbox">
+  <checkbox value="{{i.value}}" disabled="{{i.disabled}}" checked="{{i.checked===undefined?false:i.checked}}" color="{{i.color===undefined?'#09BB07':i.color}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_9_container" data="{{i: item}}" />
+    </block>
+  </checkbox>
+</template>
+
+<template name="tmpl_8_checkbox-group">
+  <checkbox-group bindchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_9_container" data="{{i: item}}" />
+    </block>
+  </checkbox-group>
+</template>
+
 <template name="tmpl_8_input">
   <template is="{{xs.c(i, 'tmpl_8_')}}" data="{{i: i}}" />
 </template>
@@ -807,6 +1079,14 @@
 
 <template name="tmpl_8_input_blur">
   <input value="{{i.value}}" type="{{i.type===undefined?'':i.type}}" password="{{i.password===undefined?false:i.password}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'input-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" confirm-type="{{i.confirmType===undefined?'done':i.confirmType}}" confirm-hold="{{i.confirmHold===undefined?false:i.confirmHold}}" cursor="{{i.cursor===undefined?i.value.length:i.cursor}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindinput="eh" bindfocus="eh" bindblur="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_8_label">
+  <label for="{{i.for}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_9_container" data="{{i: item}}" />
+    </block>
+  </label>
 </template>
 
 <template name="tmpl_8_picker">
@@ -861,6 +1141,14 @@
   <video src="{{i.src}}" duration="{{i.duration}}" controls="{{i.controls===undefined?true:i.controls}}" danmu-list="{{i.danmuList}}" danmu-btn="{{i.danmuBtn}}" enable-danmu="{{i.enableDanmu}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" loop="{{i.loop===undefined?false:i.loop}}" muted="{{i.muted===undefined?false:i.muted}}" initial-time="{{i.initialTime===undefined?0:i.initialTime}}" page-gesture="{{i.pageGesture===undefined?false:i.pageGesture}}" direction="{{i.direction}}" show-progress="{{i.showProgress===undefined?true:i.showProgress}}" show-fullscreen-btn="{{i.showFullscreenBtn===undefined?true:i.showFullscreenBtn}}" show-play-btn="{{i.showPlayBtn===undefined?true:i.showPlayBtn}}" show-center-play-btn="{{i.showCenterPlayBtn===undefined?true:i.showCenterPlayBtn}}" enable-progress-gesture="{{i.enableProgressGesture===undefined?true:i.enableProgressGesture}}" object-fit="{{i.objectFit===undefined?'contain':i.objectFit}}" poster="{{i.poster}}" show-mute-btn="{{i.showMuteBtn===undefined?false:i.showMuteBtn}}" title="{{i.title}}" play-btn-position="{{i.playBtnPosition===undefined?'bottom':i.playBtnPosition}}" enable-play-gesture="{{i.enablePlayGesture===undefined?false:i.enablePlayGesture}}" auto-pause-if-navigate="{{i.autoPauseIfNavigate===undefined?true:i.autoPauseIfNavigate}}" auto-pause-if-open-native="{{i.autoPauseIfOpenNative===undefined?true:i.autoPauseIfOpenNative}}" vslide-gesture="{{i.vslideGesture===undefined?false:i.vslideGesture}}" vslide-gesture-in-fullscreen="{{i.vslideGestureInFullscreen===undefined?true:i.vslideGestureInFullscreen}}" ad-unit-id="{{i.adUnitId}}" poster-for-crawler="{{i.posterForCrawler}}" show-casting-button="{{i.showCastingButton===undefined?false:i.showCastingButton}}" picture-in-picture-mode="{{i.pictureInPictureMode===undefined?[]:i.pictureInPictureMode}}" enable-auto-rotation="{{i.enableAutoRotation===undefined?false:i.enableAutoRotation}}" show-screen-lock-button="{{i.showScreenLockButton===undefined?false:i.showScreenLockButton}}" bindplay="eh" bindpause="eh" bindended="eh" bindtimeupdate="eh" bindfullscreenchange="eh" bindwaiting="eh" binderror="eh" bindprogress="eh" bindloadedmetadata="eh" bindcontrolstoggle="eh" bindenterpictureinpicture="eh" bindleavepictureinpicture="eh" bindseekcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></video>
 </template>
 
+<template name="tmpl_8_web-view">
+  <web-view src="{{i.src}}" bindmessage="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_9_container" data="{{i: item}}" />
+    </block>
+  </web-view>
+</template>
+
 <template name="tmpl_8_#text" data="{{i: i}}">
   <block>{{i.v}}</block>
 </template>
@@ -893,6 +1181,22 @@
   </button>
 </template>
 
+<template name="tmpl_9_checkbox">
+  <checkbox value="{{i.value}}" disabled="{{i.disabled}}" checked="{{i.checked===undefined?false:i.checked}}" color="{{i.color===undefined?'#09BB07':i.color}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_10_container" data="{{i: item}}" />
+    </block>
+  </checkbox>
+</template>
+
+<template name="tmpl_9_checkbox-group">
+  <checkbox-group bindchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_10_container" data="{{i: item}}" />
+    </block>
+  </checkbox-group>
+</template>
+
 <template name="tmpl_9_input">
   <template is="{{xs.c(i, 'tmpl_9_')}}" data="{{i: i}}" />
 </template>
@@ -903,6 +1207,14 @@
 
 <template name="tmpl_9_input_blur">
   <input value="{{i.value}}" type="{{i.type===undefined?'':i.type}}" password="{{i.password===undefined?false:i.password}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'input-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" confirm-type="{{i.confirmType===undefined?'done':i.confirmType}}" confirm-hold="{{i.confirmHold===undefined?false:i.confirmHold}}" cursor="{{i.cursor===undefined?i.value.length:i.cursor}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindinput="eh" bindfocus="eh" bindblur="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_9_label">
+  <label for="{{i.for}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_10_container" data="{{i: item}}" />
+    </block>
+  </label>
 </template>
 
 <template name="tmpl_9_picker">
@@ -957,6 +1269,14 @@
   <video src="{{i.src}}" duration="{{i.duration}}" controls="{{i.controls===undefined?true:i.controls}}" danmu-list="{{i.danmuList}}" danmu-btn="{{i.danmuBtn}}" enable-danmu="{{i.enableDanmu}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" loop="{{i.loop===undefined?false:i.loop}}" muted="{{i.muted===undefined?false:i.muted}}" initial-time="{{i.initialTime===undefined?0:i.initialTime}}" page-gesture="{{i.pageGesture===undefined?false:i.pageGesture}}" direction="{{i.direction}}" show-progress="{{i.showProgress===undefined?true:i.showProgress}}" show-fullscreen-btn="{{i.showFullscreenBtn===undefined?true:i.showFullscreenBtn}}" show-play-btn="{{i.showPlayBtn===undefined?true:i.showPlayBtn}}" show-center-play-btn="{{i.showCenterPlayBtn===undefined?true:i.showCenterPlayBtn}}" enable-progress-gesture="{{i.enableProgressGesture===undefined?true:i.enableProgressGesture}}" object-fit="{{i.objectFit===undefined?'contain':i.objectFit}}" poster="{{i.poster}}" show-mute-btn="{{i.showMuteBtn===undefined?false:i.showMuteBtn}}" title="{{i.title}}" play-btn-position="{{i.playBtnPosition===undefined?'bottom':i.playBtnPosition}}" enable-play-gesture="{{i.enablePlayGesture===undefined?false:i.enablePlayGesture}}" auto-pause-if-navigate="{{i.autoPauseIfNavigate===undefined?true:i.autoPauseIfNavigate}}" auto-pause-if-open-native="{{i.autoPauseIfOpenNative===undefined?true:i.autoPauseIfOpenNative}}" vslide-gesture="{{i.vslideGesture===undefined?false:i.vslideGesture}}" vslide-gesture-in-fullscreen="{{i.vslideGestureInFullscreen===undefined?true:i.vslideGestureInFullscreen}}" ad-unit-id="{{i.adUnitId}}" poster-for-crawler="{{i.posterForCrawler}}" show-casting-button="{{i.showCastingButton===undefined?false:i.showCastingButton}}" picture-in-picture-mode="{{i.pictureInPictureMode===undefined?[]:i.pictureInPictureMode}}" enable-auto-rotation="{{i.enableAutoRotation===undefined?false:i.enableAutoRotation}}" show-screen-lock-button="{{i.showScreenLockButton===undefined?false:i.showScreenLockButton}}" bindplay="eh" bindpause="eh" bindended="eh" bindtimeupdate="eh" bindfullscreenchange="eh" bindwaiting="eh" binderror="eh" bindprogress="eh" bindloadedmetadata="eh" bindcontrolstoggle="eh" bindenterpictureinpicture="eh" bindleavepictureinpicture="eh" bindseekcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></video>
 </template>
 
+<template name="tmpl_9_web-view">
+  <web-view src="{{i.src}}" bindmessage="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_10_container" data="{{i: item}}" />
+    </block>
+  </web-view>
+</template>
+
 <template name="tmpl_9_#text" data="{{i: i}}">
   <block>{{i.v}}</block>
 </template>
@@ -989,6 +1309,22 @@
   </button>
 </template>
 
+<template name="tmpl_10_checkbox">
+  <checkbox value="{{i.value}}" disabled="{{i.disabled}}" checked="{{i.checked===undefined?false:i.checked}}" color="{{i.color===undefined?'#09BB07':i.color}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_11_container" data="{{i: item}}" />
+    </block>
+  </checkbox>
+</template>
+
+<template name="tmpl_10_checkbox-group">
+  <checkbox-group bindchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_11_container" data="{{i: item}}" />
+    </block>
+  </checkbox-group>
+</template>
+
 <template name="tmpl_10_input">
   <template is="{{xs.c(i, 'tmpl_10_')}}" data="{{i: i}}" />
 </template>
@@ -999,6 +1335,14 @@
 
 <template name="tmpl_10_input_blur">
   <input value="{{i.value}}" type="{{i.type===undefined?'':i.type}}" password="{{i.password===undefined?false:i.password}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'input-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" confirm-type="{{i.confirmType===undefined?'done':i.confirmType}}" confirm-hold="{{i.confirmHold===undefined?false:i.confirmHold}}" cursor="{{i.cursor===undefined?i.value.length:i.cursor}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindinput="eh" bindfocus="eh" bindblur="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_10_label">
+  <label for="{{i.for}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_11_container" data="{{i: item}}" />
+    </block>
+  </label>
 </template>
 
 <template name="tmpl_10_picker">
@@ -1053,6 +1397,14 @@
   <video src="{{i.src}}" duration="{{i.duration}}" controls="{{i.controls===undefined?true:i.controls}}" danmu-list="{{i.danmuList}}" danmu-btn="{{i.danmuBtn}}" enable-danmu="{{i.enableDanmu}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" loop="{{i.loop===undefined?false:i.loop}}" muted="{{i.muted===undefined?false:i.muted}}" initial-time="{{i.initialTime===undefined?0:i.initialTime}}" page-gesture="{{i.pageGesture===undefined?false:i.pageGesture}}" direction="{{i.direction}}" show-progress="{{i.showProgress===undefined?true:i.showProgress}}" show-fullscreen-btn="{{i.showFullscreenBtn===undefined?true:i.showFullscreenBtn}}" show-play-btn="{{i.showPlayBtn===undefined?true:i.showPlayBtn}}" show-center-play-btn="{{i.showCenterPlayBtn===undefined?true:i.showCenterPlayBtn}}" enable-progress-gesture="{{i.enableProgressGesture===undefined?true:i.enableProgressGesture}}" object-fit="{{i.objectFit===undefined?'contain':i.objectFit}}" poster="{{i.poster}}" show-mute-btn="{{i.showMuteBtn===undefined?false:i.showMuteBtn}}" title="{{i.title}}" play-btn-position="{{i.playBtnPosition===undefined?'bottom':i.playBtnPosition}}" enable-play-gesture="{{i.enablePlayGesture===undefined?false:i.enablePlayGesture}}" auto-pause-if-navigate="{{i.autoPauseIfNavigate===undefined?true:i.autoPauseIfNavigate}}" auto-pause-if-open-native="{{i.autoPauseIfOpenNative===undefined?true:i.autoPauseIfOpenNative}}" vslide-gesture="{{i.vslideGesture===undefined?false:i.vslideGesture}}" vslide-gesture-in-fullscreen="{{i.vslideGestureInFullscreen===undefined?true:i.vslideGestureInFullscreen}}" ad-unit-id="{{i.adUnitId}}" poster-for-crawler="{{i.posterForCrawler}}" show-casting-button="{{i.showCastingButton===undefined?false:i.showCastingButton}}" picture-in-picture-mode="{{i.pictureInPictureMode===undefined?[]:i.pictureInPictureMode}}" enable-auto-rotation="{{i.enableAutoRotation===undefined?false:i.enableAutoRotation}}" show-screen-lock-button="{{i.showScreenLockButton===undefined?false:i.showScreenLockButton}}" bindplay="eh" bindpause="eh" bindended="eh" bindtimeupdate="eh" bindfullscreenchange="eh" bindwaiting="eh" binderror="eh" bindprogress="eh" bindloadedmetadata="eh" bindcontrolstoggle="eh" bindenterpictureinpicture="eh" bindleavepictureinpicture="eh" bindseekcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></video>
 </template>
 
+<template name="tmpl_10_web-view">
+  <web-view src="{{i.src}}" bindmessage="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_11_container" data="{{i: item}}" />
+    </block>
+  </web-view>
+</template>
+
 <template name="tmpl_10_#text" data="{{i: i}}">
   <block>{{i.v}}</block>
 </template>
@@ -1085,6 +1437,22 @@
   </button>
 </template>
 
+<template name="tmpl_11_checkbox">
+  <checkbox value="{{i.value}}" disabled="{{i.disabled}}" checked="{{i.checked===undefined?false:i.checked}}" color="{{i.color===undefined?'#09BB07':i.color}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_12_container" data="{{i: item}}" />
+    </block>
+  </checkbox>
+</template>
+
+<template name="tmpl_11_checkbox-group">
+  <checkbox-group bindchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_12_container" data="{{i: item}}" />
+    </block>
+  </checkbox-group>
+</template>
+
 <template name="tmpl_11_input">
   <template is="{{xs.c(i, 'tmpl_11_')}}" data="{{i: i}}" />
 </template>
@@ -1095,6 +1463,14 @@
 
 <template name="tmpl_11_input_blur">
   <input value="{{i.value}}" type="{{i.type===undefined?'':i.type}}" password="{{i.password===undefined?false:i.password}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'input-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" confirm-type="{{i.confirmType===undefined?'done':i.confirmType}}" confirm-hold="{{i.confirmHold===undefined?false:i.confirmHold}}" cursor="{{i.cursor===undefined?i.value.length:i.cursor}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindinput="eh" bindfocus="eh" bindblur="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_11_label">
+  <label for="{{i.for}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_12_container" data="{{i: item}}" />
+    </block>
+  </label>
 </template>
 
 <template name="tmpl_11_picker">
@@ -1149,6 +1525,14 @@
   <video src="{{i.src}}" duration="{{i.duration}}" controls="{{i.controls===undefined?true:i.controls}}" danmu-list="{{i.danmuList}}" danmu-btn="{{i.danmuBtn}}" enable-danmu="{{i.enableDanmu}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" loop="{{i.loop===undefined?false:i.loop}}" muted="{{i.muted===undefined?false:i.muted}}" initial-time="{{i.initialTime===undefined?0:i.initialTime}}" page-gesture="{{i.pageGesture===undefined?false:i.pageGesture}}" direction="{{i.direction}}" show-progress="{{i.showProgress===undefined?true:i.showProgress}}" show-fullscreen-btn="{{i.showFullscreenBtn===undefined?true:i.showFullscreenBtn}}" show-play-btn="{{i.showPlayBtn===undefined?true:i.showPlayBtn}}" show-center-play-btn="{{i.showCenterPlayBtn===undefined?true:i.showCenterPlayBtn}}" enable-progress-gesture="{{i.enableProgressGesture===undefined?true:i.enableProgressGesture}}" object-fit="{{i.objectFit===undefined?'contain':i.objectFit}}" poster="{{i.poster}}" show-mute-btn="{{i.showMuteBtn===undefined?false:i.showMuteBtn}}" title="{{i.title}}" play-btn-position="{{i.playBtnPosition===undefined?'bottom':i.playBtnPosition}}" enable-play-gesture="{{i.enablePlayGesture===undefined?false:i.enablePlayGesture}}" auto-pause-if-navigate="{{i.autoPauseIfNavigate===undefined?true:i.autoPauseIfNavigate}}" auto-pause-if-open-native="{{i.autoPauseIfOpenNative===undefined?true:i.autoPauseIfOpenNative}}" vslide-gesture="{{i.vslideGesture===undefined?false:i.vslideGesture}}" vslide-gesture-in-fullscreen="{{i.vslideGestureInFullscreen===undefined?true:i.vslideGestureInFullscreen}}" ad-unit-id="{{i.adUnitId}}" poster-for-crawler="{{i.posterForCrawler}}" show-casting-button="{{i.showCastingButton===undefined?false:i.showCastingButton}}" picture-in-picture-mode="{{i.pictureInPictureMode===undefined?[]:i.pictureInPictureMode}}" enable-auto-rotation="{{i.enableAutoRotation===undefined?false:i.enableAutoRotation}}" show-screen-lock-button="{{i.showScreenLockButton===undefined?false:i.showScreenLockButton}}" bindplay="eh" bindpause="eh" bindended="eh" bindtimeupdate="eh" bindfullscreenchange="eh" bindwaiting="eh" binderror="eh" bindprogress="eh" bindloadedmetadata="eh" bindcontrolstoggle="eh" bindenterpictureinpicture="eh" bindleavepictureinpicture="eh" bindseekcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></video>
 </template>
 
+<template name="tmpl_11_web-view">
+  <web-view src="{{i.src}}" bindmessage="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_12_container" data="{{i: item}}" />
+    </block>
+  </web-view>
+</template>
+
 <template name="tmpl_11_#text" data="{{i: i}}">
   <block>{{i.v}}</block>
 </template>
@@ -1181,6 +1565,22 @@
   </button>
 </template>
 
+<template name="tmpl_12_checkbox">
+  <checkbox value="{{i.value}}" disabled="{{i.disabled}}" checked="{{i.checked===undefined?false:i.checked}}" color="{{i.color===undefined?'#09BB07':i.color}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_13_container" data="{{i: item}}" />
+    </block>
+  </checkbox>
+</template>
+
+<template name="tmpl_12_checkbox-group">
+  <checkbox-group bindchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_13_container" data="{{i: item}}" />
+    </block>
+  </checkbox-group>
+</template>
+
 <template name="tmpl_12_input">
   <template is="{{xs.c(i, 'tmpl_12_')}}" data="{{i: i}}" />
 </template>
@@ -1191,6 +1591,14 @@
 
 <template name="tmpl_12_input_blur">
   <input value="{{i.value}}" type="{{i.type===undefined?'':i.type}}" password="{{i.password===undefined?false:i.password}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'input-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" confirm-type="{{i.confirmType===undefined?'done':i.confirmType}}" confirm-hold="{{i.confirmHold===undefined?false:i.confirmHold}}" cursor="{{i.cursor===undefined?i.value.length:i.cursor}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindinput="eh" bindfocus="eh" bindblur="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_12_label">
+  <label for="{{i.for}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_13_container" data="{{i: item}}" />
+    </block>
+  </label>
 </template>
 
 <template name="tmpl_12_picker">
@@ -1245,6 +1653,14 @@
   <video src="{{i.src}}" duration="{{i.duration}}" controls="{{i.controls===undefined?true:i.controls}}" danmu-list="{{i.danmuList}}" danmu-btn="{{i.danmuBtn}}" enable-danmu="{{i.enableDanmu}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" loop="{{i.loop===undefined?false:i.loop}}" muted="{{i.muted===undefined?false:i.muted}}" initial-time="{{i.initialTime===undefined?0:i.initialTime}}" page-gesture="{{i.pageGesture===undefined?false:i.pageGesture}}" direction="{{i.direction}}" show-progress="{{i.showProgress===undefined?true:i.showProgress}}" show-fullscreen-btn="{{i.showFullscreenBtn===undefined?true:i.showFullscreenBtn}}" show-play-btn="{{i.showPlayBtn===undefined?true:i.showPlayBtn}}" show-center-play-btn="{{i.showCenterPlayBtn===undefined?true:i.showCenterPlayBtn}}" enable-progress-gesture="{{i.enableProgressGesture===undefined?true:i.enableProgressGesture}}" object-fit="{{i.objectFit===undefined?'contain':i.objectFit}}" poster="{{i.poster}}" show-mute-btn="{{i.showMuteBtn===undefined?false:i.showMuteBtn}}" title="{{i.title}}" play-btn-position="{{i.playBtnPosition===undefined?'bottom':i.playBtnPosition}}" enable-play-gesture="{{i.enablePlayGesture===undefined?false:i.enablePlayGesture}}" auto-pause-if-navigate="{{i.autoPauseIfNavigate===undefined?true:i.autoPauseIfNavigate}}" auto-pause-if-open-native="{{i.autoPauseIfOpenNative===undefined?true:i.autoPauseIfOpenNative}}" vslide-gesture="{{i.vslideGesture===undefined?false:i.vslideGesture}}" vslide-gesture-in-fullscreen="{{i.vslideGestureInFullscreen===undefined?true:i.vslideGestureInFullscreen}}" ad-unit-id="{{i.adUnitId}}" poster-for-crawler="{{i.posterForCrawler}}" show-casting-button="{{i.showCastingButton===undefined?false:i.showCastingButton}}" picture-in-picture-mode="{{i.pictureInPictureMode===undefined?[]:i.pictureInPictureMode}}" enable-auto-rotation="{{i.enableAutoRotation===undefined?false:i.enableAutoRotation}}" show-screen-lock-button="{{i.showScreenLockButton===undefined?false:i.showScreenLockButton}}" bindplay="eh" bindpause="eh" bindended="eh" bindtimeupdate="eh" bindfullscreenchange="eh" bindwaiting="eh" binderror="eh" bindprogress="eh" bindloadedmetadata="eh" bindcontrolstoggle="eh" bindenterpictureinpicture="eh" bindleavepictureinpicture="eh" bindseekcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></video>
 </template>
 
+<template name="tmpl_12_web-view">
+  <web-view src="{{i.src}}" bindmessage="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_13_container" data="{{i: item}}" />
+    </block>
+  </web-view>
+</template>
+
 <template name="tmpl_12_#text" data="{{i: i}}">
   <block>{{i.v}}</block>
 </template>
@@ -1277,6 +1693,22 @@
   </button>
 </template>
 
+<template name="tmpl_13_checkbox">
+  <checkbox value="{{i.value}}" disabled="{{i.disabled}}" checked="{{i.checked===undefined?false:i.checked}}" color="{{i.color===undefined?'#09BB07':i.color}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_14_container" data="{{i: item}}" />
+    </block>
+  </checkbox>
+</template>
+
+<template name="tmpl_13_checkbox-group">
+  <checkbox-group bindchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_14_container" data="{{i: item}}" />
+    </block>
+  </checkbox-group>
+</template>
+
 <template name="tmpl_13_input">
   <template is="{{xs.c(i, 'tmpl_13_')}}" data="{{i: i}}" />
 </template>
@@ -1287,6 +1719,14 @@
 
 <template name="tmpl_13_input_blur">
   <input value="{{i.value}}" type="{{i.type===undefined?'':i.type}}" password="{{i.password===undefined?false:i.password}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'input-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" confirm-type="{{i.confirmType===undefined?'done':i.confirmType}}" confirm-hold="{{i.confirmHold===undefined?false:i.confirmHold}}" cursor="{{i.cursor===undefined?i.value.length:i.cursor}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindinput="eh" bindfocus="eh" bindblur="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_13_label">
+  <label for="{{i.for}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_14_container" data="{{i: item}}" />
+    </block>
+  </label>
 </template>
 
 <template name="tmpl_13_picker">
@@ -1341,6 +1781,14 @@
   <video src="{{i.src}}" duration="{{i.duration}}" controls="{{i.controls===undefined?true:i.controls}}" danmu-list="{{i.danmuList}}" danmu-btn="{{i.danmuBtn}}" enable-danmu="{{i.enableDanmu}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" loop="{{i.loop===undefined?false:i.loop}}" muted="{{i.muted===undefined?false:i.muted}}" initial-time="{{i.initialTime===undefined?0:i.initialTime}}" page-gesture="{{i.pageGesture===undefined?false:i.pageGesture}}" direction="{{i.direction}}" show-progress="{{i.showProgress===undefined?true:i.showProgress}}" show-fullscreen-btn="{{i.showFullscreenBtn===undefined?true:i.showFullscreenBtn}}" show-play-btn="{{i.showPlayBtn===undefined?true:i.showPlayBtn}}" show-center-play-btn="{{i.showCenterPlayBtn===undefined?true:i.showCenterPlayBtn}}" enable-progress-gesture="{{i.enableProgressGesture===undefined?true:i.enableProgressGesture}}" object-fit="{{i.objectFit===undefined?'contain':i.objectFit}}" poster="{{i.poster}}" show-mute-btn="{{i.showMuteBtn===undefined?false:i.showMuteBtn}}" title="{{i.title}}" play-btn-position="{{i.playBtnPosition===undefined?'bottom':i.playBtnPosition}}" enable-play-gesture="{{i.enablePlayGesture===undefined?false:i.enablePlayGesture}}" auto-pause-if-navigate="{{i.autoPauseIfNavigate===undefined?true:i.autoPauseIfNavigate}}" auto-pause-if-open-native="{{i.autoPauseIfOpenNative===undefined?true:i.autoPauseIfOpenNative}}" vslide-gesture="{{i.vslideGesture===undefined?false:i.vslideGesture}}" vslide-gesture-in-fullscreen="{{i.vslideGestureInFullscreen===undefined?true:i.vslideGestureInFullscreen}}" ad-unit-id="{{i.adUnitId}}" poster-for-crawler="{{i.posterForCrawler}}" show-casting-button="{{i.showCastingButton===undefined?false:i.showCastingButton}}" picture-in-picture-mode="{{i.pictureInPictureMode===undefined?[]:i.pictureInPictureMode}}" enable-auto-rotation="{{i.enableAutoRotation===undefined?false:i.enableAutoRotation}}" show-screen-lock-button="{{i.showScreenLockButton===undefined?false:i.showScreenLockButton}}" bindplay="eh" bindpause="eh" bindended="eh" bindtimeupdate="eh" bindfullscreenchange="eh" bindwaiting="eh" binderror="eh" bindprogress="eh" bindloadedmetadata="eh" bindcontrolstoggle="eh" bindenterpictureinpicture="eh" bindleavepictureinpicture="eh" bindseekcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></video>
 </template>
 
+<template name="tmpl_13_web-view">
+  <web-view src="{{i.src}}" bindmessage="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_14_container" data="{{i: item}}" />
+    </block>
+  </web-view>
+</template>
+
 <template name="tmpl_13_#text" data="{{i: i}}">
   <block>{{i.v}}</block>
 </template>
@@ -1373,6 +1821,22 @@
   </button>
 </template>
 
+<template name="tmpl_14_checkbox">
+  <checkbox value="{{i.value}}" disabled="{{i.disabled}}" checked="{{i.checked===undefined?false:i.checked}}" color="{{i.color===undefined?'#09BB07':i.color}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_15_container" data="{{i: item}}" />
+    </block>
+  </checkbox>
+</template>
+
+<template name="tmpl_14_checkbox-group">
+  <checkbox-group bindchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_15_container" data="{{i: item}}" />
+    </block>
+  </checkbox-group>
+</template>
+
 <template name="tmpl_14_input">
   <template is="{{xs.c(i, 'tmpl_14_')}}" data="{{i: i}}" />
 </template>
@@ -1383,6 +1847,14 @@
 
 <template name="tmpl_14_input_blur">
   <input value="{{i.value}}" type="{{i.type===undefined?'':i.type}}" password="{{i.password===undefined?false:i.password}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'input-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" confirm-type="{{i.confirmType===undefined?'done':i.confirmType}}" confirm-hold="{{i.confirmHold===undefined?false:i.confirmHold}}" cursor="{{i.cursor===undefined?i.value.length:i.cursor}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindinput="eh" bindfocus="eh" bindblur="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_14_label">
+  <label for="{{i.for}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_15_container" data="{{i: item}}" />
+    </block>
+  </label>
 </template>
 
 <template name="tmpl_14_picker">
@@ -1437,6 +1909,14 @@
   <video src="{{i.src}}" duration="{{i.duration}}" controls="{{i.controls===undefined?true:i.controls}}" danmu-list="{{i.danmuList}}" danmu-btn="{{i.danmuBtn}}" enable-danmu="{{i.enableDanmu}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" loop="{{i.loop===undefined?false:i.loop}}" muted="{{i.muted===undefined?false:i.muted}}" initial-time="{{i.initialTime===undefined?0:i.initialTime}}" page-gesture="{{i.pageGesture===undefined?false:i.pageGesture}}" direction="{{i.direction}}" show-progress="{{i.showProgress===undefined?true:i.showProgress}}" show-fullscreen-btn="{{i.showFullscreenBtn===undefined?true:i.showFullscreenBtn}}" show-play-btn="{{i.showPlayBtn===undefined?true:i.showPlayBtn}}" show-center-play-btn="{{i.showCenterPlayBtn===undefined?true:i.showCenterPlayBtn}}" enable-progress-gesture="{{i.enableProgressGesture===undefined?true:i.enableProgressGesture}}" object-fit="{{i.objectFit===undefined?'contain':i.objectFit}}" poster="{{i.poster}}" show-mute-btn="{{i.showMuteBtn===undefined?false:i.showMuteBtn}}" title="{{i.title}}" play-btn-position="{{i.playBtnPosition===undefined?'bottom':i.playBtnPosition}}" enable-play-gesture="{{i.enablePlayGesture===undefined?false:i.enablePlayGesture}}" auto-pause-if-navigate="{{i.autoPauseIfNavigate===undefined?true:i.autoPauseIfNavigate}}" auto-pause-if-open-native="{{i.autoPauseIfOpenNative===undefined?true:i.autoPauseIfOpenNative}}" vslide-gesture="{{i.vslideGesture===undefined?false:i.vslideGesture}}" vslide-gesture-in-fullscreen="{{i.vslideGestureInFullscreen===undefined?true:i.vslideGestureInFullscreen}}" ad-unit-id="{{i.adUnitId}}" poster-for-crawler="{{i.posterForCrawler}}" show-casting-button="{{i.showCastingButton===undefined?false:i.showCastingButton}}" picture-in-picture-mode="{{i.pictureInPictureMode===undefined?[]:i.pictureInPictureMode}}" enable-auto-rotation="{{i.enableAutoRotation===undefined?false:i.enableAutoRotation}}" show-screen-lock-button="{{i.showScreenLockButton===undefined?false:i.showScreenLockButton}}" bindplay="eh" bindpause="eh" bindended="eh" bindtimeupdate="eh" bindfullscreenchange="eh" bindwaiting="eh" binderror="eh" bindprogress="eh" bindloadedmetadata="eh" bindcontrolstoggle="eh" bindenterpictureinpicture="eh" bindleavepictureinpicture="eh" bindseekcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></video>
 </template>
 
+<template name="tmpl_14_web-view">
+  <web-view src="{{i.src}}" bindmessage="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_15_container" data="{{i: item}}" />
+    </block>
+  </web-view>
+</template>
+
 <template name="tmpl_14_#text" data="{{i: i}}">
   <block>{{i.v}}</block>
 </template>
@@ -1469,6 +1949,22 @@
   </button>
 </template>
 
+<template name="tmpl_15_checkbox">
+  <checkbox value="{{i.value}}" disabled="{{i.disabled}}" checked="{{i.checked===undefined?false:i.checked}}" color="{{i.color===undefined?'#09BB07':i.color}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_16_container" data="{{i: item}}" />
+    </block>
+  </checkbox>
+</template>
+
+<template name="tmpl_15_checkbox-group">
+  <checkbox-group bindchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_16_container" data="{{i: item}}" />
+    </block>
+  </checkbox-group>
+</template>
+
 <template name="tmpl_15_input">
   <template is="{{xs.c(i, 'tmpl_15_')}}" data="{{i: i}}" />
 </template>
@@ -1479,6 +1975,14 @@
 
 <template name="tmpl_15_input_blur">
   <input value="{{i.value}}" type="{{i.type===undefined?'':i.type}}" password="{{i.password===undefined?false:i.password}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'input-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" confirm-type="{{i.confirmType===undefined?'done':i.confirmType}}" confirm-hold="{{i.confirmHold===undefined?false:i.confirmHold}}" cursor="{{i.cursor===undefined?i.value.length:i.cursor}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindinput="eh" bindfocus="eh" bindblur="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_15_label">
+  <label for="{{i.for}}" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_16_container" data="{{i: item}}" />
+    </block>
+  </label>
 </template>
 
 <template name="tmpl_15_picker">
@@ -1531,6 +2035,14 @@
 
 <template name="tmpl_15_video">
   <video src="{{i.src}}" duration="{{i.duration}}" controls="{{i.controls===undefined?true:i.controls}}" danmu-list="{{i.danmuList}}" danmu-btn="{{i.danmuBtn}}" enable-danmu="{{i.enableDanmu}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" loop="{{i.loop===undefined?false:i.loop}}" muted="{{i.muted===undefined?false:i.muted}}" initial-time="{{i.initialTime===undefined?0:i.initialTime}}" page-gesture="{{i.pageGesture===undefined?false:i.pageGesture}}" direction="{{i.direction}}" show-progress="{{i.showProgress===undefined?true:i.showProgress}}" show-fullscreen-btn="{{i.showFullscreenBtn===undefined?true:i.showFullscreenBtn}}" show-play-btn="{{i.showPlayBtn===undefined?true:i.showPlayBtn}}" show-center-play-btn="{{i.showCenterPlayBtn===undefined?true:i.showCenterPlayBtn}}" enable-progress-gesture="{{i.enableProgressGesture===undefined?true:i.enableProgressGesture}}" object-fit="{{i.objectFit===undefined?'contain':i.objectFit}}" poster="{{i.poster}}" show-mute-btn="{{i.showMuteBtn===undefined?false:i.showMuteBtn}}" title="{{i.title}}" play-btn-position="{{i.playBtnPosition===undefined?'bottom':i.playBtnPosition}}" enable-play-gesture="{{i.enablePlayGesture===undefined?false:i.enablePlayGesture}}" auto-pause-if-navigate="{{i.autoPauseIfNavigate===undefined?true:i.autoPauseIfNavigate}}" auto-pause-if-open-native="{{i.autoPauseIfOpenNative===undefined?true:i.autoPauseIfOpenNative}}" vslide-gesture="{{i.vslideGesture===undefined?false:i.vslideGesture}}" vslide-gesture-in-fullscreen="{{i.vslideGestureInFullscreen===undefined?true:i.vslideGestureInFullscreen}}" ad-unit-id="{{i.adUnitId}}" poster-for-crawler="{{i.posterForCrawler}}" show-casting-button="{{i.showCastingButton===undefined?false:i.showCastingButton}}" picture-in-picture-mode="{{i.pictureInPictureMode===undefined?[]:i.pictureInPictureMode}}" enable-auto-rotation="{{i.enableAutoRotation===undefined?false:i.enableAutoRotation}}" show-screen-lock-button="{{i.showScreenLockButton===undefined?false:i.showScreenLockButton}}" bindplay="eh" bindpause="eh" bindended="eh" bindtimeupdate="eh" bindfullscreenchange="eh" bindwaiting="eh" binderror="eh" bindprogress="eh" bindloadedmetadata="eh" bindcontrolstoggle="eh" bindenterpictureinpicture="eh" bindleavepictureinpicture="eh" bindseekcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></video>
+</template>
+
+<template name="tmpl_15_web-view">
+  <web-view src="{{i.src}}" bindmessage="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_16_container" data="{{i: item}}" />
+    </block>
+  </web-view>
 </template>
 
 <template name="tmpl_15_#text" data="{{i: i}}">

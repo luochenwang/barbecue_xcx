@@ -1,13 +1,16 @@
 <!--页面底部-->
 <template>
-    <movable-area class="sidebar">
-      <movable-view :direction="'vertical'" :y="y" @change="moveEnd">
-        <view>
-            <view class="item icon-consult" @tap="service">在线咨询</view>
-            <view class="item icon-back" @tap="back">返回上级</view>
-        </view>
-      </movable-view>
-    </movable-area>
+    <view>
+      <movable-area class="sidebar">
+        <movable-view :direction="'vertical'" :y="y" @change="moveEnd">
+          <view>
+              <view class="item icon-consult" @tap="service">在线咨询</view>
+              <view class="item icon-back" @tap="back">返回上级</view>
+          </view>
+        </movable-view>
+      </movable-area>
+      <consult-leads/>
+    </view>
 </template>
 
 <script>
@@ -56,11 +59,7 @@ var timr = null;
           callback(data)
       },
       service(){
-        plugin.callback.on("getOpenId", this.getOpenId, this); // 传递openid，注意路径后一定要声名&getOpenIdType=2，否则传递无效
-        plugin.callback.on("getSessionFrom", this.session, this); // 传递客户资料
-        wx.navigateTo({
-            url: 'plugin://ykfchat/chat-page?wechatapp_id=219196&channel_id=25200&scene=p86776wmyjpl&getOpenIdType=2',
-        });
+        this.$store.commit('set_consultLeadsModel',true);
       },
       moveEnd(e){
         clearTimeout(timr);

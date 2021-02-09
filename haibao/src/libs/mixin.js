@@ -43,42 +43,35 @@ export default {
       // })
     },
     toViewVideo(item, tp = 100) {
-      wx.navigateTo({ url: '/pages/server/video?title=' + item.title + '&video_filename=' + item.video_filename + '&video_picture=' + item.video_picture + '&share_img=' + item.video_share_picture + '&id=' + (item.class_id || item.tech_detail_id) });
+      this.$store.commit('set_liveLeadsModel',true);
+      item.tp = tp;
+      this.$store.commit('set_leadsItem',item);
+      // wx.navigateTo({ url: '/pages/server/video?title=' + item.title + '&video_filename=' + item.video_filename + '&video_picture=' + item.video_picture + '&share_img=' + item.video_share_picture + '&id=' + (item.class_id || item.tech_detail_id) });
     },
     downloadPdf(item, tp = 100) {
-      wx.showLoading({
-        title: '加载中...',
-      })
-      const fileExtName = ".pdf";
-      const randfile = new Date().getTime() + fileExtName;
-      const newPath = `${wx.env.USER_DATA_PATH}/${randfile}`;
-      wx.downloadFile({
-        url: item.pdf_filename,
-        filePath: newPath,
-        success: res => {
-          let filePath = res.tempFilePath;
-          wx.openDocument({
-            filePath: newPath,
-            showMenu: true,
-            fileType: 'pdf',
-            success: function(res) {}
-          })
-          wx.hideLoading();
-        }
-      });
-
-
-      ajax({
-        url: 'xcx_request.php',
-        data: {
-          act: 'set_File_History',
-          act2: 'download',
-          tp: this.$store.state.category,
-          tp_value: item.class_id || item.tech_detail_id,
-          file_tp: 'pdf',
-          watch_time: 0,
-        },
-      });
+      this.$store.commit('set_downloadLeadsModel',true);
+      item.tp = tp;
+      this.$store.commit('set_leadsItem',item);
+      // wx.showLoading({
+      //   title: '加载中...',
+      // })
+      // const fileExtName = ".pdf";
+      // const randfile = new Date().getTime() + fileExtName;
+      // const newPath = `${wx.env.USER_DATA_PATH}/${randfile}`;
+      // wx.downloadFile({
+      //   url: item.pdf_filename,
+      //   filePath: newPath,
+      //   success: res => {
+      //     let filePath = res.tempFilePath;
+      //     wx.openDocument({
+      //       filePath: newPath,
+      //       showMenu: true,
+      //       fileType: 'pdf',
+      //       success: function(res) {}
+      //     })
+      //     wx.hideLoading();
+      //   }
+      // });
     },
     downloadVideo(item, tp = 100) {
       wx.showLoading({
