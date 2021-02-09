@@ -37,7 +37,7 @@
       </view>
       <view class="copyright">I   ©  Hypertherm, Inc.</view>
 
-      <view class="close"></view>
+      <view class="close" @tap="close"></view>
     </view>
   </view>
 </template>

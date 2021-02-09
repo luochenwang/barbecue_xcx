@@ -131,6 +131,8 @@
         font-size: 30rpx;
         padding: 0 20rpx;
         border: 1rpx solid #000;
+        -webkit-box-sizing: border-box;
+                box-sizing: border-box;
 }
 .leads-float .leads-dialog .privacy {
       display: -webkit-flex;
@@ -214,6 +216,8 @@
         font-size: 30rpx;
         padding: 0 20rpx;
         border: 1rpx solid #000;
+        -webkit-box-sizing: border-box;
+                box-sizing: border-box;
 }
 .leads-float .leads-dialog .privacy {
       display: -webkit-flex;
@@ -297,6 +301,8 @@
         font-size: 30rpx;
         padding: 0 20rpx;
         border: 1rpx solid #000;
+        -webkit-box-sizing: border-box;
+                box-sizing: border-box;
 }
 .leads-float .leads-dialog .privacy {
       display: -webkit-flex;

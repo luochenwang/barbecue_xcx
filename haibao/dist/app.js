@@ -14,7 +14,8 @@ require("./taro");
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var _libs_globalData__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../libs/globalData */ "./src/libs/globalData.js");
+/* harmony import */ var _libs_ajax__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../libs/ajax */ "./src/libs/ajax.js");
+/* harmony import */ var _libs_globalData__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../libs/globalData */ "./src/libs/globalData.js");
 //
 //
 //
@@ -24,7 +25,8 @@ require("./taro");
 //
 //
 
-var globalData = Object(_libs_globalData__WEBPACK_IMPORTED_MODULE_0__[/* createCache */ "a"])();
+
+var globalData = Object(_libs_globalData__WEBPACK_IMPORTED_MODULE_1__[/* createCache */ "a"])();
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: 'user',
   props: ['authModel'],
@@ -43,6 +45,14 @@ var globalData = Object(_libs_globalData__WEBPACK_IMPORTED_MODULE_0__[/* createC
               success: function success(res) {
                 globalData.set("userInfo", res.userInfo);
                 that.$store.commit('set_authModel', false);
+                Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
+                  url: 'xcx_request.php',
+                  data: {
+                    act: 'editUserInfo',
+                    nickname: res.userInfo.nickName,
+                    headimgurl: res.userInfo.avatarUrl
+                  }
+                });
               }
             });
           } else {}
@@ -1982,7 +1992,7 @@ var render = function() {
             _vm._v("I   ©  Hypertherm, Inc.")
           ]),
           _vm._v(" "),
-          _c("view", { staticClass: "close" })
+          _c("view", { staticClass: "close", on: { tap: _vm.close } })
         ])
       ])
     : _vm._e()

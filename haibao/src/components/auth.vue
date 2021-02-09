@@ -7,6 +7,7 @@
 </template>
 
 <script>
+import { ajax } from "../libs/ajax";
 import { createCache } from "../libs/globalData";
 const globalData = createCache();
 export default {
@@ -33,6 +34,15 @@ export default {
               success: res => {
                 globalData.set("userInfo", res.userInfo);
                 that.$store.commit('set_authModel',false);
+
+                ajax({
+                    url:'xcx_request.php',
+                    data:{
+                        act:'editUserInfo',
+                        nickname: res.userInfo.nickName,
+                        headimgurl: res.userInfo.avatarUrl
+                    },
+                })
               }
             })
           } else {
