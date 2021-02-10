@@ -14,7 +14,7 @@
         <label>公司名称*</label>
         <input type="text" v-model="company"/>
       </view>
-      <view class="form-group">
+      <view class="form-group icon-arrow">
         <label>您是*</label>
         <picker @change="bindPickerChange" :value="index" :range="array">
           <view class="txt">

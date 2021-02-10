@@ -14,7 +14,7 @@
         <label>公司名称*</label>
         <input type="text" v-model="company"/>
       </view>
-      <view class="form-group">
+      <view class="form-group icon-arrow">
         <label>所在省市*</label>
         <picker mode="region" @change="bindRegionChange" :value="region">
           <view class="txt">{{region[0]}}，{{region[1]}}，{{region[2]}}</view>

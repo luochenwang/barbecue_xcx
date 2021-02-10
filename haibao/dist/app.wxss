@@ -119,6 +119,18 @@
 }
 .leads-float .leads-dialog .form-group {
       margin-bottom: 25rpx;
+      position: relative;
+}
+.leads-float .leads-dialog .form-group.icon-arrow:after {
+        content: '';
+        position: absolute;
+        bottom: 5rpx;
+        right: 20rpx;
+        width: 0;
+        height: 0;
+        border: 20rpx solid transparent;
+        border-top-color: black;
+        pointer-events: none;
 }
 .leads-float .leads-dialog .form-group label {
         font-size: 30rpx;
@@ -130,7 +142,7 @@
         line-height: 75rpx;
         font-size: 30rpx;
         padding: 0 20rpx;
-        border: 1rpx solid #000;
+        border: 1Px solid #000;
         -webkit-box-sizing: border-box;
                 box-sizing: border-box;
 }
@@ -204,6 +216,18 @@
 }
 .leads-float .leads-dialog .form-group {
       margin-bottom: 25rpx;
+      position: relative;
+}
+.leads-float .leads-dialog .form-group.icon-arrow:after {
+        content: '';
+        position: absolute;
+        bottom: 5rpx;
+        right: 20rpx;
+        width: 0;
+        height: 0;
+        border: 20rpx solid transparent;
+        border-top-color: black;
+        pointer-events: none;
 }
 .leads-float .leads-dialog .form-group label {
         font-size: 30rpx;
@@ -215,7 +239,7 @@
         line-height: 75rpx;
         font-size: 30rpx;
         padding: 0 20rpx;
-        border: 1rpx solid #000;
+        border: 1Px solid #000;
         -webkit-box-sizing: border-box;
                 box-sizing: border-box;
 }
@@ -289,6 +313,18 @@
 }
 .leads-float .leads-dialog .form-group {
       margin-bottom: 25rpx;
+      position: relative;
+}
+.leads-float .leads-dialog .form-group.icon-arrow:after {
+        content: '';
+        position: absolute;
+        bottom: 5rpx;
+        right: 20rpx;
+        width: 0;
+        height: 0;
+        border: 20rpx solid transparent;
+        border-top-color: black;
+        pointer-events: none;
 }
 .leads-float .leads-dialog .form-group label {
         font-size: 30rpx;
@@ -300,7 +336,7 @@
         line-height: 75rpx;
         font-size: 30rpx;
         padding: 0 20rpx;
-        border: 1rpx solid #000;
+        border: 1Px solid #000;
         -webkit-box-sizing: border-box;
                 box-sizing: border-box;
 }

@@ -1468,7 +1468,7 @@ var render = function() {
           _vm._v(" "),
           _c(
             "view",
-            { staticClass: "form-group" },
+            { staticClass: "form-group icon-arrow" },
             [
               _c("label", [_vm._v("您是*")]),
               _vm._v(" "),
@@ -1862,7 +1862,7 @@ var render = function() {
           _vm._v(" "),
           _c(
             "view",
-            { staticClass: "form-group" },
+            { staticClass: "form-group icon-arrow" },
             [
               _c("label", [_vm._v("所在省市*")]),
               _vm._v(" "),

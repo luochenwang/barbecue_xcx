@@ -32,7 +32,7 @@
     </view>
     <auth :authModel.sync="authModel" v-if="authModel"/>
 
-    <!-- <liveLeads/> -->
+    <consult-leads/>
   </view>
 </template>
 <script>
