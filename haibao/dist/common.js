@@ -299,6 +299,11 @@ function createCache() {
       containerTop: 0
     };
   },
+  beforeDestroy: function beforeDestroy() {
+    this.$store.commit('set_liveLeadsModel');
+    this.$store.commit('set_downloadLeadsModel');
+    this.$store.commit('set_consultLeadsModel');
+  },
   created: function created() {
     var menuButtonObject = wx.getMenuButtonBoundingClientRect();
     this.containerTop = menuButtonObject.height + menuButtonObject.top + 10;

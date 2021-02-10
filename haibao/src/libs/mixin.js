@@ -6,6 +6,11 @@ export default {
       containerTop: 0
     }
   },
+  beforeDestroy(){
+    this.$store.commit('set_liveLeadsModel');
+    this.$store.commit('set_downloadLeadsModel');
+    this.$store.commit('set_consultLeadsModel');
+  },
   created() {
     let menuButtonObject = wx.getMenuButtonBoundingClientRect();
     this.containerTop = menuButtonObject.height + menuButtonObject.top + 10;
