@@ -92,7 +92,7 @@ export default {
         data: {
           act: 'set_form',
           tp: this.$store.state.category,
-          tp_value: this.leadsItem.class_id || this.leadsItem.tech_detail_id,
+          tp_value: this.leadsItem.tech_detail_id || this.leadsItem.class_id,
           email: this.email,
         },
       }).then(res=>{
@@ -110,7 +110,7 @@ export default {
               act: 'set_File_History',
               act2: 'download',
               tp: this.$store.state.category,
-              tp_value: this.leadsItem.class_id || this.leadsItem.tech_detail_id,
+              tp_value:this.leadsItem.tech_detail_id || this.leadsItem.class_id,
               file_tp: 'pdf',
               watch_time: 0,
             },

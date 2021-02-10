@@ -105,7 +105,7 @@ component.options.__file = "src/pages/server/index.vue"
   },
   components: {},
   mounted: function mounted() {
-    this.$store.commit('set_category', 100);
+    this.$store.commit('set_category', 130);
     Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
       url: 'xcx_request.php',
       data: {

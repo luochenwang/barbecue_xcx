@@ -371,7 +371,7 @@ var plugin = requirePlugin("ykfchat");
         data: {
           act: 'set_form',
           tp: this.$store.state.category,
-          tp_value: this.leadsItem.class_id || this.leadsItem.tech_detail_id,
+          tp_value: this.leadsItem.tech_detail_id || this.leadsItem.class_id,
           email: this.email
         }
       }).then(function (res) {
@@ -390,7 +390,7 @@ var plugin = requirePlugin("ykfchat");
               act: 'set_File_History',
               act2: 'download',
               tp: _this2.$store.state.category,
-              tp_value: _this2.leadsItem.class_id || _this2.leadsItem.tech_detail_id,
+              tp_value: _this2.leadsItem.tech_detail_id || _this2.leadsItem.class_id,
               file_tp: 'pdf',
               watch_time: 0
             }
