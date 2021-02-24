@@ -246,37 +246,7 @@ var render = function() {
               _vm._v(" "),
               _c("text", [_vm._v("在线课堂")])
             ]
-          ),
-          _vm._v(" "),
-          _c("view", { staticClass: "item", on: { tap: _vm.none } }, [
-            _c("image", {
-              attrs: {
-                src: "https://campaign5.method-ad.cn/hypertherm/img/menu4.png"
-              }
-            }),
-            _vm._v(" "),
-            _c("text", [_vm._v("产品展厅")])
-          ]),
-          _vm._v(" "),
-          _c("view", { staticClass: "item", on: { tap: _vm.none } }, [
-            _c("image", {
-              attrs: {
-                src: "https://campaign5.method-ad.cn/hypertherm/img/menu5.png"
-              }
-            }),
-            _vm._v(" "),
-            _c("text", [_vm._v("产品应用")])
-          ]),
-          _vm._v(" "),
-          _c("view", { staticClass: "item", on: { tap: _vm.none } }, [
-            _c("image", {
-              attrs: {
-                src: "https://campaign5.method-ad.cn/hypertherm/img/menu6.png"
-              }
-            }),
-            _vm._v(" "),
-            _c("text", [_vm._v("合作伙伴信息查询")])
-          ])
+          )
         ],
         1
       ),

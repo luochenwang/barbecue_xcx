@@ -17,7 +17,7 @@
         <image src="https://campaign5.method-ad.cn/hypertherm/img/menu3.png" />
         <text>在线课堂</text>
       </navigator>
-      <view class="item" @tap="none">
+      <!-- <view class="item" @tap="none">
         <image src="https://campaign5.method-ad.cn/hypertherm/img/menu4.png" />
         <text>产品展厅</text>
       </view>
@@ -28,7 +28,7 @@
       <view class="item" @tap="none">
         <image src="https://campaign5.method-ad.cn/hypertherm/img/menu6.png" />
         <text>合作伙伴信息查询</text>
-      </view>
+      </view> -->
     </view>
     <auth :authModel.sync="authModel" v-if="authModel"/>
 
