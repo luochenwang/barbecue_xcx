@@ -388,5 +388,3 @@ view, text, textarea, input, scroll-view {
   -webkit-box-sizing: border-box;
           box-sizing: border-box; }
 
-
-@import "./common.wxss";

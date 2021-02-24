@@ -50,8 +50,7 @@ component.options.__file = "src/pages/course/index.vue"
 
 "use strict";
 /* harmony import */ var _libs_ajax__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../libs/ajax */ "./src/libs/ajax.js");
-/* harmony import */ var _components_videVideo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/videVideo */ "./src/components/videVideo.vue");
-/* harmony import */ var _libs_mixin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../libs/mixin */ "./src/libs/mixin.js");
+/* harmony import */ var _libs_mixin__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../libs/mixin */ "./src/libs/mixin.js");
 //
 //
 //
@@ -97,21 +96,18 @@ component.options.__file = "src/pages/course/index.vue"
 //
 //
 //
-
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: 'course',
-  mixins: [_libs_mixin__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"]],
+  mixins: [_libs_mixin__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"]],
   data: function data() {
     return {
       list: [],
       viewVideoSrc: ''
     };
   },
-  components: {
-    videVideo: _components_videVideo__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"]
-  },
+  components: {},
   onLoad: function onLoad(option) {
     var _this = this;
 

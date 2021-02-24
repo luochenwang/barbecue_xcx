@@ -78,7 +78,7 @@ component.options.__file = "src/pages/pdf/index.vue"
     return {
       title: this.title,
       imageUrl: this.share_picture,
-      path: '/pages/webview/index?src=' + this.src + '&share_picture=' + this.share_picture + '&title=' + this.title,
+      path: '/pages/pdf/index?src=' + this.src + '&share_picture=' + this.share_picture + '&title=' + this.title,
       success: function success(res) {
         Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
           url: 'xcx_request.php',

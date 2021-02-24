@@ -51,8 +51,7 @@ component.options.__file = "src/pages/course/list.vue"
 "use strict";
 /* harmony import */ var _Volumes_D_site_barbecue_xcx_haibao_node_modules_babel_runtime_7_12_5_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/_@babel_runtime@7.12.5@@babel/runtime/helpers/esm/toConsumableArray */ "./node_modules/_@babel_runtime@7.12.5@@babel/runtime/helpers/esm/toConsumableArray.js");
 /* harmony import */ var _libs_ajax__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../libs/ajax */ "./src/libs/ajax.js");
-/* harmony import */ var _components_videVideo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/videVideo */ "./src/components/videVideo.vue");
-/* harmony import */ var _libs_mixin__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../libs/mixin */ "./src/libs/mixin.js");
+/* harmony import */ var _libs_mixin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../libs/mixin */ "./src/libs/mixin.js");
 
 //
 //
@@ -107,12 +106,11 @@ component.options.__file = "src/pages/course/list.vue"
 //
 //
 //
-
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: 'course_list',
-  mixins: [_libs_mixin__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"]],
+  mixins: [_libs_mixin__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"]],
   data: function data() {
     return {
       title: '',
@@ -127,9 +125,7 @@ component.options.__file = "src/pages/course/list.vue"
       searchModel: true
     };
   },
-  components: {
-    videVideo: _components_videVideo__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"]
-  },
+  components: {},
   onLoad: function onLoad(option) {
     this.title = option.title;
     this.categoryId = option.category_id;

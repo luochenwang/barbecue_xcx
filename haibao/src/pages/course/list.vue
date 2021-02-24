@@ -53,7 +53,6 @@
 
 <script>
 import { ajax } from "../../libs/ajax";
-import videVideo from "../../components/videVideo";
 import mixin from "../../libs/mixin";
 
 export default {
@@ -75,7 +74,7 @@ export default {
     }
   },
   components: {
-    videVideo
+
   },
   onLoad(option) {
     this.title = option.title;
