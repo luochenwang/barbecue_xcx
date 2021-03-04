@@ -66,6 +66,7 @@ component.options.__file = "src/pages/server/video.vue"
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
@@ -83,7 +84,7 @@ component.options.__file = "src/pages/server/video.vue"
     return {
       title: this.videoInfo.title,
       imageUrl: this.videoInfo.share_img,
-      path: '/pages/server/video?title=' + this.videoInfo.title + '&video_filename=' + this.videoInfo.video_filename + '&share_img=' + this.videoInfo.share_img + '&video_picture=' + this.videoInfo.video_picture + '&id=' + this.videoInfo.id,
+      path: '/pages/server/video?title=' + this.videoInfo.title + '&video_url=' + this.videoInfo.video_url + '&share_img=' + this.videoInfo.share_img + '&video_picture=' + this.videoInfo.video_picture + '&id=' + this.videoInfo.id,
       success: function success(res) {
         Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
           url: 'xcx_request.php',
@@ -102,10 +103,11 @@ component.options.__file = "src/pages/server/video.vue"
   onLoad: function onLoad(option) {
     console.log(option);
     this.videoInfo = option;
+    this.getLength();
   },
   methods: {
     getLength: function getLength(e) {
-      var time = parseInt(e.detail.duration);
+      // let time = parseInt(e.detail.duration);
       Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
         url: 'xcx_request.php',
         data: {
@@ -114,7 +116,7 @@ component.options.__file = "src/pages/server/video.vue"
           tp: this.$store.state.category,
           tp_value: this.videoInfo.id,
           file_tp: 'video',
-          watch_time: time
+          watch_time: ''
         }
       });
     }
@@ -161,16 +163,21 @@ var render = function() {
       _vm._v(" "),
       _c("view", { staticClass: "tt" }, [_vm._v(_vm._s(_vm.videoInfo.title))]),
       _vm._v(" "),
-      _c("view", { staticClass: "video-box" }, [
-        _c("video", {
-          attrs: {
-            src: _vm.videoInfo.video_filename,
-            autoplay: true,
-            controls: true
-          },
-          on: { loadedmetadata: _vm.getLength }
-        })
-      ]),
+      _c(
+        "view",
+        { staticClass: "video-box" },
+        [
+          _c("txv-video", {
+            attrs: {
+              vid: _vm.videoInfo.video_url,
+              playerid: "txv1",
+              autoplay: true,
+              controls: true
+            }
+          })
+        ],
+        1
+      ),
       _vm._v(" "),
       _c("view", { staticClass: "btn-box" }),
       _vm._v(" "),
@@ -200,7 +207,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_tarojs_taro_loader_3_0_8_tarojs_taro_loader_lib_raw_js_video_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/_@tarojs_taro-loader@3.0.8@@tarojs/taro-loader/lib/raw.js!./video.vue */ "./node_modules/_@tarojs_taro-loader@3.0.8@@tarojs/taro-loader/lib/raw.js!./src/pages/server/video.vue");
 
 
-var config = {"navigationBarTitleText":"首页","navigationStyle":"custom"};
+var config = {"navigationBarTitleText":"首页","navigationStyle":"custom","usingComponents":{"txv-video":"plugin://tencentvideo/video"}};
 
 
 var inst = Page(Object(_tarojs_runtime__WEBPACK_IMPORTED_MODULE_0__["createPageConfig"])(_node_modules_tarojs_taro_loader_3_0_8_tarojs_taro_loader_lib_raw_js_video_vue__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"], 'pages/server/video', {}, config || {}))

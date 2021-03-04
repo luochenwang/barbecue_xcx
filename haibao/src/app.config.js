@@ -22,6 +22,10 @@ export default {
       "ykfchat": {
         "version": "2.0.26",
         "provider": "wx1fdc8c9f3a3a05e4"
+      },
+      "tencentvideo": {
+        "version": "1.3.18",
+        "provider": "wxa75efa648b60994b"
       }
   }
 }

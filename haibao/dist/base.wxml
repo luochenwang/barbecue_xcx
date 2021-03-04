@@ -113,10 +113,6 @@
   </image>
 </template>
 
-<template name="tmpl_0_video">
-  <video src="{{i.src}}" duration="{{i.duration}}" controls="{{i.controls===undefined?true:i.controls}}" danmu-list="{{i.danmuList}}" danmu-btn="{{i.danmuBtn}}" enable-danmu="{{i.enableDanmu}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" loop="{{i.loop===undefined?false:i.loop}}" muted="{{i.muted===undefined?false:i.muted}}" initial-time="{{i.initialTime===undefined?0:i.initialTime}}" page-gesture="{{i.pageGesture===undefined?false:i.pageGesture}}" direction="{{i.direction}}" show-progress="{{i.showProgress===undefined?true:i.showProgress}}" show-fullscreen-btn="{{i.showFullscreenBtn===undefined?true:i.showFullscreenBtn}}" show-play-btn="{{i.showPlayBtn===undefined?true:i.showPlayBtn}}" show-center-play-btn="{{i.showCenterPlayBtn===undefined?true:i.showCenterPlayBtn}}" enable-progress-gesture="{{i.enableProgressGesture===undefined?true:i.enableProgressGesture}}" object-fit="{{i.objectFit===undefined?'contain':i.objectFit}}" poster="{{i.poster}}" show-mute-btn="{{i.showMuteBtn===undefined?false:i.showMuteBtn}}" title="{{i.title}}" play-btn-position="{{i.playBtnPosition===undefined?'bottom':i.playBtnPosition}}" enable-play-gesture="{{i.enablePlayGesture===undefined?false:i.enablePlayGesture}}" auto-pause-if-navigate="{{i.autoPauseIfNavigate===undefined?true:i.autoPauseIfNavigate}}" auto-pause-if-open-native="{{i.autoPauseIfOpenNative===undefined?true:i.autoPauseIfOpenNative}}" vslide-gesture="{{i.vslideGesture===undefined?false:i.vslideGesture}}" vslide-gesture-in-fullscreen="{{i.vslideGestureInFullscreen===undefined?true:i.vslideGestureInFullscreen}}" ad-unit-id="{{i.adUnitId}}" poster-for-crawler="{{i.posterForCrawler}}" show-casting-button="{{i.showCastingButton===undefined?false:i.showCastingButton}}" picture-in-picture-mode="{{i.pictureInPictureMode===undefined?[]:i.pictureInPictureMode}}" enable-auto-rotation="{{i.enableAutoRotation===undefined?false:i.enableAutoRotation}}" show-screen-lock-button="{{i.showScreenLockButton===undefined?false:i.showScreenLockButton}}" bindplay="eh" bindpause="eh" bindended="eh" bindtimeupdate="eh" bindfullscreenchange="eh" bindwaiting="eh" binderror="eh" bindprogress="eh" bindloadedmetadata="eh" bindcontrolstoggle="eh" bindenterpictureinpicture="eh" bindleavepictureinpicture="eh" bindseekcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></video>
-</template>
-
 <template name="tmpl_0_web-view">
   <web-view src="{{i.src}}" bindmessage="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
     <block wx:for="{{i.cn}}" wx:key="id">
@@ -129,6 +125,14 @@
   <block>{{i.v}}</block>
 </template>
 
+<template name="tmpl_0_txv-video">
+  <txv-video vid="{{i.vid}}" playerid="{{i.playerid}}" autoplay="{{i.autoplay}}" controls="{{i.controls}}"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_1_container" data="{{i: item}}" />
+    </block>
+  </txv-video>
+</template>
+  
 <template name="tmpl_0_container" data="{{i: i}}">
   <template is="{{'tmpl_0_' + i.nn}}" data="{{i: i}}" />
 </template>
@@ -241,10 +245,6 @@
   </image>
 </template>
 
-<template name="tmpl_1_video">
-  <video src="{{i.src}}" duration="{{i.duration}}" controls="{{i.controls===undefined?true:i.controls}}" danmu-list="{{i.danmuList}}" danmu-btn="{{i.danmuBtn}}" enable-danmu="{{i.enableDanmu}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" loop="{{i.loop===undefined?false:i.loop}}" muted="{{i.muted===undefined?false:i.muted}}" initial-time="{{i.initialTime===undefined?0:i.initialTime}}" page-gesture="{{i.pageGesture===undefined?false:i.pageGesture}}" direction="{{i.direction}}" show-progress="{{i.showProgress===undefined?true:i.showProgress}}" show-fullscreen-btn="{{i.showFullscreenBtn===undefined?true:i.showFullscreenBtn}}" show-play-btn="{{i.showPlayBtn===undefined?true:i.showPlayBtn}}" show-center-play-btn="{{i.showCenterPlayBtn===undefined?true:i.showCenterPlayBtn}}" enable-progress-gesture="{{i.enableProgressGesture===undefined?true:i.enableProgressGesture}}" object-fit="{{i.objectFit===undefined?'contain':i.objectFit}}" poster="{{i.poster}}" show-mute-btn="{{i.showMuteBtn===undefined?false:i.showMuteBtn}}" title="{{i.title}}" play-btn-position="{{i.playBtnPosition===undefined?'bottom':i.playBtnPosition}}" enable-play-gesture="{{i.enablePlayGesture===undefined?false:i.enablePlayGesture}}" auto-pause-if-navigate="{{i.autoPauseIfNavigate===undefined?true:i.autoPauseIfNavigate}}" auto-pause-if-open-native="{{i.autoPauseIfOpenNative===undefined?true:i.autoPauseIfOpenNative}}" vslide-gesture="{{i.vslideGesture===undefined?false:i.vslideGesture}}" vslide-gesture-in-fullscreen="{{i.vslideGestureInFullscreen===undefined?true:i.vslideGestureInFullscreen}}" ad-unit-id="{{i.adUnitId}}" poster-for-crawler="{{i.posterForCrawler}}" show-casting-button="{{i.showCastingButton===undefined?false:i.showCastingButton}}" picture-in-picture-mode="{{i.pictureInPictureMode===undefined?[]:i.pictureInPictureMode}}" enable-auto-rotation="{{i.enableAutoRotation===undefined?false:i.enableAutoRotation}}" show-screen-lock-button="{{i.showScreenLockButton===undefined?false:i.showScreenLockButton}}" bindplay="eh" bindpause="eh" bindended="eh" bindtimeupdate="eh" bindfullscreenchange="eh" bindwaiting="eh" binderror="eh" bindprogress="eh" bindloadedmetadata="eh" bindcontrolstoggle="eh" bindenterpictureinpicture="eh" bindleavepictureinpicture="eh" bindseekcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></video>
-</template>
-
 <template name="tmpl_1_web-view">
   <web-view src="{{i.src}}" bindmessage="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
     <block wx:for="{{i.cn}}" wx:key="id">
@@ -257,6 +257,14 @@
   <block>{{i.v}}</block>
 </template>
 
+<template name="tmpl_1_txv-video">
+  <txv-video vid="{{i.vid}}" playerid="{{i.playerid}}" autoplay="{{i.autoplay}}" controls="{{i.controls}}"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_2_container" data="{{i: item}}" />
+    </block>
+  </txv-video>
+</template>
+  
 <template name="tmpl_1_container" data="{{i: i}}">
   <template is="{{'tmpl_1_' + i.nn}}" data="{{i: i}}" />
 </template>
@@ -369,10 +377,6 @@
   </image>
 </template>
 
-<template name="tmpl_2_video">
-  <video src="{{i.src}}" duration="{{i.duration}}" controls="{{i.controls===undefined?true:i.controls}}" danmu-list="{{i.danmuList}}" danmu-btn="{{i.danmuBtn}}" enable-danmu="{{i.enableDanmu}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" loop="{{i.loop===undefined?false:i.loop}}" muted="{{i.muted===undefined?false:i.muted}}" initial-time="{{i.initialTime===undefined?0:i.initialTime}}" page-gesture="{{i.pageGesture===undefined?false:i.pageGesture}}" direction="{{i.direction}}" show-progress="{{i.showProgress===undefined?true:i.showProgress}}" show-fullscreen-btn="{{i.showFullscreenBtn===undefined?true:i.showFullscreenBtn}}" show-play-btn="{{i.showPlayBtn===undefined?true:i.showPlayBtn}}" show-center-play-btn="{{i.showCenterPlayBtn===undefined?true:i.showCenterPlayBtn}}" enable-progress-gesture="{{i.enableProgressGesture===undefined?true:i.enableProgressGesture}}" object-fit="{{i.objectFit===undefined?'contain':i.objectFit}}" poster="{{i.poster}}" show-mute-btn="{{i.showMuteBtn===undefined?false:i.showMuteBtn}}" title="{{i.title}}" play-btn-position="{{i.playBtnPosition===undefined?'bottom':i.playBtnPosition}}" enable-play-gesture="{{i.enablePlayGesture===undefined?false:i.enablePlayGesture}}" auto-pause-if-navigate="{{i.autoPauseIfNavigate===undefined?true:i.autoPauseIfNavigate}}" auto-pause-if-open-native="{{i.autoPauseIfOpenNative===undefined?true:i.autoPauseIfOpenNative}}" vslide-gesture="{{i.vslideGesture===undefined?false:i.vslideGesture}}" vslide-gesture-in-fullscreen="{{i.vslideGestureInFullscreen===undefined?true:i.vslideGestureInFullscreen}}" ad-unit-id="{{i.adUnitId}}" poster-for-crawler="{{i.posterForCrawler}}" show-casting-button="{{i.showCastingButton===undefined?false:i.showCastingButton}}" picture-in-picture-mode="{{i.pictureInPictureMode===undefined?[]:i.pictureInPictureMode}}" enable-auto-rotation="{{i.enableAutoRotation===undefined?false:i.enableAutoRotation}}" show-screen-lock-button="{{i.showScreenLockButton===undefined?false:i.showScreenLockButton}}" bindplay="eh" bindpause="eh" bindended="eh" bindtimeupdate="eh" bindfullscreenchange="eh" bindwaiting="eh" binderror="eh" bindprogress="eh" bindloadedmetadata="eh" bindcontrolstoggle="eh" bindenterpictureinpicture="eh" bindleavepictureinpicture="eh" bindseekcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></video>
-</template>
-
 <template name="tmpl_2_web-view">
   <web-view src="{{i.src}}" bindmessage="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
     <block wx:for="{{i.cn}}" wx:key="id">
@@ -385,6 +389,14 @@
   <block>{{i.v}}</block>
 </template>
 
+<template name="tmpl_2_txv-video">
+  <txv-video vid="{{i.vid}}" playerid="{{i.playerid}}" autoplay="{{i.autoplay}}" controls="{{i.controls}}"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_3_container" data="{{i: item}}" />
+    </block>
+  </txv-video>
+</template>
+  
 <template name="tmpl_2_container" data="{{i: i}}">
   <template is="{{'tmpl_2_' + i.nn}}" data="{{i: i}}" />
 </template>
@@ -497,10 +509,6 @@
   </image>
 </template>
 
-<template name="tmpl_3_video">
-  <video src="{{i.src}}" duration="{{i.duration}}" controls="{{i.controls===undefined?true:i.controls}}" danmu-list="{{i.danmuList}}" danmu-btn="{{i.danmuBtn}}" enable-danmu="{{i.enableDanmu}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" loop="{{i.loop===undefined?false:i.loop}}" muted="{{i.muted===undefined?false:i.muted}}" initial-time="{{i.initialTime===undefined?0:i.initialTime}}" page-gesture="{{i.pageGesture===undefined?false:i.pageGesture}}" direction="{{i.direction}}" show-progress="{{i.showProgress===undefined?true:i.showProgress}}" show-fullscreen-btn="{{i.showFullscreenBtn===undefined?true:i.showFullscreenBtn}}" show-play-btn="{{i.showPlayBtn===undefined?true:i.showPlayBtn}}" show-center-play-btn="{{i.showCenterPlayBtn===undefined?true:i.showCenterPlayBtn}}" enable-progress-gesture="{{i.enableProgressGesture===undefined?true:i.enableProgressGesture}}" object-fit="{{i.objectFit===undefined?'contain':i.objectFit}}" poster="{{i.poster}}" show-mute-btn="{{i.showMuteBtn===undefined?false:i.showMuteBtn}}" title="{{i.title}}" play-btn-position="{{i.playBtnPosition===undefined?'bottom':i.playBtnPosition}}" enable-play-gesture="{{i.enablePlayGesture===undefined?false:i.enablePlayGesture}}" auto-pause-if-navigate="{{i.autoPauseIfNavigate===undefined?true:i.autoPauseIfNavigate}}" auto-pause-if-open-native="{{i.autoPauseIfOpenNative===undefined?true:i.autoPauseIfOpenNative}}" vslide-gesture="{{i.vslideGesture===undefined?false:i.vslideGesture}}" vslide-gesture-in-fullscreen="{{i.vslideGestureInFullscreen===undefined?true:i.vslideGestureInFullscreen}}" ad-unit-id="{{i.adUnitId}}" poster-for-crawler="{{i.posterForCrawler}}" show-casting-button="{{i.showCastingButton===undefined?false:i.showCastingButton}}" picture-in-picture-mode="{{i.pictureInPictureMode===undefined?[]:i.pictureInPictureMode}}" enable-auto-rotation="{{i.enableAutoRotation===undefined?false:i.enableAutoRotation}}" show-screen-lock-button="{{i.showScreenLockButton===undefined?false:i.showScreenLockButton}}" bindplay="eh" bindpause="eh" bindended="eh" bindtimeupdate="eh" bindfullscreenchange="eh" bindwaiting="eh" binderror="eh" bindprogress="eh" bindloadedmetadata="eh" bindcontrolstoggle="eh" bindenterpictureinpicture="eh" bindleavepictureinpicture="eh" bindseekcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></video>
-</template>
-
 <template name="tmpl_3_web-view">
   <web-view src="{{i.src}}" bindmessage="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
     <block wx:for="{{i.cn}}" wx:key="id">
@@ -513,6 +521,14 @@
   <block>{{i.v}}</block>
 </template>
 
+<template name="tmpl_3_txv-video">
+  <txv-video vid="{{i.vid}}" playerid="{{i.playerid}}" autoplay="{{i.autoplay}}" controls="{{i.controls}}"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_4_container" data="{{i: item}}" />
+    </block>
+  </txv-video>
+</template>
+  
 <template name="tmpl_3_container" data="{{i: i}}">
   <template is="{{'tmpl_3_' + i.nn}}" data="{{i: i}}" />
 </template>
@@ -625,10 +641,6 @@
   </image>
 </template>
 
-<template name="tmpl_4_video">
-  <video src="{{i.src}}" duration="{{i.duration}}" controls="{{i.controls===undefined?true:i.controls}}" danmu-list="{{i.danmuList}}" danmu-btn="{{i.danmuBtn}}" enable-danmu="{{i.enableDanmu}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" loop="{{i.loop===undefined?false:i.loop}}" muted="{{i.muted===undefined?false:i.muted}}" initial-time="{{i.initialTime===undefined?0:i.initialTime}}" page-gesture="{{i.pageGesture===undefined?false:i.pageGesture}}" direction="{{i.direction}}" show-progress="{{i.showProgress===undefined?true:i.showProgress}}" show-fullscreen-btn="{{i.showFullscreenBtn===undefined?true:i.showFullscreenBtn}}" show-play-btn="{{i.showPlayBtn===undefined?true:i.showPlayBtn}}" show-center-play-btn="{{i.showCenterPlayBtn===undefined?true:i.showCenterPlayBtn}}" enable-progress-gesture="{{i.enableProgressGesture===undefined?true:i.enableProgressGesture}}" object-fit="{{i.objectFit===undefined?'contain':i.objectFit}}" poster="{{i.poster}}" show-mute-btn="{{i.showMuteBtn===undefined?false:i.showMuteBtn}}" title="{{i.title}}" play-btn-position="{{i.playBtnPosition===undefined?'bottom':i.playBtnPosition}}" enable-play-gesture="{{i.enablePlayGesture===undefined?false:i.enablePlayGesture}}" auto-pause-if-navigate="{{i.autoPauseIfNavigate===undefined?true:i.autoPauseIfNavigate}}" auto-pause-if-open-native="{{i.autoPauseIfOpenNative===undefined?true:i.autoPauseIfOpenNative}}" vslide-gesture="{{i.vslideGesture===undefined?false:i.vslideGesture}}" vslide-gesture-in-fullscreen="{{i.vslideGestureInFullscreen===undefined?true:i.vslideGestureInFullscreen}}" ad-unit-id="{{i.adUnitId}}" poster-for-crawler="{{i.posterForCrawler}}" show-casting-button="{{i.showCastingButton===undefined?false:i.showCastingButton}}" picture-in-picture-mode="{{i.pictureInPictureMode===undefined?[]:i.pictureInPictureMode}}" enable-auto-rotation="{{i.enableAutoRotation===undefined?false:i.enableAutoRotation}}" show-screen-lock-button="{{i.showScreenLockButton===undefined?false:i.showScreenLockButton}}" bindplay="eh" bindpause="eh" bindended="eh" bindtimeupdate="eh" bindfullscreenchange="eh" bindwaiting="eh" binderror="eh" bindprogress="eh" bindloadedmetadata="eh" bindcontrolstoggle="eh" bindenterpictureinpicture="eh" bindleavepictureinpicture="eh" bindseekcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></video>
-</template>
-
 <template name="tmpl_4_web-view">
   <web-view src="{{i.src}}" bindmessage="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
     <block wx:for="{{i.cn}}" wx:key="id">
@@ -641,6 +653,14 @@
   <block>{{i.v}}</block>
 </template>
 
+<template name="tmpl_4_txv-video">
+  <txv-video vid="{{i.vid}}" playerid="{{i.playerid}}" autoplay="{{i.autoplay}}" controls="{{i.controls}}"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_5_container" data="{{i: item}}" />
+    </block>
+  </txv-video>
+</template>
+  
 <template name="tmpl_4_container" data="{{i: i}}">
   <template is="{{'tmpl_4_' + i.nn}}" data="{{i: i}}" />
 </template>
@@ -753,10 +773,6 @@
   </image>
 </template>
 
-<template name="tmpl_5_video">
-  <video src="{{i.src}}" duration="{{i.duration}}" controls="{{i.controls===undefined?true:i.controls}}" danmu-list="{{i.danmuList}}" danmu-btn="{{i.danmuBtn}}" enable-danmu="{{i.enableDanmu}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" loop="{{i.loop===undefined?false:i.loop}}" muted="{{i.muted===undefined?false:i.muted}}" initial-time="{{i.initialTime===undefined?0:i.initialTime}}" page-gesture="{{i.pageGesture===undefined?false:i.pageGesture}}" direction="{{i.direction}}" show-progress="{{i.showProgress===undefined?true:i.showProgress}}" show-fullscreen-btn="{{i.showFullscreenBtn===undefined?true:i.showFullscreenBtn}}" show-play-btn="{{i.showPlayBtn===undefined?true:i.showPlayBtn}}" show-center-play-btn="{{i.showCenterPlayBtn===undefined?true:i.showCenterPlayBtn}}" enable-progress-gesture="{{i.enableProgressGesture===undefined?true:i.enableProgressGesture}}" object-fit="{{i.objectFit===undefined?'contain':i.objectFit}}" poster="{{i.poster}}" show-mute-btn="{{i.showMuteBtn===undefined?false:i.showMuteBtn}}" title="{{i.title}}" play-btn-position="{{i.playBtnPosition===undefined?'bottom':i.playBtnPosition}}" enable-play-gesture="{{i.enablePlayGesture===undefined?false:i.enablePlayGesture}}" auto-pause-if-navigate="{{i.autoPauseIfNavigate===undefined?true:i.autoPauseIfNavigate}}" auto-pause-if-open-native="{{i.autoPauseIfOpenNative===undefined?true:i.autoPauseIfOpenNative}}" vslide-gesture="{{i.vslideGesture===undefined?false:i.vslideGesture}}" vslide-gesture-in-fullscreen="{{i.vslideGestureInFullscreen===undefined?true:i.vslideGestureInFullscreen}}" ad-unit-id="{{i.adUnitId}}" poster-for-crawler="{{i.posterForCrawler}}" show-casting-button="{{i.showCastingButton===undefined?false:i.showCastingButton}}" picture-in-picture-mode="{{i.pictureInPictureMode===undefined?[]:i.pictureInPictureMode}}" enable-auto-rotation="{{i.enableAutoRotation===undefined?false:i.enableAutoRotation}}" show-screen-lock-button="{{i.showScreenLockButton===undefined?false:i.showScreenLockButton}}" bindplay="eh" bindpause="eh" bindended="eh" bindtimeupdate="eh" bindfullscreenchange="eh" bindwaiting="eh" binderror="eh" bindprogress="eh" bindloadedmetadata="eh" bindcontrolstoggle="eh" bindenterpictureinpicture="eh" bindleavepictureinpicture="eh" bindseekcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></video>
-</template>
-
 <template name="tmpl_5_web-view">
   <web-view src="{{i.src}}" bindmessage="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
     <block wx:for="{{i.cn}}" wx:key="id">
@@ -769,6 +785,14 @@
   <block>{{i.v}}</block>
 </template>
 
+<template name="tmpl_5_txv-video">
+  <txv-video vid="{{i.vid}}" playerid="{{i.playerid}}" autoplay="{{i.autoplay}}" controls="{{i.controls}}"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_6_container" data="{{i: item}}" />
+    </block>
+  </txv-video>
+</template>
+  
 <template name="tmpl_5_container" data="{{i: i}}">
   <template is="{{'tmpl_5_' + i.nn}}" data="{{i: i}}" />
 </template>
@@ -881,10 +905,6 @@
   </image>
 </template>
 
-<template name="tmpl_6_video">
-  <video src="{{i.src}}" duration="{{i.duration}}" controls="{{i.controls===undefined?true:i.controls}}" danmu-list="{{i.danmuList}}" danmu-btn="{{i.danmuBtn}}" enable-danmu="{{i.enableDanmu}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" loop="{{i.loop===undefined?false:i.loop}}" muted="{{i.muted===undefined?false:i.muted}}" initial-time="{{i.initialTime===undefined?0:i.initialTime}}" page-gesture="{{i.pageGesture===undefined?false:i.pageGesture}}" direction="{{i.direction}}" show-progress="{{i.showProgress===undefined?true:i.showProgress}}" show-fullscreen-btn="{{i.showFullscreenBtn===undefined?true:i.showFullscreenBtn}}" show-play-btn="{{i.showPlayBtn===undefined?true:i.showPlayBtn}}" show-center-play-btn="{{i.showCenterPlayBtn===undefined?true:i.showCenterPlayBtn}}" enable-progress-gesture="{{i.enableProgressGesture===undefined?true:i.enableProgressGesture}}" object-fit="{{i.objectFit===undefined?'contain':i.objectFit}}" poster="{{i.poster}}" show-mute-btn="{{i.showMuteBtn===undefined?false:i.showMuteBtn}}" title="{{i.title}}" play-btn-position="{{i.playBtnPosition===undefined?'bottom':i.playBtnPosition}}" enable-play-gesture="{{i.enablePlayGesture===undefined?false:i.enablePlayGesture}}" auto-pause-if-navigate="{{i.autoPauseIfNavigate===undefined?true:i.autoPauseIfNavigate}}" auto-pause-if-open-native="{{i.autoPauseIfOpenNative===undefined?true:i.autoPauseIfOpenNative}}" vslide-gesture="{{i.vslideGesture===undefined?false:i.vslideGesture}}" vslide-gesture-in-fullscreen="{{i.vslideGestureInFullscreen===undefined?true:i.vslideGestureInFullscreen}}" ad-unit-id="{{i.adUnitId}}" poster-for-crawler="{{i.posterForCrawler}}" show-casting-button="{{i.showCastingButton===undefined?false:i.showCastingButton}}" picture-in-picture-mode="{{i.pictureInPictureMode===undefined?[]:i.pictureInPictureMode}}" enable-auto-rotation="{{i.enableAutoRotation===undefined?false:i.enableAutoRotation}}" show-screen-lock-button="{{i.showScreenLockButton===undefined?false:i.showScreenLockButton}}" bindplay="eh" bindpause="eh" bindended="eh" bindtimeupdate="eh" bindfullscreenchange="eh" bindwaiting="eh" binderror="eh" bindprogress="eh" bindloadedmetadata="eh" bindcontrolstoggle="eh" bindenterpictureinpicture="eh" bindleavepictureinpicture="eh" bindseekcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></video>
-</template>
-
 <template name="tmpl_6_web-view">
   <web-view src="{{i.src}}" bindmessage="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
     <block wx:for="{{i.cn}}" wx:key="id">
@@ -897,6 +917,14 @@
   <block>{{i.v}}</block>
 </template>
 
+<template name="tmpl_6_txv-video">
+  <txv-video vid="{{i.vid}}" playerid="{{i.playerid}}" autoplay="{{i.autoplay}}" controls="{{i.controls}}"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_7_container" data="{{i: item}}" />
+    </block>
+  </txv-video>
+</template>
+  
 <template name="tmpl_6_container" data="{{i: i}}">
   <template is="{{'tmpl_6_' + i.nn}}" data="{{i: i}}" />
 </template>
@@ -1009,10 +1037,6 @@
   </image>
 </template>
 
-<template name="tmpl_7_video">
-  <video src="{{i.src}}" duration="{{i.duration}}" controls="{{i.controls===undefined?true:i.controls}}" danmu-list="{{i.danmuList}}" danmu-btn="{{i.danmuBtn}}" enable-danmu="{{i.enableDanmu}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" loop="{{i.loop===undefined?false:i.loop}}" muted="{{i.muted===undefined?false:i.muted}}" initial-time="{{i.initialTime===undefined?0:i.initialTime}}" page-gesture="{{i.pageGesture===undefined?false:i.pageGesture}}" direction="{{i.direction}}" show-progress="{{i.showProgress===undefined?true:i.showProgress}}" show-fullscreen-btn="{{i.showFullscreenBtn===undefined?true:i.showFullscreenBtn}}" show-play-btn="{{i.showPlayBtn===undefined?true:i.showPlayBtn}}" show-center-play-btn="{{i.showCenterPlayBtn===undefined?true:i.showCenterPlayBtn}}" enable-progress-gesture="{{i.enableProgressGesture===undefined?true:i.enableProgressGesture}}" object-fit="{{i.objectFit===undefined?'contain':i.objectFit}}" poster="{{i.poster}}" show-mute-btn="{{i.showMuteBtn===undefined?false:i.showMuteBtn}}" title="{{i.title}}" play-btn-position="{{i.playBtnPosition===undefined?'bottom':i.playBtnPosition}}" enable-play-gesture="{{i.enablePlayGesture===undefined?false:i.enablePlayGesture}}" auto-pause-if-navigate="{{i.autoPauseIfNavigate===undefined?true:i.autoPauseIfNavigate}}" auto-pause-if-open-native="{{i.autoPauseIfOpenNative===undefined?true:i.autoPauseIfOpenNative}}" vslide-gesture="{{i.vslideGesture===undefined?false:i.vslideGesture}}" vslide-gesture-in-fullscreen="{{i.vslideGestureInFullscreen===undefined?true:i.vslideGestureInFullscreen}}" ad-unit-id="{{i.adUnitId}}" poster-for-crawler="{{i.posterForCrawler}}" show-casting-button="{{i.showCastingButton===undefined?false:i.showCastingButton}}" picture-in-picture-mode="{{i.pictureInPictureMode===undefined?[]:i.pictureInPictureMode}}" enable-auto-rotation="{{i.enableAutoRotation===undefined?false:i.enableAutoRotation}}" show-screen-lock-button="{{i.showScreenLockButton===undefined?false:i.showScreenLockButton}}" bindplay="eh" bindpause="eh" bindended="eh" bindtimeupdate="eh" bindfullscreenchange="eh" bindwaiting="eh" binderror="eh" bindprogress="eh" bindloadedmetadata="eh" bindcontrolstoggle="eh" bindenterpictureinpicture="eh" bindleavepictureinpicture="eh" bindseekcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></video>
-</template>
-
 <template name="tmpl_7_web-view">
   <web-view src="{{i.src}}" bindmessage="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
     <block wx:for="{{i.cn}}" wx:key="id">
@@ -1025,6 +1049,14 @@
   <block>{{i.v}}</block>
 </template>
 
+<template name="tmpl_7_txv-video">
+  <txv-video vid="{{i.vid}}" playerid="{{i.playerid}}" autoplay="{{i.autoplay}}" controls="{{i.controls}}"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_8_container" data="{{i: item}}" />
+    </block>
+  </txv-video>
+</template>
+  
 <template name="tmpl_7_container" data="{{i: i}}">
   <template is="{{'tmpl_7_' + i.nn}}" data="{{i: i}}" />
 </template>
@@ -1137,10 +1169,6 @@
   </image>
 </template>
 
-<template name="tmpl_8_video">
-  <video src="{{i.src}}" duration="{{i.duration}}" controls="{{i.controls===undefined?true:i.controls}}" danmu-list="{{i.danmuList}}" danmu-btn="{{i.danmuBtn}}" enable-danmu="{{i.enableDanmu}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" loop="{{i.loop===undefined?false:i.loop}}" muted="{{i.muted===undefined?false:i.muted}}" initial-time="{{i.initialTime===undefined?0:i.initialTime}}" page-gesture="{{i.pageGesture===undefined?false:i.pageGesture}}" direction="{{i.direction}}" show-progress="{{i.showProgress===undefined?true:i.showProgress}}" show-fullscreen-btn="{{i.showFullscreenBtn===undefined?true:i.showFullscreenBtn}}" show-play-btn="{{i.showPlayBtn===undefined?true:i.showPlayBtn}}" show-center-play-btn="{{i.showCenterPlayBtn===undefined?true:i.showCenterPlayBtn}}" enable-progress-gesture="{{i.enableProgressGesture===undefined?true:i.enableProgressGesture}}" object-fit="{{i.objectFit===undefined?'contain':i.objectFit}}" poster="{{i.poster}}" show-mute-btn="{{i.showMuteBtn===undefined?false:i.showMuteBtn}}" title="{{i.title}}" play-btn-position="{{i.playBtnPosition===undefined?'bottom':i.playBtnPosition}}" enable-play-gesture="{{i.enablePlayGesture===undefined?false:i.enablePlayGesture}}" auto-pause-if-navigate="{{i.autoPauseIfNavigate===undefined?true:i.autoPauseIfNavigate}}" auto-pause-if-open-native="{{i.autoPauseIfOpenNative===undefined?true:i.autoPauseIfOpenNative}}" vslide-gesture="{{i.vslideGesture===undefined?false:i.vslideGesture}}" vslide-gesture-in-fullscreen="{{i.vslideGestureInFullscreen===undefined?true:i.vslideGestureInFullscreen}}" ad-unit-id="{{i.adUnitId}}" poster-for-crawler="{{i.posterForCrawler}}" show-casting-button="{{i.showCastingButton===undefined?false:i.showCastingButton}}" picture-in-picture-mode="{{i.pictureInPictureMode===undefined?[]:i.pictureInPictureMode}}" enable-auto-rotation="{{i.enableAutoRotation===undefined?false:i.enableAutoRotation}}" show-screen-lock-button="{{i.showScreenLockButton===undefined?false:i.showScreenLockButton}}" bindplay="eh" bindpause="eh" bindended="eh" bindtimeupdate="eh" bindfullscreenchange="eh" bindwaiting="eh" binderror="eh" bindprogress="eh" bindloadedmetadata="eh" bindcontrolstoggle="eh" bindenterpictureinpicture="eh" bindleavepictureinpicture="eh" bindseekcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></video>
-</template>
-
 <template name="tmpl_8_web-view">
   <web-view src="{{i.src}}" bindmessage="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
     <block wx:for="{{i.cn}}" wx:key="id">
@@ -1153,6 +1181,14 @@
   <block>{{i.v}}</block>
 </template>
 
+<template name="tmpl_8_txv-video">
+  <txv-video vid="{{i.vid}}" playerid="{{i.playerid}}" autoplay="{{i.autoplay}}" controls="{{i.controls}}"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_9_container" data="{{i: item}}" />
+    </block>
+  </txv-video>
+</template>
+  
 <template name="tmpl_8_container" data="{{i: i}}">
   <template is="{{'tmpl_8_' + i.nn}}" data="{{i: i}}" />
 </template>
@@ -1265,10 +1301,6 @@
   </image>
 </template>
 
-<template name="tmpl_9_video">
-  <video src="{{i.src}}" duration="{{i.duration}}" controls="{{i.controls===undefined?true:i.controls}}" danmu-list="{{i.danmuList}}" danmu-btn="{{i.danmuBtn}}" enable-danmu="{{i.enableDanmu}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" loop="{{i.loop===undefined?false:i.loop}}" muted="{{i.muted===undefined?false:i.muted}}" initial-time="{{i.initialTime===undefined?0:i.initialTime}}" page-gesture="{{i.pageGesture===undefined?false:i.pageGesture}}" direction="{{i.direction}}" show-progress="{{i.showProgress===undefined?true:i.showProgress}}" show-fullscreen-btn="{{i.showFullscreenBtn===undefined?true:i.showFullscreenBtn}}" show-play-btn="{{i.showPlayBtn===undefined?true:i.showPlayBtn}}" show-center-play-btn="{{i.showCenterPlayBtn===undefined?true:i.showCenterPlayBtn}}" enable-progress-gesture="{{i.enableProgressGesture===undefined?true:i.enableProgressGesture}}" object-fit="{{i.objectFit===undefined?'contain':i.objectFit}}" poster="{{i.poster}}" show-mute-btn="{{i.showMuteBtn===undefined?false:i.showMuteBtn}}" title="{{i.title}}" play-btn-position="{{i.playBtnPosition===undefined?'bottom':i.playBtnPosition}}" enable-play-gesture="{{i.enablePlayGesture===undefined?false:i.enablePlayGesture}}" auto-pause-if-navigate="{{i.autoPauseIfNavigate===undefined?true:i.autoPauseIfNavigate}}" auto-pause-if-open-native="{{i.autoPauseIfOpenNative===undefined?true:i.autoPauseIfOpenNative}}" vslide-gesture="{{i.vslideGesture===undefined?false:i.vslideGesture}}" vslide-gesture-in-fullscreen="{{i.vslideGestureInFullscreen===undefined?true:i.vslideGestureInFullscreen}}" ad-unit-id="{{i.adUnitId}}" poster-for-crawler="{{i.posterForCrawler}}" show-casting-button="{{i.showCastingButton===undefined?false:i.showCastingButton}}" picture-in-picture-mode="{{i.pictureInPictureMode===undefined?[]:i.pictureInPictureMode}}" enable-auto-rotation="{{i.enableAutoRotation===undefined?false:i.enableAutoRotation}}" show-screen-lock-button="{{i.showScreenLockButton===undefined?false:i.showScreenLockButton}}" bindplay="eh" bindpause="eh" bindended="eh" bindtimeupdate="eh" bindfullscreenchange="eh" bindwaiting="eh" binderror="eh" bindprogress="eh" bindloadedmetadata="eh" bindcontrolstoggle="eh" bindenterpictureinpicture="eh" bindleavepictureinpicture="eh" bindseekcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></video>
-</template>
-
 <template name="tmpl_9_web-view">
   <web-view src="{{i.src}}" bindmessage="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
     <block wx:for="{{i.cn}}" wx:key="id">
@@ -1281,6 +1313,14 @@
   <block>{{i.v}}</block>
 </template>
 
+<template name="tmpl_9_txv-video">
+  <txv-video vid="{{i.vid}}" playerid="{{i.playerid}}" autoplay="{{i.autoplay}}" controls="{{i.controls}}"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_10_container" data="{{i: item}}" />
+    </block>
+  </txv-video>
+</template>
+  
 <template name="tmpl_9_container" data="{{i: i}}">
   <template is="{{'tmpl_9_' + i.nn}}" data="{{i: i}}" />
 </template>
@@ -1393,10 +1433,6 @@
   </image>
 </template>
 
-<template name="tmpl_10_video">
-  <video src="{{i.src}}" duration="{{i.duration}}" controls="{{i.controls===undefined?true:i.controls}}" danmu-list="{{i.danmuList}}" danmu-btn="{{i.danmuBtn}}" enable-danmu="{{i.enableDanmu}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" loop="{{i.loop===undefined?false:i.loop}}" muted="{{i.muted===undefined?false:i.muted}}" initial-time="{{i.initialTime===undefined?0:i.initialTime}}" page-gesture="{{i.pageGesture===undefined?false:i.pageGesture}}" direction="{{i.direction}}" show-progress="{{i.showProgress===undefined?true:i.showProgress}}" show-fullscreen-btn="{{i.showFullscreenBtn===undefined?true:i.showFullscreenBtn}}" show-play-btn="{{i.showPlayBtn===undefined?true:i.showPlayBtn}}" show-center-play-btn="{{i.showCenterPlayBtn===undefined?true:i.showCenterPlayBtn}}" enable-progress-gesture="{{i.enableProgressGesture===undefined?true:i.enableProgressGesture}}" object-fit="{{i.objectFit===undefined?'contain':i.objectFit}}" poster="{{i.poster}}" show-mute-btn="{{i.showMuteBtn===undefined?false:i.showMuteBtn}}" title="{{i.title}}" play-btn-position="{{i.playBtnPosition===undefined?'bottom':i.playBtnPosition}}" enable-play-gesture="{{i.enablePlayGesture===undefined?false:i.enablePlayGesture}}" auto-pause-if-navigate="{{i.autoPauseIfNavigate===undefined?true:i.autoPauseIfNavigate}}" auto-pause-if-open-native="{{i.autoPauseIfOpenNative===undefined?true:i.autoPauseIfOpenNative}}" vslide-gesture="{{i.vslideGesture===undefined?false:i.vslideGesture}}" vslide-gesture-in-fullscreen="{{i.vslideGestureInFullscreen===undefined?true:i.vslideGestureInFullscreen}}" ad-unit-id="{{i.adUnitId}}" poster-for-crawler="{{i.posterForCrawler}}" show-casting-button="{{i.showCastingButton===undefined?false:i.showCastingButton}}" picture-in-picture-mode="{{i.pictureInPictureMode===undefined?[]:i.pictureInPictureMode}}" enable-auto-rotation="{{i.enableAutoRotation===undefined?false:i.enableAutoRotation}}" show-screen-lock-button="{{i.showScreenLockButton===undefined?false:i.showScreenLockButton}}" bindplay="eh" bindpause="eh" bindended="eh" bindtimeupdate="eh" bindfullscreenchange="eh" bindwaiting="eh" binderror="eh" bindprogress="eh" bindloadedmetadata="eh" bindcontrolstoggle="eh" bindenterpictureinpicture="eh" bindleavepictureinpicture="eh" bindseekcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></video>
-</template>
-
 <template name="tmpl_10_web-view">
   <web-view src="{{i.src}}" bindmessage="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
     <block wx:for="{{i.cn}}" wx:key="id">
@@ -1409,6 +1445,14 @@
   <block>{{i.v}}</block>
 </template>
 
+<template name="tmpl_10_txv-video">
+  <txv-video vid="{{i.vid}}" playerid="{{i.playerid}}" autoplay="{{i.autoplay}}" controls="{{i.controls}}"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_11_container" data="{{i: item}}" />
+    </block>
+  </txv-video>
+</template>
+  
 <template name="tmpl_10_container" data="{{i: i}}">
   <template is="{{'tmpl_10_' + i.nn}}" data="{{i: i}}" />
 </template>
@@ -1521,10 +1565,6 @@
   </image>
 </template>
 
-<template name="tmpl_11_video">
-  <video src="{{i.src}}" duration="{{i.duration}}" controls="{{i.controls===undefined?true:i.controls}}" danmu-list="{{i.danmuList}}" danmu-btn="{{i.danmuBtn}}" enable-danmu="{{i.enableDanmu}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" loop="{{i.loop===undefined?false:i.loop}}" muted="{{i.muted===undefined?false:i.muted}}" initial-time="{{i.initialTime===undefined?0:i.initialTime}}" page-gesture="{{i.pageGesture===undefined?false:i.pageGesture}}" direction="{{i.direction}}" show-progress="{{i.showProgress===undefined?true:i.showProgress}}" show-fullscreen-btn="{{i.showFullscreenBtn===undefined?true:i.showFullscreenBtn}}" show-play-btn="{{i.showPlayBtn===undefined?true:i.showPlayBtn}}" show-center-play-btn="{{i.showCenterPlayBtn===undefined?true:i.showCenterPlayBtn}}" enable-progress-gesture="{{i.enableProgressGesture===undefined?true:i.enableProgressGesture}}" object-fit="{{i.objectFit===undefined?'contain':i.objectFit}}" poster="{{i.poster}}" show-mute-btn="{{i.showMuteBtn===undefined?false:i.showMuteBtn}}" title="{{i.title}}" play-btn-position="{{i.playBtnPosition===undefined?'bottom':i.playBtnPosition}}" enable-play-gesture="{{i.enablePlayGesture===undefined?false:i.enablePlayGesture}}" auto-pause-if-navigate="{{i.autoPauseIfNavigate===undefined?true:i.autoPauseIfNavigate}}" auto-pause-if-open-native="{{i.autoPauseIfOpenNative===undefined?true:i.autoPauseIfOpenNative}}" vslide-gesture="{{i.vslideGesture===undefined?false:i.vslideGesture}}" vslide-gesture-in-fullscreen="{{i.vslideGestureInFullscreen===undefined?true:i.vslideGestureInFullscreen}}" ad-unit-id="{{i.adUnitId}}" poster-for-crawler="{{i.posterForCrawler}}" show-casting-button="{{i.showCastingButton===undefined?false:i.showCastingButton}}" picture-in-picture-mode="{{i.pictureInPictureMode===undefined?[]:i.pictureInPictureMode}}" enable-auto-rotation="{{i.enableAutoRotation===undefined?false:i.enableAutoRotation}}" show-screen-lock-button="{{i.showScreenLockButton===undefined?false:i.showScreenLockButton}}" bindplay="eh" bindpause="eh" bindended="eh" bindtimeupdate="eh" bindfullscreenchange="eh" bindwaiting="eh" binderror="eh" bindprogress="eh" bindloadedmetadata="eh" bindcontrolstoggle="eh" bindenterpictureinpicture="eh" bindleavepictureinpicture="eh" bindseekcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></video>
-</template>
-
 <template name="tmpl_11_web-view">
   <web-view src="{{i.src}}" bindmessage="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
     <block wx:for="{{i.cn}}" wx:key="id">
@@ -1537,6 +1577,14 @@
   <block>{{i.v}}</block>
 </template>
 
+<template name="tmpl_11_txv-video">
+  <txv-video vid="{{i.vid}}" playerid="{{i.playerid}}" autoplay="{{i.autoplay}}" controls="{{i.controls}}"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_12_container" data="{{i: item}}" />
+    </block>
+  </txv-video>
+</template>
+  
 <template name="tmpl_11_container" data="{{i: i}}">
   <template is="{{'tmpl_11_' + i.nn}}" data="{{i: i}}" />
 </template>
@@ -1649,10 +1697,6 @@
   </image>
 </template>
 
-<template name="tmpl_12_video">
-  <video src="{{i.src}}" duration="{{i.duration}}" controls="{{i.controls===undefined?true:i.controls}}" danmu-list="{{i.danmuList}}" danmu-btn="{{i.danmuBtn}}" enable-danmu="{{i.enableDanmu}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" loop="{{i.loop===undefined?false:i.loop}}" muted="{{i.muted===undefined?false:i.muted}}" initial-time="{{i.initialTime===undefined?0:i.initialTime}}" page-gesture="{{i.pageGesture===undefined?false:i.pageGesture}}" direction="{{i.direction}}" show-progress="{{i.showProgress===undefined?true:i.showProgress}}" show-fullscreen-btn="{{i.showFullscreenBtn===undefined?true:i.showFullscreenBtn}}" show-play-btn="{{i.showPlayBtn===undefined?true:i.showPlayBtn}}" show-center-play-btn="{{i.showCenterPlayBtn===undefined?true:i.showCenterPlayBtn}}" enable-progress-gesture="{{i.enableProgressGesture===undefined?true:i.enableProgressGesture}}" object-fit="{{i.objectFit===undefined?'contain':i.objectFit}}" poster="{{i.poster}}" show-mute-btn="{{i.showMuteBtn===undefined?false:i.showMuteBtn}}" title="{{i.title}}" play-btn-position="{{i.playBtnPosition===undefined?'bottom':i.playBtnPosition}}" enable-play-gesture="{{i.enablePlayGesture===undefined?false:i.enablePlayGesture}}" auto-pause-if-navigate="{{i.autoPauseIfNavigate===undefined?true:i.autoPauseIfNavigate}}" auto-pause-if-open-native="{{i.autoPauseIfOpenNative===undefined?true:i.autoPauseIfOpenNative}}" vslide-gesture="{{i.vslideGesture===undefined?false:i.vslideGesture}}" vslide-gesture-in-fullscreen="{{i.vslideGestureInFullscreen===undefined?true:i.vslideGestureInFullscreen}}" ad-unit-id="{{i.adUnitId}}" poster-for-crawler="{{i.posterForCrawler}}" show-casting-button="{{i.showCastingButton===undefined?false:i.showCastingButton}}" picture-in-picture-mode="{{i.pictureInPictureMode===undefined?[]:i.pictureInPictureMode}}" enable-auto-rotation="{{i.enableAutoRotation===undefined?false:i.enableAutoRotation}}" show-screen-lock-button="{{i.showScreenLockButton===undefined?false:i.showScreenLockButton}}" bindplay="eh" bindpause="eh" bindended="eh" bindtimeupdate="eh" bindfullscreenchange="eh" bindwaiting="eh" binderror="eh" bindprogress="eh" bindloadedmetadata="eh" bindcontrolstoggle="eh" bindenterpictureinpicture="eh" bindleavepictureinpicture="eh" bindseekcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></video>
-</template>
-
 <template name="tmpl_12_web-view">
   <web-view src="{{i.src}}" bindmessage="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
     <block wx:for="{{i.cn}}" wx:key="id">
@@ -1665,6 +1709,14 @@
   <block>{{i.v}}</block>
 </template>
 
+<template name="tmpl_12_txv-video">
+  <txv-video vid="{{i.vid}}" playerid="{{i.playerid}}" autoplay="{{i.autoplay}}" controls="{{i.controls}}"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_13_container" data="{{i: item}}" />
+    </block>
+  </txv-video>
+</template>
+  
 <template name="tmpl_12_container" data="{{i: i}}">
   <template is="{{'tmpl_12_' + i.nn}}" data="{{i: i}}" />
 </template>
@@ -1777,10 +1829,6 @@
   </image>
 </template>
 
-<template name="tmpl_13_video">
-  <video src="{{i.src}}" duration="{{i.duration}}" controls="{{i.controls===undefined?true:i.controls}}" danmu-list="{{i.danmuList}}" danmu-btn="{{i.danmuBtn}}" enable-danmu="{{i.enableDanmu}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" loop="{{i.loop===undefined?false:i.loop}}" muted="{{i.muted===undefined?false:i.muted}}" initial-time="{{i.initialTime===undefined?0:i.initialTime}}" page-gesture="{{i.pageGesture===undefined?false:i.pageGesture}}" direction="{{i.direction}}" show-progress="{{i.showProgress===undefined?true:i.showProgress}}" show-fullscreen-btn="{{i.showFullscreenBtn===undefined?true:i.showFullscreenBtn}}" show-play-btn="{{i.showPlayBtn===undefined?true:i.showPlayBtn}}" show-center-play-btn="{{i.showCenterPlayBtn===undefined?true:i.showCenterPlayBtn}}" enable-progress-gesture="{{i.enableProgressGesture===undefined?true:i.enableProgressGesture}}" object-fit="{{i.objectFit===undefined?'contain':i.objectFit}}" poster="{{i.poster}}" show-mute-btn="{{i.showMuteBtn===undefined?false:i.showMuteBtn}}" title="{{i.title}}" play-btn-position="{{i.playBtnPosition===undefined?'bottom':i.playBtnPosition}}" enable-play-gesture="{{i.enablePlayGesture===undefined?false:i.enablePlayGesture}}" auto-pause-if-navigate="{{i.autoPauseIfNavigate===undefined?true:i.autoPauseIfNavigate}}" auto-pause-if-open-native="{{i.autoPauseIfOpenNative===undefined?true:i.autoPauseIfOpenNative}}" vslide-gesture="{{i.vslideGesture===undefined?false:i.vslideGesture}}" vslide-gesture-in-fullscreen="{{i.vslideGestureInFullscreen===undefined?true:i.vslideGestureInFullscreen}}" ad-unit-id="{{i.adUnitId}}" poster-for-crawler="{{i.posterForCrawler}}" show-casting-button="{{i.showCastingButton===undefined?false:i.showCastingButton}}" picture-in-picture-mode="{{i.pictureInPictureMode===undefined?[]:i.pictureInPictureMode}}" enable-auto-rotation="{{i.enableAutoRotation===undefined?false:i.enableAutoRotation}}" show-screen-lock-button="{{i.showScreenLockButton===undefined?false:i.showScreenLockButton}}" bindplay="eh" bindpause="eh" bindended="eh" bindtimeupdate="eh" bindfullscreenchange="eh" bindwaiting="eh" binderror="eh" bindprogress="eh" bindloadedmetadata="eh" bindcontrolstoggle="eh" bindenterpictureinpicture="eh" bindleavepictureinpicture="eh" bindseekcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></video>
-</template>
-
 <template name="tmpl_13_web-view">
   <web-view src="{{i.src}}" bindmessage="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
     <block wx:for="{{i.cn}}" wx:key="id">
@@ -1793,6 +1841,14 @@
   <block>{{i.v}}</block>
 </template>
 
+<template name="tmpl_13_txv-video">
+  <txv-video vid="{{i.vid}}" playerid="{{i.playerid}}" autoplay="{{i.autoplay}}" controls="{{i.controls}}"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_14_container" data="{{i: item}}" />
+    </block>
+  </txv-video>
+</template>
+  
 <template name="tmpl_13_container" data="{{i: i}}">
   <template is="{{'tmpl_13_' + i.nn}}" data="{{i: i}}" />
 </template>
@@ -1905,10 +1961,6 @@
   </image>
 </template>
 
-<template name="tmpl_14_video">
-  <video src="{{i.src}}" duration="{{i.duration}}" controls="{{i.controls===undefined?true:i.controls}}" danmu-list="{{i.danmuList}}" danmu-btn="{{i.danmuBtn}}" enable-danmu="{{i.enableDanmu}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" loop="{{i.loop===undefined?false:i.loop}}" muted="{{i.muted===undefined?false:i.muted}}" initial-time="{{i.initialTime===undefined?0:i.initialTime}}" page-gesture="{{i.pageGesture===undefined?false:i.pageGesture}}" direction="{{i.direction}}" show-progress="{{i.showProgress===undefined?true:i.showProgress}}" show-fullscreen-btn="{{i.showFullscreenBtn===undefined?true:i.showFullscreenBtn}}" show-play-btn="{{i.showPlayBtn===undefined?true:i.showPlayBtn}}" show-center-play-btn="{{i.showCenterPlayBtn===undefined?true:i.showCenterPlayBtn}}" enable-progress-gesture="{{i.enableProgressGesture===undefined?true:i.enableProgressGesture}}" object-fit="{{i.objectFit===undefined?'contain':i.objectFit}}" poster="{{i.poster}}" show-mute-btn="{{i.showMuteBtn===undefined?false:i.showMuteBtn}}" title="{{i.title}}" play-btn-position="{{i.playBtnPosition===undefined?'bottom':i.playBtnPosition}}" enable-play-gesture="{{i.enablePlayGesture===undefined?false:i.enablePlayGesture}}" auto-pause-if-navigate="{{i.autoPauseIfNavigate===undefined?true:i.autoPauseIfNavigate}}" auto-pause-if-open-native="{{i.autoPauseIfOpenNative===undefined?true:i.autoPauseIfOpenNative}}" vslide-gesture="{{i.vslideGesture===undefined?false:i.vslideGesture}}" vslide-gesture-in-fullscreen="{{i.vslideGestureInFullscreen===undefined?true:i.vslideGestureInFullscreen}}" ad-unit-id="{{i.adUnitId}}" poster-for-crawler="{{i.posterForCrawler}}" show-casting-button="{{i.showCastingButton===undefined?false:i.showCastingButton}}" picture-in-picture-mode="{{i.pictureInPictureMode===undefined?[]:i.pictureInPictureMode}}" enable-auto-rotation="{{i.enableAutoRotation===undefined?false:i.enableAutoRotation}}" show-screen-lock-button="{{i.showScreenLockButton===undefined?false:i.showScreenLockButton}}" bindplay="eh" bindpause="eh" bindended="eh" bindtimeupdate="eh" bindfullscreenchange="eh" bindwaiting="eh" binderror="eh" bindprogress="eh" bindloadedmetadata="eh" bindcontrolstoggle="eh" bindenterpictureinpicture="eh" bindleavepictureinpicture="eh" bindseekcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></video>
-</template>
-
 <template name="tmpl_14_web-view">
   <web-view src="{{i.src}}" bindmessage="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
     <block wx:for="{{i.cn}}" wx:key="id">
@@ -1921,6 +1973,14 @@
   <block>{{i.v}}</block>
 </template>
 
+<template name="tmpl_14_txv-video">
+  <txv-video vid="{{i.vid}}" playerid="{{i.playerid}}" autoplay="{{i.autoplay}}" controls="{{i.controls}}"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_15_container" data="{{i: item}}" />
+    </block>
+  </txv-video>
+</template>
+  
 <template name="tmpl_14_container" data="{{i: i}}">
   <template is="{{'tmpl_14_' + i.nn}}" data="{{i: i}}" />
 </template>
@@ -2033,10 +2093,6 @@
   </image>
 </template>
 
-<template name="tmpl_15_video">
-  <video src="{{i.src}}" duration="{{i.duration}}" controls="{{i.controls===undefined?true:i.controls}}" danmu-list="{{i.danmuList}}" danmu-btn="{{i.danmuBtn}}" enable-danmu="{{i.enableDanmu}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" loop="{{i.loop===undefined?false:i.loop}}" muted="{{i.muted===undefined?false:i.muted}}" initial-time="{{i.initialTime===undefined?0:i.initialTime}}" page-gesture="{{i.pageGesture===undefined?false:i.pageGesture}}" direction="{{i.direction}}" show-progress="{{i.showProgress===undefined?true:i.showProgress}}" show-fullscreen-btn="{{i.showFullscreenBtn===undefined?true:i.showFullscreenBtn}}" show-play-btn="{{i.showPlayBtn===undefined?true:i.showPlayBtn}}" show-center-play-btn="{{i.showCenterPlayBtn===undefined?true:i.showCenterPlayBtn}}" enable-progress-gesture="{{i.enableProgressGesture===undefined?true:i.enableProgressGesture}}" object-fit="{{i.objectFit===undefined?'contain':i.objectFit}}" poster="{{i.poster}}" show-mute-btn="{{i.showMuteBtn===undefined?false:i.showMuteBtn}}" title="{{i.title}}" play-btn-position="{{i.playBtnPosition===undefined?'bottom':i.playBtnPosition}}" enable-play-gesture="{{i.enablePlayGesture===undefined?false:i.enablePlayGesture}}" auto-pause-if-navigate="{{i.autoPauseIfNavigate===undefined?true:i.autoPauseIfNavigate}}" auto-pause-if-open-native="{{i.autoPauseIfOpenNative===undefined?true:i.autoPauseIfOpenNative}}" vslide-gesture="{{i.vslideGesture===undefined?false:i.vslideGesture}}" vslide-gesture-in-fullscreen="{{i.vslideGestureInFullscreen===undefined?true:i.vslideGestureInFullscreen}}" ad-unit-id="{{i.adUnitId}}" poster-for-crawler="{{i.posterForCrawler}}" show-casting-button="{{i.showCastingButton===undefined?false:i.showCastingButton}}" picture-in-picture-mode="{{i.pictureInPictureMode===undefined?[]:i.pictureInPictureMode}}" enable-auto-rotation="{{i.enableAutoRotation===undefined?false:i.enableAutoRotation}}" show-screen-lock-button="{{i.showScreenLockButton===undefined?false:i.showScreenLockButton}}" bindplay="eh" bindpause="eh" bindended="eh" bindtimeupdate="eh" bindfullscreenchange="eh" bindwaiting="eh" binderror="eh" bindprogress="eh" bindloadedmetadata="eh" bindcontrolstoggle="eh" bindenterpictureinpicture="eh" bindleavepictureinpicture="eh" bindseekcomplete="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></video>
-</template>
-
 <template name="tmpl_15_web-view">
   <web-view src="{{i.src}}" bindmessage="eh" bindload="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
     <block wx:for="{{i.cn}}" wx:key="id">
@@ -2049,6 +2105,14 @@
   <block>{{i.v}}</block>
 </template>
 
+<template name="tmpl_15_txv-video">
+  <txv-video vid="{{i.vid}}" playerid="{{i.playerid}}" autoplay="{{i.autoplay}}" controls="{{i.controls}}"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_16_container" data="{{i: item}}" />
+    </block>
+  </txv-video>
+</template>
+  
 <template name="tmpl_15_container" data="{{i: i}}">
   <comp i="{{i}}" />
 </template>

@@ -546,7 +546,7 @@ var render = function() {
       _vm._v(" "),
       _c("sidebar"),
       _vm._v(" "),
-      _c("download-leads")
+      _c("live-leads")
     ],
     1
   )

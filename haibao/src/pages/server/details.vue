@@ -48,7 +48,7 @@
 
     <sidebar/>
 
-    <download-leads/>
+    <live-leads/>
   </view>
 </template>
 

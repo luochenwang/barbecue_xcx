@@ -3,7 +3,8 @@
     <webheader/>
     <view class="tt">{{videoInfo.title}}</view>
     <view class="video-box">
-        <video :src="videoInfo.video_filename" :autoplay='true' :controls="true" @loadedmetadata="getLength"></video>
+        <!-- <video :src="videoInfo.video_filename" :autoplay='true' :controls="true" @loadedmetadata="getLength"></video> -->
+        <txv-video :vid="videoInfo.video_url" playerid="txv1" :autoplay='true' :controls="true"></txv-video>
     </view>
     <view class="btn-box">
       <!-- <view class="btn" @tap="downloadVideo(videoInfo)">下载资料</view> -->
@@ -32,7 +33,7 @@ export default {
     return {
       title: this.videoInfo.title,
       imageUrl:this.videoInfo.share_img,
-      path: '/pages/server/video?title='+this.videoInfo.title+'&video_filename='+this.videoInfo.video_filename+'&share_img='+this.videoInfo.share_img+'&video_picture='+this.videoInfo.video_picture + '&id='+this.videoInfo.id,
+      path: '/pages/server/video?title='+this.videoInfo.title+'&video_url='+this.videoInfo.video_url+'&share_img='+this.videoInfo.share_img+'&video_picture='+this.videoInfo.video_picture + '&id='+this.videoInfo.id,
       success: (res) => {
         ajax({
             url:'xcx_request.php',
@@ -51,10 +52,11 @@ export default {
   onLoad(option) {
     console.log(option);
     this.videoInfo = option;
+    this.getLength();
   },
   methods: {
     getLength(e){
-      let time = parseInt(e.detail.duration);
+      // let time = parseInt(e.detail.duration);
       ajax({
         url: 'xcx_request.php',
         data: {
@@ -63,7 +65,7 @@ export default {
           tp: this.$store.state.category,
           tp_value: this.videoInfo.id,
           file_tp: 'video',
-          watch_time: time,
+          watch_time: '',
         },
       });
     }
