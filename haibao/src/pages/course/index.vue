@@ -11,7 +11,7 @@
         </navigator>
         <navigator class="item" url="/pages/course/list?title=直播课程&category_id=2&no_search=1">
             <image src="https://campaign5.method-ad.cn/hypertherm/img/course/icon_nav2.png"/>
-            <text>直播课程</text>
+            <text>在线课程</text>
         </navigator>
         <navigator class="item" url="/pages/course/center">
             <image src="https://campaign5.method-ad.cn/hypertherm/img/course/icon_nav3.png"/>
@@ -57,7 +57,7 @@ export default {
       }
     },
   components: {
-    
+
   },
   onLoad(option) {
       ajax({
