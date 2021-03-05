@@ -40,7 +40,10 @@ export default {
                     data:{
                         act:'editUserInfo',
                         nickname: res.userInfo.nickName,
-                        headimgurl: res.userInfo.avatarUrl
+                        headimgurl: res.userInfo.avatarUrl,
+                        gender:res.userInfo.gender,
+                        city:res.userInfo.city,
+                        country:res.userInfo.country,
                     },
                 })
               }
