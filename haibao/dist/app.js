@@ -246,8 +246,8 @@ var plugin = requirePlugin("ykfchat");
         url: 'xcx_request.php',
         data: {
           act: 'set_form',
-          tp: this.$store.state.category || 50,
-          tp_value: ((_this$leadsItem = this.leadsItem) === null || _this$leadsItem === void 0 ? void 0 : _this$leadsItem.class_id) || ((_this$leadsItem2 = this.leadsItem) === null || _this$leadsItem2 === void 0 ? void 0 : _this$leadsItem2.tech_detail_id) || 50,
+          tp: this.$store.state.category || 200,
+          tp_value: ((_this$leadsItem = this.leadsItem) === null || _this$leadsItem === void 0 ? void 0 : _this$leadsItem.class_id) || ((_this$leadsItem2 = this.leadsItem) === null || _this$leadsItem2 === void 0 ? void 0 : _this$leadsItem2.tech_detail_id) || 0,
           comname: this.company,
           mobile: this.phone,
           name: this.name,

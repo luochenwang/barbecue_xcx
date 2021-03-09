@@ -155,8 +155,8 @@ export default {
         url: 'xcx_request.php',
         data: {
           act: 'set_form',
-          tp: this.$store.state.category || 50,
-          tp_value: this.leadsItem?.class_id || this.leadsItem?.tech_detail_id || 50,
+          tp: this.$store.state.category || 200,
+          tp_value: this.leadsItem?.class_id || this.leadsItem?.tech_detail_id || 0,
           comname: this.company,
           mobile: this.phone,
           name: this.name,
