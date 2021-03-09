@@ -64,7 +64,7 @@ export default {
       },
   },
   watch:{
-    downloadLeadsModel(val){
+    consultLeadsModel(val){
       if(val){
           ajax({
             url: 'xcx_request.php',
@@ -155,8 +155,8 @@ export default {
         url: 'xcx_request.php',
         data: {
           act: 'set_form',
-          // tp: this.$store.state.category,
-          // tp_value: this.leadsItem.class_id || this.leadsItem.tech_detail_id,
+          tp: this.$store.state.category,
+          tp_value: this.leadsItem.class_id || this.leadsItem.tech_detail_id,
           comname: this.company,
           mobile: this.phone,
           name: this.name,

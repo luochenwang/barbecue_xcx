@@ -142,7 +142,7 @@ var plugin = requirePlugin("ykfchat");
     }
   },
   watch: {
-    downloadLeadsModel: function downloadLeadsModel(val) {
+    consultLeadsModel: function consultLeadsModel(val) {
       var _this = this;
 
       if (val) {
@@ -244,8 +244,8 @@ var plugin = requirePlugin("ykfchat");
         url: 'xcx_request.php',
         data: {
           act: 'set_form',
-          // tp: this.$store.state.category,
-          // tp_value: this.leadsItem.class_id || this.leadsItem.tech_detail_id,
+          tp: this.$store.state.category,
+          tp_value: this.leadsItem.class_id || this.leadsItem.tech_detail_id,
           comname: this.company,
           mobile: this.phone,
           name: this.name,
