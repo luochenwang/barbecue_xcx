@@ -72,11 +72,15 @@
                     display: none;
                 }
                 .name-r{
-                    line-height:160rpx;
+                    line-height:1.4;
+                    height:160rpx;
                     width:100%;
                     font-size: 31rpx;
                     border-bottom:1px solid #cecece;
-                    padding-left:30rpx;
+                    padding-left:20rpx;
+                    padding-right:40rpx;
+                    display: flex;
+                    align-items: center;
                 }
                 &:after{
                     content:'';

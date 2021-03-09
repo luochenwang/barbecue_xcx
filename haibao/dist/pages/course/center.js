@@ -242,7 +242,7 @@ var render = function() {
                   "/pages/course/list?title=已预约直播&cat=get_MyFinished&no_search=1"
               }
             },
-            [_vm._v("已预约直播")]
+            [_vm._v("已预约课程")]
           )
         ],
         1

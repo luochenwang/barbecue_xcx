@@ -176,6 +176,7 @@ var plugin = requirePlugin("ykfchat");
         act: 'get_Youare_list'
       }
     }).then(function (res) {
+      res.list.unshift('请选择您的⾝份');
       _this2.array = res.list;
     });
   },
@@ -224,6 +225,15 @@ var plugin = requirePlugin("ykfchat");
       if (!this.privacy) {
         wx.showToast({
           title: '请查看海宝隐私政策',
+          icon: 'none',
+          duration: 2000
+        });
+        return false;
+      }
+
+      if (this.array[this.index] == '请选择您的⾝份') {
+        wx.showToast({
+          title: '请选择您的⾝份',
           icon: 'none',
           duration: 2000
         });

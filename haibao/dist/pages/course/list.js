@@ -106,6 +106,8 @@ component.options.__file = "src/pages/course/list.vue"
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
@@ -115,14 +117,19 @@ component.options.__file = "src/pages/course/list.vue"
     return {
       title: '',
       multiIndex: [0, 0],
-      multiArray: [[{}], [{}]],
+      multiArray: [[{
+        title: '请选择视频类型'
+      }], [{
+        title: '请选择产品系列'
+      }]],
       list: [],
       viewVideoSrc: '',
       pageId: 1,
       maxPage: 2,
       categoryId: '',
       listCat: '',
-      searchModel: true
+      searchModel: true,
+      isFirst: false
     };
   },
   components: {},
@@ -197,6 +204,7 @@ component.options.__file = "src/pages/course/list.vue"
         }
 
         _this.maxPage = res.list_num;
+        _this.isFirst = true;
       });
     },
     getPurpose: function getPurpose(isRefresh) {
@@ -210,6 +218,10 @@ component.options.__file = "src/pages/course/list.vue"
 
         }
       }).then(function (res) {
+        res.list.unshift({
+          title: '请选择视频类型'
+        });
+
         _this2.$set(_this2.multiArray, 0, res.list);
 
         _this2.getProduct(isRefresh);
@@ -226,6 +238,10 @@ component.options.__file = "src/pages/course/list.vue"
 
         }
       }).then(function (res) {
+        res.list.unshift({
+          title: '请选择产品系列'
+        });
+
         _this3.$set(_this3.multiArray, 1, res.list);
 
         if (isRefresh) {
@@ -346,34 +362,80 @@ var render = function() {
       _c("view", { staticClass: "list-content" }, [
         _c("view", { staticClass: "tt" }, [_vm._v(_vm._s(_vm.title))]),
         _vm._v(" "),
-        _c(
-          "view",
-          { staticClass: "list" },
-          [
-            _c(
-              "scroll-view",
-              {
-                staticClass: "list-box",
-                attrs: { "scroll-y": true },
-                on: { scrolltolower: _vm.loadMore }
-              },
-              _vm._l(_vm.list, function(item, index) {
-                return _c("view", { staticClass: "item" }, [
-                  _c("view", { staticClass: "item-l" }, [
-                    _c("image", {
-                      attrs: { src: item.picture, mode: "widthFix" }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("view", { staticClass: "item-r" }, [
-                    _c("view", { staticClass: "name" }, [
-                      _vm._v(_vm._s(item.title))
-                    ]),
-                    _vm._v(" "),
-                    _vm.categoryId == "2"
-                      ? _c("view", { staticClass: "btn-box" }, [
-                          item.is_appointment == 0
-                            ? _c(
+        _vm.list.length
+          ? _c(
+              "view",
+              { staticClass: "list" },
+              [
+                _c(
+                  "scroll-view",
+                  {
+                    staticClass: "list-box",
+                    attrs: { "scroll-y": true },
+                    on: { scrolltolower: _vm.loadMore }
+                  },
+                  _vm._l(_vm.list, function(item, index) {
+                    return _c("view", { staticClass: "item" }, [
+                      _c("view", { staticClass: "item-l" }, [
+                        _c("image", {
+                          attrs: { src: item.picture, mode: "widthFix" }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("view", { staticClass: "item-r" }, [
+                        _c("view", { staticClass: "name" }, [
+                          _vm._v(_vm._s(item.title))
+                        ]),
+                        _vm._v(" "),
+                        _vm.categoryId == "2"
+                          ? _c("view", { staticClass: "btn-box" }, [
+                              item.is_appointment == 0
+                                ? _c(
+                                    "view",
+                                    {
+                                      staticClass: "btn active",
+                                      on: {
+                                        tap: function($event) {
+                                          return _vm.toViewVideo(item)
+                                        }
+                                      }
+                                    },
+                                    [_vm._v("查看视频")]
+                                  )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              item.is_appointment != 0
+                                ? _c(
+                                    "view",
+                                    {
+                                      staticClass: "btn reserve",
+                                      on: {
+                                        tap: function($event) {
+                                          return _vm.reserve(item, index)
+                                        }
+                                      }
+                                    },
+                                    [_vm._v("直播预约")]
+                                  )
+                                : _vm._e()
+                            ])
+                          : _vm.listCat == "get_MyFinished"
+                          ? _c("view", { staticClass: "btn-box" }, [
+                              _c(
+                                "view",
+                                {
+                                  staticClass: "btn reserve",
+                                  on: {
+                                    tap: function($event) {
+                                      return _vm.toViewVideo(item, index)
+                                    }
+                                  }
+                                },
+                                [_vm._v("查看直播")]
+                              )
+                            ])
+                          : _c("view", { staticClass: "btn-box" }, [
+                              _c(
                                 "view",
                                 {
                                   staticClass: "btn active",
@@ -385,60 +447,20 @@ var render = function() {
                                 },
                                 [_vm._v("查看视频")]
                               )
-                            : _vm._e(),
-                          _vm._v(" "),
-                          item.is_appointment != 0
-                            ? _c(
-                                "view",
-                                {
-                                  staticClass: "btn reserve",
-                                  on: {
-                                    tap: function($event) {
-                                      return _vm.reserve(item, index)
-                                    }
-                                  }
-                                },
-                                [_vm._v("直播预约")]
-                              )
-                            : _vm._e()
-                        ])
-                      : _vm.listCat == "get_MyFinished"
-                      ? _c("view", { staticClass: "btn-box" }, [
-                          _c(
-                            "view",
-                            {
-                              staticClass: "btn reserve",
-                              on: {
-                                tap: function($event) {
-                                  return _vm.toViewVideo(item, index)
-                                }
-                              }
-                            },
-                            [_vm._v("查看直播")]
-                          )
-                        ])
-                      : _c("view", { staticClass: "btn-box" }, [
-                          _c(
-                            "view",
-                            {
-                              staticClass: "btn active",
-                              on: {
-                                tap: function($event) {
-                                  return _vm.toViewVideo(item)
-                                }
-                              }
-                            },
-                            [_vm._v("查看视频")]
-                          )
-                        ])
-                  ])
-                ])
-              }),
-              0
+                            ])
+                      ])
+                    ])
+                  }),
+                  0
+                )
+              ],
+              1
             )
-          ],
-          1
-        )
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.isFirst && !_vm.list.length
+          ? _c("view", { staticClass: "no-data" }, [_vm._v("暂无数据")])
+          : _vm._e()
       ]),
       _vm._v(" "),
       _c("sidebar"),

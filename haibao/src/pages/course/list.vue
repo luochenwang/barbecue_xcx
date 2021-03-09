@@ -16,7 +16,7 @@
     </view>
     <view class="list-content">
         <view class="tt">{{title}}</view>
-        <view class="list">
+        <view class="list" v-if="list.length">
           <scroll-view class="list-box" :scroll-y="true" @scrolltolower="loadMore">
             <view class="item" v-for="(item,index) in list">
                 <view class="item-l">
@@ -44,6 +44,8 @@
             </view>
           </scroll-view>
         </view>
+
+        <view v-if="isFirst && !list.length" class="no-data">暂无数据</view>
     </view>
 
     <sidebar/>
@@ -62,7 +64,7 @@ export default {
     return {
         title:'',
         multiIndex: [0, 0],
-        multiArray: [[{}],[{}]],
+        multiArray: [[{title:'请选择视频类型'}],[{title:'请选择产品系列'}]],
         list:[],
         viewVideoSrc:'',
         pageId:1,
@@ -70,7 +72,8 @@ export default {
         categoryId:'',
         listCat:'',
 
-        searchModel:true
+        searchModel:true,
+        isFirst:false
     }
   },
   components: {
@@ -141,6 +144,7 @@ export default {
                 this.list.push(...res.list);
               }
               this.maxPage = res.list_num;
+              this.isFirst = true;
             })
         },
         getPurpose(isRefresh){
@@ -152,6 +156,7 @@ export default {
                       // industry_id:this.multiArray[0][this.multiIndex[0]].industry_id,
                   },
             }).then(res=>{
+                res.list.unshift({title:'请选择视频类型'});
                 this.$set(this.multiArray,0,res.list);
                 this.getProduct(isRefresh);
             })
@@ -165,6 +170,7 @@ export default {
                       // industry_id:this.multiArray[0][this.multiIndex[0]].industry_id,
                   },
             }).then(res=>{
+                res.list.unshift({title:'请选择产品系列'});
                 this.$set(this.multiArray,1,res.list);
                 if(isRefresh){
                     this.getData();
