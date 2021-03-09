@@ -191,7 +191,9 @@ var plugin = requirePlugin("ykfchat");
       this.index = e.detail.value;
     },
     submit: function submit() {
-      var _this3 = this;
+      var _this$leadsItem,
+          _this$leadsItem2,
+          _this3 = this;
 
       console.log(this.name);
 
@@ -244,8 +246,8 @@ var plugin = requirePlugin("ykfchat");
         url: 'xcx_request.php',
         data: {
           act: 'set_form',
-          tp: this.$store.state.category,
-          tp_value: this.leadsItem.class_id || this.leadsItem.tech_detail_id,
+          tp: this.$store.state.category || 50,
+          tp_value: ((_this$leadsItem = this.leadsItem) === null || _this$leadsItem === void 0 ? void 0 : _this$leadsItem.class_id) || ((_this$leadsItem2 = this.leadsItem) === null || _this$leadsItem2 === void 0 ? void 0 : _this$leadsItem2.tech_detail_id) || 50,
           comname: this.company,
           mobile: this.phone,
           name: this.name,
