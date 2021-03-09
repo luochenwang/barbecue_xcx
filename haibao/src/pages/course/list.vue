@@ -135,8 +135,8 @@ export default {
                       act:this.listCat || 'get_class_list',
                       category_id:this.categoryId,
                       // industry_id:this.multiArray[0][this.multiIndex[0]].industry_id,
-                      purpose_id:0,
-                      product_id:0,
+                      purpose_id:this.multiArray[0][this.multiIndex[0]].purpose_id || 0,
+                      product_id:this.multiArray[1][this.multiIndex[1]].product_id || 0,
                       page:this.pageId,
                   },
             }).then(res=>{
