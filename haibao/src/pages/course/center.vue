@@ -85,7 +85,7 @@ export default {
              success: res => {
               console.log(res);
                 globalData.set("userInfo", res.userInfo);
-                that.userInfo = res.userInfo;
+                that.$store.commit('set_useriNfo',res.userInfo);
 
                 ajax({
                     url:'xcx_request.php',

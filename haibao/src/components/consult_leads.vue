@@ -46,6 +46,8 @@
 <script>
 import { ajax } from "../libs/ajax";
 var plugin = requirePlugin("ykfchat");
+import mixin from "../libs/mixin";
+
 export default {
   name: 'sidebar',
   data(){
@@ -58,6 +60,7 @@ export default {
       company:''
     }
   },
+  mixins: [mixin],
   computed:{
       consultLeadsModel(){
           return this.$store.state.consultLeadsModel;
@@ -168,6 +171,7 @@ export default {
           // 预约
           plugin.callback.on("getOpenId", this.getOpenId, this); // 传递openid，注意路径后一定要声名&getOpenIdType=2，否则传递无效
           plugin.callback.on("getSessionFrom", this.session, this); // 传递客户资料
+
           wx.navigateTo({
               url: 'plugin://ykfchat/chat-page?wechatapp_id=219196&channel_id=25200&scene=p86776wmyjpl&getOpenIdType=2',
           });

@@ -1,5 +1,1 @@
-.pdf-img {
-  display: block;
-  margin: 0 auto;
-}
-
+.pdf-img{display:block;margin:0 auto}

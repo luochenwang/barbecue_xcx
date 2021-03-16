@@ -84,18 +84,6 @@ export default {
     }
   },
   methods: {
-    getOpenId(callback) {
-        let data = {
-          openid: this.openid
-        }
-        callback(data)
-    },
-    session(callback) {
-        let data = {
-          sessionFrom: this.userInfo
-        }
-        callback(data)
-    },
     service() {
       this.$store.commit('set_consultLeadsModel',true);
     },

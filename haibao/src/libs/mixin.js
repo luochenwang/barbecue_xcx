@@ -16,6 +16,19 @@ export default {
     this.containerTop = menuButtonObject.height + menuButtonObject.top + 10;
   },
   methods: {
+    getOpenId(callback) {
+        let data = {
+          openid: this.openid
+        }
+
+        callback(data)
+    },
+    session(callback) {
+        let data = {
+          sessionFrom: this.userInfo
+        }
+        callback(data)
+    },
     viewVideo(item) {
       this.viewVideoSrc = item.video_filename;
     },

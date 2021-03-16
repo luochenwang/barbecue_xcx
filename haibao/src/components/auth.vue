@@ -34,7 +34,7 @@ export default {
               success: res => {
                 globalData.set("userInfo", res.userInfo);
                 that.$store.commit('set_authModel',false);
-
+                that.$store.commit('set_useriNfo',res.userInfo);
                 ajax({
                     url:'xcx_request.php',
                     data:{
