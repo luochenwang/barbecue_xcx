@@ -3,13 +3,13 @@
     <webheader/>
     <view class="tab-nav">
       <view class="item" :class="{'active' : tabIndex == 0}" @tap="setTab(0)">
-        <image src="http://192.168.3.29:8383/icon_application1.png" v-if="tabIndex == 0"/>
-        <image src="http://192.168.3.29:8383/icon_application2.png" v-else/>
+        <image src="https://campaign5.method-ad.cn/hypertherm/img/show/icon_application1.png" v-if="tabIndex == 0"/>
+        <image src="https://campaign5.method-ad.cn/hypertherm/img/show/icon_application2.png" v-else/>
         <text>应用</text>
       </view>
       <view class="item" :class="{'active' : tabIndex == 1}" @tap="setTab(1)">
-        <image src="http://192.168.3.29:8383/icon_pro2.png" v-if="tabIndex == 1"/>
-        <image src="http://192.168.3.29:8383/icon_pro1.png" v-else/>
+        <image src="https://campaign5.method-ad.cn/hypertherm/img/show/icon_pro2.png" v-if="tabIndex == 1"/>
+        <image src="https://campaign5.method-ad.cn/hypertherm/img/show/icon_pro1.png" v-else/>
         <text>产品</text>
       </view>
     </view>

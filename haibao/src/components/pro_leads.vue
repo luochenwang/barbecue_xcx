@@ -58,7 +58,7 @@
     </view>
 
     <view class="success-dialog" v-else>
-      <image src="http://192.168.3.29:8383/icon_success2.png"/>
+      <image src="https://campaign5.method-ad.cn/hypertherm/img/show/icon_success2.png"/>
       <view class="txt">提交信息成功</view>
       <view class="btn" @tap="close">关闭</view>
     </view>

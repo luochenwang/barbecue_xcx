@@ -3,11 +3,11 @@
     <webheader/>
     <view class="tab-nav">
       <view class="item active" @tap='writeLeader'>
-        <image src="http://192.168.3.29:8383/icon_leads.png"/>
+        <image src="https://campaign5.method-ad.cn/hypertherm/img/show/icon_leads.png"/>
         <text>填写表单</text>
       </view>
       <view class="item" @tap="showFilter">
-        <image src="http://192.168.3.29:8383/icon_filter.png"/>
+        <image src="https://campaign5.method-ad.cn/hypertherm/img/show/icon_filter.png"/>
         <text>筛选</text>
       </view>
     </view>
