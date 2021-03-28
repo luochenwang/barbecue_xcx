@@ -8,6 +8,12 @@ export default {
     'pages/server/details',
     'pages/server/video',
     'pages/pdf/index',
+    'pages/show/details',
+    'pages/show/list',
+    'pages/application/details',
+    'pages/application/list',
+    'pages/application/index',
+    'pages/search/result',
     'pages/course/center',
     'pages/course/list',
     'pages/course/index'

@@ -44,7 +44,13 @@ var timr = null;
     },
     methods: {
       back(){
-        wx.navigateBack();
+        wx.navigateBack({
+          fail:function(){
+            wx.reLaunch({
+              url: '/pages/index/index'
+            })
+          }
+        });
       },
       getOpenId(callback) {
           let data = {

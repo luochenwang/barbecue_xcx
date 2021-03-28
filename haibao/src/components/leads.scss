@@ -10,12 +10,52 @@
   align-items: center;
   justify-content: center;
   padding-top:125rpx;
+  .success-dialog{
+    image{
+      width:118rpx;
+      height:118rpx;
+      display: block;
+      margin:0 auto 30rpx;
+    }
+    .txt{
+      font-size:40rpx;
+      color:#fff;
+      text-align: center;
+      margin-bottom:80rpx;
+    }
+    .btn{
+      width:270rpx;
+      line-height:70rpx;
+      text-align: center;
+      color:#ffff;
+      background:#ed1d2f;
+      font-size:30rpx;
+      border-radius:70rpx;
+    }
+  }
   .leads-dialog{
     width:640rpx;
     background:#fff;
     border-radius:20rpx;
     padding:45rpx 35rpx 50rpx;
     position: relative;
+    &.pro-leads{
+      height:75vh;
+      overflow: auto;
+    }
+    .tt{
+      font-size:30rpx;
+      font-weight: bold;
+      margin-bottom:20rpx;
+    }
+    .form-box{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .form-group{
+        width:30%;
+      }
+    }
     .form-group{
       margin-bottom:25rpx;
       position: relative;
@@ -33,10 +73,11 @@
         }
       }
       label{
-        font-size:30rpx;
+        font-size:24rpx;
         display: block;
+        margin-bottom:10rpx;
       }
-      input,.txt{
+      input,.txt,.picker{
         width:100%;
         height:75rpx;
         line-height:75rpx;
@@ -45,13 +86,36 @@
         border:1Px solid #000;
         box-sizing: border-box;
       }
+      textarea{
+        width:100%;
+        height:210rpx;
+        font-size:30rpx;
+        padding:20rpx;
+        border:1Px solid #000;
+        box-sizing: border-box;
+      }
     }
     .privacy{
       display: flex;
       align-items: center;
+      margin-bottom:10rpx;
       text{
-        font-size:21rpx;
+        font-size:22rpx;
       }
+      navigator{
+        font-size:22rpx;
+        color:#121dff;
+        border-bottom:1Px solid #121dff;
+      }
+    }
+    .tips{
+        color:#696969;
+        font-size:22rpx;
+        margin:20rpx 0;
+    }
+    .label{
+        font-size:22rpx;
+        margin-bottom:10rpx;
     }
     .submit{
       margin:80rpx auto;
@@ -61,6 +125,10 @@
       border-radius:70rpx;
       color:#fff;
       background:#ed1b2e;
+    }
+    .txt{
+      font-size:24rpx;
+      margin-bottom:10rpx;
     }
     .footer{
       margin-bottom:20rpx;
@@ -81,6 +149,14 @@
     position: absolute;
     top: -90px;
     right: -20px;
+    width: 50px;
+    height: 50px;
+    background:url(https://campaign5.method-ad.cn/hypertherm/img/icon_close.png) no-repeat 0 0/100% auto;
+  }
+  .close2 {
+    position: fixed;
+    top: 11vh;
+    right: 30px;
     width: 50px;
     height: 50px;
     background:url(https://campaign5.method-ad.cn/hypertherm/img/icon_close.png) no-repeat 0 0/100% auto;

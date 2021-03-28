@@ -41,7 +41,7 @@ export default {
           act: 'set_File_History',
           act2: 'read',
           tp: this.$store.state.category,
-          tp_value: item.class_id || item.tech_detail_id,
+          tp_value: item.class_id || item.tech_detail_id || item.product_id,
           file_tp: 'pdf',
           watch_time: 0,
         },

@@ -16,15 +16,28 @@ const state = {
   liveLeadsModel:false,
   downloadLeadsModel:false,
   consultLeadsModel:false,
+  showFilterModel:false,
+  proLeadsModel:false,
   leadsItem:{},
+
+  searchArr:[],
 }
 
 const mutations = {
+  set_searchArr(state, arr) {
+    state.searchArr = arr || [];
+  },
   set_leadsItem(state, obj) {
     state.leadsItem = obj || {};
   },
   set_liveLeadsModel(state, bo) {
     state.liveLeadsModel = bo || false;
+  },
+  set_showFilterModel(state, bo) {
+    state.showFilterModel = bo || false;
+  },
+  set_proLeadsModel(state, bo) {
+    state.proLeadsModel = bo || false;
   },
   set_downloadLeadsModel(state, bo) {
     state.downloadLeadsModel = bo || false;

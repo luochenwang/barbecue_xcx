@@ -73,6 +73,18 @@
   </picker>
 </template>
 
+<template name="tmpl_0_textarea">
+  <template is="{{xs.c(i, 'tmpl_0_')}}" data="{{i: i}}" />
+</template>
+
+<template name="tmpl_0_textarea_focus">
+  <textarea value="{{i.value}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'textarea-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" focus="{{i.focus===undefined?false:i.focus}}" auto-height="{{i.autoHeight===undefined?false:i.autoHeight}}" fixed="{{i.fixed===undefined?false:i.fixed}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" cursor="{{i.cursor===undefined?-1:i.cursor}}" show-confirm-bar="{{i.showConfirmBar===undefined?true:i.showConfirmBar}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindfocus="eh" bindblur="eh" bindlinechange="eh" bindinput="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_0_textarea_blur">
+  <textarea value="{{i.value}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'textarea-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" auto-height="{{i.autoHeight===undefined?false:i.autoHeight}}" fixed="{{i.fixed===undefined?false:i.fixed}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" cursor="{{i.cursor===undefined?-1:i.cursor}}" show-confirm-bar="{{i.showConfirmBar===undefined?true:i.showConfirmBar}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindfocus="eh" bindblur="eh" bindlinechange="eh" bindinput="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
 <template name="tmpl_0_movable-area">
   <movable-area scale-area="{{i.scaleArea===undefined?false:i.scaleArea}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
     <block wx:for="{{i.cn}}" wx:key="id">
@@ -95,6 +107,22 @@
       <template is="tmpl_1_container" data="{{i: item}}" />
     </block>
   </scroll-view>
+</template>
+
+<template name="tmpl_0_swiper">
+  <swiper indicator-dots="{{i.indicatorDots===undefined?false:i.indicatorDots}}" indicator-color="{{i.indicatorColor===undefined?'rgba(0, 0, 0, .3)':i.indicatorColor}}" indicator-active-color="{{i.indicatorActiveColor===undefined?'#000000':i.indicatorActiveColor}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" current="{{i.current===undefined?0:i.current}}" interval="{{i.interval===undefined?5000:i.interval}}" duration="{{i.duration===undefined?500:i.duration}}" circular="{{i.circular===undefined?false:i.circular}}" vertical="{{i.vertical===undefined?false:i.vertical}}" previous-margin="{{i.previousMargin===undefined?'0px':i.previousMargin}}" next-margin="{{i.nextMargin===undefined?'0px':i.nextMargin}}" display-multiple-items="{{i.displayMultipleItems===undefined?1:i.displayMultipleItems}}" skip-hidden-item-layout="{{i.skipHiddenItemLayout===undefined?false:i.skipHiddenItemLayout}}" easing-function="{{i.easingFunction===undefined?'default':i.easingFunction}}" bindchange="eh" bindtransition="eh" bindanimationfinish="eh" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_1_container" data="{{i: item}}" />
+    </block>
+  </swiper>
+</template>
+
+<template name="tmpl_0_swiper-item">
+  <swiper-item item-id="{{i.itemId}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_1_container" data="{{i: item}}" />
+    </block>
+  </swiper-item>
 </template>
 
 <template name="tmpl_0_navigator">
@@ -205,6 +233,18 @@
   </picker>
 </template>
 
+<template name="tmpl_1_textarea">
+  <template is="{{xs.c(i, 'tmpl_1_')}}" data="{{i: i}}" />
+</template>
+
+<template name="tmpl_1_textarea_focus">
+  <textarea value="{{i.value}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'textarea-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" focus="{{i.focus===undefined?false:i.focus}}" auto-height="{{i.autoHeight===undefined?false:i.autoHeight}}" fixed="{{i.fixed===undefined?false:i.fixed}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" cursor="{{i.cursor===undefined?-1:i.cursor}}" show-confirm-bar="{{i.showConfirmBar===undefined?true:i.showConfirmBar}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindfocus="eh" bindblur="eh" bindlinechange="eh" bindinput="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_1_textarea_blur">
+  <textarea value="{{i.value}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'textarea-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" auto-height="{{i.autoHeight===undefined?false:i.autoHeight}}" fixed="{{i.fixed===undefined?false:i.fixed}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" cursor="{{i.cursor===undefined?-1:i.cursor}}" show-confirm-bar="{{i.showConfirmBar===undefined?true:i.showConfirmBar}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindfocus="eh" bindblur="eh" bindlinechange="eh" bindinput="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
 <template name="tmpl_1_movable-area">
   <movable-area scale-area="{{i.scaleArea===undefined?false:i.scaleArea}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
     <block wx:for="{{i.cn}}" wx:key="id">
@@ -227,6 +267,22 @@
       <template is="tmpl_2_container" data="{{i: item}}" />
     </block>
   </scroll-view>
+</template>
+
+<template name="tmpl_1_swiper">
+  <swiper indicator-dots="{{i.indicatorDots===undefined?false:i.indicatorDots}}" indicator-color="{{i.indicatorColor===undefined?'rgba(0, 0, 0, .3)':i.indicatorColor}}" indicator-active-color="{{i.indicatorActiveColor===undefined?'#000000':i.indicatorActiveColor}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" current="{{i.current===undefined?0:i.current}}" interval="{{i.interval===undefined?5000:i.interval}}" duration="{{i.duration===undefined?500:i.duration}}" circular="{{i.circular===undefined?false:i.circular}}" vertical="{{i.vertical===undefined?false:i.vertical}}" previous-margin="{{i.previousMargin===undefined?'0px':i.previousMargin}}" next-margin="{{i.nextMargin===undefined?'0px':i.nextMargin}}" display-multiple-items="{{i.displayMultipleItems===undefined?1:i.displayMultipleItems}}" skip-hidden-item-layout="{{i.skipHiddenItemLayout===undefined?false:i.skipHiddenItemLayout}}" easing-function="{{i.easingFunction===undefined?'default':i.easingFunction}}" bindchange="eh" bindtransition="eh" bindanimationfinish="eh" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_2_container" data="{{i: item}}" />
+    </block>
+  </swiper>
+</template>
+
+<template name="tmpl_1_swiper-item">
+  <swiper-item item-id="{{i.itemId}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_2_container" data="{{i: item}}" />
+    </block>
+  </swiper-item>
 </template>
 
 <template name="tmpl_1_navigator">
@@ -337,6 +393,18 @@
   </picker>
 </template>
 
+<template name="tmpl_2_textarea">
+  <template is="{{xs.c(i, 'tmpl_2_')}}" data="{{i: i}}" />
+</template>
+
+<template name="tmpl_2_textarea_focus">
+  <textarea value="{{i.value}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'textarea-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" focus="{{i.focus===undefined?false:i.focus}}" auto-height="{{i.autoHeight===undefined?false:i.autoHeight}}" fixed="{{i.fixed===undefined?false:i.fixed}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" cursor="{{i.cursor===undefined?-1:i.cursor}}" show-confirm-bar="{{i.showConfirmBar===undefined?true:i.showConfirmBar}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindfocus="eh" bindblur="eh" bindlinechange="eh" bindinput="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_2_textarea_blur">
+  <textarea value="{{i.value}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'textarea-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" auto-height="{{i.autoHeight===undefined?false:i.autoHeight}}" fixed="{{i.fixed===undefined?false:i.fixed}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" cursor="{{i.cursor===undefined?-1:i.cursor}}" show-confirm-bar="{{i.showConfirmBar===undefined?true:i.showConfirmBar}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindfocus="eh" bindblur="eh" bindlinechange="eh" bindinput="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
 <template name="tmpl_2_movable-area">
   <movable-area scale-area="{{i.scaleArea===undefined?false:i.scaleArea}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
     <block wx:for="{{i.cn}}" wx:key="id">
@@ -359,6 +427,22 @@
       <template is="tmpl_3_container" data="{{i: item}}" />
     </block>
   </scroll-view>
+</template>
+
+<template name="tmpl_2_swiper">
+  <swiper indicator-dots="{{i.indicatorDots===undefined?false:i.indicatorDots}}" indicator-color="{{i.indicatorColor===undefined?'rgba(0, 0, 0, .3)':i.indicatorColor}}" indicator-active-color="{{i.indicatorActiveColor===undefined?'#000000':i.indicatorActiveColor}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" current="{{i.current===undefined?0:i.current}}" interval="{{i.interval===undefined?5000:i.interval}}" duration="{{i.duration===undefined?500:i.duration}}" circular="{{i.circular===undefined?false:i.circular}}" vertical="{{i.vertical===undefined?false:i.vertical}}" previous-margin="{{i.previousMargin===undefined?'0px':i.previousMargin}}" next-margin="{{i.nextMargin===undefined?'0px':i.nextMargin}}" display-multiple-items="{{i.displayMultipleItems===undefined?1:i.displayMultipleItems}}" skip-hidden-item-layout="{{i.skipHiddenItemLayout===undefined?false:i.skipHiddenItemLayout}}" easing-function="{{i.easingFunction===undefined?'default':i.easingFunction}}" bindchange="eh" bindtransition="eh" bindanimationfinish="eh" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_3_container" data="{{i: item}}" />
+    </block>
+  </swiper>
+</template>
+
+<template name="tmpl_2_swiper-item">
+  <swiper-item item-id="{{i.itemId}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_3_container" data="{{i: item}}" />
+    </block>
+  </swiper-item>
 </template>
 
 <template name="tmpl_2_navigator">
@@ -469,6 +553,18 @@
   </picker>
 </template>
 
+<template name="tmpl_3_textarea">
+  <template is="{{xs.c(i, 'tmpl_3_')}}" data="{{i: i}}" />
+</template>
+
+<template name="tmpl_3_textarea_focus">
+  <textarea value="{{i.value}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'textarea-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" focus="{{i.focus===undefined?false:i.focus}}" auto-height="{{i.autoHeight===undefined?false:i.autoHeight}}" fixed="{{i.fixed===undefined?false:i.fixed}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" cursor="{{i.cursor===undefined?-1:i.cursor}}" show-confirm-bar="{{i.showConfirmBar===undefined?true:i.showConfirmBar}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindfocus="eh" bindblur="eh" bindlinechange="eh" bindinput="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_3_textarea_blur">
+  <textarea value="{{i.value}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'textarea-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" auto-height="{{i.autoHeight===undefined?false:i.autoHeight}}" fixed="{{i.fixed===undefined?false:i.fixed}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" cursor="{{i.cursor===undefined?-1:i.cursor}}" show-confirm-bar="{{i.showConfirmBar===undefined?true:i.showConfirmBar}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindfocus="eh" bindblur="eh" bindlinechange="eh" bindinput="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
 <template name="tmpl_3_movable-area">
   <movable-area scale-area="{{i.scaleArea===undefined?false:i.scaleArea}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
     <block wx:for="{{i.cn}}" wx:key="id">
@@ -491,6 +587,22 @@
       <template is="tmpl_4_container" data="{{i: item}}" />
     </block>
   </scroll-view>
+</template>
+
+<template name="tmpl_3_swiper">
+  <swiper indicator-dots="{{i.indicatorDots===undefined?false:i.indicatorDots}}" indicator-color="{{i.indicatorColor===undefined?'rgba(0, 0, 0, .3)':i.indicatorColor}}" indicator-active-color="{{i.indicatorActiveColor===undefined?'#000000':i.indicatorActiveColor}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" current="{{i.current===undefined?0:i.current}}" interval="{{i.interval===undefined?5000:i.interval}}" duration="{{i.duration===undefined?500:i.duration}}" circular="{{i.circular===undefined?false:i.circular}}" vertical="{{i.vertical===undefined?false:i.vertical}}" previous-margin="{{i.previousMargin===undefined?'0px':i.previousMargin}}" next-margin="{{i.nextMargin===undefined?'0px':i.nextMargin}}" display-multiple-items="{{i.displayMultipleItems===undefined?1:i.displayMultipleItems}}" skip-hidden-item-layout="{{i.skipHiddenItemLayout===undefined?false:i.skipHiddenItemLayout}}" easing-function="{{i.easingFunction===undefined?'default':i.easingFunction}}" bindchange="eh" bindtransition="eh" bindanimationfinish="eh" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_4_container" data="{{i: item}}" />
+    </block>
+  </swiper>
+</template>
+
+<template name="tmpl_3_swiper-item">
+  <swiper-item item-id="{{i.itemId}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_4_container" data="{{i: item}}" />
+    </block>
+  </swiper-item>
 </template>
 
 <template name="tmpl_3_navigator">
@@ -601,6 +713,18 @@
   </picker>
 </template>
 
+<template name="tmpl_4_textarea">
+  <template is="{{xs.c(i, 'tmpl_4_')}}" data="{{i: i}}" />
+</template>
+
+<template name="tmpl_4_textarea_focus">
+  <textarea value="{{i.value}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'textarea-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" focus="{{i.focus===undefined?false:i.focus}}" auto-height="{{i.autoHeight===undefined?false:i.autoHeight}}" fixed="{{i.fixed===undefined?false:i.fixed}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" cursor="{{i.cursor===undefined?-1:i.cursor}}" show-confirm-bar="{{i.showConfirmBar===undefined?true:i.showConfirmBar}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindfocus="eh" bindblur="eh" bindlinechange="eh" bindinput="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_4_textarea_blur">
+  <textarea value="{{i.value}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'textarea-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" auto-height="{{i.autoHeight===undefined?false:i.autoHeight}}" fixed="{{i.fixed===undefined?false:i.fixed}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" cursor="{{i.cursor===undefined?-1:i.cursor}}" show-confirm-bar="{{i.showConfirmBar===undefined?true:i.showConfirmBar}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindfocus="eh" bindblur="eh" bindlinechange="eh" bindinput="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
 <template name="tmpl_4_movable-area">
   <movable-area scale-area="{{i.scaleArea===undefined?false:i.scaleArea}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
     <block wx:for="{{i.cn}}" wx:key="id">
@@ -623,6 +747,22 @@
       <template is="tmpl_5_container" data="{{i: item}}" />
     </block>
   </scroll-view>
+</template>
+
+<template name="tmpl_4_swiper">
+  <swiper indicator-dots="{{i.indicatorDots===undefined?false:i.indicatorDots}}" indicator-color="{{i.indicatorColor===undefined?'rgba(0, 0, 0, .3)':i.indicatorColor}}" indicator-active-color="{{i.indicatorActiveColor===undefined?'#000000':i.indicatorActiveColor}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" current="{{i.current===undefined?0:i.current}}" interval="{{i.interval===undefined?5000:i.interval}}" duration="{{i.duration===undefined?500:i.duration}}" circular="{{i.circular===undefined?false:i.circular}}" vertical="{{i.vertical===undefined?false:i.vertical}}" previous-margin="{{i.previousMargin===undefined?'0px':i.previousMargin}}" next-margin="{{i.nextMargin===undefined?'0px':i.nextMargin}}" display-multiple-items="{{i.displayMultipleItems===undefined?1:i.displayMultipleItems}}" skip-hidden-item-layout="{{i.skipHiddenItemLayout===undefined?false:i.skipHiddenItemLayout}}" easing-function="{{i.easingFunction===undefined?'default':i.easingFunction}}" bindchange="eh" bindtransition="eh" bindanimationfinish="eh" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_5_container" data="{{i: item}}" />
+    </block>
+  </swiper>
+</template>
+
+<template name="tmpl_4_swiper-item">
+  <swiper-item item-id="{{i.itemId}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_5_container" data="{{i: item}}" />
+    </block>
+  </swiper-item>
 </template>
 
 <template name="tmpl_4_navigator">
@@ -733,6 +873,18 @@
   </picker>
 </template>
 
+<template name="tmpl_5_textarea">
+  <template is="{{xs.c(i, 'tmpl_5_')}}" data="{{i: i}}" />
+</template>
+
+<template name="tmpl_5_textarea_focus">
+  <textarea value="{{i.value}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'textarea-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" focus="{{i.focus===undefined?false:i.focus}}" auto-height="{{i.autoHeight===undefined?false:i.autoHeight}}" fixed="{{i.fixed===undefined?false:i.fixed}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" cursor="{{i.cursor===undefined?-1:i.cursor}}" show-confirm-bar="{{i.showConfirmBar===undefined?true:i.showConfirmBar}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindfocus="eh" bindblur="eh" bindlinechange="eh" bindinput="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_5_textarea_blur">
+  <textarea value="{{i.value}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'textarea-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" auto-height="{{i.autoHeight===undefined?false:i.autoHeight}}" fixed="{{i.fixed===undefined?false:i.fixed}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" cursor="{{i.cursor===undefined?-1:i.cursor}}" show-confirm-bar="{{i.showConfirmBar===undefined?true:i.showConfirmBar}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindfocus="eh" bindblur="eh" bindlinechange="eh" bindinput="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
 <template name="tmpl_5_movable-area">
   <movable-area scale-area="{{i.scaleArea===undefined?false:i.scaleArea}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
     <block wx:for="{{i.cn}}" wx:key="id">
@@ -755,6 +907,22 @@
       <template is="tmpl_6_container" data="{{i: item}}" />
     </block>
   </scroll-view>
+</template>
+
+<template name="tmpl_5_swiper">
+  <swiper indicator-dots="{{i.indicatorDots===undefined?false:i.indicatorDots}}" indicator-color="{{i.indicatorColor===undefined?'rgba(0, 0, 0, .3)':i.indicatorColor}}" indicator-active-color="{{i.indicatorActiveColor===undefined?'#000000':i.indicatorActiveColor}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" current="{{i.current===undefined?0:i.current}}" interval="{{i.interval===undefined?5000:i.interval}}" duration="{{i.duration===undefined?500:i.duration}}" circular="{{i.circular===undefined?false:i.circular}}" vertical="{{i.vertical===undefined?false:i.vertical}}" previous-margin="{{i.previousMargin===undefined?'0px':i.previousMargin}}" next-margin="{{i.nextMargin===undefined?'0px':i.nextMargin}}" display-multiple-items="{{i.displayMultipleItems===undefined?1:i.displayMultipleItems}}" skip-hidden-item-layout="{{i.skipHiddenItemLayout===undefined?false:i.skipHiddenItemLayout}}" easing-function="{{i.easingFunction===undefined?'default':i.easingFunction}}" bindchange="eh" bindtransition="eh" bindanimationfinish="eh" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_6_container" data="{{i: item}}" />
+    </block>
+  </swiper>
+</template>
+
+<template name="tmpl_5_swiper-item">
+  <swiper-item item-id="{{i.itemId}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_6_container" data="{{i: item}}" />
+    </block>
+  </swiper-item>
 </template>
 
 <template name="tmpl_5_navigator">
@@ -865,6 +1033,18 @@
   </picker>
 </template>
 
+<template name="tmpl_6_textarea">
+  <template is="{{xs.c(i, 'tmpl_6_')}}" data="{{i: i}}" />
+</template>
+
+<template name="tmpl_6_textarea_focus">
+  <textarea value="{{i.value}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'textarea-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" focus="{{i.focus===undefined?false:i.focus}}" auto-height="{{i.autoHeight===undefined?false:i.autoHeight}}" fixed="{{i.fixed===undefined?false:i.fixed}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" cursor="{{i.cursor===undefined?-1:i.cursor}}" show-confirm-bar="{{i.showConfirmBar===undefined?true:i.showConfirmBar}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindfocus="eh" bindblur="eh" bindlinechange="eh" bindinput="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_6_textarea_blur">
+  <textarea value="{{i.value}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'textarea-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" auto-height="{{i.autoHeight===undefined?false:i.autoHeight}}" fixed="{{i.fixed===undefined?false:i.fixed}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" cursor="{{i.cursor===undefined?-1:i.cursor}}" show-confirm-bar="{{i.showConfirmBar===undefined?true:i.showConfirmBar}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindfocus="eh" bindblur="eh" bindlinechange="eh" bindinput="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
 <template name="tmpl_6_movable-area">
   <movable-area scale-area="{{i.scaleArea===undefined?false:i.scaleArea}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
     <block wx:for="{{i.cn}}" wx:key="id">
@@ -887,6 +1067,22 @@
       <template is="tmpl_7_container" data="{{i: item}}" />
     </block>
   </scroll-view>
+</template>
+
+<template name="tmpl_6_swiper">
+  <swiper indicator-dots="{{i.indicatorDots===undefined?false:i.indicatorDots}}" indicator-color="{{i.indicatorColor===undefined?'rgba(0, 0, 0, .3)':i.indicatorColor}}" indicator-active-color="{{i.indicatorActiveColor===undefined?'#000000':i.indicatorActiveColor}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" current="{{i.current===undefined?0:i.current}}" interval="{{i.interval===undefined?5000:i.interval}}" duration="{{i.duration===undefined?500:i.duration}}" circular="{{i.circular===undefined?false:i.circular}}" vertical="{{i.vertical===undefined?false:i.vertical}}" previous-margin="{{i.previousMargin===undefined?'0px':i.previousMargin}}" next-margin="{{i.nextMargin===undefined?'0px':i.nextMargin}}" display-multiple-items="{{i.displayMultipleItems===undefined?1:i.displayMultipleItems}}" skip-hidden-item-layout="{{i.skipHiddenItemLayout===undefined?false:i.skipHiddenItemLayout}}" easing-function="{{i.easingFunction===undefined?'default':i.easingFunction}}" bindchange="eh" bindtransition="eh" bindanimationfinish="eh" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_7_container" data="{{i: item}}" />
+    </block>
+  </swiper>
+</template>
+
+<template name="tmpl_6_swiper-item">
+  <swiper-item item-id="{{i.itemId}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_7_container" data="{{i: item}}" />
+    </block>
+  </swiper-item>
 </template>
 
 <template name="tmpl_6_navigator">
@@ -997,6 +1193,18 @@
   </picker>
 </template>
 
+<template name="tmpl_7_textarea">
+  <template is="{{xs.c(i, 'tmpl_7_')}}" data="{{i: i}}" />
+</template>
+
+<template name="tmpl_7_textarea_focus">
+  <textarea value="{{i.value}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'textarea-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" focus="{{i.focus===undefined?false:i.focus}}" auto-height="{{i.autoHeight===undefined?false:i.autoHeight}}" fixed="{{i.fixed===undefined?false:i.fixed}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" cursor="{{i.cursor===undefined?-1:i.cursor}}" show-confirm-bar="{{i.showConfirmBar===undefined?true:i.showConfirmBar}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindfocus="eh" bindblur="eh" bindlinechange="eh" bindinput="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_7_textarea_blur">
+  <textarea value="{{i.value}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'textarea-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" auto-height="{{i.autoHeight===undefined?false:i.autoHeight}}" fixed="{{i.fixed===undefined?false:i.fixed}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" cursor="{{i.cursor===undefined?-1:i.cursor}}" show-confirm-bar="{{i.showConfirmBar===undefined?true:i.showConfirmBar}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindfocus="eh" bindblur="eh" bindlinechange="eh" bindinput="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
 <template name="tmpl_7_movable-area">
   <movable-area scale-area="{{i.scaleArea===undefined?false:i.scaleArea}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
     <block wx:for="{{i.cn}}" wx:key="id">
@@ -1019,6 +1227,22 @@
       <template is="tmpl_8_container" data="{{i: item}}" />
     </block>
   </scroll-view>
+</template>
+
+<template name="tmpl_7_swiper">
+  <swiper indicator-dots="{{i.indicatorDots===undefined?false:i.indicatorDots}}" indicator-color="{{i.indicatorColor===undefined?'rgba(0, 0, 0, .3)':i.indicatorColor}}" indicator-active-color="{{i.indicatorActiveColor===undefined?'#000000':i.indicatorActiveColor}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" current="{{i.current===undefined?0:i.current}}" interval="{{i.interval===undefined?5000:i.interval}}" duration="{{i.duration===undefined?500:i.duration}}" circular="{{i.circular===undefined?false:i.circular}}" vertical="{{i.vertical===undefined?false:i.vertical}}" previous-margin="{{i.previousMargin===undefined?'0px':i.previousMargin}}" next-margin="{{i.nextMargin===undefined?'0px':i.nextMargin}}" display-multiple-items="{{i.displayMultipleItems===undefined?1:i.displayMultipleItems}}" skip-hidden-item-layout="{{i.skipHiddenItemLayout===undefined?false:i.skipHiddenItemLayout}}" easing-function="{{i.easingFunction===undefined?'default':i.easingFunction}}" bindchange="eh" bindtransition="eh" bindanimationfinish="eh" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_8_container" data="{{i: item}}" />
+    </block>
+  </swiper>
+</template>
+
+<template name="tmpl_7_swiper-item">
+  <swiper-item item-id="{{i.itemId}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_8_container" data="{{i: item}}" />
+    </block>
+  </swiper-item>
 </template>
 
 <template name="tmpl_7_navigator">
@@ -1129,6 +1353,18 @@
   </picker>
 </template>
 
+<template name="tmpl_8_textarea">
+  <template is="{{xs.c(i, 'tmpl_8_')}}" data="{{i: i}}" />
+</template>
+
+<template name="tmpl_8_textarea_focus">
+  <textarea value="{{i.value}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'textarea-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" focus="{{i.focus===undefined?false:i.focus}}" auto-height="{{i.autoHeight===undefined?false:i.autoHeight}}" fixed="{{i.fixed===undefined?false:i.fixed}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" cursor="{{i.cursor===undefined?-1:i.cursor}}" show-confirm-bar="{{i.showConfirmBar===undefined?true:i.showConfirmBar}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindfocus="eh" bindblur="eh" bindlinechange="eh" bindinput="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_8_textarea_blur">
+  <textarea value="{{i.value}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'textarea-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" auto-height="{{i.autoHeight===undefined?false:i.autoHeight}}" fixed="{{i.fixed===undefined?false:i.fixed}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" cursor="{{i.cursor===undefined?-1:i.cursor}}" show-confirm-bar="{{i.showConfirmBar===undefined?true:i.showConfirmBar}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindfocus="eh" bindblur="eh" bindlinechange="eh" bindinput="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
 <template name="tmpl_8_movable-area">
   <movable-area scale-area="{{i.scaleArea===undefined?false:i.scaleArea}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
     <block wx:for="{{i.cn}}" wx:key="id">
@@ -1151,6 +1387,22 @@
       <template is="tmpl_9_container" data="{{i: item}}" />
     </block>
   </scroll-view>
+</template>
+
+<template name="tmpl_8_swiper">
+  <swiper indicator-dots="{{i.indicatorDots===undefined?false:i.indicatorDots}}" indicator-color="{{i.indicatorColor===undefined?'rgba(0, 0, 0, .3)':i.indicatorColor}}" indicator-active-color="{{i.indicatorActiveColor===undefined?'#000000':i.indicatorActiveColor}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" current="{{i.current===undefined?0:i.current}}" interval="{{i.interval===undefined?5000:i.interval}}" duration="{{i.duration===undefined?500:i.duration}}" circular="{{i.circular===undefined?false:i.circular}}" vertical="{{i.vertical===undefined?false:i.vertical}}" previous-margin="{{i.previousMargin===undefined?'0px':i.previousMargin}}" next-margin="{{i.nextMargin===undefined?'0px':i.nextMargin}}" display-multiple-items="{{i.displayMultipleItems===undefined?1:i.displayMultipleItems}}" skip-hidden-item-layout="{{i.skipHiddenItemLayout===undefined?false:i.skipHiddenItemLayout}}" easing-function="{{i.easingFunction===undefined?'default':i.easingFunction}}" bindchange="eh" bindtransition="eh" bindanimationfinish="eh" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_9_container" data="{{i: item}}" />
+    </block>
+  </swiper>
+</template>
+
+<template name="tmpl_8_swiper-item">
+  <swiper-item item-id="{{i.itemId}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_9_container" data="{{i: item}}" />
+    </block>
+  </swiper-item>
 </template>
 
 <template name="tmpl_8_navigator">
@@ -1261,6 +1513,18 @@
   </picker>
 </template>
 
+<template name="tmpl_9_textarea">
+  <template is="{{xs.c(i, 'tmpl_9_')}}" data="{{i: i}}" />
+</template>
+
+<template name="tmpl_9_textarea_focus">
+  <textarea value="{{i.value}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'textarea-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" focus="{{i.focus===undefined?false:i.focus}}" auto-height="{{i.autoHeight===undefined?false:i.autoHeight}}" fixed="{{i.fixed===undefined?false:i.fixed}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" cursor="{{i.cursor===undefined?-1:i.cursor}}" show-confirm-bar="{{i.showConfirmBar===undefined?true:i.showConfirmBar}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindfocus="eh" bindblur="eh" bindlinechange="eh" bindinput="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_9_textarea_blur">
+  <textarea value="{{i.value}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'textarea-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" auto-height="{{i.autoHeight===undefined?false:i.autoHeight}}" fixed="{{i.fixed===undefined?false:i.fixed}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" cursor="{{i.cursor===undefined?-1:i.cursor}}" show-confirm-bar="{{i.showConfirmBar===undefined?true:i.showConfirmBar}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindfocus="eh" bindblur="eh" bindlinechange="eh" bindinput="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
 <template name="tmpl_9_movable-area">
   <movable-area scale-area="{{i.scaleArea===undefined?false:i.scaleArea}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
     <block wx:for="{{i.cn}}" wx:key="id">
@@ -1283,6 +1547,22 @@
       <template is="tmpl_10_container" data="{{i: item}}" />
     </block>
   </scroll-view>
+</template>
+
+<template name="tmpl_9_swiper">
+  <swiper indicator-dots="{{i.indicatorDots===undefined?false:i.indicatorDots}}" indicator-color="{{i.indicatorColor===undefined?'rgba(0, 0, 0, .3)':i.indicatorColor}}" indicator-active-color="{{i.indicatorActiveColor===undefined?'#000000':i.indicatorActiveColor}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" current="{{i.current===undefined?0:i.current}}" interval="{{i.interval===undefined?5000:i.interval}}" duration="{{i.duration===undefined?500:i.duration}}" circular="{{i.circular===undefined?false:i.circular}}" vertical="{{i.vertical===undefined?false:i.vertical}}" previous-margin="{{i.previousMargin===undefined?'0px':i.previousMargin}}" next-margin="{{i.nextMargin===undefined?'0px':i.nextMargin}}" display-multiple-items="{{i.displayMultipleItems===undefined?1:i.displayMultipleItems}}" skip-hidden-item-layout="{{i.skipHiddenItemLayout===undefined?false:i.skipHiddenItemLayout}}" easing-function="{{i.easingFunction===undefined?'default':i.easingFunction}}" bindchange="eh" bindtransition="eh" bindanimationfinish="eh" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_10_container" data="{{i: item}}" />
+    </block>
+  </swiper>
+</template>
+
+<template name="tmpl_9_swiper-item">
+  <swiper-item item-id="{{i.itemId}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_10_container" data="{{i: item}}" />
+    </block>
+  </swiper-item>
 </template>
 
 <template name="tmpl_9_navigator">
@@ -1393,6 +1673,18 @@
   </picker>
 </template>
 
+<template name="tmpl_10_textarea">
+  <template is="{{xs.c(i, 'tmpl_10_')}}" data="{{i: i}}" />
+</template>
+
+<template name="tmpl_10_textarea_focus">
+  <textarea value="{{i.value}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'textarea-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" focus="{{i.focus===undefined?false:i.focus}}" auto-height="{{i.autoHeight===undefined?false:i.autoHeight}}" fixed="{{i.fixed===undefined?false:i.fixed}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" cursor="{{i.cursor===undefined?-1:i.cursor}}" show-confirm-bar="{{i.showConfirmBar===undefined?true:i.showConfirmBar}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindfocus="eh" bindblur="eh" bindlinechange="eh" bindinput="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_10_textarea_blur">
+  <textarea value="{{i.value}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'textarea-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" auto-height="{{i.autoHeight===undefined?false:i.autoHeight}}" fixed="{{i.fixed===undefined?false:i.fixed}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" cursor="{{i.cursor===undefined?-1:i.cursor}}" show-confirm-bar="{{i.showConfirmBar===undefined?true:i.showConfirmBar}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindfocus="eh" bindblur="eh" bindlinechange="eh" bindinput="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
 <template name="tmpl_10_movable-area">
   <movable-area scale-area="{{i.scaleArea===undefined?false:i.scaleArea}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
     <block wx:for="{{i.cn}}" wx:key="id">
@@ -1415,6 +1707,22 @@
       <template is="tmpl_11_container" data="{{i: item}}" />
     </block>
   </scroll-view>
+</template>
+
+<template name="tmpl_10_swiper">
+  <swiper indicator-dots="{{i.indicatorDots===undefined?false:i.indicatorDots}}" indicator-color="{{i.indicatorColor===undefined?'rgba(0, 0, 0, .3)':i.indicatorColor}}" indicator-active-color="{{i.indicatorActiveColor===undefined?'#000000':i.indicatorActiveColor}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" current="{{i.current===undefined?0:i.current}}" interval="{{i.interval===undefined?5000:i.interval}}" duration="{{i.duration===undefined?500:i.duration}}" circular="{{i.circular===undefined?false:i.circular}}" vertical="{{i.vertical===undefined?false:i.vertical}}" previous-margin="{{i.previousMargin===undefined?'0px':i.previousMargin}}" next-margin="{{i.nextMargin===undefined?'0px':i.nextMargin}}" display-multiple-items="{{i.displayMultipleItems===undefined?1:i.displayMultipleItems}}" skip-hidden-item-layout="{{i.skipHiddenItemLayout===undefined?false:i.skipHiddenItemLayout}}" easing-function="{{i.easingFunction===undefined?'default':i.easingFunction}}" bindchange="eh" bindtransition="eh" bindanimationfinish="eh" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_11_container" data="{{i: item}}" />
+    </block>
+  </swiper>
+</template>
+
+<template name="tmpl_10_swiper-item">
+  <swiper-item item-id="{{i.itemId}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_11_container" data="{{i: item}}" />
+    </block>
+  </swiper-item>
 </template>
 
 <template name="tmpl_10_navigator">
@@ -1525,6 +1833,18 @@
   </picker>
 </template>
 
+<template name="tmpl_11_textarea">
+  <template is="{{xs.c(i, 'tmpl_11_')}}" data="{{i: i}}" />
+</template>
+
+<template name="tmpl_11_textarea_focus">
+  <textarea value="{{i.value}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'textarea-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" focus="{{i.focus===undefined?false:i.focus}}" auto-height="{{i.autoHeight===undefined?false:i.autoHeight}}" fixed="{{i.fixed===undefined?false:i.fixed}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" cursor="{{i.cursor===undefined?-1:i.cursor}}" show-confirm-bar="{{i.showConfirmBar===undefined?true:i.showConfirmBar}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindfocus="eh" bindblur="eh" bindlinechange="eh" bindinput="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_11_textarea_blur">
+  <textarea value="{{i.value}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'textarea-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" auto-height="{{i.autoHeight===undefined?false:i.autoHeight}}" fixed="{{i.fixed===undefined?false:i.fixed}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" cursor="{{i.cursor===undefined?-1:i.cursor}}" show-confirm-bar="{{i.showConfirmBar===undefined?true:i.showConfirmBar}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindfocus="eh" bindblur="eh" bindlinechange="eh" bindinput="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
 <template name="tmpl_11_movable-area">
   <movable-area scale-area="{{i.scaleArea===undefined?false:i.scaleArea}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
     <block wx:for="{{i.cn}}" wx:key="id">
@@ -1547,6 +1867,22 @@
       <template is="tmpl_12_container" data="{{i: item}}" />
     </block>
   </scroll-view>
+</template>
+
+<template name="tmpl_11_swiper">
+  <swiper indicator-dots="{{i.indicatorDots===undefined?false:i.indicatorDots}}" indicator-color="{{i.indicatorColor===undefined?'rgba(0, 0, 0, .3)':i.indicatorColor}}" indicator-active-color="{{i.indicatorActiveColor===undefined?'#000000':i.indicatorActiveColor}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" current="{{i.current===undefined?0:i.current}}" interval="{{i.interval===undefined?5000:i.interval}}" duration="{{i.duration===undefined?500:i.duration}}" circular="{{i.circular===undefined?false:i.circular}}" vertical="{{i.vertical===undefined?false:i.vertical}}" previous-margin="{{i.previousMargin===undefined?'0px':i.previousMargin}}" next-margin="{{i.nextMargin===undefined?'0px':i.nextMargin}}" display-multiple-items="{{i.displayMultipleItems===undefined?1:i.displayMultipleItems}}" skip-hidden-item-layout="{{i.skipHiddenItemLayout===undefined?false:i.skipHiddenItemLayout}}" easing-function="{{i.easingFunction===undefined?'default':i.easingFunction}}" bindchange="eh" bindtransition="eh" bindanimationfinish="eh" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_12_container" data="{{i: item}}" />
+    </block>
+  </swiper>
+</template>
+
+<template name="tmpl_11_swiper-item">
+  <swiper-item item-id="{{i.itemId}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_12_container" data="{{i: item}}" />
+    </block>
+  </swiper-item>
 </template>
 
 <template name="tmpl_11_navigator">
@@ -1657,6 +1993,18 @@
   </picker>
 </template>
 
+<template name="tmpl_12_textarea">
+  <template is="{{xs.c(i, 'tmpl_12_')}}" data="{{i: i}}" />
+</template>
+
+<template name="tmpl_12_textarea_focus">
+  <textarea value="{{i.value}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'textarea-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" focus="{{i.focus===undefined?false:i.focus}}" auto-height="{{i.autoHeight===undefined?false:i.autoHeight}}" fixed="{{i.fixed===undefined?false:i.fixed}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" cursor="{{i.cursor===undefined?-1:i.cursor}}" show-confirm-bar="{{i.showConfirmBar===undefined?true:i.showConfirmBar}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindfocus="eh" bindblur="eh" bindlinechange="eh" bindinput="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_12_textarea_blur">
+  <textarea value="{{i.value}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'textarea-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" auto-height="{{i.autoHeight===undefined?false:i.autoHeight}}" fixed="{{i.fixed===undefined?false:i.fixed}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" cursor="{{i.cursor===undefined?-1:i.cursor}}" show-confirm-bar="{{i.showConfirmBar===undefined?true:i.showConfirmBar}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindfocus="eh" bindblur="eh" bindlinechange="eh" bindinput="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
 <template name="tmpl_12_movable-area">
   <movable-area scale-area="{{i.scaleArea===undefined?false:i.scaleArea}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
     <block wx:for="{{i.cn}}" wx:key="id">
@@ -1679,6 +2027,22 @@
       <template is="tmpl_13_container" data="{{i: item}}" />
     </block>
   </scroll-view>
+</template>
+
+<template name="tmpl_12_swiper">
+  <swiper indicator-dots="{{i.indicatorDots===undefined?false:i.indicatorDots}}" indicator-color="{{i.indicatorColor===undefined?'rgba(0, 0, 0, .3)':i.indicatorColor}}" indicator-active-color="{{i.indicatorActiveColor===undefined?'#000000':i.indicatorActiveColor}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" current="{{i.current===undefined?0:i.current}}" interval="{{i.interval===undefined?5000:i.interval}}" duration="{{i.duration===undefined?500:i.duration}}" circular="{{i.circular===undefined?false:i.circular}}" vertical="{{i.vertical===undefined?false:i.vertical}}" previous-margin="{{i.previousMargin===undefined?'0px':i.previousMargin}}" next-margin="{{i.nextMargin===undefined?'0px':i.nextMargin}}" display-multiple-items="{{i.displayMultipleItems===undefined?1:i.displayMultipleItems}}" skip-hidden-item-layout="{{i.skipHiddenItemLayout===undefined?false:i.skipHiddenItemLayout}}" easing-function="{{i.easingFunction===undefined?'default':i.easingFunction}}" bindchange="eh" bindtransition="eh" bindanimationfinish="eh" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_13_container" data="{{i: item}}" />
+    </block>
+  </swiper>
+</template>
+
+<template name="tmpl_12_swiper-item">
+  <swiper-item item-id="{{i.itemId}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_13_container" data="{{i: item}}" />
+    </block>
+  </swiper-item>
 </template>
 
 <template name="tmpl_12_navigator">
@@ -1789,6 +2153,18 @@
   </picker>
 </template>
 
+<template name="tmpl_13_textarea">
+  <template is="{{xs.c(i, 'tmpl_13_')}}" data="{{i: i}}" />
+</template>
+
+<template name="tmpl_13_textarea_focus">
+  <textarea value="{{i.value}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'textarea-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" focus="{{i.focus===undefined?false:i.focus}}" auto-height="{{i.autoHeight===undefined?false:i.autoHeight}}" fixed="{{i.fixed===undefined?false:i.fixed}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" cursor="{{i.cursor===undefined?-1:i.cursor}}" show-confirm-bar="{{i.showConfirmBar===undefined?true:i.showConfirmBar}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindfocus="eh" bindblur="eh" bindlinechange="eh" bindinput="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_13_textarea_blur">
+  <textarea value="{{i.value}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'textarea-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" auto-height="{{i.autoHeight===undefined?false:i.autoHeight}}" fixed="{{i.fixed===undefined?false:i.fixed}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" cursor="{{i.cursor===undefined?-1:i.cursor}}" show-confirm-bar="{{i.showConfirmBar===undefined?true:i.showConfirmBar}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindfocus="eh" bindblur="eh" bindlinechange="eh" bindinput="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
 <template name="tmpl_13_movable-area">
   <movable-area scale-area="{{i.scaleArea===undefined?false:i.scaleArea}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
     <block wx:for="{{i.cn}}" wx:key="id">
@@ -1811,6 +2187,22 @@
       <template is="tmpl_14_container" data="{{i: item}}" />
     </block>
   </scroll-view>
+</template>
+
+<template name="tmpl_13_swiper">
+  <swiper indicator-dots="{{i.indicatorDots===undefined?false:i.indicatorDots}}" indicator-color="{{i.indicatorColor===undefined?'rgba(0, 0, 0, .3)':i.indicatorColor}}" indicator-active-color="{{i.indicatorActiveColor===undefined?'#000000':i.indicatorActiveColor}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" current="{{i.current===undefined?0:i.current}}" interval="{{i.interval===undefined?5000:i.interval}}" duration="{{i.duration===undefined?500:i.duration}}" circular="{{i.circular===undefined?false:i.circular}}" vertical="{{i.vertical===undefined?false:i.vertical}}" previous-margin="{{i.previousMargin===undefined?'0px':i.previousMargin}}" next-margin="{{i.nextMargin===undefined?'0px':i.nextMargin}}" display-multiple-items="{{i.displayMultipleItems===undefined?1:i.displayMultipleItems}}" skip-hidden-item-layout="{{i.skipHiddenItemLayout===undefined?false:i.skipHiddenItemLayout}}" easing-function="{{i.easingFunction===undefined?'default':i.easingFunction}}" bindchange="eh" bindtransition="eh" bindanimationfinish="eh" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_14_container" data="{{i: item}}" />
+    </block>
+  </swiper>
+</template>
+
+<template name="tmpl_13_swiper-item">
+  <swiper-item item-id="{{i.itemId}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_14_container" data="{{i: item}}" />
+    </block>
+  </swiper-item>
 </template>
 
 <template name="tmpl_13_navigator">
@@ -1921,6 +2313,18 @@
   </picker>
 </template>
 
+<template name="tmpl_14_textarea">
+  <template is="{{xs.c(i, 'tmpl_14_')}}" data="{{i: i}}" />
+</template>
+
+<template name="tmpl_14_textarea_focus">
+  <textarea value="{{i.value}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'textarea-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" focus="{{i.focus===undefined?false:i.focus}}" auto-height="{{i.autoHeight===undefined?false:i.autoHeight}}" fixed="{{i.fixed===undefined?false:i.fixed}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" cursor="{{i.cursor===undefined?-1:i.cursor}}" show-confirm-bar="{{i.showConfirmBar===undefined?true:i.showConfirmBar}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindfocus="eh" bindblur="eh" bindlinechange="eh" bindinput="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_14_textarea_blur">
+  <textarea value="{{i.value}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'textarea-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" auto-height="{{i.autoHeight===undefined?false:i.autoHeight}}" fixed="{{i.fixed===undefined?false:i.fixed}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" cursor="{{i.cursor===undefined?-1:i.cursor}}" show-confirm-bar="{{i.showConfirmBar===undefined?true:i.showConfirmBar}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindfocus="eh" bindblur="eh" bindlinechange="eh" bindinput="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
 <template name="tmpl_14_movable-area">
   <movable-area scale-area="{{i.scaleArea===undefined?false:i.scaleArea}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
     <block wx:for="{{i.cn}}" wx:key="id">
@@ -1943,6 +2347,22 @@
       <template is="tmpl_15_container" data="{{i: item}}" />
     </block>
   </scroll-view>
+</template>
+
+<template name="tmpl_14_swiper">
+  <swiper indicator-dots="{{i.indicatorDots===undefined?false:i.indicatorDots}}" indicator-color="{{i.indicatorColor===undefined?'rgba(0, 0, 0, .3)':i.indicatorColor}}" indicator-active-color="{{i.indicatorActiveColor===undefined?'#000000':i.indicatorActiveColor}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" current="{{i.current===undefined?0:i.current}}" interval="{{i.interval===undefined?5000:i.interval}}" duration="{{i.duration===undefined?500:i.duration}}" circular="{{i.circular===undefined?false:i.circular}}" vertical="{{i.vertical===undefined?false:i.vertical}}" previous-margin="{{i.previousMargin===undefined?'0px':i.previousMargin}}" next-margin="{{i.nextMargin===undefined?'0px':i.nextMargin}}" display-multiple-items="{{i.displayMultipleItems===undefined?1:i.displayMultipleItems}}" skip-hidden-item-layout="{{i.skipHiddenItemLayout===undefined?false:i.skipHiddenItemLayout}}" easing-function="{{i.easingFunction===undefined?'default':i.easingFunction}}" bindchange="eh" bindtransition="eh" bindanimationfinish="eh" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_15_container" data="{{i: item}}" />
+    </block>
+  </swiper>
+</template>
+
+<template name="tmpl_14_swiper-item">
+  <swiper-item item-id="{{i.itemId}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_15_container" data="{{i: item}}" />
+    </block>
+  </swiper-item>
 </template>
 
 <template name="tmpl_14_navigator">
@@ -2053,6 +2473,18 @@
   </picker>
 </template>
 
+<template name="tmpl_15_textarea">
+  <template is="{{xs.c(i, 'tmpl_15_')}}" data="{{i: i}}" />
+</template>
+
+<template name="tmpl_15_textarea_focus">
+  <textarea value="{{i.value}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'textarea-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" focus="{{i.focus===undefined?false:i.focus}}" auto-height="{{i.autoHeight===undefined?false:i.autoHeight}}" fixed="{{i.fixed===undefined?false:i.fixed}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" cursor="{{i.cursor===undefined?-1:i.cursor}}" show-confirm-bar="{{i.showConfirmBar===undefined?true:i.showConfirmBar}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindfocus="eh" bindblur="eh" bindlinechange="eh" bindinput="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
+<template name="tmpl_15_textarea_blur">
+  <textarea value="{{i.value}}" placeholder="{{i.placeholder}}" placeholder-style="{{i.placeholderStyle}}" placeholder-class="{{i.placeholderClass===undefined?'textarea-placeholder':i.placeholderClass}}" disabled="{{i.disabled}}" maxlength="{{i.maxlength===undefined?140:i.maxlength}}" auto-focus="{{i.autoFocus===undefined?false:i.autoFocus}}" auto-height="{{i.autoHeight===undefined?false:i.autoHeight}}" fixed="{{i.fixed===undefined?false:i.fixed}}" cursor-spacing="{{i.cursorSpacing===undefined?0:i.cursorSpacing}}" cursor="{{i.cursor===undefined?-1:i.cursor}}" show-confirm-bar="{{i.showConfirmBar===undefined?true:i.showConfirmBar}}" selection-start="{{i.selectionStart===undefined?-1:i.selectionStart}}" selection-end="{{i.selectionEnd===undefined?-1:i.selectionEnd}}" adjust-position="{{i.adjustPosition===undefined?true:i.adjustPosition}}" hold-keyboard="{{i.holdKeyboard===undefined?false:i.holdKeyboard}}" bindfocus="eh" bindblur="eh" bindlinechange="eh" bindinput="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{i.name}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}" />
+</template>
+
 <template name="tmpl_15_movable-area">
   <movable-area scale-area="{{i.scaleArea===undefined?false:i.scaleArea}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
     <block wx:for="{{i.cn}}" wx:key="id">
@@ -2075,6 +2507,22 @@
       <template is="tmpl_16_container" data="{{i: item}}" />
     </block>
   </scroll-view>
+</template>
+
+<template name="tmpl_15_swiper">
+  <swiper indicator-dots="{{i.indicatorDots===undefined?false:i.indicatorDots}}" indicator-color="{{i.indicatorColor===undefined?'rgba(0, 0, 0, .3)':i.indicatorColor}}" indicator-active-color="{{i.indicatorActiveColor===undefined?'#000000':i.indicatorActiveColor}}" autoplay="{{i.autoplay===undefined?false:i.autoplay}}" current="{{i.current===undefined?0:i.current}}" interval="{{i.interval===undefined?5000:i.interval}}" duration="{{i.duration===undefined?500:i.duration}}" circular="{{i.circular===undefined?false:i.circular}}" vertical="{{i.vertical===undefined?false:i.vertical}}" previous-margin="{{i.previousMargin===undefined?'0px':i.previousMargin}}" next-margin="{{i.nextMargin===undefined?'0px':i.nextMargin}}" display-multiple-items="{{i.displayMultipleItems===undefined?1:i.displayMultipleItems}}" skip-hidden-item-layout="{{i.skipHiddenItemLayout===undefined?false:i.skipHiddenItemLayout}}" easing-function="{{i.easingFunction===undefined?'default':i.easingFunction}}" bindchange="eh" bindtransition="eh" bindanimationfinish="eh" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongpress="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_16_container" data="{{i: item}}" />
+    </block>
+  </swiper>
+</template>
+
+<template name="tmpl_15_swiper-item">
+  <swiper-item item-id="{{i.itemId}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
+    <block wx:for="{{i.cn}}" wx:key="id">
+      <template is="tmpl_16_container" data="{{i: item}}" />
+    </block>
+  </swiper-item>
 </template>
 
 <template name="tmpl_15_navigator">
