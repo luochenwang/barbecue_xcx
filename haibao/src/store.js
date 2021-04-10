@@ -23,9 +23,13 @@ const state = {
   searchArr:[],
 
   iszixun:0,
+  filterObj:{}
 }
 
 const mutations = {
+  set_filterObj(state, obj){
+    state.filterObj = obj || {};
+  },
   set_iszixun(state, val) {
     state.iszixun = val || 0;
   },

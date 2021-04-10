@@ -63,6 +63,10 @@ export default {
       });
       this.$store.commit('set_category',410);
   },
+  onShow(){
+    console.log(2)
+    this.$store.commit('set_filterObj',{});
+  },
   methods: {
     updateList(list){
       this.list = list;
@@ -72,6 +76,9 @@ export default {
     },
     showFilter(){
         this.$store.commit('set_showFilterModel',true);
+    },
+    filterSubmit(){
+        wx.navigateTo({ url: '/pages/show/sublist' });  
     },
     searchAjax(){
       ajax({
@@ -104,4 +111,7 @@ export default {
 <style lang="scss">
 @import "../server/list";
 @import "./list";
+.container{
+  padding-bottom:0;
+}
 </style>

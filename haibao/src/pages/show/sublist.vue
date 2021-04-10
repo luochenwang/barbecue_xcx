@@ -44,7 +44,9 @@ export default {
         searchBox:false,
         searchVal:'',
         typeId:'',
-        list:[]
+        list:[],
+        page:1,
+        loaded:false
       }
     },
   components: {
@@ -53,22 +55,16 @@ export default {
   onLoad(option) {
       this.searchVal = option.search_val || '';
       this.typeId = option.type_id || '';
-      ajax({
-          url:'xcx_request.php',
-          data:{
-              act:'get_products',
-              type_id:this.typeId,
-              keywords:this.searchVal
-          },
-      }).then(res=>{
-          if(res.list){
-            this.list = res.list;
-          }
-      });
+      this.searchAjax();
       if(this.typeId == '1' || this.typeId == '2'){
         this.$store.commit('set_showFilterModel',true);
       }
       this.$store.commit('set_category',410);
+  },
+  onReachBottom(){
+    if(this.loaded){
+      this.searchAjax();
+    }
   },
   methods: {
     updateList(list){
@@ -80,29 +76,44 @@ export default {
     showFilter(){
         this.$store.commit('set_showFilterModel',true);
     },
+    filterSubmit(){
+        this.search();
+    },
     searchAjax(){
+      this.loaded = false;
       ajax({
           url:'xcx_request.php',
           data:{
               act:'get_products',
               type_id:this.typeId,
-              keywords:this.searchVal
+              keywords:this.searchVal,
+              qglx_id: this.$store.state.filterObj.qglx_id || '',
+              cz_id: this.$store.state.filterObj.cz_id || '',
+              clhd_id: this.$store.state.filterObj.clhd_id || '',
+              zlyq_id: this.$store.state.filterObj.zlyq_id || '',
+              page: this.page
           },
       }).then(res=>{
           if(res.list){
-            this.list = res.list;
+            this.list.push(...res.list);
+            if(res.list.length){
+              this.loaded = true;
+              ++this.page;
+            }
           }
       });
     },
     search(){
-        if(this.searchVal == ''){
-            wx.showToast({
-                title: '请输入要搜索的内容',
-                icon: 'none',
-                duration: 2000,
-            })
-            return false;
-        }
+        // if(this.searchVal == ''){
+        //     wx.showToast({
+        //         title: '请输入要搜索的内容',
+        //         icon: 'none',
+        //         duration: 2000,
+        //     })
+        //     return false;
+        // }
+        this.list = [];
+        this.page = 1;
         this.searchAjax();
     }
   }
@@ -112,4 +123,7 @@ export default {
 <style lang="scss">
 @import "../server/list";
 @import "./list";
+.container{
+  padding-bottom:0;
+}
 </style>

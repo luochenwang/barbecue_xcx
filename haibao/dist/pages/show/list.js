@@ -114,6 +114,10 @@ component.options.__file = "src/pages/show/list.vue"
     });
     this.$store.commit('set_category', 410);
   },
+  onShow: function onShow() {
+    console.log(2);
+    this.$store.commit('set_filterObj', {});
+  },
   methods: {
     updateList: function updateList(list) {
       this.list = list;
@@ -123,6 +127,11 @@ component.options.__file = "src/pages/show/list.vue"
     },
     showFilter: function showFilter() {
       this.$store.commit('set_showFilterModel', true);
+    },
+    filterSubmit: function filterSubmit() {
+      wx.navigateTo({
+        url: '/pages/show/sublist'
+      });
     },
     searchAjax: function searchAjax() {
       var _this2 = this;

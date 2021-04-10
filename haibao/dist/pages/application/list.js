@@ -49,8 +49,10 @@ component.options.__file = "src/pages/application/list.vue"
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var _libs_ajax__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../libs/ajax */ "./src/libs/ajax.js");
-/* harmony import */ var _libs_mixin__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../libs/mixin */ "./src/libs/mixin.js");
+/* harmony import */ var _Volumes_d_site_barbecue_xcx_haibao_node_modules_babel_runtime_7_13_10_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/_@babel_runtime@7.13.10@@babel/runtime/helpers/esm/toConsumableArray */ "./node_modules/_@babel_runtime@7.13.10@@babel/runtime/helpers/esm/toConsumableArray.js");
+/* harmony import */ var _libs_ajax__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../libs/ajax */ "./src/libs/ajax.js");
+/* harmony import */ var _libs_mixin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../libs/mixin */ "./src/libs/mixin.js");
+
 //
 //
 //
@@ -96,7 +98,7 @@ component.options.__file = "src/pages/application/list.vue"
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: 'server_details',
-  mixins: [_libs_mixin__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"]],
+  mixins: [_libs_mixin__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"]],
   data: function data() {
     return {
       index1: 0,
@@ -108,7 +110,9 @@ component.options.__file = "src/pages/application/list.vue"
       list: [],
       proCover: '',
       isFirstAjax: true,
-      option: {}
+      option: {},
+      page: 1,
+      loaded: false
     };
   },
   components: {},
@@ -117,7 +121,7 @@ component.options.__file = "src/pages/application/list.vue"
 
     this.option = option || {};
     this.searchVal = option.searchVal;
-    Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
+    Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_1__[/* ajax */ "a"])({
       url: 'xcx_request.php',
       data: {
         act: 'get_cases_app'
@@ -134,7 +138,7 @@ component.options.__file = "src/pages/application/list.vue"
         }
       }
 
-      Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
+      Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_1__[/* ajax */ "a"])({
         url: 'xcx_request.php',
         data: {
           act: 'get_cases_product'
@@ -158,13 +162,11 @@ component.options.__file = "src/pages/application/list.vue"
   methods: {
     bindPickerChange1: function bindPickerChange1(e) {
       this.index1 = e.detail.value;
-      this.list = [];
-      this.getData();
+      this.search();
     },
     bindPickerChange2: function bindPickerChange2(e) {
       this.index2 = e.detail.value;
-      this.list = [];
-      this.getData();
+      this.search();
     },
     toggleInfo: function toggleInfo(index) {
       this.list[index].show = !this.list[index].show;
@@ -176,34 +178,41 @@ component.options.__file = "src/pages/application/list.vue"
       this.$store.commit('set_showFilterModel', true);
     },
     search: function search() {
-      if (this.searchVal == '') {
-        wx.showToast({
-          title: '请输入要搜索的内容',
-          icon: 'none',
-          duration: 2000
-        });
-        return false;
-      }
-
+      // if(this.searchVal == ''){
+      //     wx.showToast({
+      //         title: '请输入要搜索的内容',
+      //         icon: 'none',
+      //         duration: 2000,
+      //     })
+      //     return false;
+      // }
       this.list = [];
+      this.page = 1;
       this.getData();
     },
     getData: function getData() {
       var _this2 = this;
 
-      Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
+      this.loaded = false;
+      Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_1__[/* ajax */ "a"])({
         url: 'xcx_request.php',
         data: {
           act: 'get_cases',
           keywords: this.searchVal || '',
           product_id: this.list2[this.index2].product_id || '',
-          app_id: this.list1[this.index1].app_id || ''
+          app_id: this.list1[this.index1].app_id || '',
+          page: this.page
         }
       }).then(function (res) {
         if (res.list) {
-          _this2.list = res.list;
-        } else {
-          _this2.list = [];
+          var _this2$list;
+
+          (_this2$list = _this2.list).push.apply(_this2$list, Object(_Volumes_d_site_barbecue_xcx_haibao_node_modules_babel_runtime_7_13_10_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(res.list));
+
+          if (res.list.length) {
+            _this2.loaded = true;
+            ++_this2.page;
+          }
         }
 
         _this2.isFirstAjax = false;
@@ -406,7 +415,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_tarojs_taro_loader_3_0_8_tarojs_taro_loader_lib_raw_js_list_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/_@tarojs_taro-loader@3.0.8@@tarojs/taro-loader/lib/raw.js!./list.vue */ "./node_modules/_@tarojs_taro-loader@3.0.8@@tarojs/taro-loader/lib/raw.js!./src/pages/application/list.vue");
 
 
-var config = {"navigationBarTitleText":"首页","navigationStyle":"custom"};
+var config = {"navigationBarTitleText":"首页","onReachBottom":true,"navigationStyle":"custom"};
 
 
 var inst = Page(Object(_tarojs_runtime__WEBPACK_IMPORTED_MODULE_0__["createPageConfig"])(_node_modules_tarojs_taro_loader_3_0_8_tarojs_taro_loader_lib_raw_js_list_vue__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"], 'pages/application/list', {}, config || {}))

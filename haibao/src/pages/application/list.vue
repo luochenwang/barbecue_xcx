@@ -59,7 +59,10 @@ export default {
         list:[],
         proCover:'',
         isFirstAjax:true,
-        option:{}
+        option:{},
+
+        page:1,
+        loaded:false
       }
     },
   components: {
@@ -110,13 +113,11 @@ export default {
   methods: {
     bindPickerChange1(e){
       this.index1 = e.detail.value;
-      this.list = [];
-      this.getData();
+      this.search();
     },
     bindPickerChange2(e){
       this.index2 = e.detail.value;
-      this.list = [];
-      this.getData();
+      this.search();
     },
     toggleInfo(index){
       this.list[index].show = !this.list[index].show;
@@ -128,18 +129,20 @@ export default {
         this.$store.commit('set_showFilterModel',true);
     },
     search(){
-      if(this.searchVal == ''){
-          wx.showToast({
-              title: '请输入要搜索的内容',
-              icon: 'none',
-              duration: 2000,
-          })
-          return false;
-      }
+      // if(this.searchVal == ''){
+      //     wx.showToast({
+      //         title: '请输入要搜索的内容',
+      //         icon: 'none',
+      //         duration: 2000,
+      //     })
+      //     return false;
+      // }
       this.list = [];
+      this.page = 1;
       this.getData();
     },
     getData(){
+      this.loaded = false;
       ajax({
           url:'xcx_request.php',
           data:{
@@ -147,13 +150,15 @@ export default {
               keywords:this.searchVal || '',
               product_id:this.list2[this.index2].product_id || '',
               app_id:this.list1[this.index1].app_id || '',
-
+              page:this.page
           },
       }).then(res=>{
         if(res.list){
-          this.list = res.list;
-        }else{
-          this.list = [];
+          this.list.push(...res.list);
+          if(res.list.length){
+            this.loaded = true;
+            ++this.page;
+          }
         }
         this.isFirstAjax = false;
       })

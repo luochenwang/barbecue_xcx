@@ -49,8 +49,10 @@ component.options.__file = "src/pages/show/sublist.vue"
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var _libs_ajax__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../libs/ajax */ "./src/libs/ajax.js");
-/* harmony import */ var _libs_mixin__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../libs/mixin */ "./src/libs/mixin.js");
+/* harmony import */ var _Volumes_d_site_barbecue_xcx_haibao_node_modules_babel_runtime_7_13_10_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/_@babel_runtime@7.13.10@@babel/runtime/helpers/esm/toConsumableArray */ "./node_modules/_@babel_runtime@7.13.10@@babel/runtime/helpers/esm/toConsumableArray.js");
+/* harmony import */ var _libs_ajax__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../libs/ajax */ "./src/libs/ajax.js");
+/* harmony import */ var _libs_mixin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../libs/mixin */ "./src/libs/mixin.js");
+
 //
 //
 //
@@ -89,39 +91,33 @@ component.options.__file = "src/pages/show/sublist.vue"
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: 'server_list',
-  mixins: [_libs_mixin__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"]],
+  mixins: [_libs_mixin__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"]],
   data: function data() {
     return {
       searchBox: false,
       searchVal: '',
       typeId: '',
-      list: []
+      list: [],
+      page: 1,
+      loaded: false
     };
   },
   components: {},
   onLoad: function onLoad(option) {
-    var _this = this;
-
     this.searchVal = option.search_val || '';
     this.typeId = option.type_id || '';
-    Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
-      url: 'xcx_request.php',
-      data: {
-        act: 'get_products',
-        type_id: this.typeId,
-        keywords: this.searchVal
-      }
-    }).then(function (res) {
-      if (res.list) {
-        _this.list = res.list;
-      }
-    });
+    this.searchAjax();
 
     if (this.typeId == '1' || this.typeId == '2') {
       this.$store.commit('set_showFilterModel', true);
     }
 
     this.$store.commit('set_category', 410);
+  },
+  onReachBottom: function onReachBottom() {
+    if (this.loaded) {
+      this.searchAjax();
+    }
   },
   methods: {
     updateList: function updateList(list) {
@@ -133,32 +129,49 @@ component.options.__file = "src/pages/show/sublist.vue"
     showFilter: function showFilter() {
       this.$store.commit('set_showFilterModel', true);
     },
+    filterSubmit: function filterSubmit() {
+      this.search();
+    },
     searchAjax: function searchAjax() {
-      var _this2 = this;
+      var _this = this;
 
-      Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
+      this.loaded = false;
+      Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_1__[/* ajax */ "a"])({
         url: 'xcx_request.php',
         data: {
           act: 'get_products',
           type_id: this.typeId,
-          keywords: this.searchVal
+          keywords: this.searchVal,
+          qglx_id: this.$store.state.filterObj.qglx_id || '',
+          cz_id: this.$store.state.filterObj.cz_id || '',
+          clhd_id: this.$store.state.filterObj.clhd_id || '',
+          zlyq_id: this.$store.state.filterObj.zlyq_id || '',
+          page: this.page
         }
       }).then(function (res) {
         if (res.list) {
-          _this2.list = res.list;
+          var _this$list;
+
+          (_this$list = _this.list).push.apply(_this$list, Object(_Volumes_d_site_barbecue_xcx_haibao_node_modules_babel_runtime_7_13_10_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(res.list));
+
+          if (res.list.length) {
+            _this.loaded = true;
+            ++_this.page;
+          }
         }
       });
     },
     search: function search() {
-      if (this.searchVal == '') {
-        wx.showToast({
-          title: '请输入要搜索的内容',
-          icon: 'none',
-          duration: 2000
-        });
-        return false;
-      }
-
+      // if(this.searchVal == ''){
+      //     wx.showToast({
+      //         title: '请输入要搜索的内容',
+      //         icon: 'none',
+      //         duration: 2000,
+      //     })
+      //     return false;
+      // }
+      this.list = [];
+      this.page = 1;
       this.searchAjax();
     }
   }
@@ -329,7 +342,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_tarojs_taro_loader_3_0_8_tarojs_taro_loader_lib_raw_js_sublist_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/_@tarojs_taro-loader@3.0.8@@tarojs/taro-loader/lib/raw.js!./sublist.vue */ "./node_modules/_@tarojs_taro-loader@3.0.8@@tarojs/taro-loader/lib/raw.js!./src/pages/show/sublist.vue");
 
 
-var config = {"navigationBarTitleText":"首页","navigationStyle":"custom"};
+var config = {"navigationBarTitleText":"首页","onReachBottom":true,"navigationStyle":"custom"};
 
 
 var inst = Page(Object(_tarojs_runtime__WEBPACK_IMPORTED_MODULE_0__["createPageConfig"])(_node_modules_tarojs_taro_loader_3_0_8_tarojs_taro_loader_lib_raw_js_sublist_vue__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"], 'pages/show/sublist', {}, config || {}))

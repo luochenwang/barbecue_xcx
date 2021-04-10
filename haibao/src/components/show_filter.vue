@@ -12,19 +12,19 @@
       <view class='form-box'>
         <view class="form-group icon-arrow">
           <label>材质*</label>
-          <picker bindchange="bindPickerChange2" :value="index2" :range="array2" class="picker" range-key='title'>
+          <picker @change="bindPickerChange2" :value="index2" :range="array2" class="picker" range-key='title'>
               {{array2[index2].title}}
           </picker>
         </view>
         <view class="form-group icon-arrow">
           <label>材质厚度*</label>
-          <picker bindchang="bindPickerChange3" :value="index3" :range="array3" class="picker" range-key='title'>
+          <picker @chang="bindPickerChange3" :value="index3" :range="array3" class="picker" range-key='title'>
               {{array3[index3].title}}
           </picker>
         </view>
         <view class="form-group icon-arrow">
           <label>质量要求*</label>
-          <picker bindchange="bindPickerChange4" :value="index4" :range="array4" class="picker" range-key='title'>
+          <picker @change="bindPickerChange4" :value="index4" :range="array4" class="picker" range-key='title'>
               {{array4[index4].title}}
           </picker>
         </view>
@@ -122,29 +122,43 @@ export default {
       this.index4 = e.detail.value;
     },
     submit(){
-      ajax({
-        url: 'xcx_request.php',
-        data: {
-          act: 'get_products',
-          qglx_id: this.array1[this.index1].qglx_id,
-          cz_id: this.array2[this.index2].cz_id,
-          clhd_id: this.array3[this.index3].clhd_id,
-          zlyq_id: this.array4[this.index4].zlyq_id,
-          page: 1
-        },
-      }).then(res=>{
-        if(res.status == 1){
-          this.close();
-          this.$store.commit('set_searchArr',res.list);
-          wx.navigateTo({ url: '/pages/search/result' });
-        }else{
-          wx.showToast({
-              title: res.msg,
-              icon: 'none',
-              duration: 2000,
-          })
-        }
-      })
+      this.close();
+      this.$store.commit('set_filterObj',{
+        qglx_id: this.array1[this.index1].qglx_id,
+        cz_id: this.array2[this.index2].cz_id,
+        clhd_id: this.array3[this.index3].clhd_id,
+        zlyq_id: this.array4[this.index4].zlyq_id,
+      });
+      this.$parent.filterSubmit();
+
+      // ajax({
+      //   url: 'xcx_request.php',
+      //   data: {
+      //     act: 'get_products',
+      //     qglx_id: this.array1[this.index1].qglx_id,
+      //     cz_id: this.array2[this.index2].cz_id,
+      //     clhd_id: this.array3[this.index3].clhd_id,
+      //     zlyq_id: this.array4[this.index4].zlyq_id,
+      //     page: 1
+      //   },
+      // }).then(res=>{
+      //   if(res.status == 1){
+      //     this.close();
+      //     this.$store.commit('set_filterObj',{
+      //       qglx_id: this.array1[this.index1].qglx_id,
+      //       cz_id: this.array2[this.index2].cz_id,
+      //       clhd_id: this.array3[this.index3].clhd_id,
+      //       zlyq_id: this.array4[this.index4].zlyq_id,
+      //     });
+      //     wx.navigateTo({ url: '/pages/show/sublist' });
+      //   }else{
+      //     wx.showToast({
+      //         title: res.msg,
+      //         icon: 'none',
+      //         duration: 2000,
+      //     })
+      //   }
+      // })
     }
   }
 }

@@ -994,35 +994,41 @@ var plugin = requirePlugin("ykfchat");
       this.index4 = e.detail.value;
     },
     submit: function submit() {
-      var _this2 = this;
-
-      Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
-        url: 'xcx_request.php',
-        data: {
-          act: 'get_products',
-          qglx_id: this.array1[this.index1].qglx_id,
-          cz_id: this.array2[this.index2].cz_id,
-          clhd_id: this.array3[this.index3].clhd_id,
-          zlyq_id: this.array4[this.index4].zlyq_id,
-          page: 1
-        }
-      }).then(function (res) {
-        if (res.status == 1) {
-          _this2.close();
-
-          _this2.$store.commit('set_searchArr', res.list);
-
-          wx.navigateTo({
-            url: '/pages/search/result'
-          });
-        } else {
-          wx.showToast({
-            title: res.msg,
-            icon: 'none',
-            duration: 2000
-          });
-        }
+      this.close();
+      this.$store.commit('set_filterObj', {
+        qglx_id: this.array1[this.index1].qglx_id,
+        cz_id: this.array2[this.index2].cz_id,
+        clhd_id: this.array3[this.index3].clhd_id,
+        zlyq_id: this.array4[this.index4].zlyq_id
       });
+      this.$parent.filterSubmit(); // ajax({
+      //   url: 'xcx_request.php',
+      //   data: {
+      //     act: 'get_products',
+      //     qglx_id: this.array1[this.index1].qglx_id,
+      //     cz_id: this.array2[this.index2].cz_id,
+      //     clhd_id: this.array3[this.index3].clhd_id,
+      //     zlyq_id: this.array4[this.index4].zlyq_id,
+      //     page: 1
+      //   },
+      // }).then(res=>{
+      //   if(res.status == 1){
+      //     this.close();
+      //     this.$store.commit('set_filterObj',{
+      //       qglx_id: this.array1[this.index1].qglx_id,
+      //       cz_id: this.array2[this.index2].cz_id,
+      //       clhd_id: this.array3[this.index3].clhd_id,
+      //       zlyq_id: this.array4[this.index4].zlyq_id,
+      //     });
+      //     wx.navigateTo({ url: '/pages/show/sublist' });
+      //   }else{
+      //     wx.showToast({
+      //         title: res.msg,
+      //         icon: 'none',
+      //         duration: 2000,
+      //     })
+      //   }
+      // })
     }
   }
 });
@@ -2860,11 +2866,11 @@ var render = function() {
                   {
                     staticClass: "picker",
                     attrs: {
-                      bindchange: "bindPickerChange2",
                       value: _vm.index2,
                       range: _vm.array2,
                       "range-key": "title"
-                    }
+                    },
+                    on: { change: _vm.bindPickerChange2 }
                   },
                   [
                     _vm._v(
@@ -2889,11 +2895,11 @@ var render = function() {
                   {
                     staticClass: "picker",
                     attrs: {
-                      bindchang: "bindPickerChange3",
                       value: _vm.index3,
                       range: _vm.array3,
                       "range-key": "title"
-                    }
+                    },
+                    on: { chang: _vm.bindPickerChange3 }
                   },
                   [
                     _vm._v(
@@ -2918,11 +2924,11 @@ var render = function() {
                   {
                     staticClass: "picker",
                     attrs: {
-                      bindchange: "bindPickerChange4",
                       value: _vm.index4,
                       range: _vm.array4,
                       "range-key": "title"
-                    }
+                    },
+                    on: { change: _vm.bindPickerChange4 }
                   },
                   [
                     _vm._v(
@@ -13581,9 +13587,13 @@ var state = {
   proLeadsModel: false,
   leadsItem: {},
   searchArr: [],
-  iszixun: 0
+  iszixun: 0,
+  filterObj: {}
 };
 var mutations = {
+  set_filterObj: function set_filterObj(state, obj) {
+    state.filterObj = obj || {};
+  },
   set_iszixun: function set_iszixun(state, val) {
     state.iszixun = val || 0;
   },

@@ -146,4 +146,7 @@
 .search-box {
   margin: 0 auto 30rpx;
 }
+.container {
+  padding-bottom: 0;
+}
 
