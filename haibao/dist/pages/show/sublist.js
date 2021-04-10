@@ -116,6 +116,11 @@ component.options.__file = "src/pages/show/sublist.vue"
         _this.list = res.list;
       }
     });
+
+    if (this.typeId == '1' || this.typeId == '2') {
+      this.$store.commit('set_showFilterModel', true);
+    }
+
     this.$store.commit('set_category', 410);
   },
   methods: {

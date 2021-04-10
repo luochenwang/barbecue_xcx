@@ -111,18 +111,6 @@ export default {
     },
     bindPickerChange1: function(e) {
       this.index1 = e.detail.value;
-      ajax({
-        url: 'xcx_request.php',
-        data: {
-          act: 'get_products_qglx_select',
-          qglx_id:this.array1[this.index1].qglx_id
-        },
-      }).then(res=>{
-        this.array2 = res.cz_list;
-        this.array3 = res.clhd_list;
-        this.array4 = res.zlyq_list;
-        this.index2 = this.index3 = this.index4 = 0;
-      })
     },
     bindPickerChange2: function(e) {
       this.index2 = e.detail.value;

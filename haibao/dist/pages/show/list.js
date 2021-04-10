@@ -112,7 +112,6 @@ component.options.__file = "src/pages/show/list.vue"
         _this.list = res.list;
       }
     });
-    this.$store.commit('set_showFilterModel', true);
     this.$store.commit('set_category', 410);
   },
   methods: {

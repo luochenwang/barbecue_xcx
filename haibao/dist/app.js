@@ -982,21 +982,7 @@ var plugin = requirePlugin("ykfchat");
       this.$store.commit('set_showFilterModel');
     },
     bindPickerChange1: function bindPickerChange1(e) {
-      var _this2 = this;
-
       this.index1 = e.detail.value;
-      Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
-        url: 'xcx_request.php',
-        data: {
-          act: 'get_products_qglx_select',
-          qglx_id: this.array1[this.index1].qglx_id
-        }
-      }).then(function (res) {
-        _this2.array2 = res.cz_list;
-        _this2.array3 = res.clhd_list;
-        _this2.array4 = res.zlyq_list;
-        _this2.index2 = _this2.index3 = _this2.index4 = 0;
-      });
     },
     bindPickerChange2: function bindPickerChange2(e) {
       this.index2 = e.detail.value;
@@ -1008,7 +994,7 @@ var plugin = requirePlugin("ykfchat");
       this.index4 = e.detail.value;
     },
     submit: function submit() {
-      var _this3 = this;
+      var _this2 = this;
 
       Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
         url: 'xcx_request.php',
@@ -1023,9 +1009,9 @@ var plugin = requirePlugin("ykfchat");
         }
       }).then(function (res) {
         if (res.status == 1) {
-          _this3.close();
+          _this2.close();
 
-          _this3.$store.commit('set_searchArr', res.list);
+          _this2.$store.commit('set_searchArr', res.list);
 
           wx.navigateTo({
             url: '/pages/search/result'

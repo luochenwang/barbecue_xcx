@@ -2,6 +2,8 @@
   <view class="container" :style="{paddingTop:containerTop+'px'}">
     <webheader/>
     <image :src="share_picture" mode="widthFix" @tap="openPdf" class="pdf-img"/>
+
+    <sidebar/>
   </view>
 </template>
 

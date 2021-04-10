@@ -58,6 +58,8 @@ component.options.__file = "src/pages/pdf/index.vue"
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
@@ -159,7 +161,9 @@ var render = function() {
         staticClass: "pdf-img",
         attrs: { src: _vm.share_picture, mode: "widthFix" },
         on: { tap: _vm.openPdf }
-      })
+      }),
+      _vm._v(" "),
+      _c("sidebar")
     ],
     1
   )
