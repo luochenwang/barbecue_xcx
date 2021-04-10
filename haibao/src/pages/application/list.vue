@@ -2,14 +2,18 @@
   <view class="container" :style="{paddingTop:containerTop+'px'}">
     <webheader/>
     <view class="tab-nav">
-      <view class="item active" @tap='writeLeader'>
-        <image src="https://campaign5.method-ad.cn/hypertherm/img/show/icon_leads.png"/>
-        <text>填写表单</text>
-      </view>
-      <view class="item" @tap="showFilter">
-        <image src="https://campaign5.method-ad.cn/hypertherm/img/show/icon_filter.png"/>
-        <text>筛选</text>
-      </view>
+        <picker @change="bindPickerChange1" :value="index1" :range="list1" range-key="title">
+          <view class="item active">
+              <image src="https://campaign5.method-ad.cn/hypertherm/img/show/icon_application1.png"/>
+              <text>应用</text>
+          </view>
+        </picker>
+        <picker @change="bindPickerChange2" :value="index2" :range="list2" range-key="title">
+          <view class="item">
+              <image src="https://campaign5.method-ad.cn/hypertherm/img/show/icon_pro1.png"/>
+              <text>产品</text>
+          </view>
+        </picker>
     </view>
     <view class="search-box">
         <input type="text" placeholder="在这里输入您要搜索的内容" placeholder-style="color:#ca8989" v-model='searchVal' confirm-type="search" @confirm="search"/>
@@ -44,6 +48,12 @@ export default {
   mixins: [mixin],
   data() {
       return {
+        index1:0,
+        index2:0,
+        list1:[],
+        list2:[],
+
+
         searchModel:false,
         searchVal:'',
         list:[],
@@ -58,9 +68,56 @@ export default {
   onLoad(option) {
       this.option = option || {};
       this.searchVal = option.searchVal;
-      this.getData();
+
+
+      ajax({
+          url:'xcx_request.php',
+          data:{
+              act:'get_cases_app',
+          },
+      }).then(res=>{
+          if(res.list){
+            this.list1 = res.list;
+            for(var i = 0;i<this.list1.length;i++){
+              if(this.list1[i].app_id == this.option.app_id){
+                this.index1 = i;
+                break;
+              }
+            }
+          }
+
+          ajax({
+              url:'xcx_request.php',
+              data:{
+                  act:'get_cases_product',
+              },
+          }).then(res=>{
+              if(res.list){
+                this.list2 = res.list;
+                for(var i = 0;i<this.list2.length;i++){
+                  if(this.list2[i].app_id == this.option.product_id){
+                    this.index2 = i;
+                    break;
+                  }
+                }
+              }
+
+              this.getData();
+          })
+      })
+      
   },
   methods: {
+    bindPickerChange1(e){
+      this.index1 = e.detail.value;
+      this.list = [];
+      this.getData();
+    },
+    bindPickerChange2(e){
+      this.index2 = e.detail.value;
+      this.list = [];
+      this.getData();
+    },
     toggleInfo(index){
       this.list[index].show = !this.list[index].show;
     },
@@ -79,6 +136,7 @@ export default {
           })
           return false;
       }
+      this.list = [];
       this.getData();
     },
     getData(){
@@ -86,9 +144,9 @@ export default {
           url:'xcx_request.php',
           data:{
               act:'get_cases',
-              keywords:this.searchVal,
-              product_id:this.option.product_id || '',
-              app_id:this.option.app_id || '',
+              keywords:this.searchVal || '',
+              product_id:this.list2[this.index2].product_id || '',
+              app_id:this.list1[this.index1].app_id || '',
 
           },
       }).then(res=>{
@@ -107,4 +165,32 @@ export default {
 <style lang="scss">
 @import "../server/list";
 @import "../show/list.scss";
+.tab-nav{
+    width:700rpx;
+    margin:0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:20rpx 0;
+    .item{
+        width:315rpx;
+        line-height:50rpx;
+        text-align: center;
+        border-radius:50rpx;
+        font-size:22rpx;
+        color:#ca8989;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #eaeaea;
+        image{
+            width:50rpx;
+            height:50rpx;
+        }
+        &.active{
+            background:#ed1d2f;
+            color:#fff;
+        }
+    }
+}
 </style>

@@ -1,1 +1,136 @@
-.main{height:100vh;background:#ededed;padding-top:30rpx;padding-bottom:120rpx}.main scroll-view{padding:0 24rpx 40rpx}.main .time{-webkit-align-items:center;-ms-flex-align:center;align-items:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center}.main .time text{background:#ccc;padding:0 20rpx;font-size:20rpx;line-height:30rpx}.main .chat,.main .time{margin-bottom:30rpx;display:-webkit-flex;display:-ms-flexbox;display:flex}.main .chat.active{-webkit-flex-direction:row-reverse;-ms-flex-direction:row-reverse;flex-direction:row-reverse}.main .chat.active .headimg{margin-right:0;margin-left:20rpx}.main .chat.active .info{background:#77777a;color:#fff;border-top-left-radius:20rpx;border-bottom-right-radius:0}.main .chat .headimg{width:70rpx;height:70rpx;overflow:hidden;border-radius:20rpx;margin-right:20rpx}.footer-box input,.main .chat .headimg image{width:100%;height:100%}.main .chat .info{border-radius:20rpx;padding:20rpx;background:#fff;font-size:24rpx;max-width:510rpx;border-top-left-radius:0;line-height:1.5}.main .review{text-align:center;margin-top:80rpx}.main .review .tt{font-size:24rpx;margin-bottom:20rpx}.main .review .star{margin-bottom:30rpx}.main .review .star image{width:45rpx;height:43rpx;margin:0 5rpx}.main .review .btn-box{display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-ms-flex-align:center;align-items:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center}.main .review .btn-box .btn{width:145rpx;line-height:40rpx;margin:0 20rpx;font-size:20rpx;color:#fff;background:#959595;border-radius:40rpx}.main .review .btn-box .btn.active{background:#ed1b2e}.footer-box{position:fixed;bottom:0;left:0;width:100%;height:120rpx;padding:0 24rpx;background:#fff}.footer-box input{font-size:24rpx;padding-right:110rpx}.footer-box .send-btn{position:absolute;top:50%;right:24rpx;width:100rpx;line-height:55rpx;color:#fff;font-size:20rpx;background:#ed1b2e;text-align:center;margin-top:-27.5rpx;border-radius:20rpx}
+.main {
+  height: 100vh;
+  background: #ededed;
+  padding-top: 30rpx;
+  padding-bottom: 120rpx;
+}
+.main scroll-view {
+    padding: 0 24rpx 40rpx;
+}
+.main .time {
+    margin-bottom: 30rpx;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+}
+.main .time text {
+      background: #cccccc;
+      padding: 0 20rpx;
+      font-size: 20rpx;
+      line-height: 30rpx;
+}
+.main .chat {
+    margin-bottom: 30rpx;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+.main .chat.active {
+      -webkit-flex-direction: row-reverse;
+          -ms-flex-direction: row-reverse;
+              flex-direction: row-reverse;
+}
+.main .chat.active .headimg {
+        margin-right: 0;
+        margin-left: 20rpx;
+}
+.main .chat.active .info {
+        background: #77777a;
+        color: #fff;
+        border-top-left-radius: 20rpx;
+        border-bottom-right-radius: 0;
+}
+.main .chat .headimg {
+      width: 70rpx;
+      height: 70rpx;
+      overflow: hidden;
+      border-radius: 20rpx;
+      margin-right: 20rpx;
+}
+.main .chat .headimg image {
+        width: 100%;
+        height: 100%;
+}
+.main .chat .info {
+      border-radius: 20rpx;
+      padding: 20rpx;
+      background: #fff;
+      font-size: 24rpx;
+      max-width: 510rpx;
+      border-top-left-radius: 0;
+      line-height: 1.5;
+}
+.main .review {
+    text-align: center;
+    margin-top: 80rpx;
+}
+.main .review .tt {
+      font-size: 24rpx;
+      margin-bottom: 20rpx;
+}
+.main .review .star {
+      margin-bottom: 30rpx;
+}
+.main .review .star image {
+        width: 45rpx;
+        height: 43rpx;
+        margin: 0 5rpx;
+}
+.main .review .btn-box {
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -webkit-justify-content: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+}
+.main .review .btn-box .btn {
+        width: 145rpx;
+        line-height: 40rpx;
+        margin: 0 20rpx;
+        font-size: 20rpx;
+        color: #fff;
+        background: #959595;
+        border-radius: 40rpx;
+}
+.main .review .btn-box .btn.active {
+          background: #ed1b2e;
+}
+.footer-box {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 120rpx;
+  padding: 0 24rpx;
+  background: #fff;
+}
+.footer-box input {
+    font-size: 24rpx;
+    width: 100%;
+    height: 100%;
+    padding-right: 110rpx;
+}
+.footer-box .send-btn {
+    position: absolute;
+    top: 50%;
+    right: 24rpx;
+    width: 100rpx;
+    line-height: 55rpx;
+    color: #fff;
+    font-size: 20rpx;
+    background: #ed1b2e;
+    text-align: center;
+    margin-top: -27.5rpx;
+    border-radius: 20rpx;
+}
+

@@ -12,14 +12,14 @@
       </view>
       <view class="tab-nav" :style="{
     top:(menuButtonObject.height+menuButtonObject.top+10)+'px'}">
-        <view class="item" :class="{'active' : viewStr == 'content'}" @tap='scrollTap("content")'>客户应⽤简介</view>
-        <view class="item" :class="{'active' : viewStr == 'question'}" @tap='scrollTap("question")'>问题描述</view>
+        <view class="item" :class="{'active' : viewStr == 'content'}" @tap='scrollTap("content")'>案例详情</view>
+<!--         <view class="item" :class="{'active' : viewStr == 'question'}" @tap='scrollTap("question")'>问题描述</view>
         <view class="item" :class="{'active' : viewStr == 'scheme'}" @tap='scrollTap("scheme")'>采用方案</view>
-        <view class="item" :class="{'active' : viewStr == 'benefit'}" @tap='scrollTap("benefit")'>客户受益</view>
+        <view class="item" :class="{'active' : viewStr == 'benefit'}" @tap='scrollTap("benefit")'>客户受益</view> -->
         <view class="item" :class="{'active' : viewStr == 'products_list'}" @tap='scrollTap("products_list")'>相关产品</view>
       </view>
       <view class="pro-info" id="content">
-        <view class="pro-tt">客户应⽤简介</view>
+        <view class="pro-tt">案例详情</view>
         <view class="info">{{pageData.content.replace(/<\/?.+?>/g, "")}}</view>
       </view>
       <view class="pro-info" id="question">
@@ -47,8 +47,7 @@
       </view>
     </scroll-view>
     
-
-
+    <sidebar/>
   </view>
 </template>
 

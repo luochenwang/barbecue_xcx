@@ -21,6 +21,10 @@ Vue.component('liveLeads', liveLeads);
 Vue.component('downloadLeads', downloadLeads);
 Vue.component('showFilter', showFilter);
 Vue.component('proLeads', proLeads);
+
+
+
+
 const App = new Vue({
   store,
   onShow (options) {

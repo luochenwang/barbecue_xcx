@@ -9,6 +9,7 @@ export default {
     'pages/server/video',
     'pages/pdf/index',
     'pages/show/details',
+    'pages/show/sublist',
     'pages/show/list',
     'pages/application/details',
     'pages/application/list',

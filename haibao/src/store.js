@@ -21,9 +21,14 @@ const state = {
   leadsItem:{},
 
   searchArr:[],
+
+  iszixun:0,
 }
 
 const mutations = {
+  set_iszixun(state, val) {
+    state.iszixun = val || 0;
+  },
   set_searchArr(state, arr) {
     state.searchArr = arr || [];
   },

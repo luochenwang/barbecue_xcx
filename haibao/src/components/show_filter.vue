@@ -18,7 +18,7 @@
         </view>
         <view class="form-group icon-arrow">
           <label>材质厚度*</label>
-          <picker bindchange="bindPickerChange3" :value="index3" :range="array3" class="picker" range-key='title'>
+          <picker bindchang="bindPickerChange3" :value="index3" :range="array3" class="picker" range-key='title'>
               {{array3[index3].title}}
           </picker>
         </view>
@@ -49,13 +49,13 @@ export default {
     return {
       privacy:false,
       index1:0,
-      array1: [],
+      array1: [{}],
       index2:0,
-      array2: [],
+      array2: [{}],
       index3:0,
-      array3: [],
+      array3: [{}],
       index4:0,
-      array4: [],
+      array4: [{}],
       // customItem: '全部'
     }
   },
@@ -74,18 +74,30 @@ export default {
             },
           }).then(res=>{
             this.array1 = res.list;
-
-            ajax({
-              url: 'xcx_request.php',
-              data: {
-                act: 'get_products_qglx_select',
-                qglx_id:this.array1[this.index1].qglx_id
-              },
-            }).then(res=>{
-              this.array2 = res.cz_list;
-              this.array3 = res.clhd_list;
-              this.array4 = res.zlyq_list;
-            })
+          })
+          ajax({
+            url: 'xcx_request.php',
+            data: {
+              act: 'get_products_cz',
+            },
+          }).then(res=>{
+            this.array2 = res.list;
+          })
+          ajax({
+            url: 'xcx_request.php',
+            data: {
+              act: 'get_products_clhd',
+            },
+          }).then(res=>{
+            this.array3 = res.list;
+          })
+          ajax({
+            url: 'xcx_request.php',
+            data: {
+              act: 'get_products_zlyq',
+            },
+          }).then(res=>{
+            this.array4 = res.list;
           })
       }
     }

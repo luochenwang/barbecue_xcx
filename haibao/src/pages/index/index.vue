@@ -66,6 +66,14 @@ export default {
   mounted() {
     getOpenid().then(openid=>{
         this.openid = openid;
+        ajax({
+            url:'xcx_request.php',
+            data:{
+                act:'getUserInfo'
+            },
+        }).then(res=>{
+            this.$store.commit('set_iszixun',res.iszixun);
+        })
     });
 
     var that = this;

@@ -4,7 +4,7 @@
       <movable-area class="sidebar">
         <movable-view :direction="'vertical'" :y="y" @change="moveEnd">
           <view>
-              <view class="item icon-consult" @tap="service">在线咨询</view>
+              <view class="item icon-consult" @tap="service" v-if="server">在线咨询</view>
               <view class="item icon-back" @tap="back">返回上级</view>
           </view>
         </movable-view>
@@ -19,6 +19,12 @@ import { createCache } from "./../libs/globalData";
 const globalData = createCache();
 var timr = null;
   export default {
+    props: {
+      server:{
+        type: Boolean,
+        default: false
+      }
+    },
     name: 'sidebar',
     data() {
         return {

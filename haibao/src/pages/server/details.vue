@@ -46,7 +46,7 @@
       <view class="txt">如果您想要咨询其他内容，请点击菜单栏中的<text>“ 联系我们 ”</text>。</view>
     </view>
 
-    <sidebar/>
+    <sidebar :server="true"/>
 
     <live-leads/>
     <download-leads/>

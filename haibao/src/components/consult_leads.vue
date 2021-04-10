@@ -69,6 +69,19 @@ export default {
   watch:{
     consultLeadsModel(val){
       if(val){
+
+          if(this.$store.state.iszixun){
+            this.setHistory();
+            this.close();
+            // 预约
+            plugin.callback.on("getOpenId", this.getOpenId, this); // 传递openid，注意路径后一定要声名&getOpenIdType=2，否则传递无效
+            plugin.callback.on("getSessionFrom", this.session, this); // 传递客户资料
+
+            wx.navigateTo({
+                url: 'plugin://ykfchat/chat-page?wechatapp_id=219196&channel_id=25200&scene=p86776wmyjpl&getOpenIdType=2',
+            });
+            return false;
+          }
           ajax({
             url: 'xcx_request.php',
             data: {
@@ -102,6 +115,14 @@ export default {
 
   },
   methods: {
+    setHistory(){
+      ajax({
+          url:'xcx_request.php',
+          data:{
+              act:'set_ask_history',
+          },
+      });
+    },
     close(){
         this.$store.commit('set_consultLeadsModel');
     },
@@ -168,6 +189,7 @@ export default {
       }).then(res=>{
         if(res.status == 1){
           this.close();
+          this.setHistory();
           // 预约
           plugin.callback.on("getOpenId", this.getOpenId, this); // 传递openid，注意路径后一定要声名&getOpenIdType=2，否则传递无效
           plugin.callback.on("getSessionFrom", this.session, this); // 传递客户资料

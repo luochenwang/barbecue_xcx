@@ -13,7 +13,7 @@
         </navigator>
     </view>
 
-    <sidebar/>
+    <sidebar :server="true"/>
   </view>
 </template>
 

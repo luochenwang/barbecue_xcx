@@ -2,46 +2,50 @@
   <view class="container" :style="{paddingTop:containerTop+'px'}">
     <webheader/>
     <view class="tab-nav">
-      <view class="item" :class="{'active' : tabIndex == 0}" @tap="setTab(0)">
-        <image src="https://campaign5.method-ad.cn/hypertherm/img/show/icon_application1.png" v-if="tabIndex == 0"/>
-        <image src="https://campaign5.method-ad.cn/hypertherm/img/show/icon_application2.png" v-else/>
-        <text>应用</text>
-      </view>
-      <view class="item" :class="{'active' : tabIndex == 1}" @tap="setTab(1)">
-        <image src="https://campaign5.method-ad.cn/hypertherm/img/show/icon_pro2.png" v-if="tabIndex == 1"/>
-        <image src="https://campaign5.method-ad.cn/hypertherm/img/show/icon_pro1.png" v-else/>
-        <text>产品</text>
-      </view>
+        <picker @change="bindPickerChange1" :value="index1" :range="list1" range-key="title">
+          <view class="item" :class="{'active' : tabIndex == 0}">
+              <image src="https://campaign5.method-ad.cn/hypertherm/img/show/icon_application1.png" v-if="tabIndex == 0"/>
+              <image src="https://campaign5.method-ad.cn/hypertherm/img/show/icon_application2.png" v-else/>
+              <text>应用</text>
+          </view>
+        </picker>
+        <picker @change="bindPickerChange2" :value="index2" :range="list2" range-key="title">
+          <view class="item" :class="{'active' : tabIndex == 1}">
+              <image src="https://campaign5.method-ad.cn/hypertherm/img/show/icon_pro2.png" v-if="tabIndex == 1"/>
+              <image src="https://campaign5.method-ad.cn/hypertherm/img/show/icon_pro1.png" v-else/>
+              <text>产品</text>
+          </view>
+        </picker>
     </view>
     <view class="search-box">
         <input type="text" placeholder="在这里输入您要搜索的内容" placeholder-style="color:#ca8989" v-model='searchVal' confirm-type="search" @confirm="search"/>
         <view class="search-btn" @tap="search()">点击搜索</view>
     </view>
 
-    <view class="list-box" v-if="tabIndex == 0">
+    <view class="list-box">
       <view class="tt">所有应用案例展示</view>
-      <view class="list" :class="{'list-all' : !viewAll}">
-        <navigator class="item" v-for="(item,index) in list" :url="'/pages/application/list?app_id='+item.app_id">
+      <view class="list" :class="{'list-all' : !viewAll1}">
+        <navigator class="item" v-for="(item,index) in list1" :url="'/pages/application/list?app_id='+item.app_id">
           <view class='img-box'>
             <image :src="item.picture" mode="widthFix"/>
           </view>
           <view class="txt">{{item.title}}</view>
         </navigator>
       </view>
-      <view class="view-all" v-if="!viewAll" @tap="viewAll = true">展开更多</view>
+      <view class="view-all" v-if="!viewAll1" @tap="viewAll1 = true">展开更多</view>
     </view>
 
-    <view class="list-box" v-if="tabIndex == 1">
+    <view class="list-box">
       <view class="tt">所有产品案例展示</view>
-      <view class="list" :class="{'list-all' : !viewAll}">
-        <navigator class="item" v-for="(item,index) in list" :url="'/pages/application/list?product_id='+item.product_id">
+      <view class="list" :class="{'list-all' : !viewAll2}">
+        <navigator class="item" v-for="(item,index) in list2" :url="'/pages/application/list?product_id='+item.product_id">
           <view class='img-box'>
             <image :src="item.picture" mode="widthFix"/>
           </view>
           <view class="txt">{{item.title}}</view>
         </navigator>
       </view>
-      <view class="view-all" v-if="!viewAll" @tap="viewAll = true">展开更多</view>
+      <view class="view-all" v-if="!viewAll2" @tap="viewAll2 = true">展开更多</view>
     </view>
     <sidebar/>
 
@@ -61,10 +65,14 @@ export default {
       return {
         searchModel:false,
         searchVal:'',
-        list:[],
+        index1:0,
+        index2:0,
+        list1:[],
+        list2:[],
         isFirstAjax:true,
         tabIndex:0,
-        viewAll:false
+        viewAll1:false,
+        viewAll2:false,
       }
     },
   components: {
@@ -81,20 +89,15 @@ export default {
         this.getData();
       }
     },
+    bindPickerChange1(e){
+      this.index1 = e.detail.value;
+      wx.navigateTo({ url: '/pages/application/list?app_id='+this.list1[this.index1].app_id });
+    },
+    bindPickerChange2(e){
+      this.index2 = e.detail.value;
+      wx.navigateTo({ url: '/pages/application/list?product_id='+this.list2[this.index2].product_id });
+    },
     getData(){
-      if(this.tabIndex == 0){
-        ajax({
-            url:'xcx_request.php',
-            data:{
-                act:'get_cases_product',
-            },
-        }).then(res=>{
-            if(res.list){
-              this.list = res.list;
-            }
-            this.isFirstAjax = false;
-        })
-      }else{
         ajax({
             url:'xcx_request.php',
             data:{
@@ -102,11 +105,22 @@ export default {
             },
         }).then(res=>{
             if(res.list){
-              this.list = res.list;
+              this.list1 = res.list;
             }
             this.isFirstAjax = false;
         })
-      }
+        
+        ajax({
+            url:'xcx_request.php',
+            data:{
+                act:'get_cases_product',
+            },
+        }).then(res=>{
+            if(res.list){
+              this.list2 = res.list;
+            }
+            this.isFirstAjax = false;
+        })
     },
     search(){
       if(this.searchVal == ''){

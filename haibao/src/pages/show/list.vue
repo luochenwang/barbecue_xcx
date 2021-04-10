@@ -16,7 +16,7 @@
         <view class="search-btn" @tap="search()">点击搜索</view>
     </view>
     <view class="list">
-        <navigator class="item" v-for="(item,index) in list" :key="index" :url="'/pages/show/details?id='+item.type_id">
+        <navigator class="item" v-for="(item,index) in list" :key="index" :url="'/pages/show/sublist?type_id='+item.type_id">
             <view class="item-l">
                 <image :src="item.picture" mode="widthFix"/>
             </view>
@@ -61,6 +61,7 @@ export default {
             this.list = res.list;
           }
       });
+      this.$store.commit('set_showFilterModel',true);
       this.$store.commit('set_category',410);
   },
   methods: {
@@ -93,7 +94,9 @@ export default {
             })
             return false;
         }
-        this.searchAjax();
+        wx.navigateTo({url:'/pages/show/sublist?search_val='+this.searchVal});
+
+        // this.searchAjax();
     }
   }
 }
