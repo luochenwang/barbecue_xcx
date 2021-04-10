@@ -126,7 +126,6 @@ export default {
         url: 'xcx_request.php',
         data: {
           act: 'get_products',
-          type_id: 1,
           qglx_id: this.array1[this.index1].qglx_id,
           cz_id: this.array2[this.index2].cz_id,
           clhd_id: this.array3[this.index3].clhd_id,
