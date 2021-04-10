@@ -102,20 +102,21 @@ component.options.__file = "src/pages/application/details.vue"
 //
 //
 //
-//
-//
-//
-//
 
 
-var scrollArr = ['desc', 'info', 'pay'];
+var scrollArr = ['content', 'products_list'];
 var scrollTop = [];
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: 'server_details',
   mixins: [_libs_mixin__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"]],
   data: function data() {
     return {
-      pageData: {},
+      pageData: {
+        content: '',
+        question: '',
+        scheme: '',
+        benefit: ''
+      },
       toView: '',
       viewStr: 'content',
       fixed: false,

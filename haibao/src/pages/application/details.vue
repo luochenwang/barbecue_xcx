@@ -10,12 +10,8 @@
             </swiper-item>
         </swiper>
       </view>
-      <view class="tab-nav" :style="{
-    top:(menuButtonObject.height+menuButtonObject.top+10)+'px'}">
+      <view class="tab-nav" :style="{top:(menuButtonObject.height+menuButtonObject.top+10)+'px'}">
         <view class="item" :class="{'active' : viewStr == 'content'}" @tap='scrollTap("content")'>案例详情</view>
-<!--         <view class="item" :class="{'active' : viewStr == 'question'}" @tap='scrollTap("question")'>问题描述</view>
-        <view class="item" :class="{'active' : viewStr == 'scheme'}" @tap='scrollTap("scheme")'>采用方案</view>
-        <view class="item" :class="{'active' : viewStr == 'benefit'}" @tap='scrollTap("benefit")'>客户受益</view> -->
         <view class="item" :class="{'active' : viewStr == 'products_list'}" @tap='scrollTap("products_list")'>相关产品</view>
       </view>
       <view class="pro-info" id="content">
@@ -54,7 +50,7 @@
 <script>
 import { ajax } from "../../libs/ajax";
 import mixin from "../../libs/mixin";
-var scrollArr = ['desc','info','pay'];
+var scrollArr = ['content','products_list'];
 var scrollTop = [];
 
 export default {
@@ -62,7 +58,12 @@ export default {
   mixins: [mixin],
   data() {
       return {
-        pageData:{},
+        pageData:{
+          content:'',
+          question:'',
+          scheme:'',
+          benefit:''
+        },
 
         toView:'',
         viewStr:'content',
@@ -85,7 +86,7 @@ export default {
         this.pageData = res;
         this.$nextTick(() => {
           for(let item of scrollArr){
-          let query = wx.createSelectorQuery();
+            let query = wx.createSelectorQuery();
             query.select('#'+item).boundingClientRect( (rect) => {
                 let top = rect.top;
                 scrollTop.push(top);
