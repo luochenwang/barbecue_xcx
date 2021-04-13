@@ -51,16 +51,16 @@
         flex-direction: column;
         &.active{
             .icon-home{
-                background: url(http://172.16.1.142:3833/icon_footer_home2.png) no-repeat top center/100% auto;
+                background: url(http://192.168.3.29:4942/icon_footer_home2.png) no-repeat top center/100% auto;
             }
             .icon-device{
-                background: url(http://172.16.1.142:3833/icon_footer_device2.png) no-repeat top center/100% auto;
+                background: url(http://192.168.3.29:4942/icon_footer_device2.png) no-repeat top center/100% auto;
             }
             .icon-scan{
-                background: url(http://172.16.1.142:3833/icon_footer_scan2.png) no-repeat top center/100% auto;
+                background: url(http://192.168.3.29:4942/icon_footer_scan2.png) no-repeat top center/100% auto;
             }
             .icon-my{
-                background: url(http://172.16.1.142:3833/icon_footer_user2.png) no-repeat top center/100% auto;
+                background: url(http://192.168.3.29:4942/icon_footer_user2.png) no-repeat top center/100% auto;
             }
             .txt{
                 color:#ec8f26;
@@ -69,7 +69,7 @@
         .icon-order{
             width:103rpx;
             height:107rpx;
-            background: url(http://172.16.1.142:3833/icon_footer_order.png) no-repeat top center/100% auto;
+            background: url(http://192.168.3.29:4942/icon_footer_order.png) no-repeat top center/100% auto;
             margin-top:-40rpx;
         }
         text{
@@ -82,16 +82,16 @@
             color:#888888;
         }
         .icon-home{
-            background: url(http://172.16.1.142:3833/icon_footer_home1.png) no-repeat top center/100% auto;
+            background: url(http://192.168.3.29:4942/icon_footer_home1.png) no-repeat top center/100% auto;
         }
         .icon-device{
-            background: url(http://172.16.1.142:3833/icon_footer_device1.png) no-repeat top center/100% auto;
+            background: url(http://192.168.3.29:4942/icon_footer_device1.png) no-repeat top center/100% auto;
         }
         .icon-scan{
-            background: url(http://172.16.1.142:3833/icon_footer_scan1.png) no-repeat top center/100% auto;
+            background: url(http://192.168.3.29:4942/icon_footer_scan1.png) no-repeat top center/100% auto;
         }
         .icon-my{
-            background: url(http://172.16.1.142:3833/icon_footer_user1.png) no-repeat top center/100% auto;
+            background: url(http://192.168.3.29:4942/icon_footer_user1.png) no-repeat top center/100% auto;
         }
     }
   }

@@ -948,30 +948,36 @@ var plugin = requirePlugin("ykfchat");
           }
         }).then(function (res) {
           _this.array1 = res.list;
-        });
-        Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
-          url: 'xcx_request.php',
-          data: {
-            act: 'get_products_cz'
-          }
-        }).then(function (res) {
-          _this.array2 = res.list;
-        });
-        Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
-          url: 'xcx_request.php',
-          data: {
-            act: 'get_products_clhd'
-          }
-        }).then(function (res) {
-          _this.array3 = res.list;
-        });
-        Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
-          url: 'xcx_request.php',
-          data: {
-            act: 'get_products_zlyq'
-          }
-        }).then(function (res) {
-          _this.array4 = res.list;
+          Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
+            url: 'xcx_request.php',
+            data: {
+              act: 'get_products_cz',
+              qglx_id: _this.array1[_this.index1].qglx_id
+            }
+          }).then(function (res) {
+            _this.array2 = res.list;
+            Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
+              url: 'xcx_request.php',
+              data: {
+                act: 'get_products_clhd',
+                qglx_id: _this.array1[_this.index1].qglx_id,
+                cz_id: _this.array2[_this.index2].cz_id
+              }
+            }).then(function (res) {
+              _this.array3 = res.list;
+              Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
+                url: 'xcx_request.php',
+                data: {
+                  act: 'get_products_zlyq',
+                  qglx_id: _this.array1[_this.index1].qglx_id,
+                  cz_id: _this.array2[_this.index2].cz_id,
+                  clhd_id: _this.array3[_this.index3].clhd_id
+                }
+              }).then(function (res) {
+                _this.array4 = res.list;
+              });
+            });
+          });
         });
       }
     }
@@ -982,13 +988,87 @@ var plugin = requirePlugin("ykfchat");
       this.$store.commit('set_showFilterModel');
     },
     bindPickerChange1: function bindPickerChange1(e) {
+      var _this2 = this;
+
       this.index1 = e.detail.value;
+      this.index2 = 0;
+      this.index3 = 0;
+      this.index4 = 0;
+      Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
+        url: 'xcx_request.php',
+        data: {
+          act: 'get_products_cz',
+          qglx_id: this.array1[this.index1].qglx_id
+        }
+      }).then(function (res) {
+        _this2.array2 = res.list;
+        Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
+          url: 'xcx_request.php',
+          data: {
+            act: 'get_products_clhd',
+            qglx_id: _this2.array1[_this2.index1].qglx_id,
+            cz_id: _this2.array2[_this2.index2].cz_id
+          }
+        }).then(function (res) {
+          _this2.array3 = res.list;
+          Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
+            url: 'xcx_request.php',
+            data: {
+              act: 'get_products_zlyq',
+              qglx_id: _this2.array1[_this2.index1].qglx_id,
+              cz_id: _this2.array2[_this2.index2].cz_id,
+              clhd_id: _this2.array3[_this2.index3].clhd_id
+            }
+          }).then(function (res) {
+            _this2.array4 = res.list;
+          });
+        });
+      });
     },
     bindPickerChange2: function bindPickerChange2(e) {
+      var _this3 = this;
+
       this.index2 = e.detail.value;
+      this.index3 = 0;
+      this.index4 = 0;
+      Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
+        url: 'xcx_request.php',
+        data: {
+          act: 'get_products_clhd',
+          qglx_id: this.array1[this.index1].qglx_id,
+          cz_id: this.array2[this.index2].cz_id
+        }
+      }).then(function (res) {
+        _this3.array3 = res.list;
+        Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
+          url: 'xcx_request.php',
+          data: {
+            act: 'get_products_zlyq',
+            qglx_id: _this3.array1[_this3.index1].qglx_id,
+            cz_id: _this3.array2[_this3.index2].cz_id,
+            clhd_id: _this3.array3[_this3.index3].clhd_id
+          }
+        }).then(function (res) {
+          _this3.array4 = res.list;
+        });
+      });
     },
     bindPickerChange3: function bindPickerChange3(e) {
+      var _this4 = this;
+
       this.index3 = e.detail.value;
+      this.index4 = 0;
+      Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
+        url: 'xcx_request.php',
+        data: {
+          act: 'get_products_zlyq',
+          qglx_id: this.array1[this.index1].qglx_id,
+          cz_id: this.array2[this.index2].cz_id,
+          clhd_id: this.array3[this.index3].clhd_id
+        }
+      }).then(function (res) {
+        _this4.array4 = res.list;
+      });
     },
     bindPickerChange4: function bindPickerChange4(e) {
       this.index4 = e.detail.value;
@@ -1045,6 +1125,10 @@ var plugin = requirePlugin("ykfchat");
 
 "use strict";
 /* harmony import */ var _libs_globalData__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../libs/globalData */ "./src/libs/globalData.js");
+//
+//
+//
+//
 //
 //
 //
@@ -2899,7 +2983,7 @@ var render = function() {
                       range: _vm.array3,
                       "range-key": "title"
                     },
-                    on: { chang: _vm.bindPickerChange3 }
+                    on: { change: _vm.bindPickerChange3 }
                   },
                   [
                     _vm._v(
@@ -3022,14 +3106,28 @@ var render = function() {
                         staticClass: "item icon-consult",
                         on: { tap: _vm.service }
                       },
-                      [_vm._v("在线咨询")]
+                      [
+                        _c("image", {
+                          attrs: {
+                            src:
+                              "https://campaign5.method-ad.cn/hypertherm/img/side1.png"
+                          }
+                        })
+                      ]
                     )
                   : _vm._e(),
                 _vm._v(" "),
                 _c(
                   "view",
                   { staticClass: "item icon-back", on: { tap: _vm.back } },
-                  [_vm._v("返回上级")]
+                  [
+                    _c("image", {
+                      attrs: {
+                        src:
+                          "https://campaign5.method-ad.cn/hypertherm/img/side2.png"
+                      }
+                    })
+                  ]
                 )
               ])
             ]

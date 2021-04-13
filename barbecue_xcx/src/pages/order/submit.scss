@@ -11,7 +11,7 @@
             text-align:center;
             font-size:36.5rpx;
             color:#3e3a39;
-            background:url(http://172.16.1.142:3833/order/tt_bg.png) no-repeat center center/591rpx auto;
+            background:url(http://192.168.3.29:4942/order/tt_bg.png) no-repeat center center/591rpx auto;
         }
         .select-device{
             width:620rpx;
@@ -41,7 +41,7 @@
                     border-bottom:1px solid #aaaaaa;
                     position: relative;
                     &.active:after{
-                        background:url(http://172.16.1.142:3833/order/icon_select2.png) no-repeat top center/100% auto;
+                        background:url(http://192.168.3.29:4942/order/icon_select2.png) no-repeat top center/100% auto;
                     }
                     &:last-child{
                         border-bottom:0;
@@ -53,7 +53,7 @@
                         left:5rpx;
                         width:30rpx;
                         height:30rpx;
-                        background:url(http://172.16.1.142:3833/order/icon_select1.png) no-repeat top center/100% auto;
+                        background:url(http://192.168.3.29:4942/order/icon_select1.png) no-repeat top center/100% auto;
                     }
                     .name{
                         display: flex;
@@ -83,7 +83,7 @@
                             width:26rpx;
                             height:26rpx;
                             margin-top:-13rpx;
-                            background:url(http://172.16.1.142:3833/order/icon_daohang.png) no-repeat top center/100% auto;
+                            background:url(http://192.168.3.29:4942/order/icon_daohang.png) no-repeat top center/100% auto;
                         }
                     }
                 }

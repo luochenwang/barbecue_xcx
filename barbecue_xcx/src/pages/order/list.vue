@@ -32,10 +32,29 @@
 </template>
 
 <script>
+import {ajax} from '../../libs/ajax.js';
 
 export default {
   name: 'list',
+  data() {
+      return {
+
+      };
+  },
   components: {
+
+  },
+  created(){
+    ajax({
+        url:'mxrs/wx/order/findAllUserOrder',
+        data:{
+            
+        }
+    }).then(res=>{
+        console.log(res);
+    });
+  },
+  methods: {
 
   }
 }

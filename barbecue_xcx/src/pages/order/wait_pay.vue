@@ -1,7 +1,7 @@
 <template>
   <view class="container">
     <view class='wait-time'>
-        <image src="http://172.16.1.142:3833/order/dfk.png" mode="widthFix"></image>
+        <image src="http://192.168.3.29:4942/order/dfk.png" mode="widthFix"></image>
         <text>待付款</text>
         <text class="time">还剩22分29秒</text>
     </view>

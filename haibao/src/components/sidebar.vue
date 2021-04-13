@@ -4,8 +4,12 @@
       <movable-area class="sidebar">
         <movable-view :direction="'vertical'" :y="y" @change="moveEnd">
           <view>
-              <view class="item icon-consult" @tap="service" v-if="server">在线咨询</view>
-              <view class="item icon-back" @tap="back">返回上级</view>
+              <view class="item icon-consult" @tap="service" v-if="server">
+                <image src="https://campaign5.method-ad.cn/hypertherm/img/side1.png"/>
+              </view>
+              <view class="item icon-back" @tap="back">
+                <image src="https://campaign5.method-ad.cn/hypertherm/img/side2.png"/>
+              </view>
           </view>
         </movable-view>
       </movable-area>
@@ -90,7 +94,7 @@ var timr = null;
       height:100%;
       top:0;
       z-index:10;
-      .icon-consult:before{
+      /*.icon-consult:before{
           content:'';
           width:50rpx;
           height:50rpx;
@@ -105,21 +109,26 @@ var timr = null;
           display: block;
           background:url(https://campaign5.method-ad.cn/hypertherm/img/sidebar2.png) no-repeat 0 0/100% auto;
           margin-right:5rpx;
-      }
+      }*/
       .item{
           display: flex;
           text-align: center;
           align-items: center;
           justify-content: center;
-          width:165rpx;
+          /*width:165rpx;
           line-height:70rpx;
           border-top-right-radius:20rpx;
           border-bottom-right-radius:20rpx;
           border:1px solid #ca8989;
           background-color:rgba(255,255,255,0.5);
           font-size:22rpx;
-          color:#ca8989;
+          color:#ca8989;*/
           margin-bottom:20rpx;
+          width:156rpx;
+          image{
+            width:100%;
+            height:70rpx;
+          }
       }
   }
 </style>

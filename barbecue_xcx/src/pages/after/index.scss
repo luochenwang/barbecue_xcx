@@ -59,7 +59,7 @@
                 align-items: center;
                 &.active:before{
                     border:0;
-                    background:url(http://172.16.1.142:3833/address-img/icon_select.png) no-repeat top center/100% auto;
+                    background:url(http://192.168.3.29:4942/address-img/icon_select.png) no-repeat top center/100% auto;
                 }
                 &:before{
                     content:'';
@@ -93,7 +93,7 @@
             .upimg-btn{
                 width:145rpx;
                 height:140rpx;
-                background:#f6f8f7 url(http://172.16.1.142:3833/user/icon_upimg.png) no-repeat center 20rpx/50rpx 50rpx;
+                background:#f6f8f7 url(http://192.168.3.29:4942/user/icon_upimg.png) no-repeat center 20rpx/50rpx 50rpx;
                 margin-right:20rpx;
                 margin-bottom:20rpx;
                 display: flex;

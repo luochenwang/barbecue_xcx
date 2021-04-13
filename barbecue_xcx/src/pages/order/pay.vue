@@ -27,7 +27,7 @@
         </view>
         <view class="item">
             <view class="key">微信支付</view>
-            <image src="http://172.16.1.142:3833/order/icon_wechat.png" mode="widthFix" class="icon-pay"/>
+            <image src="http://192.168.3.29:4942/order/icon_wechat.png" mode="widthFix" class="icon-pay"/>
         </view>
     </view>
     <view class="footer-btn">

@@ -2,7 +2,7 @@ import Taro from '@tarojs/taro';
 import { createCache } from "./globalData";
 const globalData = createCache();
 
-const DOMAIN = 'http://www.bbqtime.cn:8080/mxrs/wxapp/';
+const DOMAIN = 'https://www.bbqtime.cn/';
 export function getOpenid() {
     return new Promise((resolve, reject) => {
         var openid = globalData.get("openid");
@@ -41,22 +41,20 @@ export function getOpenid() {
 }
 export function ajax(options = {}) {
     return new Promise((resolve, reject) => {
-        getOpenid().then(openid=>{
-            let obj = Object.assign({}, options.data || {}, {openid:openid});
-            Taro.request({
-                url: DOMAIN + options.url,
-                data: {...obj},
-                method:'post',
-                header:{
-                    'Content-Type':'application/x-www-form-urlencoded'
-                },
-                success (res) {
-                    resolve(res.data);
-                },
-                fail(e){
-                    reject(e);
-                }
-            });
-        })
+        let obj = Object.assign({}, options.data || {});
+        Taro.request({
+            url: DOMAIN + options.url,
+            data: {...obj},
+            method:'post',
+            header:{
+                'Content-Type':'application/x-www-form-urlencoded'
+            },
+            success (res) {
+                resolve(res.data);
+            },
+            fail(e){
+                reject(e);
+            }
+        });
     })
 };

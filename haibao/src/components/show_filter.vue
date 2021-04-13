@@ -18,7 +18,7 @@
         </view>
         <view class="form-group icon-arrow">
           <label>材质厚度*</label>
-          <picker @chang="bindPickerChange3" :value="index3" :range="array3" class="picker" range-key='title'>
+          <picker @change="bindPickerChange3" :value="index3" :range="array3" class="picker" range-key='title'>
               {{array3[index3].title}}
           </picker>
         </view>
@@ -74,30 +74,39 @@ export default {
             },
           }).then(res=>{
             this.array1 = res.list;
-          })
-          ajax({
-            url: 'xcx_request.php',
-            data: {
-              act: 'get_products_cz',
-            },
-          }).then(res=>{
-            this.array2 = res.list;
-          })
-          ajax({
-            url: 'xcx_request.php',
-            data: {
-              act: 'get_products_clhd',
-            },
-          }).then(res=>{
-            this.array3 = res.list;
-          })
-          ajax({
-            url: 'xcx_request.php',
-            data: {
-              act: 'get_products_zlyq',
-            },
-          }).then(res=>{
-            this.array4 = res.list;
+
+            ajax({
+              url: 'xcx_request.php',
+              data: {
+                act: 'get_products_cz',
+                qglx_id:this.array1[this.index1].qglx_id
+              },
+            }).then(res=>{
+              this.array2 = res.list;
+
+              ajax({
+                url: 'xcx_request.php',
+                data: {
+                  act: 'get_products_clhd',
+                  qglx_id:this.array1[this.index1].qglx_id,
+                  cz_id:this.array2[this.index2].cz_id,
+                },
+              }).then(res=>{
+                this.array3 = res.list;
+
+                ajax({
+                  url: 'xcx_request.php',
+                  data: {
+                    act: 'get_products_zlyq',
+                    qglx_id:this.array1[this.index1].qglx_id,
+                    cz_id:this.array2[this.index2].cz_id,
+                    clhd_id:this.array3[this.index3].clhd_id,
+                  },
+                }).then(res=>{
+                  this.array4 = res.list;
+                })
+              })
+            })
           })
       }
     }
@@ -111,12 +120,84 @@ export default {
     },
     bindPickerChange1: function(e) {
       this.index1 = e.detail.value;
+      this.index2 = 0;
+      this.index3 = 0;
+      this.index4 = 0;
+      ajax({
+        url: 'xcx_request.php',
+        data: {
+          act: 'get_products_cz',
+          qglx_id:this.array1[this.index1].qglx_id
+        },
+      }).then(res=>{
+        this.array2 = res.list;
+
+        ajax({
+          url: 'xcx_request.php',
+          data: {
+            act: 'get_products_clhd',
+            qglx_id:this.array1[this.index1].qglx_id,
+            cz_id:this.array2[this.index2].cz_id,
+          },
+        }).then(res=>{
+          this.array3 = res.list;
+
+          ajax({
+            url: 'xcx_request.php',
+            data: {
+              act: 'get_products_zlyq',
+              qglx_id:this.array1[this.index1].qglx_id,
+              cz_id:this.array2[this.index2].cz_id,
+              clhd_id:this.array3[this.index3].clhd_id,
+            },
+          }).then(res=>{
+            this.array4 = res.list;
+          })
+        })
+      })
     },
     bindPickerChange2: function(e) {
       this.index2 = e.detail.value;
+      this.index3 = 0;
+      this.index4 = 0;
+      
+      ajax({
+        url: 'xcx_request.php',
+        data: {
+          act: 'get_products_clhd',
+          qglx_id:this.array1[this.index1].qglx_id,
+          cz_id:this.array2[this.index2].cz_id,
+        },
+      }).then(res=>{
+        this.array3 = res.list;
+
+        ajax({
+          url: 'xcx_request.php',
+          data: {
+            act: 'get_products_zlyq',
+            qglx_id:this.array1[this.index1].qglx_id,
+            cz_id:this.array2[this.index2].cz_id,
+            clhd_id:this.array3[this.index3].clhd_id,
+          },
+        }).then(res=>{
+          this.array4 = res.list;
+        })
+      })
     },
     bindPickerChange3: function(e) {
       this.index3 = e.detail.value;
+      this.index4 = 0;
+      ajax({
+        url: 'xcx_request.php',
+        data: {
+          act: 'get_products_zlyq',
+          qglx_id:this.array1[this.index1].qglx_id,
+          cz_id:this.array2[this.index2].cz_id,
+          clhd_id:this.array3[this.index3].clhd_id,
+        },
+      }).then(res=>{
+        this.array4 = res.list;
+      })
     },
     bindPickerChange4: function(e) {
       this.index4 = e.detail.value;

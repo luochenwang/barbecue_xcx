@@ -35,11 +35,32 @@
 </template>
 
 <script>
+import {ajax} from '../../libs/ajax.js';
 
 export default {
   name: 'list',
   components: {
 
+  },
+  data() {
+      return {
+
+      };
+  },
+  created(){
+    this.getList();
+  },
+  methods: {
+    getList(){
+        ajax({
+            url:'mxrs/wx/addr/findByAddr',
+            data:{
+              telephone: '1781111112212',
+            }
+        }).then(res=>{
+            console.log(res);
+        });
+    }
   }
 }
 </script>
