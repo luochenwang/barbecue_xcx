@@ -1,22 +1,22 @@
 <!--页面底部-->
 <template>
   <view class="footer">
-      <view class="item" :class="{'active' : type == 'home'}">
+      <view class="item" :class="{'active' : type == 'home'}" @click="toview('home','/pages/index/index')">
           <text class="icon-home"></text>
           <view class="txt">首页</view>
       </view>
-      <view class="item" :class="{'active' : type == 'device'}">
+      <view class="item" :class="{'active' : type == 'device'}" @click="toview('device','/pages/map/index')">
           <text class="icon-device"></text>
           <view class="txt">附近设备</view>
       </view>
       <view class="item">
           <text class="icon-order"></text>
       </view>
-      <view class="item" :class="{'active' : type == 'scan'}">
+      <view class="item" :class="{'active' : type == 'scan'}" @click="toview('scan','/pages/index/index')">
           <text class="icon-scan"></text>
           <view class="txt">扫码付款</view>
       </view>
-      <view class="item" :class="{'active' : type == 'my'}">
+      <view class="item" :class="{'active' : type == 'my'}" @click="toview('my','/pages/user/index')">
           <text class="icon-my"></text>
           <view class="txt">我的</view>
       </view>
@@ -25,8 +25,23 @@
 
 <script>
   export default {
-        name: 'webFooter',
-        props:['type']
+      name: 'webFooter',
+      props:['type'],
+      data() {
+          return {
+            
+          }
+      },
+      mounted(){
+
+      },
+      methods: {
+        toview(type,url){
+          if(type != this.type){
+              wx.navigateTo({ url: url });
+          }
+        }
+      }
   }
 </script>
 

@@ -32,17 +32,23 @@
     </view>
     <view class="footer-btn">
         <view class="txt">共2件，合计: <text>￥48</text></view>
-        <view class="btn">去支付</view>
+        <view class="btn" @tap="pay">去支付</view>
     </view>
   </view>
 </template>
 
 <script>
+import {ajax} from '../../libs/ajax.js';
 
 export default {
   name: 'pay',
   components: {
 
+  },
+  data() {
+      return {
+        
+      }
   },
   mounted(){
     wx.showModal({
@@ -57,6 +63,31 @@ export default {
             }
         }
     });
+  },
+  methods: {
+    pay(){
+        ajax({
+            url:'mxrs/mac/pay/wePayPrecreate/v2.0',
+            data:{
+              deviceId:'#ID-C8AE9CD01602C',
+              precreateTime:Date.parse(new Date()),
+              productId:'p44832633',
+              productNum:1,
+              productFlavor:1,
+              openId:'o8FV85ctN8oeOa6eyNsbPueQvKAM',
+            }
+        }).then(res=>{
+            wx.requestPayment(
+            {
+            ...res.data,
+            'success':function(res){
+
+            },
+            'fail':function(res){},
+            'complete':function(res){}
+            })
+        });
+    }
   }
 }
 </script>

@@ -16,7 +16,7 @@
         <view class="search-btn" @tap="search()">点击搜索</view>
     </view>
     <view class="list">
-        <navigator class="item" v-for="(item,index) in list" :key="index" :url="'/pages/show/details?id='+item.type_id">
+        <navigator class="item" v-for="(item,index) in list" :key="index" :url="'/pages/show/details?id='+item.product_id">
             <view class="item-l">
                 <image :src="item.picture" mode="widthFix"/>
             </view>

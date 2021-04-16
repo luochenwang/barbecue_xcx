@@ -294,7 +294,7 @@ var render = function() {
             {
               key: index,
               staticClass: "item",
-              attrs: { url: "/pages/show/details?id=" + item.type_id }
+              attrs: { url: "/pages/show/details?id=" + item.product_id }
             },
             [
               _c("view", { staticClass: "item-l" }, [
