@@ -41,7 +41,7 @@ export default {
   },
   computed:{
       downloadLeadsModel(){
-          return this.$store.state.downloadLeadsModel;
+          return this.$store.state.dv0ownloadLeadsModel;
       },
       leadsItem(){
           return this.$store.state.leadsItem;

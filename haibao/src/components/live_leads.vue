@@ -11,6 +11,10 @@
         <input type="number" v-model="phone" maxlength="11" />
       </view>
       <view class="form-group">
+        <label>电子邮箱地址*</label>
+        <input type="text" v-model="email"/>
+      </view>
+      <view class="form-group">
         <label>公司名称*</label>
         <input type="text" v-model="company"/>
       </view>
@@ -52,6 +56,7 @@ export default {
       name:'',
       phone:'',
       company:'',
+      email:'',
       region: ["上海市", "上海市", '徐汇区'],
       // customItem: '全部'
     }
@@ -114,6 +119,14 @@ export default {
         })
         return false;
       }
+      if(this.email == ''){
+        wx.showToast({
+            title: '请输入电子邮箱地址',
+            icon: 'none',
+            duration: 2000,
+        })
+        return false;
+      }
       if(this.company == ''){
         wx.showToast({
             title: '请输入公司名称',
@@ -140,6 +153,7 @@ export default {
           comname: this.company,
           mobile: this.phone,
           name: this.name,
+          email: this.email,
           province: this.region[0],
           city: this.region[1],
         },

@@ -358,7 +358,7 @@ var plugin = requirePlugin("ykfchat");
   },
   computed: {
     downloadLeadsModel: function downloadLeadsModel() {
-      return this.$store.state.downloadLeadsModel;
+      return this.$store.state.dv0ownloadLeadsModel;
     },
     leadsItem: function leadsItem() {
       return this.$store.state.leadsItem;
@@ -506,6 +506,10 @@ var plugin = requirePlugin("ykfchat");
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: 'sidebar',
@@ -515,6 +519,7 @@ var plugin = requirePlugin("ykfchat");
       name: '',
       phone: '',
       company: '',
+      email: '',
       region: ["上海市", "上海市", '徐汇区'] // customItem: '全部'
 
     };
@@ -581,6 +586,15 @@ var plugin = requirePlugin("ykfchat");
         return false;
       }
 
+      if (this.email == '') {
+        wx.showToast({
+          title: '请输入电子邮箱地址',
+          icon: 'none',
+          duration: 2000
+        });
+        return false;
+      }
+
       if (this.company == '') {
         wx.showToast({
           title: '请输入公司名称',
@@ -608,6 +622,7 @@ var plugin = requirePlugin("ykfchat");
           comname: this.company,
           mobile: this.phone,
           name: this.name,
+          email: this.email,
           province: this.region[0],
           city: this.region[1]
         }
@@ -2374,6 +2389,31 @@ var render = function() {
                     return
                   }
                   _vm.phone = $event.target.value
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("view", { staticClass: "form-group" }, [
+            _c("label", [_vm._v("电子邮箱地址*")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.email,
+                  expression: "email"
+                }
+              ],
+              attrs: { type: "text" },
+              domProps: { value: _vm.email },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.email = $event.target.value
                 }
               }
             })
