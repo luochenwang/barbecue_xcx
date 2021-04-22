@@ -964,6 +964,11 @@ var plugin = requirePlugin("ykfchat");
           }
         }).then(function (res) {
           _this.array1 = res.list;
+
+          _this.array1.push({
+            title: '请选择'
+          });
+
           Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
             url: 'xcx_request.php',
             data: {
@@ -972,6 +977,11 @@ var plugin = requirePlugin("ykfchat");
             }
           }).then(function (res) {
             _this.array2 = res.list;
+
+            _this.array2.push({
+              title: '请选择'
+            });
+
             Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
               url: 'xcx_request.php',
               data: {
@@ -981,6 +991,11 @@ var plugin = requirePlugin("ykfchat");
               }
             }).then(function (res) {
               _this.array3 = res.list;
+
+              _this.array3.push({
+                title: '请选择'
+              });
+
               Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
                 url: 'xcx_request.php',
                 data: {
@@ -991,6 +1006,10 @@ var plugin = requirePlugin("ykfchat");
                 }
               }).then(function (res) {
                 _this.array4 = res.list;
+
+                _this.array4.push({
+                  title: '请选择'
+                });
               });
             });
           });
@@ -1018,6 +1037,11 @@ var plugin = requirePlugin("ykfchat");
         }
       }).then(function (res) {
         _this2.array2 = res.list;
+
+        _this2.array2.push({
+          title: '请选择'
+        });
+
         Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
           url: 'xcx_request.php',
           data: {
@@ -1027,6 +1051,11 @@ var plugin = requirePlugin("ykfchat");
           }
         }).then(function (res) {
           _this2.array3 = res.list;
+
+          _this2.array3.push({
+            title: '请选择'
+          });
+
           Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
             url: 'xcx_request.php',
             data: {
@@ -1037,6 +1066,10 @@ var plugin = requirePlugin("ykfchat");
             }
           }).then(function (res) {
             _this2.array4 = res.list;
+
+            _this2.array4.push({
+              title: '请选择'
+            });
           });
         });
       });
@@ -1056,6 +1089,11 @@ var plugin = requirePlugin("ykfchat");
         }
       }).then(function (res) {
         _this3.array3 = res.list;
+
+        _this3.array3.push({
+          title: '请选择'
+        });
+
         Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
           url: 'xcx_request.php',
           data: {
@@ -1066,6 +1104,10 @@ var plugin = requirePlugin("ykfchat");
           }
         }).then(function (res) {
           _this3.array4 = res.list;
+
+          _this3.array4.push({
+            title: '请选择'
+          });
         });
       });
     },
@@ -1084,12 +1126,52 @@ var plugin = requirePlugin("ykfchat");
         }
       }).then(function (res) {
         _this4.array4 = res.list;
+
+        _this4.array4.push({
+          title: '请选择'
+        });
       });
     },
     bindPickerChange4: function bindPickerChange4(e) {
       this.index4 = e.detail.value;
     },
     submit: function submit() {
+      if (!this.array1[this.index1].qglx_id) {
+        wx.showToast({
+          title: '请选择切割类型',
+          icon: 'none',
+          duration: 2000
+        });
+        return false;
+      }
+
+      if (!this.array2[this.index2].cz_id) {
+        wx.showToast({
+          title: '请选择材质',
+          icon: 'none',
+          duration: 2000
+        });
+        return false;
+      }
+
+      if (!this.array3[this.index3].clhd_id) {
+        wx.showToast({
+          title: '请选择材质厚度',
+          icon: 'none',
+          duration: 2000
+        });
+        return false;
+      }
+
+      if (!this.array4[this.index4].zlyq_id) {
+        wx.showToast({
+          title: '请选择质量要求',
+          icon: 'none',
+          duration: 2000
+        });
+        return false;
+      }
+
       this.close();
       this.$store.commit('set_filterObj', {
         qglx_id: this.array1[this.index1].qglx_id,

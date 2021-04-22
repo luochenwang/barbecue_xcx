@@ -52,7 +52,7 @@
         <view class="pro-tt">产品资料</view>
         <view class="list">
           <view class="item" v-for="(item,index) in pageData.download_list">
-            <view class="txt">{{item.title}}.{{item.file_type}}</view>
+            <view class="txt" @tap="openPdf(item.file)">{{item.title}}.{{item.file_type}}</view>
             <view class="view icon" @tap="openPdf(item.file)"></view>
             <view class="share icon">
               <button open-type="share"></button>

@@ -595,9 +595,18 @@ var render = function() {
               { staticClass: "list" },
               _vm._l(_vm.pageData.download_list, function(item, index) {
                 return _c("view", { staticClass: "item" }, [
-                  _c("view", { staticClass: "txt" }, [
-                    _vm._v(_vm._s(item.title) + "." + _vm._s(item.file_type))
-                  ]),
+                  _c(
+                    "view",
+                    {
+                      staticClass: "txt",
+                      on: {
+                        tap: function($event) {
+                          return _vm.openPdf(item.file)
+                        }
+                      }
+                    },
+                    [_vm._v(_vm._s(item.title) + "." + _vm._s(item.file_type))]
+                  ),
                   _vm._v(" "),
                   _c("view", {
                     staticClass: "view icon",

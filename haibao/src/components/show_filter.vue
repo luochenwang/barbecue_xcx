@@ -74,7 +74,9 @@ export default {
             },
           }).then(res=>{
             this.array1 = res.list;
-
+            this.array1.push({
+              title:'请选择',
+            })
             ajax({
               url: 'xcx_request.php',
               data: {
@@ -83,7 +85,9 @@ export default {
               },
             }).then(res=>{
               this.array2 = res.list;
-
+              this.array2.push({
+                title:'请选择',
+              })
               ajax({
                 url: 'xcx_request.php',
                 data: {
@@ -93,7 +97,9 @@ export default {
                 },
               }).then(res=>{
                 this.array3 = res.list;
-
+                this.array3.push({
+                  title:'请选择',
+                })
                 ajax({
                   url: 'xcx_request.php',
                   data: {
@@ -104,6 +110,9 @@ export default {
                   },
                 }).then(res=>{
                   this.array4 = res.list;
+                  this.array4.push({
+                    title:'请选择',
+                  })
                 })
               })
             })
@@ -131,7 +140,9 @@ export default {
         },
       }).then(res=>{
         this.array2 = res.list;
-
+        this.array2.push({
+          title:'请选择',
+        })
         ajax({
           url: 'xcx_request.php',
           data: {
@@ -141,7 +152,9 @@ export default {
           },
         }).then(res=>{
           this.array3 = res.list;
-
+          this.array3.push({
+            title:'请选择',
+          })
           ajax({
             url: 'xcx_request.php',
             data: {
@@ -152,6 +165,9 @@ export default {
             },
           }).then(res=>{
             this.array4 = res.list;
+            this.array4.push({
+              title:'请选择',
+            })
           })
         })
       })
@@ -170,7 +186,9 @@ export default {
         },
       }).then(res=>{
         this.array3 = res.list;
-
+        this.array3.push({
+          title:'请选择',
+        })
         ajax({
           url: 'xcx_request.php',
           data: {
@@ -181,6 +199,9 @@ export default {
           },
         }).then(res=>{
           this.array4 = res.list;
+          this.array4.push({
+            title:'请选择',
+          })
         })
       })
     },
@@ -197,12 +218,47 @@ export default {
         },
       }).then(res=>{
         this.array4 = res.list;
+        this.array4.push({
+          title:'请选择',
+        })
       })
     },
     bindPickerChange4: function(e) {
       this.index4 = e.detail.value;
     },
     submit(){
+      if(!this.array1[this.index1].qglx_id){
+        wx.showToast({
+            title: '请选择切割类型',
+            icon: 'none',
+            duration: 2000,
+        })
+        return false;
+      }
+      if(!this.array2[this.index2].cz_id){
+        wx.showToast({
+            title: '请选择材质',
+            icon: 'none',
+            duration: 2000,
+        })
+        return false;
+      }
+      if(!this.array3[this.index3].clhd_id){
+        wx.showToast({
+            title: '请选择材质厚度',
+            icon: 'none',
+            duration: 2000,
+        })
+        return false;
+      }
+      if(!this.array4[this.index4].zlyq_id){
+        wx.showToast({
+            title: '请选择质量要求',
+            icon: 'none',
+            duration: 2000,
+        })
+        return false;
+      }
       this.close();
       this.$store.commit('set_filterObj',{
         qglx_id: this.array1[this.index1].qglx_id,

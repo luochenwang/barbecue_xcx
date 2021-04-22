@@ -69,7 +69,8 @@ component.options.__file = "src/pages/pdf/index.vue"
     return {
       title: '',
       src: '',
-      share_picture: ''
+      share_picture: '',
+      server: false
     };
   },
   components: {},
@@ -101,6 +102,10 @@ component.options.__file = "src/pages/pdf/index.vue"
     this.src = option.src;
     this.share_picture = option.share_picture;
     this.openPdf();
+
+    if (this.$store.state.category == 120) {
+      this.server = true;
+    }
   },
   methods: {
     openPdf: function openPdf() {
@@ -163,7 +168,7 @@ var render = function() {
         on: { tap: _vm.openPdf }
       }),
       _vm._v(" "),
-      _c("sidebar")
+      _c("sidebar", { attrs: { server: _vm.server } })
     ],
     1
   )

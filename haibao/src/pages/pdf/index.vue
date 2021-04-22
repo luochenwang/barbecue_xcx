@@ -3,7 +3,7 @@
     <webheader/>
     <image :src="share_picture" mode="widthFix" @tap="openPdf" class="pdf-img"/>
 
-    <sidebar/>
+    <sidebar :server="server"/>
   </view>
 </template>
 
@@ -19,7 +19,8 @@ export default {
       return {
         title:'',
         src:'',
-        share_picture:''
+        share_picture:'',
+        server:false,
       }
     },
   components: {
@@ -51,6 +52,9 @@ export default {
     this.src = option.src;
     this.share_picture = option.share_picture;
     this.openPdf();
+    if(this.$store.state.category == 120){
+      this.server = true;
+    }
   },
   methods: {
     openPdf(){

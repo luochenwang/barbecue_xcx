@@ -91,6 +91,9 @@ component.options.__file = "src/pages/show/sublist.vue"
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
@@ -179,6 +182,7 @@ component.options.__file = "src/pages/show/sublist.vue"
       //     })
       //     return false;
       // }
+      this.isFirstAjax = true;
       this.list = [];
       this.page = 1;
       this.searchAjax();
@@ -331,6 +335,24 @@ var render = function() {
         ? _c("view", { staticClass: "no-data-box" }, [
             _c("view", { staticClass: "tt txt" }, [
               _vm._v("抱歉，无法查询到相关内容。")
+            ]),
+            _vm._v(" "),
+            _c("view", { staticClass: "txt" }, [
+              _vm._v("如果您想要查询技术相关内容，请点击菜单栏中的"),
+              _c("text", [_vm._v("“ 在线咨询 ”")]),
+              _vm._v("；")
+            ]),
+            _vm._v(" "),
+            _c("view", { staticClass: "txt" }, [
+              _vm._v("如果您想要购买产品，请点击菜单栏中的"),
+              _c("text", [_vm._v("“ 何处购买 ”")]),
+              _vm._v("；")
+            ]),
+            _vm._v(" "),
+            _c("view", { staticClass: "txt" }, [
+              _vm._v("如果您想要咨询其他内容，请点击菜单栏中的"),
+              _c("text", [_vm._v("“ 联系我们 ”")]),
+              _vm._v("。")
             ])
           ])
         : _vm._e(),

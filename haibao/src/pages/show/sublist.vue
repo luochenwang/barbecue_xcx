@@ -28,6 +28,9 @@
 
     <view class="no-data-box" v-if="!list.length && !isFirstAjax">
       <view class="tt txt">抱歉，无法查询到相关内容。</view>
+      <view class="txt">如果您想要查询技术相关内容，请点击菜单栏中的<text>“ 在线咨询 ”</text>；</view>
+      <view class="txt">如果您想要购买产品，请点击菜单栏中的<text>“ 何处购买 ”</text>；</view>
+      <view class="txt">如果您想要咨询其他内容，请点击菜单栏中的<text>“ 联系我们 ”</text>。</view>
     </view>
 
     <show-filter/>
@@ -120,6 +123,7 @@ export default {
         //     })
         //     return false;
         // }
+        this.isFirstAjax = true;
         this.list = [];
         this.page = 1;
         this.searchAjax();
