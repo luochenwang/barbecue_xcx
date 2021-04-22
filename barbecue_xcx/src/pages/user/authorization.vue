@@ -1,7 +1,7 @@
 <template>
   <view class="container">
     <view class="logo">
-        <image src="http://192.168.3.29:4942/user/logo.png" mode="widthFix"></image>
+        <image src="https://weixin-miniapp.oss-cn-beijing.aliyuncs.com/wx-image/user/logo.png" mode="widthFix"></image>
     </view>
     
     <button class='btn wechat-login' type='default' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">授权登录</button>
@@ -15,6 +15,17 @@
 export default {
   name: 'user',
   components: {
+
+  },
+  data() {
+      return {
+        
+      }
+  },
+  mounted(){
+
+  },
+  methods: {
 
   }
 }

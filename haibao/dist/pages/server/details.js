@@ -126,6 +126,8 @@ component.options.__file = "src/pages/server/details.vue"
   onLoad: function onLoad(option) {
     var _this = this;
 
+    this.$store.commit('set_category', 120);
+
     if (option.id) {
       Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_1__[/* ajax */ "a"])({
         url: 'xcx_request.php',
@@ -478,7 +480,7 @@ var render = function() {
       _vm._v(" "),
       _c("live-leads"),
       _vm._v(" "),
-      _c("download-leads")
+      _c("download-leads", { attrs: { tp: "200" } })
     ],
     1
   )

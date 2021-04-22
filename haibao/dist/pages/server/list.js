@@ -87,6 +87,7 @@ component.options.__file = "src/pages/server/list.vue"
     var _this = this;
 
     this.searchVal = option.search_val;
+    this.$store.commit('set_category', 110);
     Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
       url: 'xcx_request.php',
       data: {

@@ -19,6 +19,17 @@ export default {
   name: 'rule',
   components: {
 
+  },
+  data() {
+      return {
+        
+      }
+  },
+  mounted(){
+
+  },
+  methods: {
+
   }
 }
 </script>

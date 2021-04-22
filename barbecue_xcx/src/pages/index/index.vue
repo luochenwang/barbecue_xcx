@@ -6,7 +6,7 @@
             <swiper-item>
                 <view class="swiper-item">
                     <image
-                    src="http://192.168.3.29:4942/banner.jpg"
+                    src="https://weixin-miniapp.oss-cn-beijing.aliyuncs.com/wx-image/banner.jpg"
                     mode="widthFix"
                     ></image>
                 </view>
@@ -14,7 +14,7 @@
             <swiper-item>
             <view class="swiper-item">
                 <image
-                src="http://192.168.3.29:4942/banner.jpg"
+                src="https://weixin-miniapp.oss-cn-beijing.aliyuncs.com/wx-image/banner.jpg"
                 mode="widthFix"
                 ></image>
             </view>
@@ -32,19 +32,19 @@
         </view>
         <view class="nav">
             <view class="item">
-                <image src="http://192.168.3.29:4942/home_nav1.png" mode="widthFix" />
+                <image src="https://weixin-miniapp.oss-cn-beijing.aliyuncs.com/wx-image/home_nav1.png" mode="widthFix" />
                 <text>个人信息</text>
             </view>
             <view class="item">
-                <image src="http://192.168.3.29:4942/home_nav2.png" mode="widthFix" />
+                <image src="https://weixin-miniapp.oss-cn-beijing.aliyuncs.com/wx-image/home_nav2.png" mode="widthFix" />
                 <text>我的福利</text>
             </view>
             <view class="item">
-                <image src="http://192.168.3.29:4942/home_nav3.png" mode="widthFix" />
+                <image src="https://weixin-miniapp.oss-cn-beijing.aliyuncs.com/wx-image/home_nav3.png" mode="widthFix" />
                 <text>购物车</text>
             </view>
             <view class="item">
-                <image src="http://192.168.3.29:4942/home_nav4.png" mode="widthFix" />
+                <image src="https://weixin-miniapp.oss-cn-beijing.aliyuncs.com/wx-image/home_nav4.png" mode="widthFix" />
                 <text>我的待领串</text>
             </view>
         </view>
@@ -88,7 +88,7 @@
                 <swiper-item>
                 <view class="swiper-item">
                     <image
-                    src="http://192.168.3.29:4942/banner.jpg"
+                    src="https://weixin-miniapp.oss-cn-beijing.aliyuncs.com/wx-image/banner.jpg"
                     mode="widthFix"
                     ></image>
                 </view>
@@ -96,7 +96,7 @@
                 <swiper-item>
                 <view class="swiper-item">
                     <image
-                    src="http://192.168.3.29:4942/banner.jpg"
+                    src="https://weixin-miniapp.oss-cn-beijing.aliyuncs.com/wx-image/banner.jpg"
                     mode="widthFix"
                     ></image>
                 </view>
@@ -120,6 +120,17 @@ export default {
   components: {
       webFooter
   },
+  data() {
+      return {
+        
+      }
+  },
+  mounted(){
+
+  },
+  methods: {
+
+  }
 };
 </script>
 

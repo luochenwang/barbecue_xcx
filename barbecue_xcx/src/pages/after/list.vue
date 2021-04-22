@@ -1,8 +1,8 @@
 <template>
   <view class="container container-top">
     <view class="tab-nav">
-        <view class="item active">申请售后</view>
-        <view class="item">全部售后</view>
+        <view class="item" :class="{'active' : typeIndex == ''}" @click="setType('')">申请售后</view>
+        <view class="item" :class="{'active' : typeIndex == 1}" @click="setType(1)">全部售后</view>
     </view>
 
     <view class="tab-content">
@@ -22,7 +22,7 @@
                     <view class="time">2018.1.1</view>
                 </view>
                 <view class="btn-box">
-                    <view class="btn">申请退款</view>
+                    <navigator :url="'/pages/after/index?id='+item.id" class="btn">申请退款</navigator>
                 </view>
             </view>
         </view>
@@ -36,6 +36,32 @@ export default {
   name: 'list',
   components: {
 
+  },
+  data() {
+      return {
+        list:[],
+        typeIndex:0,
+      }
+  },
+  mounted(){
+
+  },
+  methods: {
+    setType(val){
+      if(val != this.typeIndex){
+        this.typeIndex = val;
+      }
+    },
+    getdata(){
+        ajax({
+            url:'mxrs/wx/order/findUserOrder',
+            data:{
+                orderState:this.typeIndex
+            }
+        }).then(res=>{
+          
+        });
+    }
   }
 }
 </script>

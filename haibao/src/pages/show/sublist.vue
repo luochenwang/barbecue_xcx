@@ -6,7 +6,7 @@
         <image src="https://campaign5.method-ad.cn/hypertherm/img/show/icon_leads.png"/>
         <text>填写表单</text>
       </view>
-      <view class="item" @tap="showFilter">
+      <view class="item" @tap="showFilter" v-if="isFilter">
         <image src="https://campaign5.method-ad.cn/hypertherm/img/show/icon_filter.png"/>
         <text>筛选</text>
       </view>
@@ -15,7 +15,7 @@
         <input type="text" placeholder="在这里输入您要搜索的内容" placeholder-style="color:#ca8989" v-model='searchVal' confirm-type="search" @confirm="search"/>
         <view class="search-btn" @tap="search()">点击搜索</view>
     </view>
-    <view class="list">
+    <view class="list" v-if="list.length">
         <navigator class="item" v-for="(item,index) in list" :key="index" :url="'/pages/show/details?id='+item.product_id">
             <view class="item-l">
                 <image :src="item.picture" mode="widthFix"/>
@@ -24,6 +24,10 @@
                 <view class="name">{{item.title}}</view>
             </view>
         </navigator>
+    </view>
+
+    <view class="no-data-box" v-if="!list.length && !isFirstAjax">
+      <view class="tt txt">抱歉，无法查询到相关内容。</view>
     </view>
 
     <show-filter/>
@@ -46,7 +50,9 @@ export default {
         typeId:'',
         list:[],
         page:1,
-        loaded:false
+        loaded:false,
+        isFilter:false,
+        isFirstAjax:true
       }
     },
   components: {
@@ -55,6 +61,7 @@ export default {
   onLoad(option) {
       this.searchVal = option.search_val || '';
       this.typeId = option.type_id || '';
+      this.isFilter = option.is_filter || '';
       this.searchAjax();
       if(this.typeId == '1' || this.typeId == '2'){
         this.$store.commit('set_showFilterModel',true);
@@ -100,6 +107,7 @@ export default {
               this.loaded = true;
               ++this.page;
             }
+            this.isFirstAjax = false;
           }
       });
     },

@@ -24,7 +24,7 @@
                 </view>
             </view>
             <view class="no-data">
-                <image src="http://192.168.3.29:4942/order/no_data.png" mode="widthFix"></image>
+                <image src="https://weixin-miniapp.oss-cn-beijing.aliyuncs.com/wx-image/order/no_data.png" mode="widthFix"></image>
                 <view class="txt">哇哦 ~ 当前没有可用设备哦~</view>
             </view>
         </view>
@@ -60,6 +60,17 @@ export default {
   name: 'user',
   components: {
     webFooter
+  },
+  data() {
+      return {
+        
+      }
+  },
+  mounted(){
+
+  },
+  methods: {
+
   }
 }
 </script>

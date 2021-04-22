@@ -27,7 +27,7 @@
         </view>
         <view class="item">
             <view class="key">微信支付</view>
-            <image src="http://192.168.3.29:4942/order/icon_wechat.png" mode="widthFix" class="icon-pay"/>
+            <image src="https://weixin-miniapp.oss-cn-beijing.aliyuncs.com/wx-image/order/icon_wechat.png" mode="widthFix" class="icon-pay"/>
         </view>
     </view>
     <view class="footer-btn">
@@ -70,20 +70,26 @@ export default {
             url:'mxrs/mac/pay/wePayPrecreate/v2.0',
             data:{
               deviceId:'#ID-C8AE9CD01602C',
-              precreateTime:Date.parse(new Date()),
+              precreateTime:'2021-04-16 18:12',
               productId:'p44832633',
               productNum:1,
               productFlavor:1,
               openId:'o8FV85ctN8oeOa6eyNsbPueQvKAM',
+              companyId:'cid2416065219'
             }
         }).then(res=>{
             wx.requestPayment(
             {
             ...res.data,
+            paySign:res.data.sign,
+            timeStamp:Date.parse(new Date())+'',
             'success':function(res){
+                console.log(res);
+            },
+            'fail':function(res){
+                console.log(res);
 
             },
-            'fail':function(res){},
             'complete':function(res){}
             })
         });

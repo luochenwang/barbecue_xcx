@@ -1,35 +1,26 @@
 <template>
   <view class="container">
-    <view class="address-box" v-if="false">
+    <view class="address-box" v-if="list.length">
         <!-- 列表 -->
         <view class="address-list">
-            <view class="list-box">
+            <navigator :url="'/pages/address/index?id='+item.id" class="list-box" v-for="(item.index) in list">
                 <view class="list-top">
-                    <text class="list-name">烤串串串</text>
-                    <text class="list-mob">138****8888</text>
+                    <text class="list-name">{{item.userName}}</text>
+                    <text class="list-mob">{{item.telephone}}</text>
                     <!-- <text class="list-type">公司</text> -->
                     <text class="list-defBtn active">默认</text>
                 </view>
-                <view class="list-address">上海嘉定区德园路999号999-102室</view>
-            </view>
-
-            <view class="list-box">
-                <view class="list-top">
-                    <text class="list-name">烤串</text>
-                    <text class="list-mob">138****8888</text>
-                    <text class="list-defBtn">默认</text>
-                </view>
-                <view class="list-address">上海嘉定区德园路999号999-102室</view>
-            </view>
+                <view class="list-address">{{item.addr}}</view>
+            </navigator>
         </view>
 
         <view class="addBtn">添加地址</view>
     </view>
     
     <!-- 无数据 -->
-    <view class="none-box">
+    <view class="none-box" v-else>
         <view class="noneText">哇哦 ~ 您目前没有任何地址哦~</view>
-        <view class="createBtn">创建一个</view>
+        <navigator url="/pages/address/index" class="createBtn">创建一个</navigator>
     </view>
   </view>
 </template>
@@ -44,7 +35,7 @@ export default {
   },
   data() {
       return {
-
+        list:[],
       };
   },
   created(){
@@ -58,7 +49,9 @@ export default {
               telephone: '1781111112212',
             }
         }).then(res=>{
-            console.log(res);
+            if(res.code == 200){
+              this.list = res.data;
+            }
         });
     }
   }

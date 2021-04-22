@@ -16,7 +16,7 @@
         <view class="search-btn" @tap="search()">点击搜索</view>
     </view>
     <view class="list">
-        <navigator class="item" v-for="(item,index) in list" :key="index" :url="'/pages/show/sublist?type_id='+item.type_id">
+        <navigator class="item" v-for="(item,index) in list" :key="index" :url="'/pages/show/sublist?type_id='+item.type_id+'&is_filter='+item.is_filter">
             <view class="item-l">
                 <image :src="item.picture" mode="widthFix"/>
             </view>
@@ -64,7 +64,6 @@ export default {
       this.$store.commit('set_category',410);
   },
   onShow(){
-    console.log(2)
     this.$store.commit('set_filterObj',{});
   },
   methods: {
@@ -88,7 +87,9 @@ export default {
                 keywords:this.searchVal
             },
         }).then(res=>{
-            this.list = res.list;
+            if(res.list){
+              this.list = res.list;
+            }
         })
     },
     search(){

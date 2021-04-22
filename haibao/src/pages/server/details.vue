@@ -49,7 +49,7 @@
     <sidebar :server="true"/>
 
     <live-leads/>
-    <download-leads/>
+    <download-leads tp="200"/>
   </view>
 </template>
 
@@ -73,6 +73,8 @@ export default {
 
   },
   onLoad(option) {
+      this.$store.commit('set_category',120);
+
       if(option.id){
         ajax({
             url:'xcx_request.php',

@@ -37,7 +37,7 @@
         </view>
 
         <view class="no-data">
-            <image src="http://192.168.3.29:4942/user/coupon_nodata.png"/>
+            <image src="https://weixin-miniapp.oss-cn-beijing.aliyuncs.com/wx-image/user/coupon_nodata.png"/>
             <view class="txt">哇哦 ~ 您目前没有任何优惠券哦~</view>
             <navigator url="/pages/index/index" class="to-home">回首页看看</navigator>
         </view>
@@ -50,6 +50,17 @@
 export default {
   name: 'list',
   components: {
+
+  },
+  data() {
+      return {
+        
+      }
+  },
+  mounted(){
+
+  },
+  methods: {
 
   }
 }

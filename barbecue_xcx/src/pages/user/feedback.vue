@@ -21,6 +21,17 @@ export default {
   name: 'feedback',
   components: {
 
+  },
+  data() {
+      return {
+        
+      }
+  },
+  mounted(){
+
+  },
+  methods: {
+
   }
 }
 </script>

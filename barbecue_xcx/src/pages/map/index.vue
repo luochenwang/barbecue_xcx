@@ -14,6 +14,21 @@
           >
         </map>
 
+        <view class="store-info-float">
+          <view class="store-info">
+            <image src=""/>
+            <view class="info">
+              <view class="title"></view>
+              <view class="state"></view>
+              <view class="number"></view>
+              <view class="device"></view>
+            </view>
+          </view>
+          <view class="store-info-footer">
+            <view>立刻下单</view>
+            <view>现在出发</view>
+          </view>
+        </view>
         <webFooter :type="'device'"/>
     </view>
 </template>
@@ -31,7 +46,7 @@ export default {
             },
             markers:[{
                  height: 37,
-                 iconPath:"http://192.168.3.29:4942/map/shape1.png",
+                 iconPath:"https://weixin-miniapp.oss-cn-beijing.aliyuncs.com/wx-image/map/shape1.png",
                  id: 2,
                  label: {content:"汉中市-佛坪县", color:'#eee',fontSize: 14, anchorX: 0, anchorY: 5,textAlign:'center'},
                  latitude:"33.549939112272",

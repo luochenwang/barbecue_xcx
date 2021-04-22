@@ -3,7 +3,7 @@
     <view class="lodding">
         <view class="lodding-box">
             <view class="loddingImg">
-                <image src="http://192.168.3.29:4942/shop-img/fire.png" mode="widthFix"/>
+                <image src="https://weixin-miniapp.oss-cn-beijing.aliyuncs.com/wx-image/shop-img/fire.png" mode="widthFix"/>
             </view>
             <view class="loddingText">请耐心等待您的烤串正在加工</view>
             <view class="loddingCountdown">倒计时</view>
@@ -24,6 +24,17 @@
 export default {
   name: 'making',
   components: {
+
+  },
+  data() {
+      return {
+        
+      }
+  },
+  mounted(){
+
+  },
+  methods: {
 
   }
 }

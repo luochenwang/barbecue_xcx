@@ -117,7 +117,7 @@
       </view>
     </scroll-view>
     <sidebar/>
-    <download-leads/>
+    <download-leads tp="420"/>
   </view>
 </template>
 

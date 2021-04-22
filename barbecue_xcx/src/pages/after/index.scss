@@ -59,7 +59,7 @@
                 align-items: center;
                 &.active:before{
                     border:0;
-                    background:url(http://192.168.3.29:4942/address-img/icon_select.png) no-repeat top center/100% auto;
+                    background:url(https://weixin-miniapp.oss-cn-beijing.aliyuncs.com/wx-image/address-img/icon_select.png) no-repeat top center/100% auto;
                 }
                 &:before{
                     content:'';
@@ -93,7 +93,7 @@
             .upimg-btn{
                 width:145rpx;
                 height:140rpx;
-                background:#f6f8f7 url(http://192.168.3.29:4942/user/icon_upimg.png) no-repeat center 20rpx/50rpx 50rpx;
+                background:#f6f8f7 url(https://weixin-miniapp.oss-cn-beijing.aliyuncs.com/wx-image/user/icon_upimg.png) no-repeat center 20rpx/50rpx 50rpx;
                 margin-right:20rpx;
                 margin-bottom:20rpx;
                 display: flex;
@@ -206,6 +206,7 @@
                     color:#333333;
                     margin-left:30rpx;
                     border-radius:60rpx;
+                    display:block;
                     &.active{
                         color:#ffcb30;
                         border:1px solid #ffcb30;

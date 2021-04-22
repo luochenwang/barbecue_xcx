@@ -5,7 +5,7 @@
             <view class="list-box">
                 <view class="list-top">
                     <view class="newslist-name">系统消息名称系统消息名称</view>
-                    <image src="http://192.168.3.29:4942/news-img/unread.png" mode="widthFix" class="newslist-status"></image>
+                    <image src="https://weixin-miniapp.oss-cn-beijing.aliyuncs.com/wx-image/news-img/unread.png" mode="widthFix" class="newslist-status"></image>
                     <view class="newslist-data">2020/12/02&nbsp;12:20:11 </view>
                 </view>
                 <view class="newslist-content">系统消息系统消息系统消息系统消息系统消息系统消息系统 系统消息系统消息系统消息
@@ -15,7 +15,7 @@
             <view class="list-box">
                 <view class="list-top">
                     <view class="newslist-name">系统</view>
-                    <image src="http://192.168.3.29:4942/news-img/unread.png" mode="widthFix" class="newslist-status"></image>
+                    <image src="https://weixin-miniapp.oss-cn-beijing.aliyuncs.com/wx-image/news-img/unread.png" mode="widthFix" class="newslist-status"></image>
                     <view class="newslist-data">2020/12/02&nbsp;12:20:11 </view>
                 </view>
                 <view class="newslist-content">系统消息系统消息系统消息系统消息系统消息系统消息系统 系统消息系统消息系统消息
@@ -31,6 +31,17 @@
 export default {
   name: 'news',
   components: {
+
+  },
+  data() {
+      return {
+        
+      }
+  },
+  mounted(){
+
+  },
+  methods: {
 
   }
 }

@@ -16,6 +16,17 @@ export default {
   name: 'success',
   components: {
 
+  },
+  data() {
+      return {
+        
+      }
+  },
+  mounted(){
+
+  },
+  methods: {
+
   }
 }
 </script>

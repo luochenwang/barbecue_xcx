@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import store from './store'
+import {ajax} from './libs/ajax.js';
 
 import './app.scss'
-
+Vue.prototype.$ajax = ajax;
 // Vue.config.productionTip = false
 
 const App = new Vue({

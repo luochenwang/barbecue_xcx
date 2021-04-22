@@ -40,6 +40,17 @@ export default {
   name: 'user',
   components: {
 
+  },
+  data() {
+      return {
+        
+      }
+  },
+  mounted(){
+
+  },
+  methods: {
+
   }
 }
 </script>

@@ -115,7 +115,6 @@ component.options.__file = "src/pages/show/list.vue"
     this.$store.commit('set_category', 410);
   },
   onShow: function onShow() {
-    console.log(2);
     this.$store.commit('set_filterObj', {});
   },
   methods: {
@@ -143,7 +142,9 @@ component.options.__file = "src/pages/show/list.vue"
           keywords: this.searchVal
         }
       }).then(function (res) {
-        _this2.list = res.list;
+        if (res.list) {
+          _this2.list = res.list;
+        }
       });
     },
     search: function search() {
@@ -280,7 +281,13 @@ var render = function() {
             {
               key: index,
               staticClass: "item",
-              attrs: { url: "/pages/show/sublist?type_id=" + item.type_id }
+              attrs: {
+                url:
+                  "/pages/show/sublist?type_id=" +
+                  item.type_id +
+                  "&is_filter=" +
+                  item.is_filter
+              }
             },
             [
               _c("view", { staticClass: "item-l" }, [

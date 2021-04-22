@@ -349,6 +349,7 @@ var plugin = requirePlugin("ykfchat");
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: 'sidebar',
+  props: ['tp'],
   data: function data() {
     return {
       privacy: false,
@@ -413,7 +414,7 @@ var plugin = requirePlugin("ykfchat");
         url: 'xcx_request.php',
         data: {
           act: 'set_form',
-          tp: this.$store.state.category,
+          tp: this.tp || this.$store.state.category,
           tp_value: this.leadsItem.tech_detail_id || this.leadsItem.class_id || this.leadsItem.product_id,
           email: this.email
         }
@@ -432,7 +433,7 @@ var plugin = requirePlugin("ykfchat");
             data: {
               act: 'set_File_History',
               act2: 'download',
-              tp: _this2.$store.state.category,
+              tp: _this2.tp || _this2.$store.state.category,
               tp_value: _this2.leadsItem.tech_detail_id || _this2.leadsItem.class_id || _this2.leadsItem.product_id,
               file_tp: 'pdf',
               watch_time: 0
@@ -2475,15 +2476,6 @@ var render = function() {
                 "navigator",
                 {
                   staticClass: "href",
-                  attrs: { url: "/pages/webview/index?src=" }
-                },
-                [_vm._v("联系我们")]
-              ),
-              _vm._v(" "),
-              _c(
-                "navigator",
-                {
-                  staticClass: "href",
                   attrs: {
                     url:
                       "/pages/webview/index?src=https://www.hypertherm.com/zh/policies/privacy/"
@@ -3040,22 +3032,6 @@ var render = function() {
               "如果您想要获取更精准的产品或解决方案，欢迎填写下表 ，之 后会有相应的销售联系您。"
             )
           ]),
-          _vm._v(" "),
-          _c(
-            "view",
-            { staticClass: "footer" },
-            [
-              _c(
-                "navigator",
-                {
-                  staticClass: "href",
-                  attrs: { url: "/pages/webview/index?src=" }
-                },
-                [_vm._v("产品选购")]
-              )
-            ],
-            1
-          ),
           _vm._v(" "),
           _c("view", { staticClass: "close", on: { tap: _vm.close } })
         ])

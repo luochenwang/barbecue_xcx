@@ -997,3 +997,27 @@ view, text, textarea, input, scroll-view {
   -webkit-box-sizing: border-box;
           box-sizing: border-box; }
 
+.no-data-box {
+  text-align: center;
+  margin-top: 50rpx; }
+
+.no-data-box .txt {
+    font-size: 22rpx;
+    color: #919191;
+    margin-bottom: 10rpx; }
+
+.no-data-box .tt {
+    margin-bottom: 50rpx; }
+
+.no-data-box text {
+    font-weight: bold; }
+
+.no-data-box .btn {
+    width: 160rpx;
+    line-height: 50rpx;
+    text-align: center;
+    color: #fff;
+    margin: 80rpx auto 0;
+    font-size: 26rpx;
+    background: #ed1b2e; }
+

@@ -87,6 +87,10 @@ component.options.__file = "src/pages/show/sublist.vue"
 //
 //
 //
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
@@ -99,13 +103,16 @@ component.options.__file = "src/pages/show/sublist.vue"
       typeId: '',
       list: [],
       page: 1,
-      loaded: false
+      loaded: false,
+      isFilter: false,
+      isFirstAjax: true
     };
   },
   components: {},
   onLoad: function onLoad(option) {
     this.searchVal = option.search_val || '';
     this.typeId = option.type_id || '';
+    this.isFilter = option.is_filter || '';
     this.searchAjax();
 
     if (this.typeId == '1' || this.typeId == '2') {
@@ -158,6 +165,8 @@ component.options.__file = "src/pages/show/sublist.vue"
             _this.loaded = true;
             ++_this.page;
           }
+
+          _this.isFirstAjax = false;
         }
       });
     },
@@ -231,16 +240,18 @@ var render = function() {
           ]
         ),
         _vm._v(" "),
-        _c("view", { staticClass: "item", on: { tap: _vm.showFilter } }, [
-          _c("image", {
-            attrs: {
-              src:
-                "https://campaign5.method-ad.cn/hypertherm/img/show/icon_filter.png"
-            }
-          }),
-          _vm._v(" "),
-          _c("text", [_vm._v("筛选")])
-        ])
+        _vm.isFilter
+          ? _c("view", { staticClass: "item", on: { tap: _vm.showFilter } }, [
+              _c("image", {
+                attrs: {
+                  src:
+                    "https://campaign5.method-ad.cn/hypertherm/img/show/icon_filter.png"
+                }
+              }),
+              _vm._v(" "),
+              _c("text", [_vm._v("筛选")])
+            ])
+          : _vm._e()
       ]),
       _vm._v(" "),
       _c("view", { staticClass: "search-box" }, [
@@ -285,32 +296,44 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _c(
-        "view",
-        { staticClass: "list" },
-        _vm._l(_vm.list, function(item, index) {
-          return _c(
-            "navigator",
-            {
-              key: index,
-              staticClass: "item",
-              attrs: { url: "/pages/show/details?id=" + item.product_id }
-            },
-            [
-              _c("view", { staticClass: "item-l" }, [
-                _c("image", { attrs: { src: item.picture, mode: "widthFix" } })
-              ]),
-              _vm._v(" "),
-              _c("view", { staticClass: "item-r" }, [
-                _c("view", { staticClass: "name" }, [
-                  _vm._v(_vm._s(item.title))
-                ])
-              ])
-            ]
+      _vm.list.length
+        ? _c(
+            "view",
+            { staticClass: "list" },
+            _vm._l(_vm.list, function(item, index) {
+              return _c(
+                "navigator",
+                {
+                  key: index,
+                  staticClass: "item",
+                  attrs: { url: "/pages/show/details?id=" + item.product_id }
+                },
+                [
+                  _c("view", { staticClass: "item-l" }, [
+                    _c("image", {
+                      attrs: { src: item.picture, mode: "widthFix" }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("view", { staticClass: "item-r" }, [
+                    _c("view", { staticClass: "name" }, [
+                      _vm._v(_vm._s(item.title))
+                    ])
+                  ])
+                ]
+              )
+            }),
+            1
           )
-        }),
-        1
-      ),
+        : _vm._e(),
+      _vm._v(" "),
+      !_vm.list.length && !_vm.isFirstAjax
+        ? _c("view", { staticClass: "no-data-box" }, [
+            _c("view", { staticClass: "tt txt" }, [
+              _vm._v("抱歉，无法查询到相关内容。")
+            ])
+          ])
+        : _vm._e(),
       _vm._v(" "),
       _c("show-filter"),
       _vm._v(" "),

@@ -56,7 +56,7 @@ export default {
 
   },
   mounted() {
-    this.$store.commit('set_category',130);
+    this.$store.commit('set_category',100);
     ajax({
         url:'xcx_request.php',
         data:{

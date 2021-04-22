@@ -36,6 +36,7 @@ export default {
   },
   onLoad(option) {
       this.searchVal = option.search_val;
+      this.$store.commit('set_category',110);
       ajax({
           url:'xcx_request.php',
           data:{
