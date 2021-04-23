@@ -102,9 +102,64 @@ component.options.__file = "src/pages/application/details.vue"
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
-var scrollArr = ['content', 'products_list'];
+var scrollArr = ['content', 'products_list', 'consult'];
 var scrollTop = [];
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: 'server_details',
@@ -121,7 +176,17 @@ var scrollTop = [];
       viewStr: 'content',
       fixed: false,
       winHeight: '',
-      menuButtonObject: {}
+      menuButtonObject: {},
+      privacy: false,
+      array: [],
+      index: 0,
+      name: '',
+      phone: '',
+      email: '',
+      demand: '',
+      region: ["上海市", "上海市", '徐汇区'],
+      company: '',
+      isSendEmail: true
     };
   },
   components: {},
@@ -192,6 +257,79 @@ var scrollTop = [];
     },
     bindPickerChange: function bindPickerChange(e) {
       this.index = e.detail.value;
+    },
+    bindRegionChange: function bindRegionChange(e) {
+      this.region = e.detail.value;
+      console.log('picker发送选择改变，携带值为', e.detail.value);
+    },
+    changePrivacy: function changePrivacy(e) {
+      this.privacy = !this.privacy;
+    },
+    submit: function submit() {
+      if (this.name == '') {
+        wx.showToast({
+          title: '请输入姓名',
+          icon: 'none',
+          duration: 2000
+        });
+        return false;
+      }
+
+      if (!/^1[0-9]{10}$/.test(this.phone)) {
+        wx.showToast({
+          title: '请输入正确的手机号',
+          icon: 'none',
+          duration: 2000
+        });
+        return false;
+      }
+
+      if (this.company == '') {
+        wx.showToast({
+          title: '请输入公司名称',
+          icon: 'none',
+          duration: 2000
+        });
+        return false;
+      }
+
+      if (!this.privacy) {
+        wx.showToast({
+          title: '请查看海宝隐私政策',
+          icon: 'none',
+          duration: 2000
+        });
+        return false;
+      }
+
+      Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_1__[/* ajax */ "a"])({
+        url: 'xcx_request.php',
+        data: {
+          act: 'set_form',
+          tp: 420,
+          tp_value: this.product_id,
+          comname: this.company,
+          mobile: this.phone,
+          name: this.name,
+          province: this.region[0],
+          city: this.region[1],
+          content: this.demand
+        }
+      }).then(function (res) {
+        if (res.status == 1) {
+          wx.showToast({
+            title: '提交成功',
+            icon: 'none',
+            duration: 2000
+          });
+        } else {
+          wx.showToast({
+            title: res.msg,
+            icon: 'none',
+            duration: 2000
+          });
+        }
+      });
     }
   }
 });
@@ -314,6 +452,20 @@ var render = function() {
                   }
                 },
                 [_vm._v("相关产品")]
+              ),
+              _vm._v(" "),
+              _c(
+                "view",
+                {
+                  staticClass: "item",
+                  class: { active: _vm.viewStr == "consult" },
+                  on: {
+                    tap: function($event) {
+                      return _vm.scrollTap("consult")
+                    }
+                  }
+                },
+                [_vm._v("我要咨询")]
               )
             ]
           ),
@@ -375,7 +527,267 @@ var render = function() {
                 0
               )
             ]
-          )
+          ),
+          _vm._v(" "),
+          _c("view", { staticClass: "pro-info", attrs: { id: "consult" } }, [
+            _c("view", { staticClass: "pro-tt" }, [_vm._v("我要咨询")]),
+            _vm._v(" "),
+            _c("view", { staticClass: "leads-dialog" }, [
+              _c("view", { staticClass: "form-group" }, [
+                _c("label", [_vm._v("姓名*")]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.name,
+                      expression: "name"
+                    }
+                  ],
+                  attrs: { type: "text" },
+                  domProps: { value: _vm.name },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.name = $event.target.value
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("view", { staticClass: "form-group" }, [
+                _c("label", [_vm._v("手机号码*")]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.phone,
+                      expression: "phone"
+                    }
+                  ],
+                  attrs: { type: "number", maxlength: "11" },
+                  domProps: { value: _vm.phone },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.phone = $event.target.value
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("view", { staticClass: "form-group" }, [
+                _c("label", [_vm._v("邮箱地址*")]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.email,
+                      expression: "email"
+                    }
+                  ],
+                  attrs: { type: "email", maxlength: "20" },
+                  domProps: { value: _vm.email },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.email = $event.target.value
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("view", { staticClass: "form-group" }, [
+                _c("label", [_vm._v("公司名称*")]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.company,
+                      expression: "company"
+                    }
+                  ],
+                  attrs: { type: "text" },
+                  domProps: { value: _vm.company },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.company = $event.target.value
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c(
+                "view",
+                { staticClass: "form-group icon-arrow" },
+                [
+                  _c("label", [_vm._v("所在省市*")]),
+                  _vm._v(" "),
+                  _c(
+                    "picker",
+                    {
+                      attrs: { mode: "region", value: _vm.region },
+                      on: { change: _vm.bindRegionChange }
+                    },
+                    [
+                      _c("view", { staticClass: "txt" }, [
+                        _vm._v(
+                          _vm._s(_vm.region[0]) +
+                            "，" +
+                            _vm._s(_vm.region[1]) +
+                            "，" +
+                            _vm._s(_vm.region[2])
+                        )
+                      ])
+                    ]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("view", { staticClass: "form-group" }, [
+                _c("label", [_vm._v("您的需求*")]),
+                _vm._v(" "),
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.demand,
+                      expression: "demand"
+                    }
+                  ],
+                  domProps: { value: _vm.demand },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.demand = $event.target.value
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c(
+                "view",
+                { staticClass: "privacy" },
+                [
+                  _c(
+                    "checkbox-group",
+                    { on: { change: _vm.changePrivacy } },
+                    [
+                      _c("checkbox", {
+                        attrs: { checked: _vm.privacy, value: _vm.privacy }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("text", [_vm._v("我已阅读并同意海宝隐私政策。*")]),
+                  _vm._v(" "),
+                  _c(
+                    "navigator",
+                    {
+                      staticClass: "href",
+                      attrs: {
+                        url:
+                          "/pages/webview/index?src=https://www.hypertherm.com/zh/policies/privacy/"
+                      }
+                    },
+                    [_vm._v("查看隐私政策")]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("view", { staticClass: "tips" }, [
+                _vm._v(
+                  "海宝将不定时向您邮箱发送产品、服务及活动等相关信息， 您可以随时取消预订。"
+                )
+              ]),
+              _vm._v(" "),
+              _c("view", { staticClass: "label" }, [_vm._v("邮件订阅*")]),
+              _vm._v(" "),
+              _c(
+                "view",
+                { staticClass: "privacy" },
+                [
+                  _c(
+                    "checkbox-group",
+                    {
+                      on: {
+                        change: function($event) {
+                          _vm.isSendEmail = true
+                        }
+                      }
+                    },
+                    [
+                      _c("checkbox", {
+                        attrs: {
+                          checked: _vm.isSendEmail,
+                          value: _vm.isSendEmail
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("text", [_vm._v("是，我想接收海宝发送的电子邮件。")])
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "view",
+                { staticClass: "privacy" },
+                [
+                  _c(
+                    "checkbox-group",
+                    {
+                      on: {
+                        change: function($event) {
+                          _vm.isSendEmail = false
+                        }
+                      }
+                    },
+                    [
+                      _c("checkbox", {
+                        attrs: {
+                          checked: !_vm.isSendEmail,
+                          value: !_vm.isSendEmail
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("text", [_vm._v("否，我不想接收海宝发送的电子邮件。")])
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("view", { staticClass: "submit", on: { tap: _vm.submit } }, [
+                _vm._v("提交")
+              ])
+            ])
+          ])
         ]
       ),
       _vm._v(" "),

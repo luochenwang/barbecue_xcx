@@ -74,7 +74,7 @@ export default {
             },
           }).then(res=>{
             this.array1 = res.list;
-            this.array1.push({
+            this.array1.unshift({
               title:'请选择',
             })
             ajax({
@@ -85,7 +85,7 @@ export default {
               },
             }).then(res=>{
               this.array2 = res.list;
-              this.array2.push({
+              this.array2.unshift({
                 title:'请选择',
               })
               ajax({
@@ -97,7 +97,7 @@ export default {
                 },
               }).then(res=>{
                 this.array3 = res.list;
-                this.array3.push({
+                this.array3.unshift({
                   title:'请选择',
                 })
                 ajax({
@@ -110,7 +110,7 @@ export default {
                   },
                 }).then(res=>{
                   this.array4 = res.list;
-                  this.array4.push({
+                  this.array4.unshift({
                     title:'请选择',
                   })
                 })
@@ -140,7 +140,7 @@ export default {
         },
       }).then(res=>{
         this.array2 = res.list;
-        this.array2.push({
+        this.array2.unshift({
           title:'请选择',
         })
         ajax({
@@ -152,7 +152,7 @@ export default {
           },
         }).then(res=>{
           this.array3 = res.list;
-          this.array3.push({
+          this.array3.unshift({
             title:'请选择',
           })
           ajax({
@@ -165,7 +165,7 @@ export default {
             },
           }).then(res=>{
             this.array4 = res.list;
-            this.array4.push({
+            this.array4.unshift({
               title:'请选择',
             })
           })
@@ -186,7 +186,7 @@ export default {
         },
       }).then(res=>{
         this.array3 = res.list;
-        this.array3.push({
+        this.array3.unshift({
           title:'请选择',
         })
         ajax({
@@ -199,7 +199,7 @@ export default {
           },
         }).then(res=>{
           this.array4 = res.list;
-          this.array4.push({
+          this.array4.unshift({
             title:'请选择',
           })
         })
@@ -218,7 +218,7 @@ export default {
         },
       }).then(res=>{
         this.array4 = res.list;
-        this.array4.push({
+        this.array4.unshift({
           title:'请选择',
         })
       })

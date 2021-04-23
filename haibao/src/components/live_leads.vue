@@ -11,7 +11,7 @@
         <input type="number" v-model="phone" maxlength="11" />
       </view>
       <view class="form-group">
-        <label>电子邮箱地址*</label>
+        <label>邮箱地址*</label>
         <input type="text" v-model="email"/>
       </view>
       <view class="form-group">

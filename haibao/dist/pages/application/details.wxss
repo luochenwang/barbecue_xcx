@@ -122,4 +122,92 @@
         font-size: 24rpx;
         text-align: center;
 }
+.leads-dialog {
+  width: 650rpx;
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 15rpx 35rpx 50rpx;
+  position: relative;
+  margin: 0 auto;
+}
+.leads-dialog .form-group {
+    margin-bottom: 25rpx;
+    position: relative;
+}
+.leads-dialog .form-group.icon-arrow:after {
+      content: '';
+      position: absolute;
+      bottom: 5rpx;
+      right: 20rpx;
+      width: 0;
+      height: 0;
+      border: 20rpx solid transparent;
+      border-top-color: black;
+      pointer-events: none;
+}
+.leads-dialog .form-group label {
+      font-size: 24rpx;
+      display: block;
+      margin-bottom: 10rpx;
+}
+.leads-dialog .form-group input, .leads-dialog .form-group .txt {
+      width: 100%;
+      height: 75rpx;
+      line-height: 75rpx;
+      font-size: 30rpx;
+      padding: 0 20rpx;
+      border: 1Px solid #000;
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box;
+}
+.leads-dialog .form-group textarea {
+      width: 100%;
+      height: 210rpx;
+      font-size: 30rpx;
+      padding: 20rpx;
+      border: 1Px solid #000;
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box;
+}
+.leads-dialog .privacy {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-bottom: 10rpx;
+}
+.leads-dialog .privacy text {
+      font-size: 22rpx;
+}
+.leads-dialog .privacy navigator {
+      font-size: 22rpx;
+      color: #121dff;
+      border-bottom: 1Px solid #121dff;
+}
+.leads-dialog .tips {
+    color: #696969;
+    font-size: 22rpx;
+    margin: 20rpx 0;
+}
+.leads-dialog .label {
+    font-size: 22rpx;
+    margin-bottom: 10rpx;
+}
+.leads-dialog .submit {
+    margin: 80rpx auto;
+    width: 260rpx;
+    line-height: 70rpx;
+    text-align: center;
+    border-radius: 70rpx;
+    color: #fff;
+    background: #ed1b2e;
+}
+.leads-dialog .footer {
+    margin-bottom: 20rpx;
+}
+.leads-dialog .copyright {
+    font-size: 21rpx;
+}
 

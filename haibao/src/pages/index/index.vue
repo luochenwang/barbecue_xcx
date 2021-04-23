@@ -25,10 +25,10 @@
         <image src="https://campaign5.method-ad.cn/hypertherm/img/menu5.png" />
         <text>产品应用</text>
       </navigator>
-      <view class="item" @tap="none">
+      <navigator url="/pages/video/index" class="item">
         <image src="https://campaign5.method-ad.cn/hypertherm/img/menu6.png" />
         <text>合作伙伴信息查询</text>
-      </view>
+      </navigator>
     </view>
     <auth :authModel.sync="authModel" v-if="authModel"/>
 

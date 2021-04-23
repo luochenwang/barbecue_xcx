@@ -965,7 +965,7 @@ var plugin = requirePlugin("ykfchat");
         }).then(function (res) {
           _this.array1 = res.list;
 
-          _this.array1.push({
+          _this.array1.unshift({
             title: '请选择'
           });
 
@@ -978,7 +978,7 @@ var plugin = requirePlugin("ykfchat");
           }).then(function (res) {
             _this.array2 = res.list;
 
-            _this.array2.push({
+            _this.array2.unshift({
               title: '请选择'
             });
 
@@ -992,7 +992,7 @@ var plugin = requirePlugin("ykfchat");
             }).then(function (res) {
               _this.array3 = res.list;
 
-              _this.array3.push({
+              _this.array3.unshift({
                 title: '请选择'
               });
 
@@ -1007,7 +1007,7 @@ var plugin = requirePlugin("ykfchat");
               }).then(function (res) {
                 _this.array4 = res.list;
 
-                _this.array4.push({
+                _this.array4.unshift({
                   title: '请选择'
                 });
               });
@@ -1038,7 +1038,7 @@ var plugin = requirePlugin("ykfchat");
       }).then(function (res) {
         _this2.array2 = res.list;
 
-        _this2.array2.push({
+        _this2.array2.unshift({
           title: '请选择'
         });
 
@@ -1052,7 +1052,7 @@ var plugin = requirePlugin("ykfchat");
         }).then(function (res) {
           _this2.array3 = res.list;
 
-          _this2.array3.push({
+          _this2.array3.unshift({
             title: '请选择'
           });
 
@@ -1067,7 +1067,7 @@ var plugin = requirePlugin("ykfchat");
           }).then(function (res) {
             _this2.array4 = res.list;
 
-            _this2.array4.push({
+            _this2.array4.unshift({
               title: '请选择'
             });
           });
@@ -1090,7 +1090,7 @@ var plugin = requirePlugin("ykfchat");
       }).then(function (res) {
         _this3.array3 = res.list;
 
-        _this3.array3.push({
+        _this3.array3.unshift({
           title: '请选择'
         });
 
@@ -1105,7 +1105,7 @@ var plugin = requirePlugin("ykfchat");
         }).then(function (res) {
           _this3.array4 = res.list;
 
-          _this3.array4.push({
+          _this3.array4.unshift({
             title: '请选择'
           });
         });
@@ -1127,7 +1127,7 @@ var plugin = requirePlugin("ykfchat");
       }).then(function (res) {
         _this4.array4 = res.list;
 
-        _this4.array4.push({
+        _this4.array4.unshift({
           title: '请选择'
         });
       });
@@ -2477,7 +2477,7 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("view", { staticClass: "form-group" }, [
-            _c("label", [_vm._v("电子邮箱地址*")]),
+            _c("label", [_vm._v("邮箱地址*")]),
             _vm._v(" "),
             _c("input", {
               directives: [
