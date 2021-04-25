@@ -38,28 +38,24 @@ var globalData = Object(_libs_globalData__WEBPACK_IMPORTED_MODULE_1__[/* createC
   methods: {
     userInfoHandler: function userInfoHandler() {
       var that = this;
-      wx.getSetting({
+      wx.getUserProfile({
+        desc: '用于完善用户资料',
+        // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
         success: function success(res) {
-          if (res.authSetting['scope.userInfo']) {
-            wx.getUserInfo({
-              success: function success(res) {
-                globalData.set("userInfo", res.userInfo);
-                that.$store.commit('set_authModel', false);
-                that.$store.commit('set_useriNfo', res.userInfo);
-                Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
-                  url: 'xcx_request.php',
-                  data: {
-                    act: 'editUserInfo',
-                    nickname: res.userInfo.nickName,
-                    headimgurl: res.userInfo.avatarUrl,
-                    gender: res.userInfo.gender,
-                    city: res.userInfo.city,
-                    country: res.userInfo.country
-                  }
-                });
-              }
-            });
-          } else {}
+          globalData.set("userInfo", res.userInfo);
+          that.$store.commit('set_authModel', false);
+          that.$store.commit('set_useriNfo', res.userInfo);
+          Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
+            url: 'xcx_request.php',
+            data: {
+              act: 'editUserInfo',
+              nickname: res.userInfo.nickName,
+              headimgurl: res.userInfo.avatarUrl,
+              gender: res.userInfo.gender,
+              city: res.userInfo.city,
+              country: res.userInfo.country
+            }
+          });
         }
       });
     }
@@ -1918,9 +1914,8 @@ var render = function() {
       _c(
         "button",
         {
-          attrs: { "open-type": "getUserInfo" },
           on: {
-            getuserinfo: function($event) {
+            tap: function($event) {
               $event.stopPropagation()
               return _vm.userInfoHandler($event)
             }

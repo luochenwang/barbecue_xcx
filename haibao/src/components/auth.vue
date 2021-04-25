@@ -1,7 +1,7 @@
 <template>
   <view class="auth-float">
     <view class="auth-dialog">
-      <button open-type="getUserInfo" @getuserinfo.stop="userInfoHandler">微信登录</button>
+      <button @tap.stop="userInfoHandler">微信登录</button>
     </view>
   </view>
 </template>
@@ -27,30 +27,23 @@ export default {
   methods: {
     userInfoHandler() {
       var that = this;
-      wx.getSetting({
-        success(res) {
-          if (res.authSetting['scope.userInfo']) {
-            wx.getUserInfo({
-              success: res => {
-                globalData.set("userInfo", res.userInfo);
-                that.$store.commit('set_authModel',false);
-                that.$store.commit('set_useriNfo',res.userInfo);
-                ajax({
-                    url:'xcx_request.php',
-                    data:{
-                        act:'editUserInfo',
-                        nickname: res.userInfo.nickName,
-                        headimgurl: res.userInfo.avatarUrl,
-                        gender:res.userInfo.gender,
-                        city:res.userInfo.city,
-                        country:res.userInfo.country,
-                    },
-                })
-              }
-            })
-          } else {
-
-          }
+      wx.getUserProfile({
+        desc: '用于完善用户资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+        success: (res) => {
+          globalData.set("userInfo", res.userInfo);
+          that.$store.commit('set_authModel',false);
+          that.$store.commit('set_useriNfo',res.userInfo);
+          ajax({
+              url:'xcx_request.php',
+              data:{
+                  act:'editUserInfo',
+                  nickname: res.userInfo.nickName,
+                  headimgurl: res.userInfo.avatarUrl,
+                  gender:res.userInfo.gender,
+                  city:res.userInfo.city,
+                  country:res.userInfo.country,
+              },
+          })
         }
       })
     },

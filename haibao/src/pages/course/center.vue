@@ -9,7 +9,7 @@
           <view class="name">昵称：{{userInfo.nickName}}</view>
           <view class="time">{{time}}</view>
         </view>
-        <button open-type="getUserInfo" @getuserinfo="userInfoHandler" v-else>微信登录</button>
+        <button @tap="userInfoHandler" v-else>微信登录</button>
     </view>
     <view class="nav">
         <navigator class="item icon-center1" url="/pages/course/list?title=已观看视频&cat=get_MyFinished&no_search=1">已观看视频</navigator>
@@ -78,33 +78,28 @@ export default {
     },
     userInfoHandler(){
       var that = this;
-      wx.getSetting({
-      success(res) {
-        if (res.authSetting['scope.userInfo']) {
-            wx.getUserInfo({
-             success: res => {
-              console.log(res);
-                globalData.set("userInfo", res.userInfo);
-                that.$store.commit('set_useriNfo',res.userInfo);
+      wx.getUserProfile({
+        desc: '用于完善用户资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+        success: (res) => {
+          globalData.set("userInfo", res.userInfo);
+          that.$store.commit('set_useriNfo',res.userInfo);
 
-                ajax({
-                    url:'xcx_request.php',
-                    data:{
-                        act:'editUserInfo',
-                        nickname: res.userInfo.nickName,
-                        headimgurl: res.userInfo.avatarUrl,
-                        gender:res.userInfo.gender,
-                        city:res.userInfo.city,
-                        country:res.userInfo.country,
-                    },
-                })
-             }
-           })
-        } else {
-
+          ajax({
+              url:'xcx_request.php',
+              data:{
+                  act:'editUserInfo',
+                  nickname: res.userInfo.nickName,
+                  headimgurl: res.userInfo.avatarUrl,
+                  gender:res.userInfo.gender,
+                  city:res.userInfo.city,
+                  country:res.userInfo.country,
+              },
+          })
+        },
+        fail:(e)=>{
+          console.log(e);
         }
-      }
-    })
+      })
     }
   }
 }

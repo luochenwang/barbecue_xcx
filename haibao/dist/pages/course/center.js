@@ -128,28 +128,26 @@ var globalData = Object(_libs_globalData__WEBPACK_IMPORTED_MODULE_2__[/* createC
     },
     userInfoHandler: function userInfoHandler() {
       var that = this;
-      wx.getSetting({
+      wx.getUserProfile({
+        desc: '用于完善用户资料',
+        // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
         success: function success(res) {
-          if (res.authSetting['scope.userInfo']) {
-            wx.getUserInfo({
-              success: function success(res) {
-                console.log(res);
-                globalData.set("userInfo", res.userInfo);
-                that.$store.commit('set_useriNfo', res.userInfo);
-                Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_1__[/* ajax */ "a"])({
-                  url: 'xcx_request.php',
-                  data: {
-                    act: 'editUserInfo',
-                    nickname: res.userInfo.nickName,
-                    headimgurl: res.userInfo.avatarUrl,
-                    gender: res.userInfo.gender,
-                    city: res.userInfo.city,
-                    country: res.userInfo.country
-                  }
-                });
-              }
-            });
-          } else {}
+          globalData.set("userInfo", res.userInfo);
+          that.$store.commit('set_useriNfo', res.userInfo);
+          Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_1__[/* ajax */ "a"])({
+            url: 'xcx_request.php',
+            data: {
+              act: 'editUserInfo',
+              nickname: res.userInfo.nickName,
+              headimgurl: res.userInfo.avatarUrl,
+              gender: res.userInfo.gender,
+              city: res.userInfo.city,
+              country: res.userInfo.country
+            }
+          });
+        },
+        fail: function fail(e) {
+          console.log(e);
         }
       });
     }
@@ -207,14 +205,9 @@ var render = function() {
               _vm._v(" "),
               _c("view", { staticClass: "time" }, [_vm._v(_vm._s(_vm.time))])
             ])
-          : _c(
-              "button",
-              {
-                attrs: { "open-type": "getUserInfo" },
-                on: { getuserinfo: _vm.userInfoHandler }
-              },
-              [_vm._v("微信登录")]
-            )
+          : _c("button", { on: { tap: _vm.userInfoHandler } }, [
+              _vm._v("微信登录")
+            ])
       ]),
       _vm._v(" "),
       _c(
