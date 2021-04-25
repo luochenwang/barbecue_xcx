@@ -79,7 +79,7 @@ export default {
     var that = this;
     if(!this.userInfo.nickName){
         wx.request({
-            url: 'https://campaign5.method-ad.cn/hypertherm/auth.json?v='+Math.random(),
+            url: 'https://campaign5.method-ad.cn/hypertherm/auth2.json?v='+Math.random(),
             success (res) {
                 if(res.data > 0){
                     that.$store.commit('set_authModel',true);
