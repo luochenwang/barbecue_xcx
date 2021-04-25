@@ -428,19 +428,21 @@ var render = function() {
               }
             },
             [
-              _c(
-                "view",
-                {
-                  staticClass: "item",
-                  class: { active: _vm.viewStr == "content" },
-                  on: {
-                    tap: function($event) {
-                      return _vm.scrollTap("content")
-                    }
-                  }
-                },
-                [_vm._v("案例详情")]
-              ),
+              _vm.pageData.content
+                ? _c(
+                    "view",
+                    {
+                      staticClass: "item",
+                      class: { active: _vm.viewStr == "content" },
+                      on: {
+                        tap: function($event) {
+                          return _vm.scrollTap("content")
+                        }
+                      }
+                    },
+                    [_vm._v("案例详情")]
+                  )
+                : _vm._e(),
               _vm._v(" "),
               _c(
                 "view",
@@ -472,37 +474,63 @@ var render = function() {
             ]
           ),
           _vm._v(" "),
-          _c("view", { staticClass: "pro-info", attrs: { id: "content" } }, [
-            _c("view", { staticClass: "pro-tt" }, [_vm._v("案例详情")]),
-            _vm._v(" "),
-            _c("view", { staticClass: "info" }, [
-              _vm._v(_vm._s(_vm.pageData.content.replace(/<\/?.+?>/g, "")))
-            ])
-          ]),
+          _vm.pageData.content
+            ? _c(
+                "view",
+                { staticClass: "pro-info", attrs: { id: "content" } },
+                [
+                  _c("view", { staticClass: "pro-tt" }, [_vm._v("案例详情")]),
+                  _vm._v(" "),
+                  _c("view", { staticClass: "info" }, [
+                    _vm._v(
+                      _vm._s(_vm.pageData.content.replace(/<\/?.+?>/g, ""))
+                    )
+                  ])
+                ]
+              )
+            : _vm._e(),
           _vm._v(" "),
-          _c("view", { staticClass: "pro-info", attrs: { id: "question" } }, [
-            _c("view", { staticClass: "pro-tt" }, [_vm._v("问题描述")]),
-            _vm._v(" "),
-            _c("view", { staticClass: "info" }, [
-              _vm._v(_vm._s(_vm.pageData.question.replace(/<\/?.+?>/g, "")))
-            ])
-          ]),
+          _vm.pageData.question
+            ? _c(
+                "view",
+                { staticClass: "pro-info", attrs: { id: "question" } },
+                [
+                  _c("view", { staticClass: "pro-tt" }, [_vm._v("客户简介")]),
+                  _vm._v(" "),
+                  _c("view", { staticClass: "info" }, [
+                    _vm._v(
+                      _vm._s(_vm.pageData.question.replace(/<\/?.+?>/g, ""))
+                    )
+                  ])
+                ]
+              )
+            : _vm._e(),
           _vm._v(" "),
-          _c("view", { staticClass: "pro-info", attrs: { id: "scheme" } }, [
-            _c("view", { staticClass: "pro-tt" }, [_vm._v("采用方案")]),
-            _vm._v(" "),
-            _c("view", { staticClass: "info" }, [
-              _vm._v(_vm._s(_vm.pageData.scheme.replace(/<\/?.+?>/g, "")))
-            ])
-          ]),
+          _vm.pageData.scheme
+            ? _c("view", { staticClass: "pro-info", attrs: { id: "scheme" } }, [
+                _c("view", { staticClass: "pro-tt" }, [_vm._v("解决方案")]),
+                _vm._v(" "),
+                _c("view", { staticClass: "info" }, [
+                  _vm._v(_vm._s(_vm.pageData.scheme.replace(/<\/?.+?>/g, "")))
+                ])
+              ])
+            : _vm._e(),
           _vm._v(" "),
-          _c("view", { staticClass: "pro-info", attrs: { id: "benefit" } }, [
-            _c("view", { staticClass: "pro-tt" }, [_vm._v("客户受益")]),
-            _vm._v(" "),
-            _c("view", { staticClass: "info" }, [
-              _vm._v(_vm._s(_vm.pageData.benefit.replace(/<\/?.+?>/g, "")))
-            ])
-          ]),
+          _vm.pageData.benefit
+            ? _c(
+                "view",
+                { staticClass: "pro-info", attrs: { id: "benefit" } },
+                [
+                  _c("view", { staticClass: "pro-tt" }, [_vm._v("客户收益")]),
+                  _vm._v(" "),
+                  _c("view", { staticClass: "info" }, [
+                    _vm._v(
+                      _vm._s(_vm.pageData.benefit.replace(/<\/?.+?>/g, ""))
+                    )
+                  ])
+                ]
+              )
+            : _vm._e(),
           _vm._v(" "),
           _c(
             "view",

@@ -33,7 +33,7 @@
       </view>
       <view class="submit" @tap="submit">提交</view>
       <view class="footer">
-        <!-- <navigator url="/pages/webview/index?src=" class="href">联系我们</navigator> -->
+        <navigator url="/pages/contact/index" class="href">联系我们</navigator>
         <navigator url="/pages/webview/index?src=https://www.hypertherm.com/zh/policies/privacy/" class="href">隐私政策</navigator>
         <navigator url="/pages/webview/index?src=https://www.hypertherm.com/zh/policies/terms-of-use" class="href">使用条款</navigator>
         <navigator url="/pages/webview/index?src=https://www.hypertherm.com/zh/policies/gdpr/" class="href">GDPR 声明</navigator>

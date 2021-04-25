@@ -21,7 +21,7 @@
     </view>
 
 
-    <view class="list">
+    <view class="list" v-if="list.length">
         <navigator class="item" v-for="(item,index) in list" :key="index" :url="'/pages/application/details?case_id='+item.case_id">
             <view class="item-l">
                 <image :src="item.picture" mode="widthFix"/>
@@ -32,6 +32,12 @@
         </navigator>
     </view>
 
+    <view class="no-data-box" v-if="!list.length && !isFirstAjax">
+      <view class="tt txt">抱歉，无法查询到相关内容。</view>
+      <view class="txt">如果您想要查询技术相关内容，请点击菜单栏中的<text>“ 在线咨询 ”</text>；</view>
+      <view class="txt">如果您想要购买产品，请点击菜单栏中的<text>“ 何处购买 ”</text>；</view>
+      <view class="txt">如果您想要咨询其他内容，请点击菜单栏中的<text>“ 联系我们 ”</text>。</view>
+    </view>
 
     <show-filter/>
     <pro-leads/>

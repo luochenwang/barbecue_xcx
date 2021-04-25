@@ -1,4 +1,5 @@
 {
+  "setting": {},
   "condition": {
     "plugin": {
       "list": []
@@ -38,6 +39,12 @@
         {
           "name": "pages/show/table",
           "pathName": "pages/show/table",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/contact/index",
+          "pathName": "pages/contact/index",
           "scene": null
         }
       ]

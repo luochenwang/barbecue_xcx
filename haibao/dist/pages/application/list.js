@@ -94,6 +94,12 @@ component.options.__file = "src/pages/application/list.vue"
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
@@ -356,34 +362,64 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _c(
-        "view",
-        { staticClass: "list" },
-        _vm._l(_vm.list, function(item, index) {
-          return _c(
-            "navigator",
-            {
-              key: index,
-              staticClass: "item",
-              attrs: {
-                url: "/pages/application/details?case_id=" + item.case_id
-              }
-            },
-            [
-              _c("view", { staticClass: "item-l" }, [
-                _c("image", { attrs: { src: item.picture, mode: "widthFix" } })
-              ]),
-              _vm._v(" "),
-              _c("view", { staticClass: "item-r" }, [
-                _c("view", { staticClass: "name" }, [
-                  _vm._v(_vm._s(item.title))
-                ])
-              ])
-            ]
+      _vm.list.length
+        ? _c(
+            "view",
+            { staticClass: "list" },
+            _vm._l(_vm.list, function(item, index) {
+              return _c(
+                "navigator",
+                {
+                  key: index,
+                  staticClass: "item",
+                  attrs: {
+                    url: "/pages/application/details?case_id=" + item.case_id
+                  }
+                },
+                [
+                  _c("view", { staticClass: "item-l" }, [
+                    _c("image", {
+                      attrs: { src: item.picture, mode: "widthFix" }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("view", { staticClass: "item-r" }, [
+                    _c("view", { staticClass: "name" }, [
+                      _vm._v(_vm._s(item.title))
+                    ])
+                  ])
+                ]
+              )
+            }),
+            1
           )
-        }),
-        1
-      ),
+        : _vm._e(),
+      _vm._v(" "),
+      !_vm.list.length && !_vm.isFirstAjax
+        ? _c("view", { staticClass: "no-data-box" }, [
+            _c("view", { staticClass: "tt txt" }, [
+              _vm._v("抱歉，无法查询到相关内容。")
+            ]),
+            _vm._v(" "),
+            _c("view", { staticClass: "txt" }, [
+              _vm._v("如果您想要查询技术相关内容，请点击菜单栏中的"),
+              _c("text", [_vm._v("“ 在线咨询 ”")]),
+              _vm._v("；")
+            ]),
+            _vm._v(" "),
+            _c("view", { staticClass: "txt" }, [
+              _vm._v("如果您想要购买产品，请点击菜单栏中的"),
+              _c("text", [_vm._v("“ 何处购买 ”")]),
+              _vm._v("；")
+            ]),
+            _vm._v(" "),
+            _c("view", { staticClass: "txt" }, [
+              _vm._v("如果您想要咨询其他内容，请点击菜单栏中的"),
+              _c("text", [_vm._v("“ 联系我们 ”")]),
+              _vm._v("。")
+            ])
+          ])
+        : _vm._e(),
       _vm._v(" "),
       _c("show-filter"),
       _vm._v(" "),

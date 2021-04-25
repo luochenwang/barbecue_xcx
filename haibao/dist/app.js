@@ -42,6 +42,7 @@ var globalData = Object(_libs_globalData__WEBPACK_IMPORTED_MODULE_1__[/* createC
         desc: '用于完善用户资料',
         // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
         success: function success(res) {
+          console.log(res);
           globalData.set("userInfo", res.userInfo);
           that.$store.commit('set_authModel', false);
           that.$store.commit('set_useriNfo', res.userInfo);
@@ -750,6 +751,10 @@ var plugin = requirePlugin("ykfchat");
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: 'sidebar',
@@ -759,6 +764,7 @@ var plugin = requirePlugin("ykfchat");
       name: '',
       phone: '',
       company: '',
+      email: '',
       demand: '',
       region: ["上海市", "上海市", '徐汇区'],
       isSendEmail: true,
@@ -826,6 +832,15 @@ var plugin = requirePlugin("ykfchat");
         return false;
       }
 
+      if (this.email == '') {
+        wx.showToast({
+          title: '请输入电子邮箱地址',
+          icon: 'none',
+          duration: 2000
+        });
+        return false;
+      }
+
       if (this.company == '') {
         wx.showToast({
           title: '请输入公司名称',
@@ -851,6 +866,7 @@ var plugin = requirePlugin("ykfchat");
           tp: this.$store.state.category,
           tp_value: 0,
           comname: this.company,
+          email: this.email,
           mobile: this.phone,
           name: this.name,
           province: this.region[0],
@@ -2094,10 +2110,7 @@ var render = function() {
             [
               _c(
                 "navigator",
-                {
-                  staticClass: "href",
-                  attrs: { url: "/pages/webview/index?src=" }
-                },
+                { staticClass: "href", attrs: { url: "/pages/contact/index" } },
                 [_vm._v("联系我们")]
               ),
               _vm._v(" "),
@@ -2253,10 +2266,7 @@ var render = function() {
             [
               _c(
                 "navigator",
-                {
-                  staticClass: "href",
-                  attrs: { url: "/pages/webview/index?src=" }
-                },
+                { staticClass: "href", attrs: { url: "/pages/contact/index" } },
                 [_vm._v("联系我们")]
               ),
               _vm._v(" "),
@@ -2515,6 +2525,12 @@ var render = function() {
             [
               _c(
                 "navigator",
+                { staticClass: "href", attrs: { url: "/pages/contact/index" } },
+                [_vm._v("联系我们")]
+              ),
+              _vm._v(" "),
+              _c(
+                "navigator",
                 {
                   staticClass: "href",
                   attrs: {
@@ -2644,6 +2660,31 @@ var render = function() {
                         return
                       }
                       _vm.phone = $event.target.value
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("view", { staticClass: "form-group" }, [
+                _c("label", [_vm._v("邮箱地址*")]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.email,
+                      expression: "email"
+                    }
+                  ],
+                  attrs: { type: "text" },
+                  domProps: { value: _vm.email },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.email = $event.target.value
                     }
                   }
                 })
@@ -2836,7 +2877,7 @@ var render = function() {
                     "navigator",
                     {
                       staticClass: "href",
-                      attrs: { url: "/pages/webview/index?src=" }
+                      attrs: { url: "/pages/contact/index" }
                     },
                     [_vm._v("联系我们")]
                   ),

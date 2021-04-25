@@ -11,6 +11,10 @@
         <input type="number" v-model="phone" maxlength="11" />
       </view>
       <view class="form-group">
+        <label>邮箱地址*</label>
+        <input type="text" v-model="email"/>
+      </view>
+      <view class="form-group">
         <label>公司名称*</label>
         <input type="text" v-model="company"/>
       </view>
@@ -47,7 +51,7 @@
           </view>
       <view class="submit" @tap="submit">提交</view>
       <view class="footer">
-        <navigator url="/pages/webview/index?src=" class="href">联系我们</navigator>
+        <navigator url="/pages/contact/index" class="href">联系我们</navigator>
         <navigator url="/pages/webview/index?src=https://www.hypertherm.com/zh/policies/privacy/" class="href">隐私政策</navigator>
         <navigator url="/pages/webview/index?src=https://www.hypertherm.com/zh/policies/terms-of-use" class="href">使用条款</navigator>
         <navigator url="/pages/webview/index?src=https://www.hypertherm.com/zh/policies/gdpr/" class="href">GDPR 声明</navigator>
@@ -76,6 +80,7 @@ export default {
       name:'',
       phone:'',
       company:'',
+      email:'',
       demand:'',
       region: ["上海市", "上海市", '徐汇区'],
       isSendEmail:true,
@@ -139,6 +144,14 @@ export default {
         })
         return false;
       }
+      if(this.email == ''){
+        wx.showToast({
+            title: '请输入电子邮箱地址',
+            icon: 'none',
+            duration: 2000,
+        })
+        return false;
+      }
       if(this.company == ''){
         wx.showToast({
             title: '请输入公司名称',
@@ -163,6 +176,7 @@ export default {
           tp: this.$store.state.category,
           tp_value: 0,
           comname: this.company,
+          email: this.email,
           mobile: this.phone,
           name: this.name,
           province: this.region[0],

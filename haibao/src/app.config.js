@@ -17,6 +17,7 @@ export default {
     'pages/application/list',
     'pages/application/index',
     'pages/search/result',
+    'pages/contact/index',
     'pages/course/center',
     'pages/course/list',
     'pages/course/index'

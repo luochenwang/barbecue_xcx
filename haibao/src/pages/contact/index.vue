@@ -1,49 +1,8 @@
 <template>
   <view class="container" :class="{'container-nav' : fixed}" :style="{paddingTop:containerTop+'px'}">
     <webheader/>
-    <scroll-view scroll-y="true" :scroll-into-view="toView" :style="{height:winHeight}" @scroll="scrollRight" scroll-with-animation='true'>
-      <view class="tt">{{pageData.title}}</view>
-      <view class="banner">
-        <swiper indicator-color="#898989" indicator-active-color="#ed1b2e" indicator-dots="true">
-            <swiper-item v-for="(item,index) in pageData.carousel_list">
-              <image :src="item.picture" mode="widthFix"/>
-            </swiper-item>
-        </swiper>
-      </view>
-      <view class="tab-nav" :style="{top:(menuButtonObject.height+menuButtonObject.top+10)+'px'}">
-        <view class="item" :class="{'active' : viewStr == 'content'}" @tap='scrollTap("content")' v-if="pageData.content">案例详情</view>
-        <view class="item" :class="{'active' : viewStr == 'products_list'}" @tap='scrollTap("products_list")'>相关产品</view>
-        <view class="item" :class="{'active' : viewStr == 'consult'}" @tap='scrollTap("consult")'>我要咨询</view>
-      </view>
-      <view class="pro-info" id="content" v-if="pageData.content">
-        <view class="pro-tt">案例详情</view>
-        <view class="info">{{pageData.content.replace(/<\/?.+?>/g, "")}}</view>
-      </view>
-      <view class="pro-info" id="question" v-if="pageData.question">
-        <view class="pro-tt">客户简介</view>
-        <view class="info">{{pageData.question.replace(/<\/?.+?>/g, "")}}</view>
-      </view>
-      <view class="pro-info" id="scheme" v-if="pageData.scheme">
-        <view class="pro-tt">解决方案</view>
-        <view class="info">{{pageData.scheme.replace(/<\/?.+?>/g, "")}}</view>
-      </view>
-      <view class="pro-info" id="benefit" v-if="pageData.benefit">
-        <view class="pro-tt">客户收益</view>
-        <view class="info">{{pageData.benefit.replace(/<\/?.+?>/g, "")}}</view>
-      </view>
-      <view class="pro-info" id="products_list">
-        <view class="pro-tt">相关产品</view>
-        <view class="list">
-          <view class="item" v-for="(item,index) in pageData.products_list">
-            <view class='img-box'>
-              <image :src="item.picture" mode="widthFix"/>
-            </view>
-            <view class="txt">{{item.title}}</view>
-          </view>
-        </view>
-      </view>
-      <view class="pro-info" id="consult">
-        <view class="pro-tt">我要咨询</view>
+    <view>
+      <view class="how-pay" id="pay">
         <view class="leads-dialog">
           <view class="form-group">
             <label>姓名*</label>
@@ -95,38 +54,24 @@
           <view class="submit" @tap="submit">提交</view>
         </view>
       </view>
-
-    </scroll-view>
-    
+    </view>
     <sidebar/>
+    <download-leads tp="420"/>
   </view>
 </template>
 
 <script>
 import { ajax } from "../../libs/ajax";
 import mixin from "../../libs/mixin";
-var scrollArr = ['content','products_list','consult'];
+var scrollArr = ['desc','info','pay'];
 var scrollTop = [];
-
 export default {
   name: 'server_details',
   mixins: [mixin],
   data() {
       return {
-        pageData:{
-          content:'',
-          question:'',
-          scheme:'',
-          benefit:''
-        },
-
-        toView:'',
-        viewStr:'content',
-        fixed:false,
-        winHeight:'',
-        menuButtonObject:{},
-
-
+        pageData:{},
+        product_id:'',
         privacy:false,
         array: [],
         index: 0,
@@ -137,42 +82,46 @@ export default {
         region: ["上海市", "上海市", '徐汇区'],
         company:'',
         isSendEmail:true,
+        toView:'',
+        viewStr:'desc',
+        fixed:false,
+        winHeight:'',
+        menuButtonObject:{}
       }
     },
   components: {
 
   },
   onLoad(option) {
-    ajax({
-        url:'xcx_request.php',
-        data:{
-            act:'get_case_detail',
-            case_id:option.case_id,
-        },
-    }).then(res=>{
-        this.pageData = res;
-        this.$nextTick(() => {
-          for(let item of scrollArr){
-            let query = wx.createSelectorQuery();
-            query.select('#'+item).boundingClientRect( (rect) => {
-                let top = rect.top;
-                scrollTop.push(top);
-                console.log(scrollTop);
-            }).exec()
-          }
-        })
-    })
-
-    var menuButtonObject = wx.getMenuButtonBoundingClientRect();
-    this.menuButtonObject = menuButtonObject;
-    let that = this;
-    wx.getSystemInfo({
-      success: function(res) {
-          that.winHeight = res.windowHeight - (menuButtonObject.height+menuButtonObject.top) + 'px'
-      }
-    });
+    this.$store.commit('set_liveLeadsModel');
+    this.$store.commit('set_downloadLeadsModel');
+    this.$store.commit('set_consultLeadsModel');
+    this.$store.commit('set_showFilterModel');
   },
   methods: {
+    openPdf(file){
+      wx.downloadFile({
+        url:file,
+        success(res){
+          console.log(res)
+          let data = res.tempFilePath;
+          wx.openDocument({
+            filePath:data,
+            fileType:'pdf'
+          })
+        }
+      })
+    },
+    bindPickerChange(e){
+      this.index = e.detail.value;
+    },
+    bindRegionChange: function (e) {
+      this.region = e.detail.value;
+      console.log('picker发送选择改变，携带值为', e.detail.value)
+    },
+    changePrivacy(e){
+      this.privacy = !this.privacy;
+    },
     scrollTap(view) {
       this.toView = view;
       this.viewStr = view;
@@ -192,16 +141,6 @@ export default {
       if(_top < scrollTop[0]){
         this.fixed = false;
       }
-    },
-    bindPickerChange(e){
-      this.index = e.detail.value;
-    },
-    bindRegionChange: function (e) {
-      this.region = e.detail.value;
-      console.log('picker发送选择改变，携带值为', e.detail.value)
-    },
-    changePrivacy(e){
-      this.privacy = !this.privacy;
     },
     submit(){
       if(this.name == ''){
@@ -271,5 +210,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import "./details";
+@import "./index";
 </style>
