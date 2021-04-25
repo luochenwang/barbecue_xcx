@@ -191,7 +191,7 @@ function createCache() {
 
       if (!item.appointment_isform > 0) {
         wx.navigateTo({
-          url: '/pages/server/video?title=' + item.title + '&video_url=' + item.video_url + '&video_picture=' + item.video_picture + '&share_img=' + item.video_share_picture + '&id=' + (item.class_id || item.tech_detail_id)
+          url: '/pages/server/video?title=' + item.title + '&video_filename=' + item.video_filename + '&video_picture=' + item.video_picture + '&share_img=' + item.video_share_picture + '&id=' + (item.class_id || item.tech_detail_id)
         });
       } else {
         this.$store.commit('set_liveLeadsModel', true);

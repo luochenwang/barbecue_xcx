@@ -84,7 +84,7 @@ component.options.__file = "src/pages/server/video.vue"
     return {
       title: this.videoInfo.title,
       imageUrl: this.videoInfo.share_img,
-      path: '/pages/server/video?title=' + this.videoInfo.title + '&video_url=' + this.videoInfo.video_url + '&share_img=' + this.videoInfo.share_img + '&video_picture=' + this.videoInfo.video_picture + '&id=' + this.videoInfo.id,
+      path: '/pages/server/video?title=' + this.videoInfo.title + '&video_filename=' + this.videoInfo.video_filename + '&share_img=' + this.videoInfo.share_img + '&video_picture=' + this.videoInfo.video_picture + '&id=' + this.videoInfo.id,
       success: function success(res) {
         Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
           url: 'xcx_request.php',
@@ -163,21 +163,15 @@ var render = function() {
       _vm._v(" "),
       _c("view", { staticClass: "tt" }, [_vm._v(_vm._s(_vm.videoInfo.title))]),
       _vm._v(" "),
-      _c(
-        "view",
-        { staticClass: "video-box" },
-        [
-          _c("txv-video", {
-            attrs: {
-              vid: _vm.videoInfo.video_url,
-              playerid: "txv1",
-              autoplay: true,
-              controls: true
-            }
-          })
-        ],
-        1
-      ),
+      _c("view", { staticClass: "video-box" }, [
+        _c("video", {
+          attrs: {
+            src: _vm.videoInfo.video_filename,
+            autoplay: true,
+            controls: true
+          }
+        })
+      ]),
       _vm._v(" "),
       _c("view", { staticClass: "btn-box" }),
       _vm._v(" "),
