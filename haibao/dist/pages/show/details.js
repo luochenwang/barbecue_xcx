@@ -530,43 +530,53 @@ var render = function() {
               : _vm._e(),
             _vm._v(" "),
             _c("view", { staticClass: "info" }, [
-              _vm._v(_vm._s(_vm.pageData.content))
+              _c("text", [
+                _vm._v(
+                  _vm._s(
+                    _vm.pageData.content
+                      ? _vm.pageData.content.replace(/↵/g, "\n")
+                      : ""
+                  )
+                )
+              ])
             ])
           ]),
           _vm._v(" "),
-          _c(
-            "view",
-            { staticClass: "pro-info" },
-            [
-              _c("view", { staticClass: "pro-tt" }, [_vm._v("切割样件")]),
-              _vm._v(" "),
-              _c(
-                "swiper",
-                {
-                  attrs: {
-                    "indicator-color": "#898989",
-                    "indicator-active-color": "#ed1b2e",
-                    "indicator-dots": "true"
-                  }
-                },
-                _vm._l(_vm.pageData.sample_list, function(item, index) {
-                  return _c("swiper-item", [
-                    _c("view", { staticClass: "img-box" }, [
-                      _c("image", {
-                        attrs: { src: item.picture, mode: "widthFix" }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("view", { staticClass: "info" }, [
-                      _vm._v(_vm._s(item.content))
-                    ])
-                  ])
-                }),
+          _vm.pageData.sample_list
+            ? _c(
+                "view",
+                { staticClass: "pro-info" },
+                [
+                  _c("view", { staticClass: "pro-tt" }, [_vm._v("切割样件")]),
+                  _vm._v(" "),
+                  _c(
+                    "swiper",
+                    {
+                      attrs: {
+                        "indicator-color": "#898989",
+                        "indicator-active-color": "#ed1b2e",
+                        "indicator-dots": "true"
+                      }
+                    },
+                    _vm._l(_vm.pageData.sample_list, function(item, index) {
+                      return _c("swiper-item", [
+                        _c("view", { staticClass: "img-box" }, [
+                          _c("image", {
+                            attrs: { src: item.picture, mode: "widthFix" }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("view", { staticClass: "info" }, [
+                          _vm._v(_vm._s(item.content))
+                        ])
+                      ])
+                    }),
+                    1
+                  )
+                ],
                 1
               )
-            ],
-            1
-          ),
+            : _vm._e(),
           _vm._v(" "),
           _vm.pageData &&
           _vm.pageData.cases_list &&

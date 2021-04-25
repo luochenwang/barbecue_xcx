@@ -7,6 +7,9 @@
     border-bottom:1px solid #f14958;
 }
 .banner{
+    swiper{
+        height:550px;
+    }
     image{
         width:100%;
     }
@@ -171,7 +174,7 @@
 }
 .how-pay{
     .leads-dialog{
-    width:570rpx;
+    width:650rpx;
     background:#fff;
     border-radius:20rpx;
     padding:45rpx 35rpx 50rpx;

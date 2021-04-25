@@ -21,10 +21,10 @@
         <view class='video-box' v-if="pageData.video_url">
           <txv-video :vid="pageData.video_url" playerid="txv1" :autoplay='false' :controls="true"></txv-video>
         </view>
-        <view class="info">{{pageData.content}}</view>
+        <view class="info"><text>{{pageData.content ? pageData.content.replace(/↵/g,"\n") : ''}}</text></view>
       </view>
 
-      <view class="pro-info">
+      <view class="pro-info" v-if="pageData.sample_list">
         <view class="pro-tt">切割样件</view>
         <swiper indicator-color="#898989" indicator-active-color="#ed1b2e" indicator-dots="true">
             <swiper-item v-for="(item,index) in pageData.sample_list">

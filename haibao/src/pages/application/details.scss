@@ -7,7 +7,9 @@
     border-bottom:1px solid #f14958;
 }
 .banner{
-
+    swiper{
+        height:550px;
+    }
 }
 .container-nav{
     .banner{
@@ -193,11 +195,13 @@
       margin-bottom:10rpx;
       text{
         font-size:22rpx;
+        white-space:nowrap;
       }
       navigator{
         font-size:22rpx;
         color:#121dff;
         border-bottom:1Px solid #121dff;
+        white-space:nowrap;
       }
     }
     .tips{

@@ -201,6 +201,7 @@ function createCache() {
     },
     downloadPdf: function downloadPdf(item) {
       var tp = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 100;
+      console.log(item);
 
       if (item.pdf_isform > 0) {
         wx.showToast({

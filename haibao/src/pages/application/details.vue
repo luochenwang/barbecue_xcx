@@ -6,7 +6,7 @@
       <view class="banner">
         <swiper indicator-color="#898989" indicator-active-color="#ed1b2e" indicator-dots="true">
             <swiper-item v-for="(item,index) in pageData.carousel_list">
-              <image :src="item"/>
+              <image :src="item.picture" mode="widthFix"/>
             </swiper-item>
         </swiper>
       </view>

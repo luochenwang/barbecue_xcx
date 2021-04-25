@@ -404,7 +404,9 @@ var render = function() {
                 },
                 _vm._l(_vm.pageData.carousel_list, function(item, index) {
                   return _c("swiper-item", [
-                    _c("image", { attrs: { src: item } })
+                    _c("image", {
+                      attrs: { src: item.picture, mode: "widthFix" }
+                    })
                   ])
                 }),
                 1

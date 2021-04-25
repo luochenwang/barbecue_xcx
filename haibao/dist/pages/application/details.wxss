@@ -6,6 +6,9 @@
   font-weight: bold;
   border-bottom: 1rpx solid #f14958;
 }
+.banner swiper {
+  height: 550rpx;
+}
 .container-nav .banner {
   margin-bottom: 75rpx;
 }
@@ -180,11 +183,13 @@
 }
 .leads-dialog .privacy text {
       font-size: 22rpx;
+      white-space: nowrap;
 }
 .leads-dialog .privacy navigator {
       font-size: 22rpx;
       color: #121dff;
       border-bottom: 1Px solid #121dff;
+      white-space: nowrap;
 }
 .leads-dialog .tips {
     color: #696969;

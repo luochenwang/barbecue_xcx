@@ -71,6 +71,7 @@ export default {
       }
     },
     downloadPdf(item, tp = 100) {
+      console.log(item);
       if(item.pdf_isform > 0){
         wx.showToast({
             title: '资料已发送到您的邮箱',

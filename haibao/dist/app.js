@@ -354,7 +354,7 @@ var plugin = requirePlugin("ykfchat");
   },
   computed: {
     downloadLeadsModel: function downloadLeadsModel() {
-      return this.$store.state.dv0ownloadLeadsModel;
+      return this.$store.state.downloadLeadsModel;
     },
     leadsItem: function leadsItem() {
       return this.$store.state.leadsItem;
