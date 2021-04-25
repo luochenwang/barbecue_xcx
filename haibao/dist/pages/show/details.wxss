@@ -237,11 +237,13 @@
 }
 .how-pay .leads-dialog .privacy text {
       font-size: 22rpx;
+      white-space: nowrap;
 }
 .how-pay .leads-dialog .privacy navigator {
       font-size: 22rpx;
       color: #121dff;
       border-bottom: 1Px solid #121dff;
+      white-space: nowrap;
 }
 .how-pay .leads-dialog .tips {
     color: #696969;

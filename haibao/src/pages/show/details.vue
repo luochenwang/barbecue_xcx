@@ -6,7 +6,7 @@
       <view class="banner">
         <swiper indicator-color="#898989" indicator-active-color="#ed1b2e" indicator-dots="true">
             <swiper-item v-for="(item,index) in pageData.carousel_list">
-              <image :src="item" mode="widthFix"/>
+              <image :src="item.picture" mode="widthFix"/>
             </swiper-item>
         </swiper>
       </view>
@@ -18,7 +18,7 @@
       </view>
       <view class="pro-info" id="desc">
         <view class="pro-tt">产品介绍</view>
-        <view class='video-box'>
+        <view class='video-box' v-if="pageData.video_url">
           <txv-video :vid="pageData.video_url" playerid="txv1" :autoplay='false' :controls="true"></txv-video>
         </view>
         <view class="info">{{pageData.content}}</view>
@@ -36,7 +36,7 @@
         </swiper>
       </view>
 
-      <view class="pro-list">
+      <view class="pro-list" v-if="pageData && pageData.cases_list && pageData.cases_list.length">
         <view class="pro-tt">产品应用</view>
         <view class="list">
           <view class="item" v-for="(item,index) in pageData.cases_list">

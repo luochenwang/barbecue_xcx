@@ -968,51 +968,6 @@ var plugin = requirePlugin("ykfchat");
           _this.array1.unshift({
             title: '请选择'
           });
-
-          Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
-            url: 'xcx_request.php',
-            data: {
-              act: 'get_products_cz',
-              qglx_id: _this.array1[_this.index1].qglx_id
-            }
-          }).then(function (res) {
-            _this.array2 = res.list;
-
-            _this.array2.unshift({
-              title: '请选择'
-            });
-
-            Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
-              url: 'xcx_request.php',
-              data: {
-                act: 'get_products_clhd',
-                qglx_id: _this.array1[_this.index1].qglx_id,
-                cz_id: _this.array2[_this.index2].cz_id
-              }
-            }).then(function (res) {
-              _this.array3 = res.list;
-
-              _this.array3.unshift({
-                title: '请选择'
-              });
-
-              Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
-                url: 'xcx_request.php',
-                data: {
-                  act: 'get_products_zlyq',
-                  qglx_id: _this.array1[_this.index1].qglx_id,
-                  cz_id: _this.array2[_this.index2].cz_id,
-                  clhd_id: _this.array3[_this.index3].clhd_id
-                }
-              }).then(function (res) {
-                _this.array4 = res.list;
-
-                _this.array4.unshift({
-                  title: '请选择'
-                });
-              });
-            });
-          });
         });
       }
     }
@@ -1029,6 +984,8 @@ var plugin = requirePlugin("ykfchat");
       this.index2 = 0;
       this.index3 = 0;
       this.index4 = 0;
+      this.array3 = [{}];
+      this.array4 = [{}];
       Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
         url: 'xcx_request.php',
         data: {
@@ -1036,42 +993,13 @@ var plugin = requirePlugin("ykfchat");
           qglx_id: this.array1[this.index1].qglx_id
         }
       }).then(function (res) {
-        _this2.array2 = res.list;
+        if (res.list) {
+          _this2.array2 = res.list;
 
-        _this2.array2.unshift({
-          title: '请选择'
-        });
-
-        Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
-          url: 'xcx_request.php',
-          data: {
-            act: 'get_products_clhd',
-            qglx_id: _this2.array1[_this2.index1].qglx_id,
-            cz_id: _this2.array2[_this2.index2].cz_id
-          }
-        }).then(function (res) {
-          _this2.array3 = res.list;
-
-          _this2.array3.unshift({
+          _this2.array2.unshift({
             title: '请选择'
           });
-
-          Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
-            url: 'xcx_request.php',
-            data: {
-              act: 'get_products_zlyq',
-              qglx_id: _this2.array1[_this2.index1].qglx_id,
-              cz_id: _this2.array2[_this2.index2].cz_id,
-              clhd_id: _this2.array3[_this2.index3].clhd_id
-            }
-          }).then(function (res) {
-            _this2.array4 = res.list;
-
-            _this2.array4.unshift({
-              title: '请选择'
-            });
-          });
-        });
+        }
       });
     },
     bindPickerChange2: function bindPickerChange2(e) {
@@ -1080,6 +1008,7 @@ var plugin = requirePlugin("ykfchat");
       this.index2 = e.detail.value;
       this.index3 = 0;
       this.index4 = 0;
+      this.array4 = [{}];
       Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
         url: 'xcx_request.php',
         data: {
@@ -1088,27 +1017,13 @@ var plugin = requirePlugin("ykfchat");
           cz_id: this.array2[this.index2].cz_id
         }
       }).then(function (res) {
-        _this3.array3 = res.list;
+        if (res.list) {
+          _this3.array3 = res.list;
 
-        _this3.array3.unshift({
-          title: '请选择'
-        });
-
-        Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
-          url: 'xcx_request.php',
-          data: {
-            act: 'get_products_zlyq',
-            qglx_id: _this3.array1[_this3.index1].qglx_id,
-            cz_id: _this3.array2[_this3.index2].cz_id,
-            clhd_id: _this3.array3[_this3.index3].clhd_id
-          }
-        }).then(function (res) {
-          _this3.array4 = res.list;
-
-          _this3.array4.unshift({
+          _this3.array3.unshift({
             title: '请选择'
           });
-        });
+        }
       });
     },
     bindPickerChange3: function bindPickerChange3(e) {
@@ -1125,11 +1040,13 @@ var plugin = requirePlugin("ykfchat");
           clhd_id: this.array3[this.index3].clhd_id
         }
       }).then(function (res) {
-        _this4.array4 = res.list;
+        if (res.list) {
+          _this4.array4 = res.list;
 
-        _this4.array4.unshift({
-          title: '请选择'
-        });
+          _this4.array4.unshift({
+            title: '请选择'
+          });
+        }
       });
     },
     bindPickerChange4: function bindPickerChange4(e) {
@@ -1141,6 +1058,13 @@ var plugin = requirePlugin("ykfchat");
           title: '请选择切割类型',
           icon: 'none',
           duration: 2000
+        });
+        return false;
+      }
+
+      if (this.array1[this.index1].qglx_id == 7) {
+        wx.navigateTo({
+          url: '/pages/show/table'
         });
         return false;
       }

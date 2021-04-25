@@ -160,17 +160,17 @@ component.options.__file = "src/pages/show/sublist.vue"
         }
       }).then(function (res) {
         if (res.list) {
-          var _this$list;
-
-          (_this$list = _this.list).push.apply(_this$list, Object(_Volumes_d_site_barbecue_xcx_haibao_node_modules_babel_runtime_7_13_10_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(res.list));
-
           if (res.list.length) {
+            var _this$list;
+
             _this.loaded = true;
             ++_this.page;
-          }
 
-          _this.isFirstAjax = false;
+            (_this$list = _this.list).push.apply(_this$list, Object(_Volumes_d_site_barbecue_xcx_haibao_node_modules_babel_runtime_7_13_10_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(res.list));
+          }
         }
+
+        _this.isFirstAjax = false;
       });
     },
     search: function search() {

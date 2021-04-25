@@ -77,45 +77,6 @@ export default {
             this.array1.unshift({
               title:'请选择',
             })
-            ajax({
-              url: 'xcx_request.php',
-              data: {
-                act: 'get_products_cz',
-                qglx_id:this.array1[this.index1].qglx_id
-              },
-            }).then(res=>{
-              this.array2 = res.list;
-              this.array2.unshift({
-                title:'请选择',
-              })
-              ajax({
-                url: 'xcx_request.php',
-                data: {
-                  act: 'get_products_clhd',
-                  qglx_id:this.array1[this.index1].qglx_id,
-                  cz_id:this.array2[this.index2].cz_id,
-                },
-              }).then(res=>{
-                this.array3 = res.list;
-                this.array3.unshift({
-                  title:'请选择',
-                })
-                ajax({
-                  url: 'xcx_request.php',
-                  data: {
-                    act: 'get_products_zlyq',
-                    qglx_id:this.array1[this.index1].qglx_id,
-                    cz_id:this.array2[this.index2].cz_id,
-                    clhd_id:this.array3[this.index3].clhd_id,
-                  },
-                }).then(res=>{
-                  this.array4 = res.list;
-                  this.array4.unshift({
-                    title:'请选择',
-                  })
-                })
-              })
-            })
           })
       }
     }
@@ -132,6 +93,8 @@ export default {
       this.index2 = 0;
       this.index3 = 0;
       this.index4 = 0;
+      this.array3 = [{}];
+      this.array4 = [{}];
       ajax({
         url: 'xcx_request.php',
         data: {
@@ -139,44 +102,19 @@ export default {
           qglx_id:this.array1[this.index1].qglx_id
         },
       }).then(res=>{
-        this.array2 = res.list;
-        this.array2.unshift({
-          title:'请选择',
-        })
-        ajax({
-          url: 'xcx_request.php',
-          data: {
-            act: 'get_products_clhd',
-            qglx_id:this.array1[this.index1].qglx_id,
-            cz_id:this.array2[this.index2].cz_id,
-          },
-        }).then(res=>{
-          this.array3 = res.list;
-          this.array3.unshift({
+        if(res.list){
+          this.array2 = res.list;
+          this.array2.unshift({
             title:'请选择',
           })
-          ajax({
-            url: 'xcx_request.php',
-            data: {
-              act: 'get_products_zlyq',
-              qglx_id:this.array1[this.index1].qglx_id,
-              cz_id:this.array2[this.index2].cz_id,
-              clhd_id:this.array3[this.index3].clhd_id,
-            },
-          }).then(res=>{
-            this.array4 = res.list;
-            this.array4.unshift({
-              title:'请选择',
-            })
-          })
-        })
+        }
       })
     },
     bindPickerChange2: function(e) {
       this.index2 = e.detail.value;
       this.index3 = 0;
       this.index4 = 0;
-      
+      this.array4 = [{}];
       ajax({
         url: 'xcx_request.php',
         data: {
@@ -185,24 +123,12 @@ export default {
           cz_id:this.array2[this.index2].cz_id,
         },
       }).then(res=>{
-        this.array3 = res.list;
-        this.array3.unshift({
-          title:'请选择',
-        })
-        ajax({
-          url: 'xcx_request.php',
-          data: {
-            act: 'get_products_zlyq',
-            qglx_id:this.array1[this.index1].qglx_id,
-            cz_id:this.array2[this.index2].cz_id,
-            clhd_id:this.array3[this.index3].clhd_id,
-          },
-        }).then(res=>{
-          this.array4 = res.list;
-          this.array4.unshift({
+        if(res.list){
+          this.array3 = res.list;
+          this.array3.unshift({
             title:'请选择',
           })
-        })
+        }
       })
     },
     bindPickerChange3: function(e) {
@@ -217,10 +143,12 @@ export default {
           clhd_id:this.array3[this.index3].clhd_id,
         },
       }).then(res=>{
-        this.array4 = res.list;
-        this.array4.unshift({
-          title:'请选择',
-        })
+        if(res.list){
+          this.array4 = res.list;
+          this.array4.unshift({
+            title:'请选择',
+          })
+        }
       })
     },
     bindPickerChange4: function(e) {
@@ -235,6 +163,11 @@ export default {
         })
         return false;
       }
+      if(this.array1[this.index1].qglx_id == 7){
+        wx.navigateTo({ url: '/pages/show/table' });
+        return false;
+      }
+
       if(!this.array2[this.index2].cz_id){
         wx.showToast({
             title: '请选择材质',
@@ -266,6 +199,8 @@ export default {
         clhd_id: this.array3[this.index3].clhd_id,
         zlyq_id: this.array4[this.index4].zlyq_id,
       });
+
+      
       this.$parent.filterSubmit();
 
       // ajax({

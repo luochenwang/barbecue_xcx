@@ -105,13 +105,13 @@ export default {
           },
       }).then(res=>{
           if(res.list){
-            this.list.push(...res.list);
             if(res.list.length){
               this.loaded = true;
               ++this.page;
+              this.list.push(...res.list);
             }
-            this.isFirstAjax = false;
           }
+          this.isFirstAjax = false;
       });
     },
     search(){

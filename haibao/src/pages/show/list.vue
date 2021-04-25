@@ -77,7 +77,7 @@ export default {
         this.$store.commit('set_showFilterModel',true);
     },
     filterSubmit(){
-        wx.navigateTo({ url: '/pages/show/sublist' });  
+        wx.navigateTo({ url: '/pages/show/sublist' });
     },
     searchAjax(){
       ajax({

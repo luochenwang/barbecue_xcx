@@ -16,7 +16,7 @@
         <view class="search-btn" @tap="search()">点击搜索</view>
     </view>
 
-    <view class="table-tt">请根据下表进行初步筛选：</view>
+    <!-- <view class="table-tt">请根据下表进行初步筛选：</view>
     <view class="table-main">
       <view class="box tt">
         <text>产品</text>
@@ -30,7 +30,8 @@
         <text>深 mm</text>
         <text>宽 mm</text>
       </view>
-    </view>
+    </view> -->
+    <image src="https://campaign5.method-ad.cn/hypertherm/img/table.jpg" class="table-img"/>
     <view class="table-tips">如需精确查合适的气刨系统，请点击页面左上方的《填写填单》， 后续会有海宝专业人员联系您。</view>
 
     <sidebar/>

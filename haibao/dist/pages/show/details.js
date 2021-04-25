@@ -440,7 +440,9 @@ var render = function() {
                 },
                 _vm._l(_vm.pageData.carousel_list, function(item, index) {
                   return _c("swiper-item", [
-                    _c("image", { attrs: { src: item, mode: "widthFix" } })
+                    _c("image", {
+                      attrs: { src: item.picture, mode: "widthFix" }
+                    })
                   ])
                 }),
                 1
@@ -509,21 +511,23 @@ var render = function() {
           _c("view", { staticClass: "pro-info", attrs: { id: "desc" } }, [
             _c("view", { staticClass: "pro-tt" }, [_vm._v("产品介绍")]),
             _vm._v(" "),
-            _c(
-              "view",
-              { staticClass: "video-box" },
-              [
-                _c("txv-video", {
-                  attrs: {
-                    vid: _vm.pageData.video_url,
-                    playerid: "txv1",
-                    autoplay: false,
-                    controls: true
-                  }
-                })
-              ],
-              1
-            ),
+            _vm.pageData.video_url
+              ? _c(
+                  "view",
+                  { staticClass: "video-box" },
+                  [
+                    _c("txv-video", {
+                      attrs: {
+                        vid: _vm.pageData.video_url,
+                        playerid: "txv1",
+                        autoplay: false,
+                        controls: true
+                      }
+                    })
+                  ],
+                  1
+                )
+              : _vm._e(),
             _vm._v(" "),
             _c("view", { staticClass: "info" }, [
               _vm._v(_vm._s(_vm.pageData.content))
@@ -564,28 +568,32 @@ var render = function() {
             1
           ),
           _vm._v(" "),
-          _c("view", { staticClass: "pro-list" }, [
-            _c("view", { staticClass: "pro-tt" }, [_vm._v("产品应用")]),
-            _vm._v(" "),
-            _c(
-              "view",
-              { staticClass: "list" },
-              _vm._l(_vm.pageData.cases_list, function(item, index) {
-                return _c("view", { staticClass: "item" }, [
-                  _c("view", { staticClass: "img-box" }, [
-                    _c("image", {
-                      attrs: { src: item.picture, mode: "widthFix" }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("view", { staticClass: "txt" }, [
-                    _vm._v(_vm._s(item.title))
-                  ])
-                ])
-              }),
-              0
-            )
-          ]),
+          _vm.pageData &&
+          _vm.pageData.cases_list &&
+          _vm.pageData.cases_list.length
+            ? _c("view", { staticClass: "pro-list" }, [
+                _c("view", { staticClass: "pro-tt" }, [_vm._v("产品应用")]),
+                _vm._v(" "),
+                _c(
+                  "view",
+                  { staticClass: "list" },
+                  _vm._l(_vm.pageData.cases_list, function(item, index) {
+                    return _c("view", { staticClass: "item" }, [
+                      _c("view", { staticClass: "img-box" }, [
+                        _c("image", {
+                          attrs: { src: item.picture, mode: "widthFix" }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("view", { staticClass: "txt" }, [
+                        _vm._v(_vm._s(item.title))
+                      ])
+                    ])
+                  }),
+                  0
+                )
+              ])
+            : _vm._e(),
           _vm._v(" "),
           _c("view", { staticClass: "data-list", attrs: { id: "info" } }, [
             _c("view", { staticClass: "pro-tt" }, [_vm._v("产品资料")]),

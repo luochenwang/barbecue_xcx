@@ -90,6 +90,7 @@ component.options.__file = "src/pages/show/table.vue"
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
@@ -234,31 +235,12 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _c("view", { staticClass: "table-tt" }, [
-        _vm._v("请根据下表进行初步筛选：")
-      ]),
-      _vm._v(" "),
-      _c("view", { staticClass: "table-main" }, [
-        _c("view", { staticClass: "box tt" }, [
-          _c("text", [_vm._v("产品")]),
-          _vm._v(" "),
-          _c("text", [_vm._v("金属去除量 kg/hr")]),
-          _vm._v(" "),
-          _c("text", [_vm._v("深 mm")]),
-          _vm._v(" "),
-          _c("text", [_vm._v("宽 mm")])
-        ]),
-        _vm._v(" "),
-        _c("view", { staticClass: "box" }, [
-          _c("text", [_vm._v("产品")]),
-          _vm._v(" "),
-          _c("text", [_vm._v("金属去除量 kg/hr")]),
-          _vm._v(" "),
-          _c("text", [_vm._v("深 mm")]),
-          _vm._v(" "),
-          _c("text", [_vm._v("宽 mm")])
-        ])
-      ]),
+      _c("image", {
+        staticClass: "table-img",
+        attrs: {
+          src: "https://campaign5.method-ad.cn/hypertherm/img/table.jpg"
+        }
+      }),
       _vm._v(" "),
       _c("view", { staticClass: "table-tips" }, [
         _vm._v(
