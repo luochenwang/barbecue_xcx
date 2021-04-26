@@ -357,7 +357,7 @@ var render = function() {
           ])
         : _vm._e(),
       _vm._v(" "),
-      _c("show-filter"),
+      _c("show-filter", { attrs: { type_id: _vm.typeId } }),
       _vm._v(" "),
       _c("pro-leads"),
       _vm._v(" "),

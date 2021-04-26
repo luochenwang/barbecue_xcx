@@ -945,6 +945,7 @@ var plugin = requirePlugin("ykfchat");
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: 'sidebar',
+  props: ['type_id'],
   data: function data() {
     return {
       privacy: false,
@@ -972,7 +973,8 @@ var plugin = requirePlugin("ykfchat");
         Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
           url: 'xcx_request.php',
           data: {
-            act: 'get_products_qglx'
+            act: 'get_products_qglx',
+            type_id: this.type_id || ''
           }
         }).then(function (res) {
           _this.array1 = res.list;
@@ -1002,7 +1004,8 @@ var plugin = requirePlugin("ykfchat");
         url: 'xcx_request.php',
         data: {
           act: 'get_products_cz',
-          qglx_id: this.array1[this.index1].qglx_id
+          qglx_id: this.array1[this.index1].qglx_id,
+          type_id: this.type_id || ''
         }
       }).then(function (res) {
         if (res.list) {

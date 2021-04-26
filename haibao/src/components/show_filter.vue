@@ -45,6 +45,7 @@ import { ajax } from "../libs/ajax";
 
 export default {
   name: 'sidebar',
+  props:['type_id'],
   data(){
     return {
       privacy:false,
@@ -71,6 +72,7 @@ export default {
             url: 'xcx_request.php',
             data: {
               act: 'get_products_qglx',
+              type_id:this.type_id || ''
             },
           }).then(res=>{
             this.array1 = res.list;
@@ -99,7 +101,8 @@ export default {
         url: 'xcx_request.php',
         data: {
           act: 'get_products_cz',
-          qglx_id:this.array1[this.index1].qglx_id
+          qglx_id:this.array1[this.index1].qglx_id,
+          type_id:this.type_id || ''
         },
       }).then(res=>{
         if(res.list){
