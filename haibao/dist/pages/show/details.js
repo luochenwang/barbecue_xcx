@@ -176,6 +176,8 @@ component.options.__file = "src/pages/show/details.vue"
 //
 //
 //
+//
+//
 
 
 var scrollArr = ['desc', 'info', 'pay'];
@@ -201,7 +203,10 @@ var scrollTop = [];
       viewStr: 'desc',
       fixed: false,
       winHeight: '',
-      menuButtonObject: {}
+      menuButtonObject: {},
+      swiperHeight: 0,
+      //外部的高度
+      current: 0
     };
   },
   components: {},
@@ -226,24 +231,28 @@ var scrollTop = [];
       _this.pageData = res;
 
       _this.$nextTick(function () {
-        var _iterator = Object(_Volumes_d_site_barbecue_xcx_haibao_node_modules_babel_runtime_7_13_10_babel_runtime_helpers_esm_createForOfIteratorHelper__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(scrollArr),
-            _step;
+        setTimeout(function () {
+          _this.getElementHeight('#swiper' + _this.current);
 
-        try {
-          for (_iterator.s(); !(_step = _iterator.n()).done;) {
-            var item = _step.value;
-            var query = wx.createSelectorQuery();
-            query.select('#' + item).boundingClientRect(function (rect) {
-              var top = rect.top;
-              scrollTop.push(top);
-              console.log(scrollTop);
-            }).exec();
+          var _iterator = Object(_Volumes_d_site_barbecue_xcx_haibao_node_modules_babel_runtime_7_13_10_babel_runtime_helpers_esm_createForOfIteratorHelper__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(scrollArr),
+              _step;
+
+          try {
+            for (_iterator.s(); !(_step = _iterator.n()).done;) {
+              var item = _step.value;
+              var query = wx.createSelectorQuery();
+              query.select('#' + item).boundingClientRect(function (rect) {
+                var top = rect.top;
+                scrollTop.push(top);
+                console.log(scrollTop);
+              }).exec();
+            }
+          } catch (err) {
+            _iterator.e(err);
+          } finally {
+            _iterator.f();
           }
-        } catch (err) {
-          _iterator.e(err);
-        } finally {
-          _iterator.f();
-        }
+        }, 500);
       });
     });
     var menuButtonObject = wx.getMenuButtonBoundingClientRect();
@@ -256,6 +265,29 @@ var scrollTop = [];
     });
   },
   methods: {
+    changeCurrent: function changeCurrent(index) {
+      var _this2 = this;
+
+      this.current = index;
+      this.$nextTick(function () {
+        _this2.getElementHeight('#swiper' + _this2.current);
+      });
+    },
+    //动态获取高度
+    getElementHeight: function getElementHeight(element) {
+      var _this3 = this;
+
+      console.log(element);
+      var query = wx.createSelectorQuery();
+      console.log(query);
+      query.select(element).boundingClientRect(function (rect) {
+        console.log(rect);
+
+        if (rect) {
+          _this3.swiperHeight = rect.height;
+        }
+      }).exec();
+    },
     openPdf: function openPdf(file) {
       wx.downloadFile({
         url: file,
@@ -552,23 +584,42 @@ var render = function() {
                   _c(
                     "swiper",
                     {
+                      style: { height: _vm.swiperHeight + "px" },
                       attrs: {
                         "indicator-color": "#898989",
                         "indicator-active-color": "#ed1b2e",
                         "indicator-dots": "true"
-                      }
+                      },
+                      on: { change: _vm.changeCurrent }
                     },
                     _vm._l(_vm.pageData.sample_list, function(item, index) {
                       return _c("swiper-item", [
-                        _c("view", { staticClass: "img-box" }, [
-                          _c("image", {
-                            attrs: { src: item.picture, mode: "widthFix" }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("view", { staticClass: "info" }, [
-                          _vm._v(_vm._s(item.content))
-                        ])
+                        _c(
+                          "view",
+                          {
+                            staticClass: "swiper-box",
+                            attrs: { id: "swiper" + index }
+                          },
+                          [
+                            _c("view", { staticClass: "img-box" }, [
+                              _c("image", {
+                                attrs: { src: item.picture, mode: "widthFix" }
+                              })
+                            ]),
+                            _vm._v(" "),
+                            _c("view", { staticClass: "info" }, [
+                              _c("text", [
+                                _vm._v(
+                                  _vm._s(
+                                    item.content
+                                      ? item.content.replace(/↵/g, "\n")
+                                      : ""
+                                  )
+                                )
+                              ])
+                            ])
+                          ]
+                        )
                       ])
                     }),
                     1

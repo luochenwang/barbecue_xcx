@@ -6,7 +6,7 @@
         <image src="https://campaign5.method-ad.cn/hypertherm/img/show/icon_leads.png"/>
         <text>填写表单</text>
       </view>
-      <view class="item" @tap="showFilter" v-if="isFilter">
+      <view class="item" @tap="showFilter" v-if="isFilter > 0">
         <image src="https://campaign5.method-ad.cn/hypertherm/img/show/icon_filter.png"/>
         <text>筛选</text>
       </view>

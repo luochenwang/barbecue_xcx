@@ -244,7 +244,7 @@ var render = function() {
           ]
         ),
         _vm._v(" "),
-        _vm.isFilter
+        _vm.isFilter > 0
           ? _c("view", { staticClass: "item", on: { tap: _vm.showFilter } }, [
               _c("image", {
                 attrs: {

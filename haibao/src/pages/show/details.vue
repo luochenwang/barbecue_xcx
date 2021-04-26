@@ -26,12 +26,14 @@
 
       <view class="pro-info" v-if="pageData.sample_list">
         <view class="pro-tt">切割样件</view>
-        <swiper indicator-color="#898989" indicator-active-color="#ed1b2e" indicator-dots="true">
+        <swiper indicator-color="#898989" indicator-active-color="#ed1b2e" indicator-dots="true" @change="changeCurrent" :style="{height:swiperHeight + 'px'}">
             <swiper-item v-for="(item,index) in pageData.sample_list">
-              <view class='img-box'>
-                <image :src="item.picture" mode="widthFix"/>
+              <view :id="'swiper' + index" class="swiper-box">
+                <view class='img-box'>
+                  <image :src="item.picture" mode="widthFix"/>
+                </view>
+                <view class="info"><text>{{item.content ? item.content.replace(/↵/g,"\n") : ''}}</text></view>
               </view>
-              <view class="info">{{item.content}}</view>
             </swiper-item>
         </swiper>
       </view>
@@ -147,7 +149,10 @@ export default {
         viewStr:'desc',
         fixed:false,
         winHeight:'',
-        menuButtonObject:{}
+        menuButtonObject:{},
+
+        swiperHeight:0, //外部的高度
+        current:0
       }
     },
   components: {
@@ -171,14 +176,18 @@ export default {
       }).then(res=>{
           this.pageData = res;
           this.$nextTick(() => {
-            for(let item of scrollArr){
-            let query = wx.createSelectorQuery();
-              query.select('#'+item).boundingClientRect( (rect) => {
-                  let top = rect.top;
-                  scrollTop.push(top);
-                  console.log(scrollTop);
-              }).exec()
-            }
+            setTimeout(()=>{
+              this.getElementHeight('#swiper' + this.current);
+              for(let item of scrollArr){
+                let query = wx.createSelectorQuery();
+                query.select('#'+item).boundingClientRect( (rect) => {
+                    let top = rect.top;
+                    scrollTop.push(top);
+                    console.log(scrollTop);
+                }).exec();
+              }
+            },500);
+            
           })
       });
 
@@ -192,6 +201,25 @@ export default {
     });
   },
   methods: {
+    changeCurrent(index){
+      this.current = index;
+        this.$nextTick(()=>{
+          this.getElementHeight('#swiper' + this.current)
+        })
+    },
+    //动态获取高度
+    getElementHeight(element) {
+      console.log(element);
+      let query = wx.createSelectorQuery();
+      console.log(query);
+
+      query.select(element).boundingClientRect((rect) => {
+          console.log(rect);
+          if(rect){
+            this.swiperHeight = rect.height;
+          }
+      }).exec();
+    },
     openPdf(file){
       wx.downloadFile({
         url:file,
