@@ -47,7 +47,8 @@
 import { ajax } from "../libs/ajax";
 var plugin = requirePlugin("ykfchat");
 import mixin from "../libs/mixin";
-
+import { createCache } from "./../libs/globalData";
+const globalData = createCache();
 export default {
   name: 'sidebar',
   data(){
@@ -64,6 +65,9 @@ export default {
   computed:{
       consultLeadsModel(){
           return this.$store.state.consultLeadsModel;
+      },
+      userInfo(){
+          return this.$store.state.userInfo;
       },
   },
   watch:{
@@ -103,6 +107,7 @@ export default {
     }
   },
   mounted() {
+    this.openid = globalData.get('openid');
     ajax({
       url: 'xcx_request.php',
       data: {
@@ -131,6 +136,18 @@ export default {
     },
     bindPickerChange(e){
       this.index = e.detail.value;
+    },
+    getOpenId(callback) {
+        let data = {
+          openid: this.openid
+        }
+        callback(data)
+    },
+    session(callback) {
+        let data = {
+          sessionFrom: this.userInfo
+        }
+        callback(data)
     },
     submit(){
       console.log(this.name)
