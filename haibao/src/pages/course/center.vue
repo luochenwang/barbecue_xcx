@@ -51,7 +51,7 @@ export default {
           url:'xcx_request.php',
           data:{
               act:'get_tech_list',
-              category_id:option.id
+              category_id:option.id || ''
           },
       }).then(res=>{
           this.list = res.list;
@@ -82,7 +82,7 @@ export default {
         desc: '用于完善用户资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
         success: (res) => {
           console.log(res);
-          
+
           globalData.set("userInfo", res.userInfo);
           that.$store.commit('set_useriNfo',res.userInfo);
 

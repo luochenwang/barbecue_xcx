@@ -103,7 +103,7 @@ var globalData = Object(_libs_globalData__WEBPACK_IMPORTED_MODULE_2__[/* createC
       url: 'xcx_request.php',
       data: {
         act: 'get_tech_list',
-        category_id: option.id
+        category_id: option.id || ''
       }
     }).then(function (res) {
       _this.list = res.list;
