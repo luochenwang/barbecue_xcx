@@ -30,7 +30,7 @@ export default {
   },
   "plugins": {
       "ykfchat": {
-        "version": "2.0.26",
+        "version": "2.0.28",
         "provider": "wx1fdc8c9f3a3a05e4"
       },
       "tencentvideo": {
