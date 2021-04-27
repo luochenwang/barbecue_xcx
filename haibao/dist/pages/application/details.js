@@ -482,9 +482,11 @@ var render = function() {
                   _c("view", { staticClass: "pro-tt" }, [_vm._v("案例详情")]),
                   _vm._v(" "),
                   _c("view", { staticClass: "info" }, [
-                    _vm._v(
-                      _vm._s(_vm.pageData.content.replace(/<\/?.+?>/g, ""))
-                    )
+                    _c("text", [
+                      _vm._v(
+                        _vm._s(_vm.pageData.content.replace(/<\/?.+?>/g, ""))
+                      )
+                    ])
                   ])
                 ]
               )
@@ -498,9 +500,11 @@ var render = function() {
                   _c("view", { staticClass: "pro-tt" }, [_vm._v("客户简介")]),
                   _vm._v(" "),
                   _c("view", { staticClass: "info" }, [
-                    _vm._v(
-                      _vm._s(_vm.pageData.question.replace(/<\/?.+?>/g, ""))
-                    )
+                    _c("text", [
+                      _vm._v(
+                        _vm._s(_vm.pageData.question.replace(/<\/?.+?>/g, ""))
+                      )
+                    ])
                   ])
                 ]
               )
@@ -511,7 +515,9 @@ var render = function() {
                 _c("view", { staticClass: "pro-tt" }, [_vm._v("解决方案")]),
                 _vm._v(" "),
                 _c("view", { staticClass: "info" }, [
-                  _vm._v(_vm._s(_vm.pageData.scheme.replace(/<\/?.+?>/g, "")))
+                  _c("text", [
+                    _vm._v(_vm._s(_vm.pageData.scheme.replace(/<\/?.+?>/g, "")))
+                  ])
                 ])
               ])
             : _vm._e(),
@@ -524,9 +530,11 @@ var render = function() {
                   _c("view", { staticClass: "pro-tt" }, [_vm._v("客户收益")]),
                   _vm._v(" "),
                   _c("view", { staticClass: "info" }, [
-                    _vm._v(
-                      _vm._s(_vm.pageData.benefit.replace(/<\/?.+?>/g, ""))
-                    )
+                    _c("text", [
+                      _vm._v(
+                        _vm._s(_vm.pageData.benefit.replace(/<\/?.+?>/g, ""))
+                      )
+                    ])
                   ])
                 ]
               )

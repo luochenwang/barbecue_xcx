@@ -17,19 +17,19 @@
       </view>
       <view class="pro-info" id="content" v-if="pageData.content">
         <view class="pro-tt">案例详情</view>
-        <view class="info">{{pageData.content.replace(/<\/?.+?>/g, "")}}</view>
+        <view class="info"><text>{{pageData.content.replace(/<\/?.+?>/g, "")}}</text></view>
       </view>
       <view class="pro-info" id="question" v-if="pageData.question">
         <view class="pro-tt">客户简介</view>
-        <view class="info">{{pageData.question.replace(/<\/?.+?>/g, "")}}</view>
+        <view class="info"><text>{{pageData.question.replace(/<\/?.+?>/g, "")}}</text></view>
       </view>
       <view class="pro-info" id="scheme" v-if="pageData.scheme">
         <view class="pro-tt">解决方案</view>
-        <view class="info">{{pageData.scheme.replace(/<\/?.+?>/g, "")}}</view>
+        <view class="info"><text>{{pageData.scheme.replace(/<\/?.+?>/g, "")}}</text></view>
       </view>
       <view class="pro-info" id="benefit" v-if="pageData.benefit">
         <view class="pro-tt">客户收益</view>
-        <view class="info">{{pageData.benefit.replace(/<\/?.+?>/g, "")}}</view>
+        <view class="info"><text>{{pageData.benefit.replace(/<\/?.+?>/g, "")}}</text></view>
       </view>
       <view class="pro-info" id="products_list">
         <view class="pro-tt">相关产品</view>
