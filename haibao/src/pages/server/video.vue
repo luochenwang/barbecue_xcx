@@ -10,7 +10,7 @@
       <!-- <view class="btn" @tap="downloadVideo(videoInfo)">下载资料</view> -->
     </view>
 
-    <sidebar :server="true"/>
+    <sidebar/>
   </view>
 </template>
 

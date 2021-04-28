@@ -270,20 +270,6 @@ var render = function() {
               _vm._v(" "),
               _c("text", [_vm._v("产品应用")])
             ]
-          ),
-          _vm._v(" "),
-          _c(
-            "navigator",
-            { staticClass: "item", attrs: { url: "/pages/video/index" } },
-            [
-              _c("image", {
-                attrs: {
-                  src: "https://campaign5.method-ad.cn/hypertherm/img/menu6.png"
-                }
-              }),
-              _vm._v(" "),
-              _c("text", [_vm._v("合作伙伴信息查询")])
-            ]
           )
         ],
         1

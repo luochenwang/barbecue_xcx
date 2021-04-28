@@ -175,7 +175,7 @@ var render = function() {
       _vm._v(" "),
       _c("view", { staticClass: "btn-box" }),
       _vm._v(" "),
-      _c("sidebar", { attrs: { server: true } })
+      _c("sidebar")
     ],
     1
   )

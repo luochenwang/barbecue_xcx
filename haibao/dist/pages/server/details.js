@@ -476,7 +476,7 @@ var render = function() {
           ])
         : _vm._e(),
       _vm._v(" "),
-      _c("sidebar", { attrs: { server: true } }),
+      _c("sidebar"),
       _vm._v(" "),
       _c("live-leads"),
       _vm._v(" "),
