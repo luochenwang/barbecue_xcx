@@ -1033,6 +1033,11 @@ var globalData = Object(_libs_globalData__WEBPACK_IMPORTED_MODULE_2__[/* createC
           _this2.array2.unshift({
             title: '请选择'
           });
+        } else {
+          _this2.array2 = [{
+            title: '无',
+            cz_id: ''
+          }];
         }
       });
     },
@@ -1057,6 +1062,11 @@ var globalData = Object(_libs_globalData__WEBPACK_IMPORTED_MODULE_2__[/* createC
           _this3.array3.unshift({
             title: '请选择'
           });
+        } else {
+          _this3.array3 = [{
+            title: '无',
+            clhd_id: ''
+          }];
         }
       });
     },
@@ -1080,6 +1090,11 @@ var globalData = Object(_libs_globalData__WEBPACK_IMPORTED_MODULE_2__[/* createC
           _this4.array4.unshift({
             title: '请选择'
           });
+        } else {
+          _this4.array4 = [{
+            title: '无',
+            zlyq_id: ''
+          }];
         }
       });
     },
@@ -1103,7 +1118,7 @@ var globalData = Object(_libs_globalData__WEBPACK_IMPORTED_MODULE_2__[/* createC
         return false;
       }
 
-      if (!this.array2[this.index2].cz_id) {
+      if (typeof this.array2[this.index2].cz_id == 'undefined') {
         wx.showToast({
           title: '请选择材质',
           icon: 'none',
@@ -1112,7 +1127,7 @@ var globalData = Object(_libs_globalData__WEBPACK_IMPORTED_MODULE_2__[/* createC
         return false;
       }
 
-      if (!this.array3[this.index3].clhd_id) {
+      if (typeof this.array3[this.index3].clhd_id == 'undefined') {
         wx.showToast({
           title: '请选择材质厚度',
           icon: 'none',
@@ -1121,7 +1136,7 @@ var globalData = Object(_libs_globalData__WEBPACK_IMPORTED_MODULE_2__[/* createC
         return false;
       }
 
-      if (!this.array4[this.index4].zlyq_id) {
+      if (typeof this.array4[this.index4].zlyq_id == 'undefined') {
         wx.showToast({
           title: '请选择质量要求',
           icon: 'none',

@@ -235,6 +235,10 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
+      _c("view", { staticClass: "table-tt" }, [
+        _vm._v("请根据下表进行初步筛选：")
+      ]),
+      _vm._v(" "),
       _c("image", {
         staticClass: "table-img",
         attrs: {

@@ -1,4 +1,7 @@
 export default {
   navigationBarTitleText: '首页',
-  navigationStyle: "custom"
+  navigationStyle: "custom",
+  usingComponents: {
+      "txv-video": "plugin://tencentvideo/video"
+    }
 }

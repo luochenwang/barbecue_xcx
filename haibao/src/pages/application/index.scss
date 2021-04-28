@@ -78,6 +78,7 @@
         font-size:28rpx;
         line-height:35rpx;
         position: relative;
+        margin-bottom:20rpx;
         &:after{
             content:'';
             position: absolute;
@@ -92,6 +93,7 @@
     .list{
         display: flex;
         flex-wrap: wrap;
+        margin-bottom:30rpx;
         &.list-all{
             max-height:700rpx;
             overflow: hidden;
@@ -104,7 +106,8 @@
             display: block;
             .img-box{
                 width:100%;
-                margin-bottom:30rpx;
+                margin-bottom:20rpx;
+                font-size:0;
                 image{
                     width:100%;
                 }

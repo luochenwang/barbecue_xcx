@@ -84,7 +84,8 @@ var globalData = Object(_libs_globalData__WEBPACK_IMPORTED_MODULE_2__[/* createC
   mixins: [_libs_mixin__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"]],
   data: function data() {
     return {
-      time: ''
+      time: '',
+      list: []
     };
   },
   components: {},
@@ -102,11 +103,14 @@ var globalData = Object(_libs_globalData__WEBPACK_IMPORTED_MODULE_2__[/* createC
     Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_1__[/* ajax */ "a"])({
       url: 'xcx_request.php',
       data: {
-        act: 'get_tech_list',
+        act: 'get_Myappointment',
+        page: 1,
         category_id: option.id || ''
       }
     }).then(function (res) {
-      _this.list = res.list;
+      if (res.list) {
+        _this.list = res.list;
+      }
     });
     Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_1__[/* ajax */ "a"])({
       url: 'xcx_request.php',
@@ -227,17 +231,19 @@ var render = function() {
             [_vm._v("已观看视频")]
           ),
           _vm._v(" "),
-          _c(
-            "navigator",
-            {
-              staticClass: "item icon-center2",
-              attrs: {
-                url:
-                  "/pages/course/list?title=已预约直播&cat=get_Myappointment&no_search=1"
-              }
-            },
-            [_vm._v("已预约课程")]
-          )
+          _vm.list.length
+            ? _c(
+                "navigator",
+                {
+                  staticClass: "item icon-center2",
+                  attrs: {
+                    url:
+                      "/pages/course/list?title=已预约直播&cat=get_Myappointment&no_search=1"
+                  }
+                },
+                [_vm._v("已预约课程")]
+              )
+            : _vm._e()
         ],
         1
       ),

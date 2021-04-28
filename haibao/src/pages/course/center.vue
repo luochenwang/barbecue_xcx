@@ -13,7 +13,7 @@
     </view>
     <view class="nav">
         <navigator class="item icon-center1" url="/pages/course/list?title=已观看视频&cat=get_MyFinished&no_search=1">已观看视频</navigator>
-        <navigator class="item icon-center2" url="/pages/course/list?title=已预约直播&cat=get_Myappointment&no_search=1">已预约课程</navigator>
+        <navigator class="item icon-center2" url="/pages/course/list?title=已预约直播&cat=get_Myappointment&no_search=1" v-if="list.length">已预约课程</navigator>
     </view>
 
 
@@ -32,7 +32,8 @@ export default {
   mixins: [mixin],
   data() {
       return {
-        time:''
+        time:'',
+        list:[]
       }
     },
   components: {
@@ -50,11 +51,14 @@ export default {
       ajax({
           url:'xcx_request.php',
           data:{
-              act:'get_tech_list',
+              act:'get_Myappointment',
+              page: 1,
               category_id:option.id || ''
           },
       }).then(res=>{
+        if(res.list){
           this.list = res.list;
+        }
       });
 
 

@@ -19,7 +19,7 @@
       <view class="pro-info" id="desc">
         <view class="pro-tt">产品介绍</view>
         <view class='video-box' v-if="pageData.video_url">
-          <txv-video :vid="pageData.video_url" playerid="txv1" :autoplay='false' :controls="true"></txv-video>
+          <video :src="pageData.video_filename" :poster="pageData.video_picture" playerid="txv1" :autoplay='false' :controls="true"></video>
         </view>
         <view class="info"><text>{{pageData.content ? pageData.content.replace(/↵/g,"\n") : ''}}</text></view>
       </view>

@@ -157,6 +157,9 @@ component.options.__file = "src/pages/application/details.vue"
 //
 //
 //
+//
+//
+//
 
 
 var scrollArr = ['content', 'products_list', 'consult'];
@@ -480,6 +483,19 @@ var render = function() {
                 { staticClass: "pro-info", attrs: { id: "content" } },
                 [
                   _c("view", { staticClass: "pro-tt" }, [_vm._v("案例详情")]),
+                  _vm._v(" "),
+                  _vm.pageData.video_filename
+                    ? _c("view", { staticClass: "video-box" }, [
+                        _c("video", {
+                          attrs: {
+                            src: _vm.pageData.video_filename,
+                            poster: _vm.pageData.video_picture,
+                            autoplay: false,
+                            controls: true
+                          }
+                        })
+                      ])
+                    : _vm._e(),
                   _vm._v(" "),
                   _c("view", { staticClass: "info" }, [
                     _c("text", [
@@ -855,7 +871,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_tarojs_taro_loader_3_0_8_tarojs_taro_loader_lib_raw_js_details_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/_@tarojs_taro-loader@3.0.8@@tarojs/taro-loader/lib/raw.js!./details.vue */ "./node_modules/_@tarojs_taro-loader@3.0.8@@tarojs/taro-loader/lib/raw.js!./src/pages/application/details.vue");
 
 
-var config = {"navigationBarTitleText":"首页","navigationStyle":"custom"};
+var config = {"navigationBarTitleText":"首页","navigationStyle":"custom","usingComponents":{"txv-video":"plugin://tencentvideo/video"}};
 
 
 var inst = Page(Object(_tarojs_runtime__WEBPACK_IMPORTED_MODULE_0__["createPageConfig"])(_node_modules_tarojs_taro_loader_3_0_8_tarojs_taro_loader_lib_raw_js_details_vue__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"], 'pages/application/details', {}, config || {}))

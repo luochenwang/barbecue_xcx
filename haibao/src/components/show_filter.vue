@@ -110,6 +110,11 @@ export default {
           this.array2.unshift({
             title:'请选择',
           })
+        }else{
+          this.array2 = [{
+            title:'无',
+            cz_id:''
+          }];
         }
       })
     },
@@ -131,6 +136,11 @@ export default {
           this.array3.unshift({
             title:'请选择',
           })
+        }else{
+          this.array3 = [{
+            title:'无',
+            clhd_id:''
+          }];
         }
       })
     },
@@ -151,6 +161,11 @@ export default {
           this.array4.unshift({
             title:'请选择',
           })
+        }else{
+          this.array4 = [{
+            title:'无',
+            zlyq_id:''
+          }];
         }
       })
     },
@@ -171,7 +186,7 @@ export default {
         return false;
       }
 
-      if(!this.array2[this.index2].cz_id){
+      if(typeof(this.array2[this.index2].cz_id) == 'undefined'){
         wx.showToast({
             title: '请选择材质',
             icon: 'none',
@@ -179,7 +194,7 @@ export default {
         })
         return false;
       }
-      if(!this.array3[this.index3].clhd_id){
+      if(typeof(this.array3[this.index3].clhd_id) == 'undefined'){
         wx.showToast({
             title: '请选择材质厚度',
             icon: 'none',
@@ -187,7 +202,7 @@ export default {
         })
         return false;
       }
-      if(!this.array4[this.index4].zlyq_id){
+      if(typeof(this.array4[this.index4].zlyq_id) == 'undefined'){
         wx.showToast({
             title: '请选择质量要求',
             icon: 'none',

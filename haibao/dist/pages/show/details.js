@@ -544,21 +544,17 @@ var render = function() {
             _c("view", { staticClass: "pro-tt" }, [_vm._v("产品介绍")]),
             _vm._v(" "),
             _vm.pageData.video_url
-              ? _c(
-                  "view",
-                  { staticClass: "video-box" },
-                  [
-                    _c("txv-video", {
-                      attrs: {
-                        vid: _vm.pageData.video_url,
-                        playerid: "txv1",
-                        autoplay: false,
-                        controls: true
-                      }
-                    })
-                  ],
-                  1
-                )
+              ? _c("view", { staticClass: "video-box" }, [
+                  _c("video", {
+                    attrs: {
+                      src: _vm.pageData.video_filename,
+                      poster: _vm.pageData.video_picture,
+                      playerid: "txv1",
+                      autoplay: false,
+                      controls: true
+                    }
+                  })
+                ])
               : _vm._e(),
             _vm._v(" "),
             _c("view", { staticClass: "info" }, [

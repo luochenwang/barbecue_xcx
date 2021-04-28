@@ -16,8 +16,8 @@
         <view class="search-btn" @tap="search()">点击搜索</view>
     </view>
 
-    <!-- <view class="table-tt">请根据下表进行初步筛选：</view>
-    <view class="table-main">
+    <view class="table-tt">请根据下表进行初步筛选：</view>
+   <!--  <view class="table-main">
       <view class="box tt">
         <text>产品</text>
         <text>金属去除量 kg/hr</text>
