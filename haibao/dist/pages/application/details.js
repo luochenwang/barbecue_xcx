@@ -566,19 +566,31 @@ var render = function() {
                 "view",
                 { staticClass: "list" },
                 _vm._l(_vm.pageData.products_list, function(item, index) {
-                  return _c("view", { staticClass: "item" }, [
-                    _c("view", { staticClass: "img-box" }, [
-                      _c("image", {
-                        attrs: { src: item.picture, mode: "widthFix" }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("view", { staticClass: "txt" }, [
-                      _vm._v(_vm._s(item.title))
-                    ])
-                  ])
+                  return _c(
+                    "navigator",
+                    {
+                      staticClass: "item",
+                      attrs: {
+                        url:
+                          "/pages/application/details?case_id=" +
+                          item.product_id,
+                        "open-type": "redirect"
+                      }
+                    },
+                    [
+                      _c("view", { staticClass: "img-box" }, [
+                        _c("image", {
+                          attrs: { src: item.picture, mode: "widthFix" }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("view", { staticClass: "txt" }, [
+                        _vm._v(_vm._s(item.title))
+                      ])
+                    ]
+                  )
                 }),
-                0
+                1
               )
             ]
           ),

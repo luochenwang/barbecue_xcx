@@ -37,12 +37,12 @@
       <view class="pro-info" id="products_list">
         <view class="pro-tt">相关产品</view>
         <view class="list">
-          <view class="item" v-for="(item,index) in pageData.products_list">
+          <navigator :url="'/pages/application/details?case_id='+item.product_id" open-type='redirect' class="item" v-for="(item,index) in pageData.products_list">
             <view class='img-box'>
               <image :src="item.picture" mode="widthFix"/>
             </view>
             <view class="txt">{{item.title}}</view>
-          </view>
+          </navigator>
         </view>
       </view>
       <view class="pro-info" id="consult">

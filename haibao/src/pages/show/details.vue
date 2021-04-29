@@ -30,7 +30,7 @@
             <swiper-item v-for="(item,index) in pageData.sample_list">
               <view :id="'swiper' + index" class="swiper-box">
                 <view class='img-box'>
-                  <image :src="item.picture" mode="widthFix"/>
+                  <image :src="item.picture" mode="widthFix" @load="getElementHeight('#swiper' + index)"/>
                 </view>
                 <view class="info"><text>{{item.content ? item.content.replace(/↵/g,"\n") : ''}}</text></view>
               </view>
@@ -41,12 +41,12 @@
       <view class="pro-list" v-if="pageData && pageData.cases_list && pageData.cases_list.length">
         <view class="pro-tt">产品应用</view>
         <view class="list">
-          <view class="item" v-for="(item,index) in pageData.cases_list">
+          <navigator :url="'/pages/show/details?id='+item.case_id" open-type='redirect' class="item" v-for="(item,index) in pageData.cases_list">
             <view class='img-box'>
               <image :src="item.picture" mode="widthFix"/>
             </view>
             <view class="txt">{{item.title}}</view>
-          </view>
+          </navigator>
         </view>
       </view>
 

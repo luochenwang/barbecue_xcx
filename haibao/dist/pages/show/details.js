@@ -599,7 +599,14 @@ var render = function() {
                           [
                             _c("view", { staticClass: "img-box" }, [
                               _c("image", {
-                                attrs: { src: item.picture, mode: "widthFix" }
+                                attrs: { src: item.picture, mode: "widthFix" },
+                                on: {
+                                  load: function($event) {
+                                    return _vm.getElementHeight(
+                                      "#swiper" + index
+                                    )
+                                  }
+                                }
                               })
                             ]),
                             _vm._v(" "),
@@ -635,19 +642,29 @@ var render = function() {
                   "view",
                   { staticClass: "list" },
                   _vm._l(_vm.pageData.cases_list, function(item, index) {
-                    return _c("view", { staticClass: "item" }, [
-                      _c("view", { staticClass: "img-box" }, [
-                        _c("image", {
-                          attrs: { src: item.picture, mode: "widthFix" }
-                        })
-                      ]),
-                      _vm._v(" "),
-                      _c("view", { staticClass: "txt" }, [
-                        _vm._v(_vm._s(item.title))
-                      ])
-                    ])
+                    return _c(
+                      "navigator",
+                      {
+                        staticClass: "item",
+                        attrs: {
+                          url: "/pages/show/details?id=" + item.case_id,
+                          "open-type": "redirect"
+                        }
+                      },
+                      [
+                        _c("view", { staticClass: "img-box" }, [
+                          _c("image", {
+                            attrs: { src: item.picture, mode: "widthFix" }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("view", { staticClass: "txt" }, [
+                          _vm._v(_vm._s(item.title))
+                        ])
+                      ]
+                    )
                   }),
-                  0
+                  1
                 )
               ])
             : _vm._e(),
