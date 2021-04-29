@@ -111,6 +111,16 @@ export default {
             title:'请选择',
           })
         }else{
+          if(this.array1[this.index1].qglx_id == 7){
+            this.array3 = [{
+              title:'无',
+              clhd_id:''
+            }];
+            this.array4 = [{
+              title:'无',
+              zlyq_id:''
+            }];
+          }
           this.array2 = [{
             title:'无',
             cz_id:''

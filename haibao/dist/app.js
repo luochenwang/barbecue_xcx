@@ -1034,6 +1034,17 @@ var globalData = Object(_libs_globalData__WEBPACK_IMPORTED_MODULE_2__[/* createC
             title: '请选择'
           });
         } else {
+          if (_this2.array1[_this2.index1].qglx_id == 7) {
+            _this2.array3 = [{
+              title: '无',
+              clhd_id: ''
+            }];
+            _this2.array4 = [{
+              title: '无',
+              zlyq_id: ''
+            }];
+          }
+
           _this2.array2 = [{
             title: '无',
             cz_id: ''
