@@ -9,6 +9,9 @@
 .banner swiper {
   height: 550rpx;
 }
+.banner swiper image {
+    width: 100%;
+}
 .container-nav .banner {
   margin-bottom: 75rpx;
 }

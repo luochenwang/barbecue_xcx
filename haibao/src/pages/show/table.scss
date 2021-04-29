@@ -26,8 +26,9 @@
 			padding:10rpx;
 			border-bottom:1px solid #000;
 			border-right:1px solid #000;
-			font-size:24rpx;
+			font-size:23rpx;
 			color:#000;
+			white-space:nowrap;
 			&:nth-child(3),&:nth-child(4){
 				width:115rpx;
 			}

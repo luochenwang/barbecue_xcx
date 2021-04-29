@@ -91,6 +91,72 @@ component.options.__file = "src/pages/show/table.vue"
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
@@ -239,12 +305,190 @@ var render = function() {
         _vm._v("请根据下表进行初步筛选：")
       ]),
       _vm._v(" "),
-      _c("image", {
-        staticClass: "table-img",
-        attrs: {
-          src: "https://campaign5.method-ad.cn/hypertherm/img/table.jpg"
-        }
-      }),
+      _c(
+        "view",
+        { staticClass: "table-main" },
+        [
+          _c("view", { staticClass: "box tt" }, [
+            _c("text", [_vm._v("产品")]),
+            _vm._v(" "),
+            _c("text", [_vm._v("金属去除量 kg/hr")]),
+            _vm._v(" "),
+            _c("text", [_vm._v("深 mm")]),
+            _vm._v(" "),
+            _c("text", [_vm._v("宽 mm")])
+          ]),
+          _vm._v(" "),
+          _c(
+            "navigator",
+            { staticClass: "box", attrs: { url: "/pages/show/details?id=2" } },
+            [
+              _c("text", [_vm._v("Powermax30XP 手持")]),
+              _vm._v(" "),
+              _c("text", [_vm._v("<3.4")]),
+              _vm._v(" "),
+              _c("text", [_vm._v("<3.2")]),
+              _vm._v(" "),
+              _c("text", [_vm._v("<6.8")])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "navigator",
+            { staticClass: "box", attrs: { url: "/pages/show/details?id=3" } },
+            [
+              _c("text", [_vm._v("Powermax45XP 手持")]),
+              _vm._v(" "),
+              _c("text", [_vm._v("3.4")]),
+              _vm._v(" "),
+              _c("text", [_vm._v("<3.2")]),
+              _vm._v(" "),
+              _c("text", [_vm._v("6.8")])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "navigator",
+            { staticClass: "box", attrs: { url: "/pages/show/details?id=8" } },
+            [
+              _c("text", [_vm._v("Powermax45XP 机用")]),
+              _vm._v(" "),
+              _c("text", [_vm._v("3.4")]),
+              _vm._v(" "),
+              _c("text", [_vm._v("3.2")]),
+              _vm._v(" "),
+              _c("text", [_vm._v("6.8")])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "navigator",
+            { staticClass: "box", attrs: { url: "/pages/show/details?id=4" } },
+            [
+              _c("text", [_vm._v("Powermax65 手持")]),
+              _vm._v(" "),
+              _c("text", [_vm._v("4.8")]),
+              _vm._v(" "),
+              _c("text", [_vm._v("3.5")]),
+              _vm._v(" "),
+              _c("text", [_vm._v("6.6")])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "navigator",
+            { staticClass: "box", attrs: { url: "/pages/show/details?id=9" } },
+            [
+              _c("text", [_vm._v("Powermax65 机用")]),
+              _vm._v(" "),
+              _c("text", [_vm._v("4.8")]),
+              _vm._v(" "),
+              _c("text", [_vm._v("3.5")]),
+              _vm._v(" "),
+              _c("text", [_vm._v("6.6")])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "navigator",
+            { staticClass: "box", attrs: { url: "/pages/show/details?id=5" } },
+            [
+              _c("text", [_vm._v("Powermax85 手持")]),
+              _vm._v(" "),
+              _c("text", [_vm._v("8.8")]),
+              _vm._v(" "),
+              _c("text", [_vm._v("5.8")]),
+              _vm._v(" "),
+              _c("text", [_vm._v("7.1")])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "navigator",
+            { staticClass: "box", attrs: { url: "/pages/show/details?id=10" } },
+            [
+              _c("text", [_vm._v("Powermax85 机用")]),
+              _vm._v(" "),
+              _c("text", [_vm._v("8.8")]),
+              _vm._v(" "),
+              _c("text", [_vm._v("5.8")]),
+              _vm._v(" "),
+              _c("text", [_vm._v("7.1")])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "navigator",
+            { staticClass: "box", attrs: { url: "/pages/show/details?id=6" } },
+            [
+              _c("text", [_vm._v("Powermax105 手持")]),
+              _vm._v(" "),
+              _c("text", [_vm._v("9.8")]),
+              _vm._v(" "),
+              _c("text", [_vm._v("6.4")]),
+              _vm._v(" "),
+              _c("text", [_vm._v("7.4")])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "navigator",
+            { staticClass: "box", attrs: { url: "/pages/show/details?id=11" } },
+            [
+              _c("text", [_vm._v("Powermax105 机用")]),
+              _vm._v(" "),
+              _c("text", [_vm._v("9.8")]),
+              _vm._v(" "),
+              _c("text", [_vm._v("6.4")]),
+              _vm._v(" "),
+              _c("text", [_vm._v("7.4")])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "navigator",
+            { staticClass: "box", attrs: { url: "/pages/show/details?id=7" } },
+            [
+              _c("text", [_vm._v("Powermax125 手持")]),
+              _vm._v(" "),
+              _c("text", [_vm._v("12.52")]),
+              _vm._v(" "),
+              _c("text", [_vm._v("4.3– 7.9")]),
+              _vm._v(" "),
+              _c("text", [_vm._v("6.1– 9.9")])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "navigator",
+            { staticClass: "box", attrs: { url: "/pages/show/details?id=12" } },
+            [
+              _c("text", [_vm._v("Powermax125 机用")]),
+              _vm._v(" "),
+              _c("text", [_vm._v("12.52")]),
+              _vm._v(" "),
+              _c("text", [_vm._v("4.3– 7.9")]),
+              _vm._v(" "),
+              _c("text", [_vm._v("6.1– 9.9")])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "navigator",
+            { staticClass: "box", attrs: { url: "/pages/show/details?id=13" } },
+            [
+              _c("text", [_vm._v("MAXPRO200")]),
+              _vm._v(" "),
+              _c("text", [_vm._v("18.7")]),
+              _vm._v(" "),
+              _c("text", [_vm._v("8")]),
+              _vm._v(" "),
+              _c("text", [_vm._v("10.7")])
+            ]
+          )
+        ],
+        1
+      ),
       _vm._v(" "),
       _c("view", { staticClass: "table-tips" }, [
         _vm._v(

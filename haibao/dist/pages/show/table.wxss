@@ -181,8 +181,9 @@
       padding: 10rpx;
       border-bottom: 1rpx solid #000;
       border-right: 1rpx solid #000;
-      font-size: 24rpx;
+      font-size: 23rpx;
       color: #000;
+      white-space: nowrap;
 }
 .table-main .box text:nth-child(3), .table-main .box text:nth-child(4) {
         width: 115rpx;
