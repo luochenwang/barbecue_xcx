@@ -121,6 +121,9 @@ component.options.__file = "src/pages/course/index.vue"
     });
     this.$store.commit('set_category', 310);
   },
+  onShow: function onShow() {
+    this.$store.commit('set_category', 310);
+  },
   methods: {}
 });
 

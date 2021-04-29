@@ -129,7 +129,8 @@ component.options.__file = "src/pages/course/list.vue"
       categoryId: '',
       listCat: '',
       searchModel: true,
-      isFirst: false
+      isFirst: false,
+      tp: ''
     };
   },
   components: {},
@@ -141,6 +142,12 @@ component.options.__file = "src/pages/course/list.vue"
 
     if (option.no_search) {
       this.searchModel = false;
+    }
+
+    this.tp = this.$store.state.category;
+
+    if (option.category_id == 2) {
+      this.tp = 320;
     } // ajax({
     //       url:'xcx_request.php',
     //       data:{
@@ -169,7 +176,7 @@ component.options.__file = "src/pages/course/list.vue"
       } else {
         this.$store.commit('set_liveLeadsModel', true);
         item.appointment = true;
-        item.tp = 320;
+        item.tp = this.tp;
         this.$store.commit('set_leadsItem', item);
       }
     },
@@ -396,7 +403,7 @@ var render = function() {
                                       staticClass: "btn active",
                                       on: {
                                         tap: function($event) {
-                                          return _vm.toViewVideo(item)
+                                          return _vm.toViewVideo(item, _vm.tp)
                                         }
                                       }
                                     },
@@ -427,7 +434,7 @@ var render = function() {
                                   staticClass: "btn reserve",
                                   on: {
                                     tap: function($event) {
-                                      return _vm.toViewVideo(item, index)
+                                      return _vm.toViewVideo(item, _vm.tp)
                                     }
                                   }
                                 },
@@ -441,7 +448,7 @@ var render = function() {
                                   staticClass: "btn active",
                                   on: {
                                     tap: function($event) {
-                                      return _vm.toViewVideo(item)
+                                      return _vm.toViewVideo(item, _vm.tp)
                                     }
                                   }
                                 },

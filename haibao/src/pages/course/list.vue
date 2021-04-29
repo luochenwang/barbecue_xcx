@@ -27,17 +27,17 @@
 
                     <!-- 直播课程 -->
                     <view class="btn-box" v-if="categoryId == '2'">
-                        <view class="btn active" @tap="toViewVideo(item)" v-if="item.is_appointment == 0">查看视频</view>
+                        <view class="btn active" @tap="toViewVideo(item,tp)" v-if="item.is_appointment == 0">查看视频</view>
                         <!-- <view class="btn" @tap="downloadVideo(item)" v-if="item.is_appointment == 0">下载视频</view> -->
                         <view class="btn reserve" v-if="item.is_appointment != 0" @tap="reserve(item,index)">直播预约</view>
                     </view>
                     <!-- 已完成 -->
                     <view class="btn-box" v-else-if="listCat == 'get_MyFinished'">
-                        <view class="btn reserve" @tap="toViewVideo(item,index)">查看直播</view>
+                        <view class="btn reserve" @tap="toViewVideo(item,tp)">查看直播</view>
                     </view>
                     <!-- 其他 -->
                     <view class="btn-box" v-else>
-                        <view class="btn active" @tap="toViewVideo(item)">查看视频</view>
+                        <view class="btn active" @tap="toViewVideo(item,tp)">查看视频</view>
                         <!-- <view class="btn" @tap="downloadVideo(item)">下载视频</view> -->
                     </view>
                 </view>
@@ -73,7 +73,8 @@ export default {
         listCat:'',
 
         searchModel:true,
-        isFirst:false
+        isFirst:false,
+        tp:''
     }
   },
   components: {
@@ -86,6 +87,10 @@ export default {
     console.log(option.no_search)
     if(option.no_search){
       this.searchModel = false;
+    }
+    this.tp = this.$store.state.category;
+    if(option.category_id == 2){
+      this.tp = 320;
     }
 
     // ajax({
@@ -114,7 +119,7 @@ export default {
         }else{
           this.$store.commit('set_liveLeadsModel',true);
           item.appointment = true;
-          item.tp = 320;
+          item.tp = this.tp;
           this.$store.commit('set_leadsItem',item);
         }
       },

@@ -68,7 +68,9 @@ export default {
       }).then(res=>{
           this.list = res.list;
       });
-
+      this.$store.commit('set_category',310);
+  },
+  onShow(){
       this.$store.commit('set_category',310);
   },
   methods: {

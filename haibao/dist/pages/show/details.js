@@ -543,7 +543,7 @@ var render = function() {
           _c("view", { staticClass: "pro-info", attrs: { id: "desc" } }, [
             _c("view", { staticClass: "pro-tt" }, [_vm._v("产品介绍")]),
             _vm._v(" "),
-            _vm.pageData.video_url
+            _vm.pageData.video_filename
               ? _c("view", { staticClass: "video-box" }, [
                   _c("video", {
                     attrs: {
