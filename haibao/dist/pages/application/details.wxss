@@ -7,7 +7,7 @@
   border-bottom: 1rpx solid #f14958;
 }
 .banner swiper {
-  height: 550rpx;
+  height: 450rpx;
 }
 .banner swiper image {
     width: 100%;

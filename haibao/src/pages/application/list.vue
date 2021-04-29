@@ -78,43 +78,7 @@ export default {
       this.option = option || {};
       this.searchVal = option.searchVal;
 
-
-      ajax({
-          url:'xcx_request.php',
-          data:{
-              act:'get_cases_app',
-          },
-      }).then(res=>{
-          if(res.list){
-            this.list1 = res.list;
-            for(var i = 0;i<this.list1.length;i++){
-              if(this.list1[i].app_id == this.option.app_id){
-                this.index1 = i;
-                break;
-              }
-            }
-          }
-
-          ajax({
-              url:'xcx_request.php',
-              data:{
-                  act:'get_cases_product',
-              },
-          }).then(res=>{
-              if(res.list){
-                this.list2 = res.list;
-                for(var i = 0;i<this.list2.length;i++){
-                  if(this.list2[i].app_id == this.option.product_id){
-                    this.index2 = i;
-                    break;
-                  }
-                }
-              }
-
-              this.getData();
-          })
-      })
-      
+      this.getData();
   },
   methods: {
     bindPickerChange1(e){
@@ -154,8 +118,8 @@ export default {
           data:{
               act:'get_cases',
               keywords:this.searchVal || '',
-              product_id:this.list2[this.index2].product_id || '',
-              app_id:this.list1[this.index1].app_id || '',
+              product_id:this.option.product_id || '',
+              app_id:this.option.app_id || '',
               page:this.page
           },
       }).then(res=>{

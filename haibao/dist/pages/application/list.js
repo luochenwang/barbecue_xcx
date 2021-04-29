@@ -123,47 +123,9 @@ component.options.__file = "src/pages/application/list.vue"
   },
   components: {},
   onLoad: function onLoad(option) {
-    var _this = this;
-
     this.option = option || {};
     this.searchVal = option.searchVal;
-    Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_1__[/* ajax */ "a"])({
-      url: 'xcx_request.php',
-      data: {
-        act: 'get_cases_app'
-      }
-    }).then(function (res) {
-      if (res.list) {
-        _this.list1 = res.list;
-
-        for (var i = 0; i < _this.list1.length; i++) {
-          if (_this.list1[i].app_id == _this.option.app_id) {
-            _this.index1 = i;
-            break;
-          }
-        }
-      }
-
-      Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_1__[/* ajax */ "a"])({
-        url: 'xcx_request.php',
-        data: {
-          act: 'get_cases_product'
-        }
-      }).then(function (res) {
-        if (res.list) {
-          _this.list2 = res.list;
-
-          for (var i = 0; i < _this.list2.length; i++) {
-            if (_this.list2[i].app_id == _this.option.product_id) {
-              _this.index2 = i;
-              break;
-            }
-          }
-        }
-
-        _this.getData();
-      });
-    });
+    this.getData();
   },
   methods: {
     bindPickerChange1: function bindPickerChange1(e) {
@@ -197,7 +159,7 @@ component.options.__file = "src/pages/application/list.vue"
       this.getData();
     },
     getData: function getData() {
-      var _this2 = this;
+      var _this = this;
 
       this.loaded = false;
       Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_1__[/* ajax */ "a"])({
@@ -205,23 +167,23 @@ component.options.__file = "src/pages/application/list.vue"
         data: {
           act: 'get_cases',
           keywords: this.searchVal || '',
-          product_id: this.list2[this.index2].product_id || '',
-          app_id: this.list1[this.index1].app_id || '',
+          product_id: this.option.product_id || '',
+          app_id: this.option.app_id || '',
           page: this.page
         }
       }).then(function (res) {
         if (res.list) {
-          var _this2$list;
+          var _this$list;
 
-          (_this2$list = _this2.list).push.apply(_this2$list, Object(_Volumes_d_site_barbecue_xcx_haibao_node_modules_babel_runtime_7_13_10_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(res.list));
+          (_this$list = _this.list).push.apply(_this$list, Object(_Volumes_d_site_barbecue_xcx_haibao_node_modules_babel_runtime_7_13_10_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(res.list));
 
           if (res.list.length) {
-            _this2.loaded = true;
-            ++_this2.page;
+            _this.loaded = true;
+            ++_this.page;
           }
         }
 
-        _this2.isFirstAjax = false;
+        _this.isFirstAjax = false;
       });
     }
   }
