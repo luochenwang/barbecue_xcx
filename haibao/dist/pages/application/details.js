@@ -206,8 +206,8 @@ var scrollTop = [];
       _this.name = res.name;
       _this.company = res.comname;
       _this.phone = res.mobile;
-      _this.region[0] = res.province;
-      _this.region[1] = res.city;
+      _this.region[0] = res.province || '上海市';
+      _this.region[1] = res.city || '上海市';
     });
     Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_1__[/* ajax */ "a"])({
       url: 'xcx_request.php',

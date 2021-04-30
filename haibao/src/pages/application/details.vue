@@ -156,8 +156,8 @@ export default {
       this.name = res.name;
       this.company = res.comname;
       this.phone = res.mobile;
-      this.region[0] = res.province;
-      this.region[1] = res.city;
+      this.region[0] = res.province || '上海市';
+      this.region[1] = res.city || '上海市';
     })
     ajax({
         url:'xcx_request.php',
