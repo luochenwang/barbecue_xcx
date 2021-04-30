@@ -168,6 +168,19 @@ export default {
   onLoad(option) {
     this.product_id = option.id;
     ajax({
+      url: 'xcx_request.php',
+      data: {
+        act: 'get_last_form',
+        get_tp:3
+      },
+    }).then(res=>{
+      this.name = res.name;
+      this.company = res.comname;
+      this.phone = res.mobile;
+      this.region[0] = res.province;
+      this.region[1] = res.city;
+    })
+    ajax({
           url:'xcx_request.php',
           data:{
               act:'get_product_detail',

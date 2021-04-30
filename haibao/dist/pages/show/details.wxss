@@ -126,6 +126,8 @@
       width: 50%;
       padding: 0 30rpx;
       margin-bottom: 30rpx;
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box;
 }
 .pro-list .list .item .img-box {
         width: 100%;

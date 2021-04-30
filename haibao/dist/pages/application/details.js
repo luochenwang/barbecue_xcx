@@ -199,6 +199,19 @@ var scrollTop = [];
     Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_1__[/* ajax */ "a"])({
       url: 'xcx_request.php',
       data: {
+        act: 'get_last_form',
+        get_tp: 3
+      }
+    }).then(function (res) {
+      _this.name = res.name;
+      _this.company = res.comname;
+      _this.phone = res.mobile;
+      _this.region[0] = res.province;
+      _this.region[1] = res.city;
+    });
+    Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_1__[/* ajax */ "a"])({
+      url: 'xcx_request.php',
+      data: {
         act: 'get_case_detail',
         case_id: option.case_id
       }
