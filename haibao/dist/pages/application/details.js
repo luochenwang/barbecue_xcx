@@ -200,7 +200,7 @@ var scrollTop = [];
       url: 'xcx_request.php',
       data: {
         act: 'get_last_form',
-        get_tp: 3
+        get_tp: 4
       }
     }).then(function (res) {
       _this.name = res.name;
