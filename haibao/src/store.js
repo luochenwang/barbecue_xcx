@@ -5,6 +5,7 @@ const globalData = createCache();
 Vue.use(Vuex)
 
 const state = {
+  lastTp:0,
   authModel:false,
   userInfo:{},
 
@@ -32,6 +33,9 @@ const mutations = {
   },
   set_iszixun(state, val) {
     state.iszixun = val || 0;
+  },
+  set_lastTp(state, val) {
+    state.lastTp = val || 0;
   },
   set_searchArr(state, arr) {
     state.searchArr = arr || [];

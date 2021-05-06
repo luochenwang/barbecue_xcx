@@ -171,7 +171,7 @@ var globalData = Object(_libs_globalData__WEBPACK_IMPORTED_MODULE_2__[/* createC
           url: 'xcx_request.php',
           data: {
             act: 'get_last_form',
-            get_tp: 1
+            get_tp: this.$store.state.lastTp
           }
         }).then(function (res) {
           _this.name = res.name;
@@ -389,7 +389,7 @@ var globalData = Object(_libs_globalData__WEBPACK_IMPORTED_MODULE_2__[/* createC
           url: 'xcx_request.php',
           data: {
             act: 'get_last_form',
-            get_tp: 2
+            get_tp: this.$store.state.lastTp
           }
         }).then(function (res) {
           _this.email = res.email;
@@ -557,7 +557,7 @@ var globalData = Object(_libs_globalData__WEBPACK_IMPORTED_MODULE_2__[/* createC
           url: 'xcx_request.php',
           data: {
             act: 'get_last_form',
-            get_tp: 3
+            get_tp: this.$store.state.lastTp
           }
         }).then(function (res) {
           _this.name = res.name;
@@ -806,7 +806,7 @@ var globalData = Object(_libs_globalData__WEBPACK_IMPORTED_MODULE_2__[/* createC
           url: 'xcx_request.php',
           data: {
             act: 'get_last_form',
-            get_tp: 3
+            get_tp: this.$store.state.lastTp
           }
         }).then(function (res) {
           _this.name = res.name;
@@ -13780,6 +13780,7 @@ __webpack_require__.r(__webpack_exports__);
 var globalData = Object(_libs_globalData__WEBPACK_IMPORTED_MODULE_2__[/* createCache */ "a"])();
 vue__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].use(vuex__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"]);
 var state = {
+  lastTp: 0,
   authModel: false,
   userInfo: {},
   category: 0,
@@ -13800,6 +13801,9 @@ var mutations = {
   },
   set_iszixun: function set_iszixun(state, val) {
     state.iszixun = val || 0;
+  },
+  set_lastTp: function set_lastTp(state, val) {
+    state.lastTp = val || 0;
   },
   set_searchArr: function set_searchArr(state, arr) {
     state.searchArr = arr || [];

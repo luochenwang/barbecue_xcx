@@ -143,6 +143,7 @@ var plugin = requirePlugin("ykfchat");
   },
   methods: {
     service: function service() {
+      this.$store.commit('set_lastTp', 2);
       this.$store.commit('set_consultLeadsModel', true);
     },
     none: function none() {

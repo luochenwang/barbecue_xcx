@@ -54,7 +54,7 @@ export default {
             url: 'xcx_request.php',
             data: {
               act: 'get_last_form',
-              get_tp:2
+              get_tp:this.$store.state.lastTp
             },
           }).then(res=>{
             this.email = res.email;

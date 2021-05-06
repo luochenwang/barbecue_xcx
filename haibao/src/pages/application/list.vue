@@ -22,7 +22,7 @@
 
 
     <view class="list" v-if="list.length">
-        <navigator class="item" v-for="(item,index) in list" :key="index" :url="'/pages/application/details?case_id='+item.case_id">
+        <navigator class="item" v-for="(item,index) in list" :key="index" open-type='redirect' :url="'/pages/application/details?case_id='+item.case_id">
             <view class="item-l">
                 <image :src="item.picture" mode="widthFix"/>
             </view>

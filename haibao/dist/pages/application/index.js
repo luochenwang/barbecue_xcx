@@ -128,6 +128,7 @@ component.options.__file = "src/pages/application/index.vue"
   },
   components: {},
   onLoad: function onLoad(option) {
+    this.$store.commit('set_lastTp', 5);
     this.getData();
     this.$store.commit('set_category', 400);
   },

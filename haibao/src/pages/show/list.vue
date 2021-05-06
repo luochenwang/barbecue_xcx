@@ -50,6 +50,7 @@ export default {
 
   },
   onLoad(option) {
+    this.$store.commit('set_lastTp',4);
       this.searchVal = option.search_val;
       ajax({
           url:'xcx_request.php',

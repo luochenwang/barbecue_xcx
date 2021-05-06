@@ -93,6 +93,7 @@ export default {
   },
   methods: {
     service() {
+      this.$store.commit('set_lastTp',2);
       this.$store.commit('set_consultLeadsModel',true);
     },
     none() {

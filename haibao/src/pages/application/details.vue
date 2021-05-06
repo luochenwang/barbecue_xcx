@@ -37,7 +37,7 @@
       <view class="pro-info" id="products_list">
         <view class="pro-tt">相关产品</view>
         <view class="list">
-          <navigator :url="'/pages/application/details?case_id='+item.product_id" open-type='redirect' class="item" v-for="(item,index) in pageData.products_list">
+          <navigator :url="'/pages/application/list?case_id='+item.case_id+'&product_id='+item.product_id" open-type='redirect' class="item" v-for="(item,index) in pageData.products_list">
             <view class='img-box'>
               <image :src="item.picture" mode="widthFix"/>
             </view>
@@ -150,7 +150,7 @@ export default {
       url: 'xcx_request.php',
       data: {
         act: 'get_last_form',
-        get_tp:4
+        get_tp:this.$store.state.lastTp
       },
     }).then(res=>{
       this.name = res.name;

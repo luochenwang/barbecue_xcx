@@ -60,6 +60,7 @@ export default {
 
   },
   onLoad(option) {
+    this.$store.commit('set_lastTp',3);
       ajax({
           url:'xcx_request.php',
           data:{

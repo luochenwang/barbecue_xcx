@@ -200,7 +200,7 @@ var scrollTop = [];
       url: 'xcx_request.php',
       data: {
         act: 'get_last_form',
-        get_tp: 4
+        get_tp: this.$store.state.lastTp
       }
     }).then(function (res) {
       _this.name = res.name;
@@ -585,7 +585,9 @@ var render = function() {
                       staticClass: "item",
                       attrs: {
                         url:
-                          "/pages/application/details?case_id=" +
+                          "/pages/application/list?case_id=" +
+                          item.case_id +
+                          "&product_id=" +
                           item.product_id,
                         "open-type": "redirect"
                       }

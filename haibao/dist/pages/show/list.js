@@ -101,6 +101,7 @@ component.options.__file = "src/pages/show/list.vue"
   onLoad: function onLoad(option) {
     var _this = this;
 
+    this.$store.commit('set_lastTp', 4);
     this.searchVal = option.search_val;
     Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
       url: 'xcx_request.php',

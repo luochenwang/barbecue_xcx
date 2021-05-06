@@ -111,6 +111,7 @@ component.options.__file = "src/pages/course/index.vue"
   onLoad: function onLoad(option) {
     var _this = this;
 
+    this.$store.commit('set_lastTp', 3);
     Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
       url: 'xcx_request.php',
       data: {

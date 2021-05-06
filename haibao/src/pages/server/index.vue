@@ -57,6 +57,7 @@ export default {
   },
   mounted() {
     this.$store.commit('set_category',100);
+    this.$store.commit('set_lastTp',1);
     ajax({
         url:'xcx_request.php',
         data:{

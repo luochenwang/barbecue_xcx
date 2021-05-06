@@ -335,6 +335,7 @@ var render = function() {
                   key: index,
                   staticClass: "item",
                   attrs: {
+                    "open-type": "redirect",
                     url: "/pages/application/details?case_id=" + item.case_id
                   }
                 },
