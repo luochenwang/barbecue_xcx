@@ -202,6 +202,7 @@ function createCache() {
     downloadPdf: function downloadPdf(item) {
       var tp = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 100;
       console.log(item);
+      this.$store.commit('set_lastTp', 2);
 
       if (item.pdf_isform > 0) {
         wx.showToast({
@@ -248,6 +249,7 @@ function createCache() {
     },
     downloadVideo: function downloadVideo(item) {
       var tp = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 100;
+      this.$store.commit('set_lastTp', 2);
       wx.showLoading({
         title: '加载中...'
       });

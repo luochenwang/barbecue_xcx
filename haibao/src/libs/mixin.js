@@ -72,6 +72,7 @@ export default {
     },
     downloadPdf(item, tp = 100) {
       console.log(item);
+      this.$store.commit('set_lastTp',2);
       if(item.pdf_isform > 0){
         wx.showToast({
             title: '资料已发送到您的邮箱',
@@ -117,6 +118,7 @@ export default {
       // });
     },
     downloadVideo(item, tp = 100) {
+      this.$store.commit('set_lastTp',2);
       wx.showLoading({
         title: '加载中...',
       })

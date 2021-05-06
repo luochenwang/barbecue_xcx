@@ -257,7 +257,7 @@ export default {
         url: 'xcx_request.php',
         data: {
           act: 'set_form',
-          tp: 420,
+          tp: 520,
           tp_value: this.product_id,
           comname: this.company,
           mobile: this.phone,

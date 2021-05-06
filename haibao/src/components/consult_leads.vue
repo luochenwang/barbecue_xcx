@@ -90,7 +90,7 @@ export default {
             url: 'xcx_request.php',
             data: {
               act: 'get_last_form',
-              get_tp:this.$store.state.lastTp
+              get_tp:1
             },
           }).then(res=>{
             this.name = res.name;

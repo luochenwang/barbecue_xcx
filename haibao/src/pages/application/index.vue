@@ -81,7 +81,7 @@ export default {
   onLoad(option) {
     this.$store.commit('set_lastTp',5);
     this.getData();
-    this.$store.commit('set_category',400);
+    this.$store.commit('set_category',520);
   },
   methods: {
     setTab(index){

@@ -5,7 +5,7 @@ const globalData = createCache();
 Vue.use(Vuex)
 
 const state = {
-  lastTp:0,
+  lastTp:'',
   authModel:false,
   userInfo:{},
 

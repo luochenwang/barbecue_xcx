@@ -130,7 +130,7 @@ component.options.__file = "src/pages/application/index.vue"
   onLoad: function onLoad(option) {
     this.$store.commit('set_lastTp', 5);
     this.getData();
-    this.$store.commit('set_category', 400);
+    this.$store.commit('set_category', 520);
   },
   methods: {
     setTab: function setTab(index) {
