@@ -51,6 +51,7 @@ import { createCache } from "./../libs/globalData";
 const globalData = createCache();
 export default {
   name: 'sidebar',
+  props:['tp_value'],
   data(){
     return {
       privacy:false,
@@ -197,7 +198,7 @@ export default {
         data: {
           act: 'set_form',
           tp: this.$store.state.category || 200,
-          tp_value: this.leadsItem?.class_id || this.leadsItem?.tech_detail_id || 0,
+          tp_value: this.tp_value || this.leadsItem?.class_id || this.leadsItem?.tech_detail_id || 0,
           comname: this.company,
           mobile: this.phone,
           name: this.name,

@@ -147,6 +147,7 @@ export default {
         region: ["上海市", "上海市", '徐汇区'],
         company:'',
         isSendEmail:true,
+        option:{}
       }
     },
   components: {
@@ -167,6 +168,7 @@ export default {
       this.region[0] = res.province || '上海市';
       this.region[1] = res.city || '上海市';
     })
+    this.option = option;
     if(option.case_id){
       ajax({
           url:'xcx_request.php',
@@ -288,7 +290,7 @@ export default {
         data: {
           act: 'set_form',
           tp: 520,
-          tp_value: this.product_id,
+          tp_value: this.option.product_id && this.option.product_id != "undefined" ? this.option.product_id : this.option.case_id,
           comname: this.company,
           mobile: this.phone,
           name: this.name,

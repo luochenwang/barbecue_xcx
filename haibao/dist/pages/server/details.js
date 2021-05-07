@@ -119,7 +119,8 @@ component.options.__file = "src/pages/server/details.vue"
       searchVal: '',
       list: [],
       proCover: '',
-      isFirstAjax: true
+      isFirstAjax: true,
+      id: ''
     };
   },
   components: {},
@@ -127,6 +128,7 @@ component.options.__file = "src/pages/server/details.vue"
     var _this = this;
 
     this.$store.commit('set_category', 120);
+    this.id = option.id;
 
     if (option.id) {
       Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_1__[/* ajax */ "a"])({
@@ -480,7 +482,7 @@ var render = function() {
       _vm._v(" "),
       _c("live-leads"),
       _vm._v(" "),
-      _c("download-leads", { attrs: { tp: "200" } })
+      _c("download-leads", { attrs: { tp: "130", tp_value: _vm.id } })
     ],
     1
   )

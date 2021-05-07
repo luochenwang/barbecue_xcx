@@ -129,6 +129,7 @@ var plugin = requirePlugin("ykfchat");
 var globalData = Object(_libs_globalData__WEBPACK_IMPORTED_MODULE_2__[/* createCache */ "a"])();
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: 'sidebar',
+  props: ['tp_value'],
   data: function data() {
     return {
       privacy: false,
@@ -289,7 +290,7 @@ var globalData = Object(_libs_globalData__WEBPACK_IMPORTED_MODULE_2__[/* createC
         data: {
           act: 'set_form',
           tp: this.$store.state.category || 200,
-          tp_value: ((_this$leadsItem = this.leadsItem) === null || _this$leadsItem === void 0 ? void 0 : _this$leadsItem.class_id) || ((_this$leadsItem2 = this.leadsItem) === null || _this$leadsItem2 === void 0 ? void 0 : _this$leadsItem2.tech_detail_id) || 0,
+          tp_value: this.tp_value || ((_this$leadsItem = this.leadsItem) === null || _this$leadsItem === void 0 ? void 0 : _this$leadsItem.class_id) || ((_this$leadsItem2 = this.leadsItem) === null || _this$leadsItem2 === void 0 ? void 0 : _this$leadsItem2.tech_detail_id) || 0,
           comname: this.company,
           mobile: this.phone,
           name: this.name,
@@ -365,7 +366,7 @@ var globalData = Object(_libs_globalData__WEBPACK_IMPORTED_MODULE_2__[/* createC
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: 'sidebar',
-  props: ['tp'],
+  props: ['tp', 'tp_value'],
   data: function data() {
     return {
       privacy: false,
@@ -450,7 +451,7 @@ var globalData = Object(_libs_globalData__WEBPACK_IMPORTED_MODULE_2__[/* createC
               act: 'set_File_History',
               act2: 'download',
               tp: _this2.tp || _this2.$store.state.category,
-              tp_value: _this2.leadsItem.tech_detail_id || _this2.leadsItem.class_id || _this2.leadsItem.product_id,
+              tp_value: _this2.tp_value || _this2.leadsItem.tech_detail_id || _this2.leadsItem.class_id || _this2.leadsItem.product_id,
               file_tp: 'pdf',
               watch_time: 0
             }
@@ -778,6 +779,7 @@ var globalData = Object(_libs_globalData__WEBPACK_IMPORTED_MODULE_2__[/* createC
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: 'sidebar',
+  props: ['tp_value'],
   data: function data() {
     return {
       privacy: false,
@@ -885,7 +887,7 @@ var globalData = Object(_libs_globalData__WEBPACK_IMPORTED_MODULE_2__[/* createC
         data: {
           act: 'set_form',
           tp: this.$store.state.category,
-          tp_value: 0,
+          tp_value: this.tp_value || 0,
           comname: this.company,
           email: this.email,
           mobile: this.phone,
@@ -1234,6 +1236,10 @@ var globalData = Object(_libs_globalData__WEBPACK_IMPORTED_MODULE_0__[/* createC
 var timr = null;
 /* harmony default export */ __webpack_exports__["a"] = ({
   props: {
+    tp_value: {
+      type: String,
+      default: ''
+    },
     server: {
       type: Boolean,
       default: false
@@ -3244,7 +3250,7 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _c("consult-leads")
+      _c("consult-leads", { attrs: { tp_value: _vm.tp_value } })
     ],
     1
   )

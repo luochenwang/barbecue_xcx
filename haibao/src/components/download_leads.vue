@@ -32,7 +32,7 @@ import { ajax } from "../libs/ajax";
 
 export default {
   name: 'sidebar',
-  props:['tp'],
+  props:['tp','tp_value'],
   data(){
     return {
       privacy:false,
@@ -111,7 +111,7 @@ export default {
               act: 'set_File_History',
               act2: 'download',
               tp: this.tp || this.$store.state.category,
-              tp_value:this.leadsItem.tech_detail_id || this.leadsItem.class_id || this.leadsItem.product_id,
+              tp_value:this.tp_value || this.leadsItem.tech_detail_id || this.leadsItem.class_id || this.leadsItem.product_id,
               file_tp: 'pdf',
               watch_time: 0,
             },

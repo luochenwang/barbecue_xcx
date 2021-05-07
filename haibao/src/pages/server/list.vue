@@ -13,7 +13,7 @@
         </navigator>
     </view>
 
-    <sidebar :server="true"/>
+    <sidebar :server="true" :tp_value="category_id"/>
   </view>
 </template>
 
@@ -28,7 +28,8 @@ export default {
       return {
         searchBox:false,
         searchVal:'',
-        list:[]
+        list:[],
+        category_id:''
       }
     },
   components: {
@@ -37,6 +38,7 @@ export default {
   onLoad(option) {
       this.searchVal = option.search_val;
       this.$store.commit('set_category',110);
+      this.category_id = option.id;
       ajax({
           url:'xcx_request.php',
           data:{

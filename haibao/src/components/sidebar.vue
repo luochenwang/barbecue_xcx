@@ -13,7 +13,7 @@
           </view>
         </movable-view>
       </movable-area>
-      <consult-leads/>
+      <consult-leads :tp_value="tp_value"/>
     </view>
 </template>
 
@@ -24,6 +24,10 @@ const globalData = createCache();
 var timr = null;
   export default {
     props: {
+      tp_value:{
+        type:String,
+        default:''
+      },
       server:{
         type: Boolean,
         default: false

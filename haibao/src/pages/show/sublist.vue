@@ -34,7 +34,7 @@
     </view>
 
     <show-filter :type_id="typeId"/>
-    <pro-leads/>
+    <pro-leads :tp_value="typeId"/>
     <sidebar/>
   </view>
 </template>

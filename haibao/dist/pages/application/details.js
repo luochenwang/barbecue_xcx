@@ -196,7 +196,8 @@ var scrollTop = [];
       demand: '',
       region: ["上海市", "上海市", '徐汇区'],
       company: '',
-      isSendEmail: true
+      isSendEmail: true,
+      option: {}
     };
   },
   components: {},
@@ -217,6 +218,7 @@ var scrollTop = [];
       _this.region[0] = res.province || '上海市';
       _this.region[1] = res.city || '上海市';
     });
+    this.option = option;
 
     if (option.case_id) {
       Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_1__[/* ajax */ "a"])({
@@ -366,7 +368,7 @@ var scrollTop = [];
         data: {
           act: 'set_form',
           tp: 520,
-          tp_value: this.product_id,
+          tp_value: this.option.product_id && this.option.product_id != "undefined" ? this.option.product_id : this.option.case_id,
           comname: this.company,
           mobile: this.phone,
           name: this.name,

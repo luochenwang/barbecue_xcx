@@ -49,7 +49,7 @@
     <sidebar :server="true"/>
 
     <live-leads/>
-    <download-leads tp="200"/>
+    <download-leads tp="130" :tp_value="id"/>
   </view>
 </template>
 
@@ -66,7 +66,8 @@ export default {
         searchVal:'',
         list:[],
         proCover:'',
-        isFirstAjax:true
+        isFirstAjax:true,
+        id:''
       }
     },
   components: {
@@ -74,7 +75,7 @@ export default {
   },
   onLoad(option) {
       this.$store.commit('set_category',120);
-
+      this.id = option.id;
       if(option.id){
         ajax({
             url:'xcx_request.php',

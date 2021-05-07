@@ -79,7 +79,8 @@ component.options.__file = "src/pages/server/list.vue"
     return {
       searchBox: false,
       searchVal: '',
-      list: []
+      list: [],
+      category_id: ''
     };
   },
   components: {},
@@ -88,6 +89,7 @@ component.options.__file = "src/pages/server/list.vue"
 
     this.searchVal = option.search_val;
     this.$store.commit('set_category', 110);
+    this.category_id = option.id;
     Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
       url: 'xcx_request.php',
       data: {
@@ -198,7 +200,7 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _c("sidebar", { attrs: { server: true } })
+      _c("sidebar", { attrs: { server: true, tp_value: _vm.category_id } })
     ],
     1
   )

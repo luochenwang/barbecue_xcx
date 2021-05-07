@@ -95,6 +95,7 @@ export default {
     service() {
       this.$store.commit('set_lastTp',2);
       this.$store.commit('set_consultLeadsModel',true);
+      this.$store.commit('set_category',200);
     },
     none() {
       wx.showToast({

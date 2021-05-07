@@ -74,6 +74,7 @@ import { ajax } from "../libs/ajax";
 
 export default {
   name: 'sidebar',
+  props:['tp_value'],
   data(){
     return {
       privacy:false,
@@ -175,7 +176,7 @@ export default {
         data: {
           act: 'set_form',
           tp: this.$store.state.category,
-          tp_value: 0,
+          tp_value: this.tp_value || 0,
           comname: this.company,
           email: this.email,
           mobile: this.phone,
