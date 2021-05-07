@@ -160,6 +160,13 @@ component.options.__file = "src/pages/application/details.vue"
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 var scrollArr = ['content', 'products_list', 'consult'];
@@ -210,36 +217,71 @@ var scrollTop = [];
       _this.region[0] = res.province || '上海市';
       _this.region[1] = res.city || '上海市';
     });
-    Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_1__[/* ajax */ "a"])({
-      url: 'xcx_request.php',
-      data: {
-        act: 'get_case_detail',
-        case_id: option.case_id
-      }
-    }).then(function (res) {
-      _this.pageData = res;
 
-      _this.$nextTick(function () {
-        var _iterator = Object(_Volumes_d_site_barbecue_xcx_haibao_node_modules_babel_runtime_7_13_10_babel_runtime_helpers_esm_createForOfIteratorHelper__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(scrollArr),
-            _step;
-
-        try {
-          for (_iterator.s(); !(_step = _iterator.n()).done;) {
-            var item = _step.value;
-            var query = wx.createSelectorQuery();
-            query.select('#' + item).boundingClientRect(function (rect) {
-              var top = rect.top;
-              scrollTop.push(top);
-              console.log(scrollTop);
-            }).exec();
-          }
-        } catch (err) {
-          _iterator.e(err);
-        } finally {
-          _iterator.f();
+    if (option.case_id) {
+      Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_1__[/* ajax */ "a"])({
+        url: 'xcx_request.php',
+        data: {
+          act: 'get_case_detail',
+          case_id: option.case_id
         }
+      }).then(function (res) {
+        _this.pageData = res;
+
+        _this.$nextTick(function () {
+          var _iterator = Object(_Volumes_d_site_barbecue_xcx_haibao_node_modules_babel_runtime_7_13_10_babel_runtime_helpers_esm_createForOfIteratorHelper__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(scrollArr),
+              _step;
+
+          try {
+            for (_iterator.s(); !(_step = _iterator.n()).done;) {
+              var item = _step.value;
+              var query = wx.createSelectorQuery();
+              query.select('#' + item).boundingClientRect(function (rect) {
+                var top = rect.top;
+                scrollTop.push(top);
+                console.log(scrollTop);
+              }).exec();
+            }
+          } catch (err) {
+            _iterator.e(err);
+          } finally {
+            _iterator.f();
+          }
+        });
       });
-    });
+    } else {
+      Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_1__[/* ajax */ "a"])({
+        url: 'xcx_request.php',
+        data: {
+          act: 'get_product_detail',
+          product_id: option.product_id
+        }
+      }).then(function (res) {
+        _this.pageData = res;
+
+        _this.$nextTick(function () {
+          var _iterator2 = Object(_Volumes_d_site_barbecue_xcx_haibao_node_modules_babel_runtime_7_13_10_babel_runtime_helpers_esm_createForOfIteratorHelper__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(scrollArr),
+              _step2;
+
+          try {
+            for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+              var item = _step2.value;
+              var query = wx.createSelectorQuery();
+              query.select('#' + item).boundingClientRect(function (rect) {
+                var top = rect.top;
+                scrollTop.push(top);
+                console.log(scrollTop);
+              }).exec();
+            }
+          } catch (err) {
+            _iterator2.e(err);
+          } finally {
+            _iterator2.f();
+          }
+        });
+      });
+    }
+
     var menuButtonObject = wx.getMenuButtonBoundingClientRect();
     this.menuButtonObject = menuButtonObject;
     var that = this;
@@ -570,46 +612,78 @@ var render = function() {
               )
             : _vm._e(),
           _vm._v(" "),
-          _c(
-            "view",
-            { staticClass: "pro-info", attrs: { id: "products_list" } },
-            [
-              _c("view", { staticClass: "pro-tt" }, [_vm._v("相关产品")]),
-              _vm._v(" "),
-              _c(
+          _vm.pageData.cases_list || _vm.pageData.products_list
+            ? _c(
                 "view",
-                { staticClass: "list" },
-                _vm._l(_vm.pageData.products_list, function(item, index) {
-                  return _c(
-                    "navigator",
-                    {
-                      staticClass: "item",
-                      attrs: {
-                        url:
-                          "/pages/application/details?case_id=" +
-                          (item.case_id || item.product_id) +
-                          "&product_id=" +
-                          (item.product_id || ""),
-                        "open-type": "redirect"
-                      }
-                    },
+                { staticClass: "pro-info", attrs: { id: "products_list" } },
+                [
+                  _c("view", { staticClass: "pro-tt" }, [_vm._v("相关产品")]),
+                  _vm._v(" "),
+                  _c(
+                    "view",
+                    { staticClass: "list" },
                     [
-                      _c("view", { staticClass: "img-box" }, [
-                        _c("image", {
-                          attrs: { src: item.picture, mode: "widthFix" }
-                        })
-                      ]),
+                      _vm._l(_vm.pageData.cases_list, function(item, index) {
+                        return _c(
+                          "navigator",
+                          {
+                            staticClass: "item",
+                            attrs: {
+                              url:
+                                "/pages/application/details?case_id=" +
+                                (item.case_id || "") +
+                                "&product_id=" +
+                                (item.product_id || ""),
+                              "open-type": "redirect"
+                            }
+                          },
+                          [
+                            _c("view", { staticClass: "img-box" }, [
+                              _c("image", {
+                                attrs: { src: item.picture, mode: "widthFix" }
+                              })
+                            ]),
+                            _vm._v(" "),
+                            _c("view", { staticClass: "txt" }, [
+                              _vm._v(_vm._s(item.title))
+                            ])
+                          ]
+                        )
+                      }),
                       _vm._v(" "),
-                      _c("view", { staticClass: "txt" }, [
-                        _vm._v(_vm._s(item.title))
-                      ])
-                    ]
+                      _vm._l(_vm.pageData.products_list, function(item, index) {
+                        return _c(
+                          "navigator",
+                          {
+                            staticClass: "item",
+                            attrs: {
+                              url:
+                                "/pages/application/details?case_id=" +
+                                (item.case_id || "") +
+                                "&product_id=" +
+                                (item.product_id || ""),
+                              "open-type": "redirect"
+                            }
+                          },
+                          [
+                            _c("view", { staticClass: "img-box" }, [
+                              _c("image", {
+                                attrs: { src: item.picture, mode: "widthFix" }
+                              })
+                            ]),
+                            _vm._v(" "),
+                            _c("view", { staticClass: "txt" }, [
+                              _vm._v(_vm._s(item.title))
+                            ])
+                          ]
+                        )
+                      })
+                    ],
+                    2
                   )
-                }),
-                1
+                ]
               )
-            ]
-          ),
+            : _vm._e(),
           _vm._v(" "),
           _c("view", { staticClass: "pro-info", attrs: { id: "consult" } }, [
             _c("view", { staticClass: "pro-tt" }, [_vm._v("我要咨询")]),

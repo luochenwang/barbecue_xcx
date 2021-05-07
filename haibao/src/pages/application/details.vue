@@ -34,10 +34,17 @@
         <view class="pro-tt">客户收益</view>
         <view class="info"><text>{{pageData.benefit.replace(/<\/?.+?>/g, "")}}</text></view>
       </view>
-      <view class="pro-info" id="products_list">
+      <view class="pro-info" id="products_list" v-if='pageData.cases_list || pageData.products_list'>
         <view class="pro-tt">相关产品</view>
         <view class="list">
-          <navigator :url="`/pages/application/details?case_id=${item.case_id || item.product_id}&product_id=${item.product_id || ''}`" open-type='redirect' class="item" v-for="(item,index) in pageData.products_list">
+          <navigator :url="`/pages/application/details?case_id=${item.case_id || ''}&product_id=${item.product_id || ''}`" open-type='redirect' class="item" v-for="(item,index) in pageData.cases_list">
+            <view class='img-box'>
+              <image :src="item.picture" mode="widthFix"/>
+            </view>
+            <view class="txt">{{item.title}}</view>
+          </navigator>
+
+          <navigator :url="`/pages/application/details?case_id=${item.case_id || ''}&product_id=${item.product_id || ''}`" open-type='redirect' class="item" v-for="(item,index) in pageData.products_list">
             <view class='img-box'>
               <image :src="item.picture" mode="widthFix"/>
             </view>
@@ -160,25 +167,47 @@ export default {
       this.region[0] = res.province || '上海市';
       this.region[1] = res.city || '上海市';
     })
-    ajax({
-        url:'xcx_request.php',
-        data:{
-            act:'get_case_detail',
-            case_id:option.case_id,
-        },
-    }).then(res=>{
-        this.pageData = res;
-        this.$nextTick(() => {
-          for(let item of scrollArr){
-            let query = wx.createSelectorQuery();
-            query.select('#'+item).boundingClientRect( (rect) => {
-                let top = rect.top;
-                scrollTop.push(top);
-                console.log(scrollTop);
-            }).exec()
-          }
-        })
-    })
+    if(option.case_id){
+      ajax({
+          url:'xcx_request.php',
+          data:{
+              act:'get_case_detail',
+              case_id:option.case_id,
+          },
+      }).then(res=>{
+          this.pageData = res;
+          this.$nextTick(() => {
+            for(let item of scrollArr){
+              let query = wx.createSelectorQuery();
+              query.select('#'+item).boundingClientRect( (rect) => {
+                  let top = rect.top;
+                  scrollTop.push(top);
+                  console.log(scrollTop);
+              }).exec()
+            }
+          })
+      })
+    }else{
+      ajax({
+          url:'xcx_request.php',
+          data:{
+              act:'get_product_detail',
+              product_id:option.product_id,
+          },
+      }).then(res=>{
+          this.pageData = res;
+          this.$nextTick(() => {
+            for(let item of scrollArr){
+              let query = wx.createSelectorQuery();
+              query.select('#'+item).boundingClientRect( (rect) => {
+                  let top = rect.top;
+                  scrollTop.push(top);
+                  console.log(scrollTop);
+              }).exec()
+            }
+          })
+      })
+    }
 
     var menuButtonObject = wx.getMenuButtonBoundingClientRect();
     this.menuButtonObject = menuButtonObject;

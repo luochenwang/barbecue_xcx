@@ -335,7 +335,11 @@ var render = function() {
                   key: index,
                   staticClass: "item",
                   attrs: {
-                    url: "/pages/application/details?case_id=" + item.case_id
+                    url:
+                      "/pages/application/details?case_id=" +
+                      (item.case_id || "") +
+                      "&product_id=" +
+                      item.product_id
                   }
                 },
                 [
