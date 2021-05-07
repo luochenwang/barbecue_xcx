@@ -62,7 +62,13 @@ export default {
     },
     toViewVideo(item, tp = 100) {
       console.log(item);
-      if(item.appointment_isform == 0 && this.$store.state.category == 310 && item.category_id==2){
+      if(item.category_id == 1){
+        this.$store.commit('set_category',310);
+      }else{
+        this.$store.commit('set_category',320);
+      }
+
+      if(item.appointment_isform == 0 && item.category_id==2){
         this.$store.commit('set_liveLeadsModel',true);
         item.tp = tp;
         this.$store.commit('set_leadsItem',item);
