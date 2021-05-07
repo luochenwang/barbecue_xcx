@@ -231,6 +231,7 @@ var scrollTop = [];
       _this.name = res.name;
       _this.company = res.comname;
       _this.phone = res.mobile;
+      _this.email = res.email || '';
       _this.region[0] = res.province || '上海市';
       _this.region[1] = res.city || '上海市';
     });
@@ -660,7 +661,9 @@ var render = function() {
                       {
                         staticClass: "item",
                         attrs: {
-                          url: "/pages/show/details?id=" + item.case_id,
+                          url:
+                            "/pages/application/details?case_id=" +
+                            item.case_id,
                           "open-type": "redirect"
                         }
                       },

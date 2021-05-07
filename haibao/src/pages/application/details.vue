@@ -37,7 +37,7 @@
       <view class="pro-info" id="products_list">
         <view class="pro-tt">相关产品</view>
         <view class="list">
-          <navigator :url="'/pages/application/list?case_id='+item.case_id+'&product_id='+item.product_id" open-type='redirect' class="item" v-for="(item,index) in pageData.products_list">
+          <navigator :url="`/pages/application/details?case_id=${item.case_id || item.product_id}&product_id=${item.product_id || ''}`" open-type='redirect' class="item" v-for="(item,index) in pageData.products_list">
             <view class='img-box'>
               <image :src="item.picture" mode="widthFix"/>
             </view>
@@ -155,6 +155,7 @@ export default {
     }).then(res=>{
       this.name = res.name;
       this.company = res.comname;
+      this.email = res.email || '';
       this.phone = res.mobile;
       this.region[0] = res.province || '上海市';
       this.region[1] = res.city || '上海市';

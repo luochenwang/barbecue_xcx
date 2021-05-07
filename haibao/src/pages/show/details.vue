@@ -41,7 +41,7 @@
       <view class="pro-list" v-if="pageData && pageData.cases_list && pageData.cases_list.length">
         <view class="pro-tt">产品应用</view>
         <view class="list">
-          <navigator :url="'/pages/show/details?id='+item.case_id" open-type='redirect' class="item" v-for="(item,index) in pageData.cases_list">
+          <navigator :url="'/pages/application/details?case_id='+item.case_id" open-type='redirect' class="item" v-for="(item,index) in pageData.cases_list">
             <view class='img-box'>
               <image :src="item.picture" mode="widthFix"/>
             </view>
@@ -177,6 +177,7 @@ export default {
       this.name = res.name;
       this.company = res.comname;
       this.phone = res.mobile;
+      this.email = res.email || '';
       this.region[0] = res.province || '上海市';
       this.region[1] = res.city || '上海市';
     })

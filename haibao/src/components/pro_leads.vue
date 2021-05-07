@@ -106,6 +106,7 @@ export default {
           }).then(res=>{
             this.name = res.name;
             this.company = res.comname;
+            this.email = res.email || '';
             this.phone = res.mobile;
             this.region[0] = res.province;
             this.region[1] = res.city;

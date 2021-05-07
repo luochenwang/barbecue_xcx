@@ -80,6 +80,7 @@ export default {
             },
           }).then(res=>{
             this.name = res.name;
+            this.email = res.email || '';
             this.company = res.comname;
             this.phone = res.mobile;
             this.region[0] = res.province;

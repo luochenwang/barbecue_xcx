@@ -561,6 +561,7 @@ var globalData = Object(_libs_globalData__WEBPACK_IMPORTED_MODULE_2__[/* createC
           }
         }).then(function (res) {
           _this.name = res.name;
+          _this.email = res.email || '';
           _this.company = res.comname;
           _this.phone = res.mobile;
           _this.region[0] = res.province;
@@ -811,6 +812,7 @@ var globalData = Object(_libs_globalData__WEBPACK_IMPORTED_MODULE_2__[/* createC
         }).then(function (res) {
           _this.name = res.name;
           _this.company = res.comname;
+          _this.email = res.email || '';
           _this.phone = res.mobile;
           _this.region[0] = res.province;
           _this.region[1] = res.city;
