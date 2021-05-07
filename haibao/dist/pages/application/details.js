@@ -658,8 +658,8 @@ var render = function() {
                             staticClass: "item",
                             attrs: {
                               url:
-                                "/pages/application/details?case_id=" +
-                                (item.case_id || "") +
+                                "/pages/show/details?id=" +
+                                (item.case_id || item.product_id) +
                                 "&product_id=" +
                                 (item.product_id || ""),
                               "open-type": "redirect"

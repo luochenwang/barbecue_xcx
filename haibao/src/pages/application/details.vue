@@ -44,7 +44,7 @@
             <view class="txt">{{item.title}}</view>
           </navigator>
 
-          <navigator :url="`/pages/application/details?case_id=${item.case_id || ''}&product_id=${item.product_id || ''}`" open-type='redirect' class="item" v-for="(item,index) in pageData.products_list">
+          <navigator :url="`/pages/show/details?id=${item.case_id || item.product_id}&product_id=${item.product_id || ''}`" open-type='redirect' class="item" v-for="(item,index) in pageData.products_list">
             <view class='img-box'>
               <image :src="item.picture" mode="widthFix"/>
             </view>
