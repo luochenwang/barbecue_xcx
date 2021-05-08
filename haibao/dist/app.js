@@ -307,6 +307,8 @@ var globalData = Object(_libs_globalData__WEBPACK_IMPORTED_MODULE_2__[/* createC
 
           plugin.callback.on("getSessionFrom", _this3.session, _this3); // 传递客户资料
 
+          _this3.$store.commit('set_iszixun', 1);
+
           wx.navigateTo({
             url: 'plugin://ykfchat/chat-page?wechatapp_id=219196&channel_id=25200&scene=p86776wmyjpl&getOpenIdType=2'
           });

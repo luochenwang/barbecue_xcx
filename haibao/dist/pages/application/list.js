@@ -49,9 +49,14 @@ component.options.__file = "src/pages/application/list.vue"
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var _Volumes_d_site_barbecue_xcx_haibao_node_modules_babel_runtime_7_13_10_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/_@babel_runtime@7.13.10@@babel/runtime/helpers/esm/toConsumableArray */ "./node_modules/_@babel_runtime@7.13.10@@babel/runtime/helpers/esm/toConsumableArray.js");
-/* harmony import */ var _libs_ajax__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../libs/ajax */ "./src/libs/ajax.js");
-/* harmony import */ var _libs_mixin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../libs/mixin */ "./src/libs/mixin.js");
+/* harmony import */ var _Volumes_d_site_barbecue_xcx_haibao_node_modules_babel_runtime_7_13_10_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/_@babel_runtime@7.13.10@@babel/runtime/helpers/esm/defineProperty */ "./node_modules/_@babel_runtime@7.13.10@@babel/runtime/helpers/esm/defineProperty.js");
+/* harmony import */ var _Volumes_d_site_barbecue_xcx_haibao_node_modules_babel_runtime_7_13_10_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/_@babel_runtime@7.13.10@@babel/runtime/helpers/esm/toConsumableArray */ "./node_modules/_@babel_runtime@7.13.10@@babel/runtime/helpers/esm/toConsumableArray.js");
+/* harmony import */ var _libs_ajax__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../libs/ajax */ "./src/libs/ajax.js");
+/* harmony import */ var _libs_mixin__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../libs/mixin */ "./src/libs/mixin.js");
+
+
+
+var _methods;
 
 //
 //
@@ -104,7 +109,7 @@ component.options.__file = "src/pages/application/list.vue"
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: 'server_details',
-  mixins: [_libs_mixin__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"]],
+  mixins: [_libs_mixin__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"]],
   data: function data() {
     return {
       index1: 0,
@@ -126,8 +131,9 @@ component.options.__file = "src/pages/application/list.vue"
     this.option = option || {};
     this.searchVal = option.searchVal;
     this.getData();
+    this.getPicker();
   },
-  methods: {
+  methods: (_methods = {
     bindPickerChange1: function bindPickerChange1(e) {
       this.index1 = e.detail.value;
       this.search();
@@ -157,36 +163,72 @@ component.options.__file = "src/pages/application/list.vue"
       this.list = [];
       this.page = 1;
       this.getData();
-    },
-    getData: function getData() {
-      var _this = this;
-
-      this.loaded = false;
-      Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_1__[/* ajax */ "a"])({
-        url: 'xcx_request.php',
-        data: {
-          act: 'get_cases',
-          keywords: this.searchVal || '',
-          product_id: this.option.product_id || '',
-          app_id: this.option.app_id || '',
-          page: this.page
-        }
-      }).then(function (res) {
-        if (res.list) {
-          var _this$list;
-
-          (_this$list = _this.list).push.apply(_this$list, Object(_Volumes_d_site_barbecue_xcx_haibao_node_modules_babel_runtime_7_13_10_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(res.list));
-
-          if (res.list.length) {
-            _this.loaded = true;
-            ++_this.page;
-          }
-        }
-
-        _this.isFirstAjax = false;
-      });
     }
-  }
+  }, Object(_Volumes_d_site_barbecue_xcx_haibao_node_modules_babel_runtime_7_13_10_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(_methods, "bindPickerChange1", function bindPickerChange1(e) {
+    this.index1 = e.detail.value;
+    wx.redirectTo({
+      url: '/pages/application/list?app_id=' + this.list1[this.index1].app_id
+    });
+  }), Object(_Volumes_d_site_barbecue_xcx_haibao_node_modules_babel_runtime_7_13_10_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(_methods, "bindPickerChange2", function bindPickerChange2(e) {
+    this.index2 = e.detail.value;
+    wx.redirectTo({
+      url: '/pages/application/list?product_id=' + this.list2[this.index2].product_id
+    });
+  }), Object(_Volumes_d_site_barbecue_xcx_haibao_node_modules_babel_runtime_7_13_10_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(_methods, "getPicker", function getPicker() {
+    var _this = this;
+
+    Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_2__[/* ajax */ "a"])({
+      url: 'xcx_request.php',
+      data: {
+        act: 'get_cases_app'
+      }
+    }).then(function (res) {
+      if (res.list) {
+        _this.list1 = res.list;
+      }
+
+      _this.isFirstAjax = false;
+    });
+    Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_2__[/* ajax */ "a"])({
+      url: 'xcx_request.php',
+      data: {
+        act: 'get_cases_product'
+      }
+    }).then(function (res) {
+      if (res.list) {
+        _this.list2 = res.list;
+      }
+
+      _this.isFirstAjax = false;
+    });
+  }), Object(_Volumes_d_site_barbecue_xcx_haibao_node_modules_babel_runtime_7_13_10_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(_methods, "getData", function getData() {
+    var _this2 = this;
+
+    this.loaded = false;
+    Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_2__[/* ajax */ "a"])({
+      url: 'xcx_request.php',
+      data: {
+        act: 'get_cases',
+        keywords: this.searchVal || '',
+        product_id: this.option.product_id || '',
+        app_id: this.option.app_id || '',
+        page: this.page
+      }
+    }).then(function (res) {
+      if (res.list) {
+        var _this2$list;
+
+        (_this2$list = _this2.list).push.apply(_this2$list, Object(_Volumes_d_site_barbecue_xcx_haibao_node_modules_babel_runtime_7_13_10_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(res.list));
+
+        if (res.list.length) {
+          _this2.loaded = true;
+          ++_this2.page;
+        }
+      }
+
+      _this2.isFirstAjax = false;
+    });
+  }), _methods)
 });
 
 /***/ }),

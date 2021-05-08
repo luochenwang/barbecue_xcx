@@ -79,6 +79,7 @@ export default {
       this.searchVal = option.searchVal;
 
       this.getData();
+      this.getPicker();
   },
   methods: {
     bindPickerChange1(e){
@@ -110,6 +111,39 @@ export default {
       this.list = [];
       this.page = 1;
       this.getData();
+    },
+    bindPickerChange1(e){
+      this.index1 = e.detail.value;
+      wx.redirectTo({ url: '/pages/application/list?app_id='+this.list1[this.index1].app_id });
+    },
+    bindPickerChange2(e){
+      this.index2 = e.detail.value;
+      wx.redirectTo({ url: '/pages/application/list?product_id='+this.list2[this.index2].product_id });
+    },
+    getPicker(){
+        ajax({
+            url:'xcx_request.php',
+            data:{
+                act:'get_cases_app',
+            },
+        }).then(res=>{
+            if(res.list){
+              this.list1 = res.list;
+            }
+            this.isFirstAjax = false;
+        })
+        
+        ajax({
+            url:'xcx_request.php',
+            data:{
+                act:'get_cases_product',
+            },
+        }).then(res=>{
+            if(res.list){
+              this.list2 = res.list;
+            }
+            this.isFirstAjax = false;
+        })
     },
     getData(){
       this.loaded = false;
