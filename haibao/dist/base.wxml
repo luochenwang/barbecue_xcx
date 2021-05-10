@@ -13,6 +13,10 @@
   </view>
 </template>
 
+<template name="tmpl_0_rich-text">
+  <rich-text nodes="{{i.nodes===undefined?[]:i.nodes}}" space="{{i.space}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></rich-text>
+</template>
+
 <template name="tmpl_0_text">
   <text selectable="{{i.selectable===undefined?false:i.selectable}}" space="{{i.space}}" decode="{{i.decode===undefined?false:i.decode}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
     <block wx:for="{{i.cn}}" wx:key="id">
@@ -175,6 +179,10 @@
       <template is="tmpl_2_container" data="{{i: item}}" />
     </block>
   </view>
+</template>
+
+<template name="tmpl_1_rich-text">
+  <rich-text nodes="{{i.nodes===undefined?[]:i.nodes}}" space="{{i.space}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></rich-text>
 </template>
 
 <template name="tmpl_1_text">
@@ -341,6 +349,10 @@
   </view>
 </template>
 
+<template name="tmpl_2_rich-text">
+  <rich-text nodes="{{i.nodes===undefined?[]:i.nodes}}" space="{{i.space}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></rich-text>
+</template>
+
 <template name="tmpl_2_text">
   <text selectable="{{i.selectable===undefined?false:i.selectable}}" space="{{i.space}}" decode="{{i.decode===undefined?false:i.decode}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
     <block wx:for="{{i.cn}}" wx:key="id">
@@ -503,6 +515,10 @@
       <template is="tmpl_4_container" data="{{i: item}}" />
     </block>
   </view>
+</template>
+
+<template name="tmpl_3_rich-text">
+  <rich-text nodes="{{i.nodes===undefined?[]:i.nodes}}" space="{{i.space}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></rich-text>
 </template>
 
 <template name="tmpl_3_text">
@@ -669,6 +685,10 @@
   </view>
 </template>
 
+<template name="tmpl_4_rich-text">
+  <rich-text nodes="{{i.nodes===undefined?[]:i.nodes}}" space="{{i.space}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></rich-text>
+</template>
+
 <template name="tmpl_4_text">
   <text selectable="{{i.selectable===undefined?false:i.selectable}}" space="{{i.space}}" decode="{{i.decode===undefined?false:i.decode}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
     <block wx:for="{{i.cn}}" wx:key="id">
@@ -831,6 +851,10 @@
       <template is="tmpl_6_container" data="{{i: item}}" />
     </block>
   </view>
+</template>
+
+<template name="tmpl_5_rich-text">
+  <rich-text nodes="{{i.nodes===undefined?[]:i.nodes}}" space="{{i.space}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></rich-text>
 </template>
 
 <template name="tmpl_5_text">
@@ -997,6 +1021,10 @@
   </view>
 </template>
 
+<template name="tmpl_6_rich-text">
+  <rich-text nodes="{{i.nodes===undefined?[]:i.nodes}}" space="{{i.space}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></rich-text>
+</template>
+
 <template name="tmpl_6_text">
   <text selectable="{{i.selectable===undefined?false:i.selectable}}" space="{{i.space}}" decode="{{i.decode===undefined?false:i.decode}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
     <block wx:for="{{i.cn}}" wx:key="id">
@@ -1159,6 +1187,10 @@
       <template is="tmpl_8_container" data="{{i: item}}" />
     </block>
   </view>
+</template>
+
+<template name="tmpl_7_rich-text">
+  <rich-text nodes="{{i.nodes===undefined?[]:i.nodes}}" space="{{i.space}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></rich-text>
 </template>
 
 <template name="tmpl_7_text">
@@ -1325,6 +1357,10 @@
   </view>
 </template>
 
+<template name="tmpl_8_rich-text">
+  <rich-text nodes="{{i.nodes===undefined?[]:i.nodes}}" space="{{i.space}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></rich-text>
+</template>
+
 <template name="tmpl_8_text">
   <text selectable="{{i.selectable===undefined?false:i.selectable}}" space="{{i.space}}" decode="{{i.decode===undefined?false:i.decode}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
     <block wx:for="{{i.cn}}" wx:key="id">
@@ -1487,6 +1523,10 @@
       <template is="tmpl_10_container" data="{{i: item}}" />
     </block>
   </view>
+</template>
+
+<template name="tmpl_9_rich-text">
+  <rich-text nodes="{{i.nodes===undefined?[]:i.nodes}}" space="{{i.space}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></rich-text>
 </template>
 
 <template name="tmpl_9_text">
@@ -1653,6 +1693,10 @@
   </view>
 </template>
 
+<template name="tmpl_10_rich-text">
+  <rich-text nodes="{{i.nodes===undefined?[]:i.nodes}}" space="{{i.space}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></rich-text>
+</template>
+
 <template name="tmpl_10_text">
   <text selectable="{{i.selectable===undefined?false:i.selectable}}" space="{{i.space}}" decode="{{i.decode===undefined?false:i.decode}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
     <block wx:for="{{i.cn}}" wx:key="id">
@@ -1815,6 +1859,10 @@
       <template is="tmpl_12_container" data="{{i: item}}" />
     </block>
   </view>
+</template>
+
+<template name="tmpl_11_rich-text">
+  <rich-text nodes="{{i.nodes===undefined?[]:i.nodes}}" space="{{i.space}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></rich-text>
 </template>
 
 <template name="tmpl_11_text">
@@ -1981,6 +2029,10 @@
   </view>
 </template>
 
+<template name="tmpl_12_rich-text">
+  <rich-text nodes="{{i.nodes===undefined?[]:i.nodes}}" space="{{i.space}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></rich-text>
+</template>
+
 <template name="tmpl_12_text">
   <text selectable="{{i.selectable===undefined?false:i.selectable}}" space="{{i.space}}" decode="{{i.decode===undefined?false:i.decode}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
     <block wx:for="{{i.cn}}" wx:key="id">
@@ -2143,6 +2195,10 @@
       <template is="tmpl_14_container" data="{{i: item}}" />
     </block>
   </view>
+</template>
+
+<template name="tmpl_13_rich-text">
+  <rich-text nodes="{{i.nodes===undefined?[]:i.nodes}}" space="{{i.space}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></rich-text>
 </template>
 
 <template name="tmpl_13_text">
@@ -2309,6 +2365,10 @@
   </view>
 </template>
 
+<template name="tmpl_14_rich-text">
+  <rich-text nodes="{{i.nodes===undefined?[]:i.nodes}}" space="{{i.space}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></rich-text>
+</template>
+
 <template name="tmpl_14_text">
   <text selectable="{{i.selectable===undefined?false:i.selectable}}" space="{{i.space}}" decode="{{i.decode===undefined?false:i.decode}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}">
     <block wx:for="{{i.cn}}" wx:key="id">
@@ -2471,6 +2531,10 @@
       <template is="tmpl_16_container" data="{{i: item}}" />
     </block>
   </view>
+</template>
+
+<template name="tmpl_15_rich-text">
+  <rich-text nodes="{{i.nodes===undefined?[]:i.nodes}}" space="{{i.space}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid}}"></rich-text>
 </template>
 
 <template name="tmpl_15_text">

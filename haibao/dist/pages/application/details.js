@@ -372,6 +372,7 @@ var scrollTop = [];
           comname: this.company,
           mobile: this.phone,
           name: this.name,
+          email: this.email,
           province: this.region[0],
           city: this.region[1],
           content: this.demand

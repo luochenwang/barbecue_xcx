@@ -21,7 +21,7 @@
         <view class='video-box' v-if="pageData.video_filename">
           <video :src="pageData.video_filename" :poster="pageData.video_picture" playerid="txv1" :autoplay='false' :controls="true"></video>
         </view>
-        <view class="info"><text>{{pageData.content ? pageData.content.replace(/↵/g,"\n") : ''}}</text></view>
+        <view class="info" v-if="pageData.content"><rich-text :nodes="pageData.content"></rich-text></view>
       </view>
 
       <view class="pro-info" v-if="pageData.sample_list">
@@ -320,6 +320,7 @@ export default {
           comname: this.company,
           mobile: this.phone,
           name: this.name,
+          email: this.email,
           province: this.region[0],
           city: this.region[1],
           content:this.demand

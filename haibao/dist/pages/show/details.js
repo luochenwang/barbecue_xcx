@@ -393,6 +393,7 @@ var scrollTop = [];
           comname: this.company,
           mobile: this.phone,
           name: this.name,
+          email: this.email,
           province: this.region[0],
           city: this.region[1],
           content: this.demand
@@ -571,17 +572,14 @@ var render = function() {
                 ])
               : _vm._e(),
             _vm._v(" "),
-            _c("view", { staticClass: "info" }, [
-              _c("text", [
-                _vm._v(
-                  _vm._s(
-                    _vm.pageData.content
-                      ? _vm.pageData.content.replace(/↵/g, "\n")
-                      : ""
-                  )
+            _vm.pageData.content
+              ? _c(
+                  "view",
+                  { staticClass: "info" },
+                  [_c("rich-text", { attrs: { nodes: _vm.pageData.content } })],
+                  1
                 )
-              ])
-            ])
+              : _vm._e()
           ]),
           _vm._v(" "),
           _vm.pageData.sample_list
