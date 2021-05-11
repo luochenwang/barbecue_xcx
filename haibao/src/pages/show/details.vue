@@ -77,7 +77,7 @@
           </view>
           <view class="form-group">
             <label>邮箱地址*</label>
-            <input type="email" v-model="email" maxlength="20" />
+            <input type="email" v-model="email"/>
           </view>
           <view class="form-group">
             <label>公司名称*</label>

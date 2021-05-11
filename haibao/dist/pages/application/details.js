@@ -754,7 +754,7 @@ var render = function() {
                       expression: "email"
                     }
                   ],
-                  attrs: { type: "email", maxlength: "20" },
+                  attrs: { type: "email" },
                   domProps: { value: _vm.email },
                   on: {
                     input: function($event) {
