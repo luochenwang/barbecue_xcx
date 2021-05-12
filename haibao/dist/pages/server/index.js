@@ -100,11 +100,14 @@ component.options.__file = "src/pages/server/index.vue"
   mixins: [_libs_mixin__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"]],
   data: function data() {
     return {
-      searchVal: ''
+      searchVal: '',
+      list: []
     };
   },
   components: {},
   mounted: function mounted() {
+    var _this = this;
+
     this.$store.commit('set_category', 100);
     this.$store.commit('set_lastTp', 1);
     Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
@@ -112,6 +115,16 @@ component.options.__file = "src/pages/server/index.vue"
       data: {
         act: 'set_Visit_History',
         tp: 100
+      }
+    });
+    Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_0__[/* ajax */ "a"])({
+      url: 'xcx_request.php',
+      data: {
+        act: 'get_tech_category'
+      }
+    }).then(function (res) {
+      if (res.list) {
+        _this.list = res.list;
       }
     });
   },
@@ -223,91 +236,31 @@ var render = function() {
       _c(
         "view",
         { staticClass: "nav" },
-        [
-          _c(
-            "navigator",
-            { staticClass: "item", attrs: { url: "/pages/server/list?id=1" } },
-            [
-              _c("image", {
-                attrs: {
-                  src: "https://campaign5.method-ad.cn/hypertherm/img/nav1.png"
-                }
-              }),
-              _vm._v(" "),
-              _c("text", [_vm._v("安装")])
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "navigator",
-            { staticClass: "item", attrs: { url: "/pages/server/list?id=2" } },
-            [
-              _c("image", {
-                attrs: {
-                  src: "https://campaign5.method-ad.cn/hypertherm/img/nav2.png"
-                }
-              }),
-              _vm._v(" "),
-              _c("text", [_vm._v("维护保养")])
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "navigator",
-            { staticClass: "item", attrs: { url: "/pages/server/list?id=3" } },
-            [
-              _c("image", {
-                attrs: {
-                  src: "https://campaign5.method-ad.cn/hypertherm/img/nav3.png"
-                }
-              }),
-              _vm._v(" "),
-              _c("text", [_vm._v("故障诊断")])
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "navigator",
-            { staticClass: "item", attrs: { url: "/pages/server/list?id=4" } },
-            [
-              _c("image", {
-                attrs: {
-                  src: "https://campaign5.method-ad.cn/hypertherm/img/nav4.png"
-                }
-              }),
-              _vm._v(" "),
-              _c("text", [_vm._v("切割优化")])
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "navigator",
-            { staticClass: "item", attrs: { url: "/pages/server/list?id=5" } },
-            [
-              _c("image", {
-                attrs: {
-                  src: "https://campaign5.method-ad.cn/hypertherm/img/nav5.png"
-                }
-              }),
-              _vm._v(" "),
-              _c("text", [_vm._v("部件查询")])
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "navigator",
-            { staticClass: "item", attrs: { url: "/pages/server/list?id=6" } },
-            [
-              _c("image", {
-                attrs: {
-                  src: "https://campaign5.method-ad.cn/hypertherm/img/nav6.png"
-                }
-              }),
-              _vm._v(" "),
-              _c("text", [_vm._v("部件拆装")])
-            ]
-          )
-        ],
+        _vm._l(_vm.list, function(item, index) {
+          return item.is_show > 0
+            ? _c(
+                "navigator",
+                {
+                  staticClass: "item",
+                  attrs: {
+                    url: "/pages/server/list?id=" + item.tech_category_id
+                  }
+                },
+                [
+                  _c("image", {
+                    attrs: {
+                      src:
+                        "https://campaign5.method-ad.cn/hypertherm/img/nav" +
+                        (index + 1) +
+                        ".png"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("text", [_vm._v(_vm._s(item.title))])
+                ]
+              )
+            : _vm._e()
+        }),
         1
       ),
       _vm._v(" "),

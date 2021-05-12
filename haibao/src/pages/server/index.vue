@@ -10,11 +10,11 @@
             <view class="search-btn" @tap="search()">点击搜索</view>
         </view>
         <view class="nav">
-            <navigator class="item" url="/pages/server/list?id=1">
-                <image src="https://campaign5.method-ad.cn/hypertherm/img/nav1.png"/>
-                <text>安装</text>
+            <navigator class="item" :url="'/pages/server/list?id=' + item.tech_category_id" v-for="(item,index) in list" v-if="item.is_show > 0">
+                <image :src="'https://campaign5.method-ad.cn/hypertherm/img/nav'+(index+1)+'.png'"/>
+                <text>{{item.title}}</text>
             </navigator>
-            <navigator class="item" url="/pages/server/list?id=2">
+<!--             <navigator class="item" url="/pages/server/list?id=2">
                 <image src="https://campaign5.method-ad.cn/hypertherm/img/nav2.png"/>
                 <text>维护保养</text>
             </navigator>
@@ -33,7 +33,7 @@
             <navigator class="item" url="/pages/server/list?id=6">
                 <image src="https://campaign5.method-ad.cn/hypertherm/img/nav6.png"/>
                 <text>部件拆装</text>
-            </navigator>
+            </navigator> -->
         </view>
 
         <sidebar :server="true"/>
@@ -49,7 +49,8 @@ export default {
   mixins: [mixin],
   data() {
       return {
-        searchVal:''
+        searchVal:'',
+        list:[]
       }
     },
   components: {
@@ -65,6 +66,16 @@ export default {
             tp:100,
         },
     });
+    ajax({
+        url:'xcx_request.php',
+        data:{
+            act:'get_tech_category',
+        },
+    }).then(res=>{
+        if(res.list){
+            this.list = res.list;
+        }
+    })
   },
   methods: {
     search(){
