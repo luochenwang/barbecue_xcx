@@ -175,8 +175,11 @@
         -ms-flex-pack: center;
             justify-content: center;
 }
-.table-main .box .tt text {
-      text-decoration: none;
+.table-main .box.tt text {
+      color: #000 !important;
+}
+.table-main .box.tt text:first-child {
+        text-decoration: none;
 }
 .table-main .box text {
       width: 250rpx;
@@ -192,6 +195,7 @@
         width: 115rpx;
 }
 .table-main .box text:first-child {
+        color: #ed1d2f;
         text-decoration: underline;
 }
 .table-main .box text:last-child {

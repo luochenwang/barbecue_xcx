@@ -159,10 +159,10 @@
               justify-content: space-between;
 }
 .data-list .list .item .txt {
-        color: #696969;
         font-size: 24rpx;
         width: 380rpx;
         text-decoration: underline;
+        color: #ed1d2f;
 }
 .data-list .list .item .icon {
         width: 40rpx;
