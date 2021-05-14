@@ -33,7 +33,7 @@
                     </view>
                     <!-- 已完成 -->
                     <view class="btn-box" v-else-if="listCat == 'get_MyFinished'">
-                        <view class="btn reserve" @tap="toViewVideo(item,tp)">查看直播</view>
+                        <view class="btn reserve" @tap="toViewVideo(item,tp)">查看视频</view>
                     </view>
                     <!-- 其他 -->
                     <view class="btn-box" v-else>

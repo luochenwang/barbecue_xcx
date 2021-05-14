@@ -175,6 +175,9 @@
         -ms-flex-pack: center;
             justify-content: center;
 }
+.table-main .box .tt text {
+      text-decoration: none;
+}
 .table-main .box text {
       width: 250rpx;
       text-align: center;
@@ -187,6 +190,9 @@
 }
 .table-main .box text:nth-child(3), .table-main .box text:nth-child(4) {
         width: 115rpx;
+}
+.table-main .box text:first-child {
+        text-decoration: underline;
 }
 .table-main .box text:last-child {
         border-right: 0;

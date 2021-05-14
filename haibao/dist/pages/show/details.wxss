@@ -40,7 +40,6 @@
     font-size: 24rpx;
     color: #696969;
     background: #eeeeee;
-    border-right: 1rpx solid #898989;
     line-height: 75rpx;
     text-align: center;
 }
@@ -49,7 +48,6 @@
 }
 .tab-nav .item.active {
       background: #fff;
-      border-bottom: 1rpx solid #898989;
       border-right: 0;
 }
 .pro-tt {
@@ -87,7 +85,7 @@
 }
 .pro-info .video-box {
     width: 670rpx;
-    height: 385rpx;
+    height: 380rpx;
     margin: 0 auto 35rpx;
 }
 .pro-info .video-box video {
@@ -164,6 +162,7 @@
         color: #696969;
         font-size: 24rpx;
         width: 380rpx;
+        text-decoration: underline;
 }
 .data-list .list .item .icon {
         width: 40rpx;

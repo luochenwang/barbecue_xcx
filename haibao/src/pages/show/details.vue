@@ -19,7 +19,7 @@
       <view class="pro-info" id="desc">
         <view class="pro-tt">产品介绍</view>
         <view class='video-box' v-if="pageData.video_filename">
-          <video :src="pageData.video_filename" :poster="pageData.video_picture" playerid="txv1" :autoplay='false' :controls="true"></video>
+          <video :src="pageData.video_filename" objectFit='cover' :poster="pageData.video_picture" playerid="txv1" :autoplay='true' :controls="true"></video>
         </view>
         <view class="info" v-if="pageData.content"><rich-text :nodes="pageData.content"></rich-text></view>
       </view>

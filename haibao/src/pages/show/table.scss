@@ -20,6 +20,11 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		.tt{
+			text{
+				text-decoration: none;
+			}
+		}
 		text{
 			width:250rpx;
 			text-align: center;
@@ -31,6 +36,9 @@
 			white-space:nowrap;
 			&:nth-child(3),&:nth-child(4){
 				width:115rpx;
+			}
+			&:first-child{
+				text-decoration: underline;
 			}
 			&:last-child{
 				border-right:0;

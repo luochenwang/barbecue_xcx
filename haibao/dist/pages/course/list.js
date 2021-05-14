@@ -438,7 +438,7 @@ var render = function() {
                                     }
                                   }
                                 },
-                                [_vm._v("查看直播")]
+                                [_vm._v("查看视频")]
                               )
                             ])
                           : _c("view", { staticClass: "btn-box" }, [
