@@ -567,8 +567,8 @@ var globalData = Object(_libs_globalData__WEBPACK_IMPORTED_MODULE_2__[/* createC
           _this.email = res.email || '';
           _this.company = res.comname;
           _this.phone = res.mobile;
-          _this.region[0] = res.province;
-          _this.region[1] = res.city;
+          _this.region[0] = res.province || '上海市';
+          _this.region[1] = res.city || '上海市';
         });
       }
     }
@@ -818,8 +818,8 @@ var globalData = Object(_libs_globalData__WEBPACK_IMPORTED_MODULE_2__[/* createC
           _this.company = res.comname;
           _this.email = res.email || '';
           _this.phone = res.mobile;
-          _this.region[0] = res.province;
-          _this.region[1] = res.city;
+          _this.region[0] = res.province || '上海市';
+          _this.region[1] = res.city || '上海市';
         });
       }
     }
