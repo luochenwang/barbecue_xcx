@@ -162,6 +162,14 @@ export default {
         })
         return false;
       }
+      if(this.demand == ''){
+        wx.showToast({
+            title: '请输入您的需求',
+            icon: 'none',
+            duration: 2000,
+        })
+        return false;
+      }
       
       if(!this.privacy){
         wx.showToast({

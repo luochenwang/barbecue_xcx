@@ -875,6 +875,15 @@ var globalData = Object(_libs_globalData__WEBPACK_IMPORTED_MODULE_2__[/* createC
         return false;
       }
 
+      if (this.demand == '') {
+        wx.showToast({
+          title: '请输入您的需求',
+          icon: 'none',
+          duration: 2000
+        });
+        return false;
+      }
+
       if (!this.privacy) {
         wx.showToast({
           title: '请查看海宝隐私政策',
