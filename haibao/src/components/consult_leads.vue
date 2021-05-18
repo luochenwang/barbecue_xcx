@@ -177,17 +177,18 @@ export default {
         return false;
       }
       
-      if(!this.privacy){
+      if(this.array[this.index] == '请选择您的⾝份'){
         wx.showToast({
-            title: '请查看海宝隐私政策',
+            title: '请选择您的⾝份',
             icon: 'none',
             duration: 2000,
         })
         return false;
       }
-      if(this.array[this.index] == '请选择您的⾝份'){
+
+      if(!this.privacy){
         wx.showToast({
-            title: '请选择您的⾝份',
+            title: '请查看海宝隐私政策',
             icon: 'none',
             duration: 2000,
         })
