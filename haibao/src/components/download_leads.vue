@@ -57,7 +57,7 @@ export default {
               get_tp:2
             },
           }).then(res=>{
-            this.email = res.email;
+            this.email = res.email || '';
           })
       }
     }

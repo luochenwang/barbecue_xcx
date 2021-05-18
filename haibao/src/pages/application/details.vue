@@ -161,10 +161,10 @@ export default {
         get_tp:this.$store.state.lastTp
       },
     }).then(res=>{
-      this.name = res.name;
-      this.company = res.comname;
+      this.name = res.name || '';
+      this.company = res.comname || '';
       this.email = res.email || '';
-      this.phone = res.mobile;
+      this.phone = res.mobile || '';
       this.region[0] = res.province || '上海市';
       this.region[1] = res.city || '上海市';
     })
@@ -271,6 +271,14 @@ export default {
       if(this.company == ''){
         wx.showToast({
             title: '请输入公司名称',
+            icon: 'none',
+            duration: 2000,
+        })
+        return false;
+      }
+      if(this.email == ''){
+        wx.showToast({
+            title: '请输入电子邮箱地址',
             icon: 'none',
             duration: 2000,
         })

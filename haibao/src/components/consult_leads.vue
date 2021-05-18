@@ -94,9 +94,9 @@ export default {
               get_tp:1
             },
           }).then(res=>{
-            this.name = res.name;
-            this.company = res.comname;
-            this.phone = res.mobile;
+            this.name = res.name || '';
+            this.company = res.comname || '';
+            this.phone = res.mobile || '';
             for(var i = 0;i<this.array.length;i++){
               if(this.array[i] == res.youare){
                 this.index = i;

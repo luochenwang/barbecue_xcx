@@ -228,9 +228,9 @@ var scrollTop = [];
         get_tp: this.$store.state.lastTp
       }
     }).then(function (res) {
-      _this.name = res.name;
-      _this.company = res.comname;
-      _this.phone = res.mobile;
+      _this.name = res.name || '';
+      _this.company = res.comname || '';
+      _this.phone = res.mobile || '';
       _this.email = res.email || '';
       _this.region[0] = res.province || '上海市';
       _this.region[1] = res.city || '上海市';
@@ -360,6 +360,15 @@ var scrollTop = [];
       if (!/^1[0-9]{10}$/.test(this.phone)) {
         wx.showToast({
           title: '请输入正确的手机号',
+          icon: 'none',
+          duration: 2000
+        });
+        return false;
+      }
+
+      if (this.email == '') {
+        wx.showToast({
+          title: '请输入电子邮箱地址',
           icon: 'none',
           duration: 2000
         });

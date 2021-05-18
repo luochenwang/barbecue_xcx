@@ -174,9 +174,9 @@ export default {
         get_tp:this.$store.state.lastTp
       },
     }).then(res=>{
-      this.name = res.name;
-      this.company = res.comname;
-      this.phone = res.mobile;
+      this.name = res.name || '';
+      this.company = res.comname || '';
+      this.phone = res.mobile || '';
       this.email = res.email || '';
       this.region[0] = res.province || '上海市';
       this.region[1] = res.city || '上海市';
@@ -289,6 +289,14 @@ export default {
       if(!/^1[0-9]{10}$/.test(this.phone)){
         wx.showToast({
             title: '请输入正确的手机号',
+            icon: 'none',
+            duration: 2000,
+        })
+        return false;
+      }
+      if(this.email == ''){
+        wx.showToast({
+            title: '请输入电子邮箱地址',
             icon: 'none',
             duration: 2000,
         })

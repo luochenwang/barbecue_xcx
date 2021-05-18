@@ -175,9 +175,9 @@ var globalData = Object(_libs_globalData__WEBPACK_IMPORTED_MODULE_2__[/* createC
             get_tp: 1
           }
         }).then(function (res) {
-          _this.name = res.name;
-          _this.company = res.comname;
-          _this.phone = res.mobile;
+          _this.name = res.name || '';
+          _this.company = res.comname || '';
+          _this.phone = res.mobile || '';
 
           for (var i = 0; i < _this.array.length; i++) {
             if (_this.array[i] == res.youare) {
@@ -395,7 +395,7 @@ var globalData = Object(_libs_globalData__WEBPACK_IMPORTED_MODULE_2__[/* createC
             get_tp: 2
           }
         }).then(function (res) {
-          _this.email = res.email;
+          _this.email = res.email || '';
         });
       }
     }
@@ -563,10 +563,10 @@ var globalData = Object(_libs_globalData__WEBPACK_IMPORTED_MODULE_2__[/* createC
             get_tp: this.$store.state.lastTp
           }
         }).then(function (res) {
-          _this.name = res.name;
+          _this.name = res.name || '';
           _this.email = res.email || '';
-          _this.company = res.comname;
-          _this.phone = res.mobile;
+          _this.company = res.comname || '';
+          _this.phone = res.mobile || '';
           _this.region[0] = res.province || '上海市';
           _this.region[1] = res.city || '上海市';
         });
@@ -814,10 +814,10 @@ var globalData = Object(_libs_globalData__WEBPACK_IMPORTED_MODULE_2__[/* createC
             get_tp: this.$store.state.lastTp
           }
         }).then(function (res) {
-          _this.name = res.name;
-          _this.company = res.comname;
+          _this.name = res.name || '';
+          _this.company = res.comname || '';
           _this.email = res.email || '';
-          _this.phone = res.mobile;
+          _this.phone = res.mobile || '';
           _this.region[0] = res.province || '上海市';
           _this.region[1] = res.city || '上海市';
         });
