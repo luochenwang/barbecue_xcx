@@ -557,8 +557,9 @@ var render = function() {
                         _c("video", {
                           attrs: {
                             src: _vm.pageData.video_filename,
+                            objectFit: "cover",
                             poster: _vm.pageData.video_picture,
-                            autoplay: false,
+                            autoplay: true,
                             controls: true
                           }
                         })

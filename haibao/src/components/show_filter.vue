@@ -31,7 +31,7 @@
       </view>
       <view class="submit" @tap="submit">提交</view>
       <view class="txt">*以上为等离子电源的初步筛选条件。</view>
-      <view class="txt">如果您想要获取更精准的产品或解决方案，欢迎填写下表 ，之后会有相应的销售联系您。</view>
+      <view class="txt">如果您想要获取更精准的产品或解决方案，欢迎填写表单 ，之后会有相应的销售联系您。</view>
       <!-- <view class="footer">
         <navigator url="/pages/webview/index?src=" class="href">产品选购</navigator>
       </view> -->

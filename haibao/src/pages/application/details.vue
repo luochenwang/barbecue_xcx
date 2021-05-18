@@ -18,7 +18,7 @@
       <view class="pro-info" id="content" v-if="pageData.content">
         <view class="pro-tt">案例详情</view>
         <view class='video-box' v-if="pageData.video_filename">
-          <video :src="pageData.video_filename" :poster="pageData.video_picture" :autoplay='false' :controls="true"></video>
+          <video :src="pageData.video_filename" objectFit='cover' :poster="pageData.video_picture" :autoplay='true' :controls="true"></video>
         </view>
         <view class="info"><text>{{pageData.content.replace(/<\/?.+?>/g, "")}}</text></view>
       </view>
