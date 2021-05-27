@@ -204,6 +204,7 @@ var scrollTop = [];
       fixed: false,
       winHeight: '',
       menuButtonObject: {},
+      download_id: '',
       swiperHeight: 0,
       //外部的高度
       current: 0
@@ -1020,7 +1021,7 @@ var render = function() {
       _vm._v(" "),
       _c("sidebar"),
       _vm._v(" "),
-      _c("download-leads", { attrs: { tp: "430", tp_value: "download_id" } })
+      _c("download-leads", { attrs: { tp: "430", tp_value: _vm.download_id } })
     ],
     1
   )

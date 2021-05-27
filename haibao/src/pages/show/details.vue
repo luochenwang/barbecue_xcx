@@ -119,7 +119,7 @@
       </view>
     </scroll-view>
     <sidebar/>
-    <download-leads tp="430" tp_value="download_id"/>
+    <download-leads tp="430" :tp_value="download_id"/>
   </view>
 </template>
 
@@ -150,6 +150,7 @@ export default {
         fixed:false,
         winHeight:'',
         menuButtonObject:{},
+        download_id:'',
 
         swiperHeight:0, //外部的高度
         current:0

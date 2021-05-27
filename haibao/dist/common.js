@@ -208,6 +208,7 @@ function createCache() {
     downloadPdf: function downloadPdf(item) {
       var tp = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 100;
       console.log(item);
+      this.download_id = item.download_id;
       this.$store.commit('set_lastTp', 2);
 
       if (item.pdf_isform > 0) {
