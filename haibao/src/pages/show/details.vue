@@ -119,7 +119,7 @@
       </view>
     </scroll-view>
     <sidebar/>
-    <download-leads tp="420"/>
+    <download-leads tp="430" tp_value="download_id"/>
   </view>
 </template>
 
