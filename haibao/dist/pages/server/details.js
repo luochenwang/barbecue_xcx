@@ -482,7 +482,7 @@ var render = function() {
       _vm._v(" "),
       _c("live-leads"),
       _vm._v(" "),
-      _c("download-leads", { attrs: { tp: "130", tp_value: _vm.id } })
+      _c("download-leads", { attrs: { tp: "130" } })
     ],
     1
   )

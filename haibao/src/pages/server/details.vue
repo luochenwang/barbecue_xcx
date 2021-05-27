@@ -49,7 +49,7 @@
     <sidebar :server="true"/>
 
     <live-leads/>
-    <download-leads tp="130" :tp_value="id"/>
+    <download-leads tp="130"/>
   </view>
 </template>
 
