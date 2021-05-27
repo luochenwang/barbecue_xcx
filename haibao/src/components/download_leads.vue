@@ -93,7 +93,7 @@ export default {
         data: {
           act: 'set_form',
           tp: this.tp || this.$store.state.category,
-          tp_value: this.leadsItem.tech_detail_id || this.leadsItem.class_id || this.leadsItem.product_id,
+          tp_value: this.tp_value || this.leadsItem.tech_detail_id || this.leadsItem.class_id || this.leadsItem.product_id,
           email: this.email,
         },
       }).then(res=>{
