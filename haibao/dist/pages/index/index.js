@@ -114,11 +114,6 @@ var plugin = requirePlugin("ykfchat");
     }
   },
   onLoad: function onLoad(option) {
-    if (option.server) {
-      this.service();
-    }
-  },
-  mounted: function mounted() {
     var _this = this;
 
     Object(_libs_ajax__WEBPACK_IMPORTED_MODULE_2__[/* getOpenid */ "b"])().then(function (openid) {
@@ -130,6 +125,10 @@ var plugin = requirePlugin("ykfchat");
         }
       }).then(function (res) {
         _this.$store.commit('set_iszixun', res.iszixun);
+
+        if (option.server) {
+          _this.service();
+        }
       });
     });
     var that = this;
@@ -146,6 +145,7 @@ var plugin = requirePlugin("ykfchat");
       });
     }
   },
+  mounted: function mounted() {},
   methods: {
     service: function service() {
       this.$store.commit('set_lastTp', 2);

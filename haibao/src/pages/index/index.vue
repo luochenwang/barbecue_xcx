@@ -64,11 +64,6 @@ export default {
     }
   },
   onLoad(option) {
-    if(option.server){
-      this.service();
-    }
-  },
-  mounted() {
     getOpenid().then(openid=>{
         this.openid = openid;
         ajax({
@@ -78,6 +73,10 @@ export default {
             },
         }).then(res=>{
             this.$store.commit('set_iszixun',res.iszixun);
+            
+            if(option.server){
+              this.service();
+            }
         })
     });
 
@@ -95,6 +94,8 @@ export default {
             }
         });
     }
+  },
+  mounted() {
   },
   methods: {
     service() {
