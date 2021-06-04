@@ -50,7 +50,7 @@
         </view>
       </view>
 
-      <view class="data-list" id="info" if="pageData && pageData.download_list && pageData.download_list.length">
+      <view class="data-list" id="info" v-if="pageData && pageData.download_list && pageData.download_list.length">
         <view class="pro-tt">产品资料</view>
         <view class="list">
           <view class="item" v-for="(item,index) in pageData.download_list">
