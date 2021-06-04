@@ -25,7 +25,7 @@
       </view>
 
       <view class="pro-info" v-if="pageData.sample_list">
-        <view class="pro-tt">切割样件</view>
+        <view class="pro-tt">{{product_id == '35' ? '案例展示' : '切割样件'}}</view>
         <swiper indicator-color="#898989" indicator-active-color="#ed1b2e" indicator-dots="true" @change="changeCurrent" :style="{height:swiperHeight + 'px'}">
             <swiper-item v-for="(item,index) in pageData.sample_list">
               <view :id="'swiper' + index" class="swiper-box">
@@ -50,7 +50,7 @@
         </view>
       </view>
 
-      <view class="data-list" id="info">
+      <view class="data-list" id="info" if="pageData && pageData.download_list && pageData.download_list.length">
         <view class="pro-tt">产品资料</view>
         <view class="list">
           <view class="item" v-for="(item,index) in pageData.download_list">

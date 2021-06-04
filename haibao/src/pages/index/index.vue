@@ -63,6 +63,11 @@ export default {
         return this.$store.state.userInfo;
     }
   },
+  onLoad(option) {
+    if(option.server){
+      this.service();
+    }
+  },
   mounted() {
     getOpenid().then(openid=>{
         this.openid = openid;

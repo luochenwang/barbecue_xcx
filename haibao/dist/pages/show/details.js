@@ -607,7 +607,11 @@ var render = function() {
                 "view",
                 { staticClass: "pro-info" },
                 [
-                  _c("view", { staticClass: "pro-tt" }, [_vm._v("切割样件")]),
+                  _c("view", { staticClass: "pro-tt" }, [
+                    _vm._v(
+                      _vm._s(_vm.product_id == "35" ? "案例展示" : "切割样件")
+                    )
+                  ]),
                   _vm._v(" "),
                   _c(
                     "swiper",
@@ -703,59 +707,74 @@ var render = function() {
               ])
             : _vm._e(),
           _vm._v(" "),
-          _c("view", { staticClass: "data-list", attrs: { id: "info" } }, [
-            _c("view", { staticClass: "pro-tt" }, [_vm._v("产品资料")]),
-            _vm._v(" "),
-            _c(
-              "view",
-              { staticClass: "list" },
-              _vm._l(_vm.pageData.download_list, function(item, index) {
-                return _c("view", { staticClass: "item" }, [
-                  _c(
-                    "view",
-                    {
-                      staticClass: "txt",
+          _c(
+            "view",
+            {
+              staticClass: "data-list",
+              attrs: {
+                id: "info",
+                if:
+                  "pageData && pageData.download_list && pageData.download_list.length"
+              }
+            },
+            [
+              _c("view", { staticClass: "pro-tt" }, [_vm._v("产品资料")]),
+              _vm._v(" "),
+              _c(
+                "view",
+                { staticClass: "list" },
+                _vm._l(_vm.pageData.download_list, function(item, index) {
+                  return _c("view", { staticClass: "item" }, [
+                    _c(
+                      "view",
+                      {
+                        staticClass: "txt",
+                        on: {
+                          tap: function($event) {
+                            return _vm.openPdf(item.file)
+                          }
+                        }
+                      },
+                      [
+                        _vm._v(
+                          _vm._s(item.title) + "." + _vm._s(item.file_type)
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("view", {
+                      staticClass: "view icon",
                       on: {
                         tap: function($event) {
                           return _vm.openPdf(item.file)
                         }
                       }
-                    },
-                    [_vm._v(_vm._s(item.title) + "." + _vm._s(item.file_type))]
-                  ),
-                  _vm._v(" "),
-                  _c("view", {
-                    staticClass: "view icon",
-                    on: {
-                      tap: function($event) {
-                        return _vm.openPdf(item.file)
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("view", { staticClass: "share icon" }, [
-                    _c("button", { attrs: { "open-type": "share" } })
-                  ]),
-                  _vm._v(" "),
-                  _c("view", {
-                    staticClass: "download icon",
-                    on: {
-                      tap: function($event) {
-                        return _vm.downloadPdf(
-                          Object.assign(
-                            {},
-                            { product_id: _vm.product_id },
-                            item
+                    }),
+                    _vm._v(" "),
+                    _c("view", { staticClass: "share icon" }, [
+                      _c("button", { attrs: { "open-type": "share" } })
+                    ]),
+                    _vm._v(" "),
+                    _c("view", {
+                      staticClass: "download icon",
+                      on: {
+                        tap: function($event) {
+                          return _vm.downloadPdf(
+                            Object.assign(
+                              {},
+                              { product_id: _vm.product_id },
+                              item
+                            )
                           )
-                        )
+                        }
                       }
-                    }
-                  })
-                ])
-              }),
-              0
-            )
-          ]),
+                    })
+                  ])
+                }),
+                0
+              )
+            ]
+          ),
           _vm._v(" "),
           _c("view", { staticClass: "how-pay", attrs: { id: "pay" } }, [
             _c("view", { staticClass: "pro-tt" }, [_vm._v("何处购买")]),

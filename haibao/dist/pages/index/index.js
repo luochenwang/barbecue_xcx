@@ -113,6 +113,11 @@ var plugin = requirePlugin("ykfchat");
       return this.$store.state.userInfo;
     }
   },
+  onLoad: function onLoad(option) {
+    if (option.server) {
+      this.service();
+    }
+  },
   mounted: function mounted() {
     var _this = this;
 
