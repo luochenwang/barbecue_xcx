@@ -9,6 +9,8 @@ import proLeads from "./components/pro_leads";
 import showFilter from "./components/show_filter";
 import liveLeads from "./components/live_leads";
 import { createCache } from "./libs/globalData";
+const _App = require('./utils/mtj-wx-sdk.js').App;
+
 const globalData = createCache();
 import './app.scss'
 
@@ -36,6 +38,5 @@ const App = new Vue({
     return h('block', this.$slots.default)
   }
 })
-
-
+_App(App);
 export default App

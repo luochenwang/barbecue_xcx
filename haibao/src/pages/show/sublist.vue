@@ -40,6 +40,7 @@
 </template>
 
 <script>
+const Page = require('../../utils/mtj-wx-sdk.js').Page;
 import { ajax } from "../../libs/ajax";
 import mixin from "../../libs/mixin";
 

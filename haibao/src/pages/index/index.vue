@@ -42,7 +42,6 @@ import { ajax,getOpenid } from "../../libs/ajax";
 const globalData = createCache();
 globalData.set("test", 100);
 var plugin = requirePlugin("ykfchat");
-
 export default {
   name: "Index",
   data() {
@@ -53,6 +52,9 @@ export default {
   },
   mixins: [mixin],
   components: {
+
+  },
+  beforeCreate(){
 
   },
   computed:{
@@ -73,7 +75,7 @@ export default {
             },
         }).then(res=>{
             this.$store.commit('set_iszixun',res.iszixun);
-            
+
             if(option.server){
               this.service();
             }
