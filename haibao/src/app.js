@@ -39,4 +39,5 @@ const App = new Vue({
   }
 })
 _App(App);
+
 export default App
