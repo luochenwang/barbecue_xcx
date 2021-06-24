@@ -113,8 +113,6 @@ component.options.__file = "src/pages/contact/index.vue"
 //
 //
 //
-var Page = __webpack_require__(/*! ../../utils/mtj-wx-sdk.js */ "./src/utils/mtj-wx-sdk.js").Page;
-
 
 
 var scrollArr = ['desc', 'info', 'pay'];

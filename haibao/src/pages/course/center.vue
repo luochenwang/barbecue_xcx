@@ -22,7 +22,6 @@
 </template>
 
 <script>
-const Page = require('../../utils/mtj-wx-sdk.js').Page;
 import mixin from "../../libs/mixin";
 import { ajax } from "../../libs/ajax";
 import { createCache } from "../../libs/globalData";

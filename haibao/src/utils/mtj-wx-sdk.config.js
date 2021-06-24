@@ -13,7 +13,7 @@ module.exports = {
      * 是否使用了插件
      * @type {boolean}
      */
-    hasPlugin: true,
+    hasPlugin: false,
 
     /**
      * 是否获取当前的地理位置和速度信息

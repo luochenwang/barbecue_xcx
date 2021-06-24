@@ -724,6 +724,110 @@ var Taro = {
 
 /***/ }),
 
+/***/ "./node_modules/_@tarojs_components@3.0.8@@tarojs/components/mini/index.js":
+/*!*********************************************************************************!*\
+  !*** ./node_modules/_@tarojs_components@3.0.8@@tarojs/components/mini/index.js ***!
+  \*********************************************************************************/
+/*! exports provided: View, Icon, Progress, RichText, Text, Button, Checkbox, CheckboxGroup, Editor, Form, Input, Label, Picker, PickerView, PickerViewColumn, Radio, RadioGroup, Slider, Switch, CoverImage, Textarea, CoverView, MoveableArea, MoveableView, ScrollView, Swiper, SwiperItem, FunctionalPageNavigator, Navigator, Audio, Camera, Image, LivePlayer, LivePusher, Video, Map, Canvas, Ad, OfficialAccount, OpenData, WebView, NavigationBar, Block, MovableArea, MovableView, Slot */
+/*! exports used: Block */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export View */
+/* unused harmony export Icon */
+/* unused harmony export Progress */
+/* unused harmony export RichText */
+/* unused harmony export Text */
+/* unused harmony export Button */
+/* unused harmony export Checkbox */
+/* unused harmony export CheckboxGroup */
+/* unused harmony export Editor */
+/* unused harmony export Form */
+/* unused harmony export Input */
+/* unused harmony export Label */
+/* unused harmony export Picker */
+/* unused harmony export PickerView */
+/* unused harmony export PickerViewColumn */
+/* unused harmony export Radio */
+/* unused harmony export RadioGroup */
+/* unused harmony export Slider */
+/* unused harmony export Switch */
+/* unused harmony export CoverImage */
+/* unused harmony export Textarea */
+/* unused harmony export CoverView */
+/* unused harmony export MoveableArea */
+/* unused harmony export MoveableView */
+/* unused harmony export ScrollView */
+/* unused harmony export Swiper */
+/* unused harmony export SwiperItem */
+/* unused harmony export FunctionalPageNavigator */
+/* unused harmony export Navigator */
+/* unused harmony export Audio */
+/* unused harmony export Camera */
+/* unused harmony export Image */
+/* unused harmony export LivePlayer */
+/* unused harmony export LivePusher */
+/* unused harmony export Video */
+/* unused harmony export Map */
+/* unused harmony export Canvas */
+/* unused harmony export Ad */
+/* unused harmony export OfficialAccount */
+/* unused harmony export OpenData */
+/* unused harmony export WebView */
+/* unused harmony export NavigationBar */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Block; });
+/* unused harmony export MovableArea */
+/* unused harmony export MovableView */
+/* unused harmony export Slot */
+var View = 'view';
+var Icon = 'icon';
+var Progress = 'progress';
+var RichText = 'rich-text';
+var Text = 'text';
+var Button = 'button';
+var Checkbox = 'checkbox';
+var CheckboxGroup = 'checkbox-group';
+var Editor = 'editor';
+var Form = 'form';
+var Input = 'input';
+var Label = 'label';
+var Picker = 'picker';
+var PickerView = 'picker-view';
+var PickerViewColumn = 'picker-view-column';
+var Radio = 'radio';
+var RadioGroup = 'radio-group';
+var Slider = 'slider';
+var Switch = 'switch';
+var CoverImage = 'cover-image';
+var Textarea = 'textarea';
+var CoverView = 'cover-view';
+var MoveableArea = 'moveable-area';
+var MoveableView = 'moveable-view';
+var ScrollView = 'scroll-view';
+var Swiper = 'swiper';
+var SwiperItem = 'swiper-item';
+var FunctionalPageNavigator = 'functional-page-navigator';
+var Navigator = 'navigator';
+var Audio = 'audio';
+var Camera = 'camera';
+var Image = 'image';
+var LivePlayer = 'live-player';
+var LivePusher = 'live-pusher';
+var Video = 'video';
+var Map = 'map';
+var Canvas = 'canvas';
+var Ad = 'ad';
+var OfficialAccount = 'official-account';
+var OpenData = 'open-data';
+var WebView = 'web-view';
+var NavigationBar = 'navigation-bar';
+var Block = 'block';
+var MovableArea = 'movable-area';
+var MovableView = 'movable-view';
+var Slot = 'slot';
+
+/***/ }),
+
 /***/ "./node_modules/_@tarojs_mini-runner@3.0.8@@tarojs/mini-runner/dist/template/comp.js":
 /*!*******************************************************************************************!*\
   !*** ./node_modules/_@tarojs_mini-runner@3.0.8@@tarojs/mini-runner/dist/template/comp.js ***!
@@ -4765,7 +4869,9 @@ function createVueApp(App, vue, config) {
       value: config
     },
     onLaunch: {
+      writable: true,
       enumerable: true,
+      configurable: true,
       value: function value(options) {
         wrapper.$mount(document$1.getElementById('app'));
         appInstance = wrapper.$refs.app;
@@ -4779,7 +4885,9 @@ function createVueApp(App, vue, config) {
       }
     },
     onShow: {
+      writable: true,
       enumerable: true,
+      configurable: true,
       value: function value(options) {
         Current.router = Object.assign({
           params: options === null || options === void 0 ? void 0 : options.query
@@ -4791,7 +4899,9 @@ function createVueApp(App, vue, config) {
       }
     },
     onHide: {
+      writable: true,
       enumerable: true,
+      configurable: true,
       value: function value(options) {
         if (appInstance != null && isFunction(appInstance.$options.onHide)) {
           appInstance.$options.onHide.call(appInstance, options);

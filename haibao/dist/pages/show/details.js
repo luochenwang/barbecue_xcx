@@ -53,7 +53,6 @@ component.options.__file = "src/pages/show/details.vue"
 /* harmony import */ var _libs_ajax__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../libs/ajax */ "./src/libs/ajax.js");
 /* harmony import */ var _libs_mixin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../libs/mixin */ "./src/libs/mixin.js");
 
-
 //
 //
 //
@@ -179,8 +178,6 @@ component.options.__file = "src/pages/show/details.vue"
 //
 //
 //
-var Page = __webpack_require__(/*! ../../utils/mtj-wx-sdk.js */ "./src/utils/mtj-wx-sdk.js").Page;
-
 
 
 var scrollArr = ['desc', 'info', 'pay'];

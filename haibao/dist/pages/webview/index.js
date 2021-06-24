@@ -53,8 +53,6 @@ component.options.__file = "src/pages/webview/index.vue"
 //
 //
 //
-var Page = __webpack_require__(/*! ../../utils/mtj-wx-sdk.js */ "./src/utils/mtj-wx-sdk.js").Page;
-
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: 'user',
   data: function data() {
@@ -179,5 +177,5 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ })
 
-},[["./src/pages/webview/index.vue","runtime","taro","vendors","common"]]]);
+},[["./src/pages/webview/index.vue","runtime","taro","vendors"]]]);
 //# sourceMappingURL=index.js.map

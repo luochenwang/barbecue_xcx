@@ -81,8 +81,6 @@ component.options.__file = "src/pages/search/result.vue"
 //
 //
 //
-var Page = __webpack_require__(/*! ../../utils/mtj-wx-sdk.js */ "./src/utils/mtj-wx-sdk.js").Page;
-
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({

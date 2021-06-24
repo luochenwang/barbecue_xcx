@@ -1,3 +1,4 @@
+// const App = require('./utils/mtj-wx-sdk.js').App;
 import Vue from 'vue'
 import store from './store'
 import sidebar from "./components/sidebar";
@@ -8,9 +9,9 @@ import downloadLeads from "./components/download_leads";
 import proLeads from "./components/pro_leads";
 import showFilter from "./components/show_filter";
 import liveLeads from "./components/live_leads";
+import { Block } from '@tarojs/components'
 import { createCache } from "./libs/globalData";
-const _App = require('./utils/mtj-wx-sdk.js').App;
-
+import './utils/mtj-wx-sdk.js';
 const globalData = createCache();
 import './app.scss'
 
@@ -27,7 +28,7 @@ Vue.component('proLeads', proLeads);
 
 
 
-const App = new Vue({
+const _App = new Vue({
   store,
   onShow (options) {
     let userInfo = globalData.get("userInfo");
@@ -35,9 +36,8 @@ const App = new Vue({
   },
   render(h) {
     // this.$slots.default 是将要会渲染的页面
-    return h('block', this.$slots.default)
+    return h(Block, this.$slots.default)
   }
 })
-_App(App);
-
-export default App
+// App(_App);
+export default _App;

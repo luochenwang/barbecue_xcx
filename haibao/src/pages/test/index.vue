@@ -4,7 +4,6 @@
 </template>
 
 <script>
-const Page = require('../../utils/mtj-wx-sdk.js').Page;
 export default {
   name: 'user',
   data() {

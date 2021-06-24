@@ -42,6 +42,7 @@ import { ajax,getOpenid } from "../../libs/ajax";
 const globalData = createCache();
 globalData.set("test", 100);
 var plugin = requirePlugin("ykfchat");
+
 export default {
   name: "Index",
   data() {
@@ -55,7 +56,6 @@ export default {
 
   },
   beforeCreate(){
-
   },
   computed:{
     authModel(){
